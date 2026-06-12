@@ -791,17 +791,16 @@
 
             const randomIndex = Math.floor(Math.random() * foods.length);
             const angleStep = 360 / foods.length;
-            const extraSpins = 5 + Math.random() * 3;
+            // extraSpins 必须是整数，否则 extraSpins*360 不是整圈，会偏移目标
+            const extraSpins = Math.floor(5 + Math.random() * 3);
 
-            // sweep-flag=1 顺时针画弧，扇形从topAngle开始顺时针排列
-            // 索引i的扇形中心在 topAngle - (i+0.5)*angleStep
-            // 指针固定在topAngle，旋转θ°后指针指向轮盘角度 topAngle - θ
-            // 要让指针指向索引i: topAngle - θ ≡ topAngle - (i+0.5)*angleStep (mod 360)
-            // θ = (i+0.5)*angleStep ... 但CSS rotate顺时针所以
-            // 指针在旋转后指向轮盘角度 topAngle + θ (mod 360)
-            // 需要 topAngle + θ ≡ topAngle - (i+0.5)*angleStep (mod 360) 
+            // 扇形中心在 topAngle + (i+0.5)*angleStep
+            // 指针在 topAngle，CSS rotate顺时针旋转
+            // 扇形中心从 φ 移动到 φ+θ，指针看到 topAngle
+            // 需要: φ + θ ≡ topAngle (mod 360)
             // θ = 360 - (i+0.5)*angleStep
-            const targetAngle = 360 - (randomIndex + 0.5) * angleStep + extraSpins * 360;
+            const baseAngle = 360 - (randomIndex + 0.5) * angleStep;
+            const targetAngle = baseAngle + extraSpins * 360;
 
             console.log(`选择: ${randomIndex}(${foods[randomIndex]?.name}), 角度: ${targetAngle.toFixed(0)}°`);
 
