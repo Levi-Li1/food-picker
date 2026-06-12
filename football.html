@@ -21,7 +21,7 @@
             transition: background 0.6s ease;
         }
         body.spfl-mode {
-            background: linear-gradient(180deg, #0d1f0d 0%, #1a3a1a 30%, #0f2b0f 60%, #064206 100%);
+            background: linear-gradient(180deg, #1a0a0a 0%, #2d1010 30%, #1f0d0d 60%, #3d1212 100%);
         }
         body::before {
             content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -32,9 +32,23 @@
             transition: background 0.6s ease;
         }
         body.spfl-mode::before {
-            background: radial-gradient(ellipse at 20% 20%, rgba(34,197,94,0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 60%, rgba(72,187,120,0.10) 0%, transparent 50%),
-                        radial-gradient(ellipse at 40% 80%, rgba(255,215,0,0.10) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 20% 15%, rgba(255,69,58,0.25) 0%, transparent 50%),
+                        radial-gradient(ellipse at 75% 70%, rgba(220,38,38,0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 40% 85%, rgba(255,159,10,0.12) 0%, transparent 50%);
+        }
+        /* 赛事氛围装饰 - 球场灯光效果 */
+        body.spfl-mode::after {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.03) 0%, transparent 70%),
+                radial-gradient(circle at 15% 50%, rgba(255,69,58,0.06) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(239,68,68,0.05) 0%, transparent 35%);
+            pointer-events: none; z-index: 0;
+            animation: fieldGlow 4s ease-in-out infinite alternate;
+        }
+        @keyframes fieldGlow {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
         }
         .content { position: relative; z-index: 1; }
         .header { text-align: center; padding: 60px 20px 24px; }
