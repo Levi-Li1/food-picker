@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>午餐吃什么？</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --primary: #007aff;
+            --secondary: #5856d6;
+            --success: #34c759;
+            --danger: #ff3b30;
+            --warning: #ff9500;
+            --gray1: #8e8e93;
+            --gray2: #636366;
+            --gray3: #48484a;
+            --gray4: #3a3a3c;
+            --gray5: #2c2c2e;
+            --gray6: #1c1c1e;
+            --bg: #f2f2f7;
+            --card: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+            background: var(--bg);
+            color: #000;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 50px 20px 20px;
+            background: #fff;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #000;
+        }
+        
+        .header p {
+            font-size: 15px;
+            color: var(--gray1);
+            margin-top: 6px;
+        }
+        
+        /* Apple Card */
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            margin: 15px 20px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+        }
+        
+        /* 转盘 */
+        .wheel-section {
+            padding: 20px 0;
+        }
+        
+        .wheel-container {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            margin: 0 auto;
+        }
+        
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.15),
+                0 0 0 12px #fff,
+                0 0 0 14px rgba(0,0,0,0.08);
+            transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            overflow: hidden;
+        }
+        
+        .segment {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%, 50% 50%, 50% 100%, 0% 100%, 0% 50%);
+        }
+        
+        .segment-text {
+            position: absolute;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+        
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(145deg, #fff, #f5f5f5);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 10;
+            transition: transform 0.2s;
+        }
+        
+        .wheel-center:active {
+            transform: translate(-50%, -50%) scale(0.96);
+        }
+        
+        .wheel-center-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+        
+        .wheel-center-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+        
+        .wheel-center-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .wheel-pointer {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+        
+        .wheel-pointer svg {
+            width: 28px;
+            height: 32px;
+        }
+        
+        /* 按钮组 */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+        
+        .btn {
+            flex: 1;
+            max-width: 155px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0,122,255,0.3);
+        }
+        
+        .btn-primary:active {
+            background: #0071e3;
+        }
+        
+        .btn-secondary {
+            background: #f2f2f7;
+            color: var(--primary);
+        }
+        
+        .btn-secondary:active {
+            background: #e5e5ea;
+        }
+        
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* 结果弹窗 */
+        .result-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .result-overlay.show {
+            display: flex;
+        }
+        
+        .result-card {
+            background: var(--card);
+            border-radius: 24px;
+            padding: 40px 35px;
+            margin: 20px;
+            max-width: 320px;
+            width: 100%;
+            text-align: center;
+            animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .result-emoji {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 50px;
+            animation: bounce 0.6s ease 0.2s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        .result-card h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 8px;
+        }
+        
+        .result-card .address {
+            font-size: 14px;
+            color: var(--gray1);
+            margin-bottom: 20px;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: var(--bg);
+            color: var(--gray2);
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+        }
+        
+        .result-close {
+            margin-top: 30px;
+            width: 100%;
+            padding: 16px;
+            background: var(--bg);
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            font-family: inherit;
+            cursor: pointer;
+        }
+        
+        /* 骰子 */
+        .dice-section {
+            display: none;
+            text-align: center;
+        }
+        
+        .dice-section.show {
+            display: block;
+        }
+        
+        .dice {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin: 20px auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: transform 0.1s;
+        }
+        
+        .dice.rolling {
+            animation: diceRoll 0.08s infinite;
+        }
+        
+        @keyframes diceRoll {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-15deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        .dice-hint {
+            font-size: 14px;
+            color: var(--gray1);
+            margin-bottom: 20px;
+        }
+        
+        /* 列表 */
+        .list-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .list-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .count {
+            font-size: 13px;
+            color: var(--gray1);
+        }
+        
+        .food-list {
+            list-style: none;
+        }
+        
+        .food-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        .food-item:last-child {
+            border-bottom: none;
+        }
+        
+        .food-item:active {
+            background: var(--bg);
+            margin: 0 -25px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        
+        .food-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 14px;
+        }
+        
+        .food-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gray2);
+        }
+        
+        .food-info {
+            flex: 1;
+        }
+        
+        .food-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+        }
+        
+        .food-address {
+            font-size: 13px;
+            color: var(--gray1);
+            margin-top: 2px;
+        }
+        
+        .food-action {
+            color: var(--primary);
+            font-size: 22px;
+            font-weight: 300;
+        }
+        
+        .food-delete {
+            color: var(--danger);
+            opacity: 0;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+        
+        .food-item:active .food-delete {
+            opacity: 1;
+        }
+        
+        /* 添加 */
+        .add-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 0.5px solid rgba(0,0,0,0.1);
+        }
+        
+        .add-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-input input {
+            flex: 1;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: inherit;
+            background: var(--bg);
+            outline: none;
+        }
+        
+        .add-input input:focus {
+            background: #e8e8ed;
+        }
+        
+        .add-input button {
+            padding: 14px 20px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+        }
+        
+        .tip {
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 13px;
+            color: var(--gray1);
+        }
+        
+        .bottom-spacer {
+            height: 30px;
+        }
+        
+        /* SVG Icons */
+        .icon-fork {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>今天吃什么？</h1>
+        <p id="date"></p>
+    </div>
+    
+    <!-- 转盘卡片 -->
+    <div class="card" id="wheelCard">
+        <div class="wheel-section">
+            <div class="wheel-container">
+                <div class="wheel-pointer">
+                    <svg viewBox="0 0 28 32">
+                        <path d="M14 0 C14 0 0 12 0 18 C0 25 6 32 14 32 C22 32 28 25 28 18 C28 12 14 0 14 0 Z" fill="#007aff"/>
+                    </svg>
+                </div>
+                <div class="wheel" id="wheel"></div>
+                <div class="wheel-center" onclick="spinWheel()">
+                    <div class="wheel-center-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <span class="wheel-center-text">开始</span>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="spinWheel()">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    摇号选餐厅
+                </button>
+                <button class="btn btn-secondary" onclick="showDice()">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/>
+                    </svg>
+                    摇骰子
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 骰子卡片 -->
+    <div class="card" id="diceCard">
+        <div class="dice-section show">
+            <div class="list-header">
+                <h3>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/>
+                    </svg>
+                    摇骰子
+                </h3>
+            </div>
+            <p class="dice-hint">摇到几点就选第几个</p>
+            <div class="dice" id="dice">?</div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="rollDice()" style="max-width: none;">
+                    摇一摇
+                </button>
+                <button class="btn btn-secondary" onclick="hideDice()" style="max-width: none;">
+                    返回
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 美食列表 -->
+    <div class="card">
+        <div class="list-header">
+            <h3>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary)">
+                    <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+                </svg>
+                我的收藏
+            </h3>
+            <span class="count" id="foodCount">0 家</span>
+        </div>
+        
+        <ul class="food-list" id="foodList"></ul>
+        
+        <div class="add-section">
+            <div class="add-input">
+                <input type="text" id="foodInput" placeholder="添加新餐厅...">
+                <button onclick="addFood()">添加</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tip">点击餐厅直接选中，长按删除</div>
+    <div class="bottom-spacer"></div>
+    
+    <!-- 结果弹窗 -->
+    <div class="result-overlay" id="resultOverlay">
+        <div class="result-card">
+            <div class="result-emoji" id="resultEmoji">🎉</div>
+            <h2 id="resultName">餐厅名称</h2>
+            <p class="address" id="resultAddress">地址信息</p>
+            <div class="tags" id="resultTags"></div>
+            <button class="result-close" onclick="closeResult()">好的，决定了！</button>
+        </div>
+    </div>
+
+    <script>
+        // 数据 - 保利绿地广场B1层餐厅
+        const DEFAULT_FOODS = [
+            { name: '复川小食堂', address: '辽阳路195号B1层B113', tags: ['川味', '工作餐'] },
+            { name: '大富贵', address: '保利绿地广场B1层', tags: ['本帮', '小吃'] },
+            { name: '老乡鸡', address: '保利绿地广场B1层', tags: ['快餐', '家常菜'] },
+            { name: '大鼓米线', address: '保利绿地广场B1层', tags: ['米线', '快餐'] },
+            { name: '逸山咖啡', address: '保利绿地广场B1层', tags: ['咖啡', '简餐'] }
+        ];
+        
+        // 强制使用默认数据
+        let foods = JSON.parse(JSON.stringify(DEFAULT_FOODS));
+        localStorage.setItem('foods', JSON.stringify(foods));
+        
+        let isRolling = false;
+        
+        // 扇形颜色
+        const COLORS = [
+            '#FF3B30', '#FF9500', '#FFCC00', '#34C759', 
+            '#007AFF', '#5856D6', '#AF52DE', '#FF2D55'
+        ];
+        
+        function init() {
+            const today = new Date();
+            const options = { weekday: 'long', month: 'long', day: 'numeric' };
+            document.getElementById('date').textContent = today.toLocaleDateString('zh-CN', options);
+            
+            renderWheel();
+            renderFoodList();
+            
+            document.getElementById('foodInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') addFood();
+            });
+        }
+        
+        function renderWheel() {
+            const wheel = document.getElementById('wheel');
+            wheel.innerHTML = '';
+            
+            if (foods.length === 0) return;
+            
+            const size = 340;
+            const center = size / 2;
+            const radius = size / 2 - 10;
+            const angleStep = 360 / foods.length;
+            
+            // 根据餐厅数量调整文字大小
+            const fontSize = foods.length > 5 ? 12 : (foods.length > 3 ? 14 : 16);
+            
+            foods.forEach((food, i) => {
+                const startAngle = (i * angleStep - 90) * Math.PI / 180;
+                const endAngle = ((i + 1) * angleStep - 90) * Math.PI / 180;
+                
+                const color = COLORS[i % COLORS.length];
+                
+                // 使用SVG绘制扇形
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('width', size);
+                svg.setAttribute('height', size);
+                svg.style.position = 'absolute';
+                svg.style.top = '0';
+                svg.style.left = '0';
+                
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                
+                const x1 = center + radius * Math.cos(startAngle);
+                const y1 = center + radius * Math.sin(startAngle);
+                const x2 = center + radius * Math.cos(endAngle);
+                const y2 = center + radius * Math.sin(endAngle);
+                
+                const largeArc = angleStep > 180 ? 1 : 0;
+                
+                const d = `M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
+                path.setAttribute('d', d);
+                path.setAttribute('fill', color);
+                
+                svg.appendChild(path);
+                wheel.appendChild(svg);
+                
+                // 文字标签 - 居中显示在扇形中间
+                const textAngle = (i * angleStep + angleStep / 2 - 90) * Math.PI / 180;
+                const textRadius = radius * 0.62;
+                const textX = center + textRadius * Math.cos(textAngle);
+                const textY = center + textRadius * Math.sin(textAngle);
+                
+                const text = document.createElement('div');
+                text.className = 'segment-text';
+                text.textContent = food.name;
+                text.style.cssText = `
+                    position: absolute;
+                    left: ${textX}px;
+                    top: ${textY}px;
+                    transform: translate(-50%, -50%);
+                    font-size: ${fontSize}px;
+                    font-weight: 600;
+                    color: #fff;
+                    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+                    white-space: nowrap;
+                    text-align: center;
+                    width: 100px;
+                `;
+                wheel.appendChild(text);
+            });
+        }
+        
+        function renderFoodList() {
+            const list = document.getElementById('foodList');
+            const count = document.getElementById('foodCount');
+            count.textContent = `${foods.length} 家`;
+            
+            if (foods.length === 0) {
+                list.innerHTML = `
+                    <li class="food-item">
+                        <div class="food-info">
+                            <div class="food-name" style="color: var(--gray1)">还没有收藏餐厅</div>
+                            <div class="food-address">添加一些吧~</div>
+                        </div>
+                    </li>
+                `;
+                return;
+            }
+            
+            list.innerHTML = foods.map((food, i) => `
+                <li class="food-item" onclick="selectFood(${i})" oncontextmenu="deleteFood(${i}); return false;">
+                    <div class="food-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/>
+                        </svg>
+                    </div>
+                    <div class="food-info">
+                        <div class="food-name">${food.name}</div>
+                        <div class="food-address">${food.address || '暂无地址'}</div>
+                    </div>
+                    <span class="food-action">›</span>
+                    <span class="food-delete" onclick="event.stopPropagation(); deleteFood(${i})">×</span>
+                </li>
+            `).join('');
+            
+            localStorage.setItem('foods', JSON.stringify(foods));
+        }
+        
+        function spinWheel() {
+            if (isRolling || foods.length < 2) {
+                if (foods.length < 2) alert('请至少添加2家餐厅！');
+                return;
+            }
+            
+            isRolling = true;
+            const wheel = document.getElementById('wheel');
+            const overlay = document.getElementById('resultOverlay');
+            overlay.classList.remove('show');
+            
+            const randomIndex = Math.floor(Math.random() * foods.length);
+            const angleStep = 360 / foods.length;
+            const extraSpins = 5 + Math.random() * 3;
+            const targetAngle = extraSpins * 360 + (360 - randomIndex * angleStep - angleStep / 2);
+            
+            wheel.style.transform = `rotate(${targetAngle}deg)`;
+            
+            setTimeout(() => {
+                isRolling = false;
+                showResult(foods[randomIndex]);
+            }, 4000);
+        }
+        
+        function showResult(food) {
+            const overlay = document.getElementById('resultOverlay');
+            const emojis = ['🎉', '🍜', '😋', '🔥', '✨', '💯', '👏', '🎊'];
+            
+            document.getElementById('resultEmoji').textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            document.getElementById('resultName').textContent = food.name;
+            document.getElementById('resultAddress').textContent = food.address || '地址未知';
+            document.getElementById('resultTags').innerHTML = (food.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+            
+            overlay.classList.add('show');
+        }
+        
+        function closeResult() {
+            document.getElementById('resultOverlay').classList.remove('show');
+        }
+        
+        function showDice() {
+            if (foods.length === 0) {
+                alert('请先添加餐厅！');
+                return;
+            }
+            document.getElementById('wheelCard').style.display = 'none';
+            document.getElementById('diceCard').style.display = 'block';
+            document.getElementById('dice').textContent = '?';
+        }
+        
+        function hideDice() {
+            document.getElementById('wheelCard').style.display = 'block';
+            document.getElementById('diceCard').style.display = 'none';
+        }
+        
+        function rollDice() {
+            const dice = document.getElementById('dice');
+            dice.classList.add('rolling');
+            
+            let rolls = 0;
+            const maxRolls = 15;
+            
+            const interval = setInterval(() => {
+                dice.textContent = ['1', '2', '3', '4', '5', '6'][Math.floor(Math.random() * 6)];
+                rolls++;
+                
+                if (rolls >= maxRolls) {
+                    clearInterval(interval);
+                    dice.classList.remove('rolling');
+                    
+                    const finalIndex = Math.floor(Math.random() * Math.min(foods.length, 6));
+                    dice.textContent = ['①', '②', '③', '④', '⑤', '⑥'][finalIndex];
+                    
+                    setTimeout(() => {
+                        hideDice();
+                        showResult(foods[finalIndex]);
+                    }, 500);
+                }
+            }, 100);
+        }
+        
+        function addFood() {
+            const input = document.getElementById('foodInput');
+            const name = input.value.trim();
+            
+            if (!name) {
+                input.focus();
+                return;
+            }
+            
+            foods.push({ name, address: '', tags: [] });
+            input.value = '';
+            renderWheel();
+            renderFoodList();
+        }
+        
+        function selectFood(index) {
+            showResult(foods[index]);
+        }
+        
+        function deleteFood(index) {
+            if (confirm(`删除「${foods[index].name}」？`)) {
+                foods.splice(index, 1);
+                renderWheel();
+                renderFoodList();
+            }
+        }
+        
+        init();
+    </script>
+</body>
+</html>
