@@ -777,11 +777,11 @@
             const extraSpins = 5 + Math.random() * 3;
 
             // 指针在底部(90°)
-            // 转盘旋转θ后，原来在角度α的扇形会移动到α+θ
-            // 指针指向的扇形满足: (i+0.5)*angleStep + θ ≡ 90 (mod 360)
-            // 所以: θ = 90 - (i+0.5)*angleStep
-            // 为避免负数，加上360的倍数
-            const targetAngle = 90 - (randomIndex + 0.5) * angleStep + 360 + extraSpins * 360;
+            // 补偿偏移量，使弹窗与指针指向一致
+            const offset = 2;
+            const targetIndex = (randomIndex + offset) % foods.length;
+
+            const targetAngle = 90 - (targetIndex + 0.5) * angleStep + 360 + extraSpins * 360;
 
             wheel.style.transform = `rotate(${targetAngle}deg)`;
             
