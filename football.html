@@ -203,6 +203,13 @@
                 </h2>
                 <div class="loading">加载中...</div>
             </div>
+            <div class="card" id="wc-upcoming">
+                <h2>
+                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    赛程预告
+                </h2>
+                <div class="loading">加载中...</div>
+            </div>
             <div class="card">
                 <h2>
                     <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
@@ -214,6 +221,13 @@
         </div>
 
         <div id="spfl-section" style="display:none;">
+            <div class="card" id="spfl-upcoming">
+                <h2>
+                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    赛程预告 · 第 9 轮
+                </h2>
+                <div id="spflFixtures"></div>
+            </div>
             <div class="card">
                 <div class="leader-badge">🥇 盐城队 · 5战全胜领跑</div>
                 <h2>
@@ -290,6 +304,23 @@
                 return `20${y}-${m.padStart(2,'0')}-${dy.padStart(2,'0')}`===today;
             });
 
+            // 未来两天预告
+            const now = new Date();
+            const next2days = [];
+            for (let i=1; i<=3; i++) {
+                const d = new Date(now);
+                d.setDate(d.getDate()+i);
+                next2days.push(d.toISOString().split('T')[0]);
+            }
+            const futureGames = games.filter(g => {
+                if(g.finished==='TRUE'||g.time_elapsed==='finished') return false;
+                const gd=g.local_date?g.local_date.split(' ')[0]:'';
+                if(!gd) return false;
+                const [m,dy,y]=gd.split('/');
+                const ds=`20${y}-${m.padStart(2,'0')}-${dy.padStart(2,'0')}`;
+                return next2days.includes(ds);
+            });
+
             const rd=document.getElementById('wc-recent');
             rd.innerHTML = finished.length
                 ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final')).join('')
@@ -301,6 +332,12 @@
             td2.innerHTML = all.length
                 ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>今日赛程</h2>'+all.map(g=>matchHTML(g,teams,g.time_elapsed==='live'?'live':'upcoming')).join('')
                 : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>今日赛程</h2><p style="color:var(--text3);text-align:center;padding:10px;">今日无比赛</p>';
+
+            // 赛程预告
+            const uc=document.getElementById('wc-upcoming');
+            uc.innerHTML = futureGames.length
+                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2>'+futureGames.map(g=>matchHTML(g,teams,'upcoming')).join('')
+                : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无预告数据</p>';
         }
 
         function matchHTML(g, teams, status) {
@@ -393,6 +430,7 @@
         }
 
         function renderSPFL() {
+            // 积分榜
             document.getElementById('spflTable').innerHTML=`
             <tr><th></th><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
             ${SPFL.map(t=>`<tr>
@@ -404,6 +442,37 @@
                 <td class="stats gd ${t.gd>0?'positive':'negative'}">${t.gd>0?'+':''}${t.gd}</td>
                 <td class="pts">${t.pts}</td>
             </tr>`).join('')}`;
+
+            // 赛程预告 - 第9轮
+            const fixturesHTML = `
+            <div style="margin-top:8px;">
+                <div class="match-card">
+                    <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
+                    <div class="match-teams">
+                        <div class="match-team"><span>徐州队</span></div>
+                        <div class="match-score vs">VS</div>
+                        <div class="match-team"><span>无锡队</span></div>
+                    </div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">徐州奥林匹克体育中心体育场</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="match-team"><span>宿迁队</span></div>
+                        <div class="match-score vs">VS</div>
+                        <div class="match-team"><span>镇江队</span></div>
+                    </div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">宿迁奥林匹克体育中心体育场</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-teams">
+                        <div class="match-team"><span>南通队</span></div>
+                        <div class="match-score vs">VS</div>
+                        <div class="match-team"><span>泰州队</span></div>
+                    </div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">南通体育会展中心体育场</div>
+                </div>
+            </div>`;
+            document.getElementById('spflFixtures').innerHTML = fixturesHTML;
         }
 
         function showSection(s) {
