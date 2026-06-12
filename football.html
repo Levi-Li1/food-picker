@@ -612,7 +612,7 @@
             // 赛程预告 - 第9轮（带队徽）
             const crestMap = {};
             SPFL.forEach(t => { crestMap[t.name] = t.crest; });
-            const fixRow = (home, away) => `
+            const fixRow = (home, away, venue) => `
                 <div class="match-card">
                     <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
                     <div class="match-teams">
@@ -620,13 +620,14 @@
                         <div class="match-score vs">VS</div>
                         <div class="match-team away"><span class="crest">${crestImg(crestMap[away])}</span><span class="match-name">${away}</span></div>
                     </div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${venue}</div>
                 </div>`;
 
             const fixturesHTML = `
             <div style="margin-top:8px;">
-                ${fixRow('徐州队','无锡队')}
-                ${fixRow('宿迁队','镇江队')}
-                ${fixRow('南通队','泰州队')}
+                ${fixRow('徐州队','无锡队','徐州奥林匹克体育中心体育场')}
+                ${fixRow('宿迁队','镇江队','宿迁奥林匹克体育中心体育场')}
+                ${fixRow('南通队','泰州队','南通体育会展中心体育场')}
             </div>`;
             document.getElementById('spflFixtures').innerHTML = fixturesHTML;
         }
