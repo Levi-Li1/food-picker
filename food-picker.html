@@ -700,8 +700,8 @@
 
                 const largeArc = angleStep > 180 ? 1 : 0;
 
-                // 逆时针画弧 (sweep-flag = 0)
-                const d = `M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 0 ${x2} ${y2} Z`;
+                // 顺时针画弧 (sweep-flag = 1)
+                const d = `M ${center} ${center} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
                 path.setAttribute('d', d);
                 path.setAttribute('fill', color);
 
