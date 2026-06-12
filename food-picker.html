@@ -779,12 +779,18 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
 
-            // 指针在底部(90°)
-            // 补偿偏移量，使弹窗与指针指向一致
-            const offset = 2;
+            // 8个扇形，尝试不同的offset修正
+            // offset=0: 无修正
+            // offset=1: 差1个
+            // offset=2: 差2个
+            // offset=3: 差3个
+            // offset=4: 差4个
+            const offset = 3;
             const targetIndex = (randomIndex + offset) % foods.length;
 
             const targetAngle = 90 - (targetIndex + 0.5) * angleStep + 360 + extraSpins * 360;
+
+            console.log(`选择: ${randomIndex}(${foods[randomIndex]?.name}), 目标: ${targetIndex}, 角度: ${targetAngle.toFixed(0)}°`);
 
             wheel.style.transform = `rotate(${targetAngle}deg)`;
             
