@@ -479,6 +479,7 @@
             const bjTime = toBeijing(g.local_date, g.stadium_id);
             const labels = { live:'<span style="display:inline-flex;align-items:center;gap:4px;"><svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#ff453a"/></svg>进行中</span>', final:'已结束', upcoming:'即将开始' };
             const city = CITY[g.stadium_id]||'';
+            const venue = stadiums?.[g.stadium_id]||'';
 
             const clean = (v) => {
                 if(!v || v==='null' || v==='undefined') return '';
