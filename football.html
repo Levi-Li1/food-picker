@@ -293,7 +293,7 @@
                 (td.teams||td).forEach(t => { const id=t.id||t._id; teams[id]=ZH[id]||t.name_en||t.name; });
                 const games = gd.games||gd||[];
                 renderWorldCupMatches(games, teams);
-                renderGroupStandings(grd, teams);
+                renderGroupStandings(grd, teams, games);
             } catch(e) {
                 document.querySelectorAll('#wc-recent .loading, #wc-today .loading').forEach(el =>
                     el.textContent='数据加载失败，请稍后再试');
@@ -355,9 +355,20 @@
 
         let currentGroup='A', allGroups=[], teamMap={};
 
-        function renderGroupStandings(groupsData, teams) {
+        function renderGroupStandings(groupsData, teams, games) {
             teamMap=teams;
             allGroups=(groupsData.groups||groupsData).filter(g=>g.name||g.group);
+
+            // 默认展开最新比赛所在小组
+            const active = games.filter(g => g.time_elapsed==='live' || g.finished==='TRUE');
+            if(active.length) {
+                const latest = active.sort((a,b) => {
+                    const da = a.local_date||'', db = b.local_date||'';
+                    return db.localeCompare(da);
+                })[0];
+                if(latest.group) currentGroup = latest.group;
+            }
+
             document.getElementById('groupBtns').innerHTML='ABCDEFGHIJKL'.split('').map(l=>
                 `<button class="group-btn${l===currentGroup?' active':''}" onclick="showGroup('${l}')">${l}</button>`
             ).join('');
