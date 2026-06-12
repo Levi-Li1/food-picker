@@ -785,13 +785,11 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
 
-            // 扇形从顶部(0°)开始顺时针排列
-            // 扇形i的中心在 (i+0.5)*angleStep 度
-            // 旋转θ度(顺时针)后，扇形i的中心移动到 (i+0.5)*angleStep + θ
-            // 要让扇形i的中心停在顶部(0°)：
-            // (i+0.5)*angleStep + θ ≡ 0 (mod 360)
-            // θ = 360 - (i+0.5)*angleStep
-            const targetAngle = 360 - (randomIndex + 0.5) * angleStep + extraSpins * 360;
+            // renderWheel中sweep-flag=0逆时针画弧，扇形从顶部(index0)开始逆时针排列
+            // 索引i的扇形中心在 270° - (i+0.5)*angleStep
+            // 要让指针(顶部270°)指向索引i: 270° ≡ 270° - (i+0.5)*angleStep + θ (mod 360)
+            // θ = (i+0.5)*angleStep (顺时针旋转)
+            const targetAngle = (randomIndex + 0.5) * angleStep + extraSpins * 360;
 
             console.log(`选择: ${randomIndex}(${foods[randomIndex]?.name}), 角度: ${targetAngle.toFixed(0)}°`);
 
