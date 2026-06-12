@@ -783,7 +783,7 @@
             // 转盘旋转θ后，原来在角度α的扇形移动到α+θ
             // 指针指向扇形满足: (i+0.5)*angleStep + θ ≡ 270°
             // 所以: θ = 270 - (i+0.5)*angleStep
-            const offset = -4;
+            const offset = -3;
             const targetIndex = (randomIndex + offset + foods.length) % foods.length;
             const targetAngle = 270 - (targetIndex + 0.5) * angleStep + 360 + extraSpins * 360;
 
