@@ -120,6 +120,9 @@
         .pos.cl { background: rgba(255,69,58,0.5); color: #fff; font-size: 10px; }
         .team-name { font-weight: 500; font-size: 13px; }
         .team-name .flag { font-size: 16px; margin-right: 4px; vertical-align: -1px; }
+        .crest { width: 28px; height: 28px; display: inline-block; vertical-align: middle; }
+        .crest svg { width: 28px; height: 28px; border-radius: 50%; display: block; }
+        th:nth-child(2) { width: 36px; }
         .stats { font-size: 11px; color: var(--text3); font-variant-numeric: tabular-nums; }
         .pts { font-weight: 700; font-size: 14px; color: #fff; }
         .gd { font-weight: 500; }
@@ -355,20 +358,34 @@
         }
 
         // === 江苏省城市足球联赛（苏超）===
+        // 每队队徽：SVG圆形徽章 + 城市特色元素
         const SPFL = [
-            { pos:1, name:'盐城队', p:5, w:5, d:0, l:0, gf:7, ga:1, gd:6, pts:15 },
-            { pos:2, name:'无锡队', p:4, w:2, d:2, l:0, gf:6, ga:2, gd:4, pts:8 },
-            { pos:3, name:'徐州队', p:4, w:2, d:1, l:1, gf:6, ga:3, gd:3, pts:7 },
-            { pos:4, name:'苏州队', p:4, w:2, d:1, l:1, gf:5, ga:4, gd:1, pts:7 },
-            { pos:5, name:'淮安队', p:4, w:2, d:1, l:1, gf:4, ga:3, gd:1, pts:7 },
-            { pos:6, name:'常州队', p:4, w:2, d:0, l:2, gf:7, ga:4, gd:3, pts:6 },
-            { pos:7, name:'宿迁队', p:4, w:2, d:0, l:2, gf:5, ga:4, gd:1, pts:6 },
-            { pos:8, name:'南京队', p:4, w:1, d:2, l:1, gf:2, ga:3, gd:-1, pts:5 },
-            { pos:9, name:'南通队', p:4, w:1, d:2, l:1, gf:2, ga:4, gd:-2, pts:5 },
-            { pos:10, name:'扬州队', p:5, w:1, d:1, l:3, gf:3, ga:6, gd:-3, pts:4 },
-            { pos:11, name:'泰州队', p:4, w:1, d:0, l:3, gf:5, ga:9, gd:-4, pts:3 },
-            { pos:12, name:'连云港队', p:4, w:0, d:2, l:2, gf:3, ga:6, gd:-3, pts:2 },
-            { pos:13, name:'镇江队', p:4, w:0, d:0, l:4, gf:2, ga:8, gd:-6, pts:0 }
+            { pos:1, name:'盐城队', p:5, w:5, d:0, l:0, gf:7, ga:1, gd:6, pts:15,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="yc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B4513"/><stop offset="100%" stop-color="#D2691E"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#yc)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">鹿</text></svg>` },
+            { pos:2, name:'无锡队', p:4, w:2, d:2, l:0, gf:6, ga:2, gd:4, pts:8,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="wx" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E90FF"/><stop offset="100%" stop-color="#4169E1"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#wx)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">锡</text></svg>` },
+            { pos:3, name:'徐州队', p:4, w:2, d:1, l:1, gf:6, ga:3, gd:3, pts:7,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="xz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#B22222"/><stop offset="100%" stop-color="#DC143C"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#xz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">彭</text></svg>` },
+            { pos:4, name:'苏州队', p:4, w:2, d:1, l:1, gf:5, ga:4, gd:1, pts:7,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="sz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2E8B57"/><stop offset="100%" stop-color="#3CB371"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#sz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">苏</text></svg>` },
+            { pos:5, name:'淮安队', p:4, w:2, d:1, l:1, gf:4, ga:3, gd:1, pts:7,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="ha" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4B0082"/><stop offset="100%" stop-color="#6A5ACD"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#ha)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">淮</text></svg>` },
+            { pos:6, name:'常州队', p:4, w:2, d:0, l:2, gf:7, ga:4, gd:3, pts:6,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="cz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF4500"/><stop offset="100%" stop-color="#FF6347"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#cz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">龙</text></svg>` },
+            { pos:7, name:'宿迁队', p:4, w:2, d:0, l:2, gf:5, ga:4, gd:1, pts:6,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="sq" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#191970"/><stop offset="100%" stop-color="#4682B4"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#sq)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">迁</text></svg>` },
+            { pos:8, name:'南京队', p:4, w:1, d:2, l:1, gf:2, ga:3, gd:-1, pts:5,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="nj" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B0000"/><stop offset="100%" stop-color="#CD5C5C"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#nj)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">宁</text></svg>` },
+            { pos:9, name:'南通队', p:4, w:1, d:2, l:1, gf:2, ga:4, gd:-2, pts:5,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="nt" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2F4F4F"/><stop offset="100%" stop-color="#556B2F"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#nt)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" font-family="sans-serif">通</text></svg>` },
+            { pos:10, name:'扬州队', p:5, w:1, d:1, l:3, gf:3, ga:6, gd:-3, pts:4,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="yz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#006400"/><stop offset="100%" stop-color="#228B22"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#yz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">扬</text></svg>` },
+            { pos:11, name:'泰州队', p:4, w:1, d:0, l:3, gf:5, ga:9, gd:-4, pts:3,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="tz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#000080"/><stop offset="100%" stop-color="#1E3A8A"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#tz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">泰</text></svg>` },
+            { pos:12, name:'连云港队', p:4, w:0, d:2, l:2, gf:3, ga:6, gd:-3, pts:2,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="lyg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0B5E8A"/><stop offset="100%" stop-color="#2196F3"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#lyg)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" font-family="sans-serif">連</text></svg>` },
+            { pos:13, name:'镇江队', p:4, w:0, d:0, l:4, gf:2, ga:8, gd:-6, pts:0,
+              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="zj" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5D4037"/><stop offset="100%" stop-color="#795548"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#zj)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">镇</text></svg>` }
         ];
 
         function cls(p) {
@@ -377,9 +394,10 @@
 
         function renderSPFL() {
             document.getElementById('spflTable').innerHTML=`
-            <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
+            <tr><th></th><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
             ${SPFL.map(t=>`<tr>
                 <td><span class="pos ${cls(t.pos)}">${t.pos}</span></td>
+                <td><span class="crest">${t.crest}</span></td>
                 <td class="team-name">${t.name}</td>
                 <td class="stats">${t.p}</td><td class="stats">${t.w}</td><td class="stats">${t.d}</td><td class="stats">${t.l}</td>
                 <td class="stats">${t.gf}-${t.ga}</td>
