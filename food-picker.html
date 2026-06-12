@@ -775,10 +775,11 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
 
-            // 计算旋转角度，让扇形randomIndex停在指针(顶部)下方
-            // SVG中0°在右侧，270°在顶部(12点方向)
-            // 需要旋转使扇形中心(i+0.5)*angleStep到达270°
-            const targetAngle = 270 - (randomIndex + 0.5) * angleStep + extraSpins * 360;
+            // 计算旋转角度，让扇形randomIndex停在指针下方
+            // 指针指向下方(90°)，扇形中心在 (i+0.5)*angleStep
+            // 旋转后: 90 + targetAngle = (i+0.5)*angleStep + targetAngle
+            // 所以: targetAngle = (i+0.5)*angleStep - 90
+            const targetAngle = (randomIndex + 0.5) * angleStep - 90 + extraSpins * 360;
 
             wheel.style.transform = `rotate(${targetAngle}deg)`;
             
