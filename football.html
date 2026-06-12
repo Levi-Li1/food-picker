@@ -89,7 +89,8 @@
             display: flex; align-items: center; gap: 8px;
         }
         .match-team:last-child { justify-content: flex-end; text-align: right; flex-direction: row-reverse; }
-        .match-team .flag { font-size: 24px; line-height: 1; }
+        .match-team .flag { display: inline-flex; align-items: center; }
+        .match-team .flag img { display: block; }
         .match-score {
             font-size: 30px; font-weight: 700; margin: 0 20px; min-width: 70px;
             text-align: center; letter-spacing: 4px; font-variant-numeric: tabular-nums;
@@ -269,13 +270,16 @@
         };
 
         const FLAGS = {
-            1:'🇲🇽',2:'🇿🇦',3:'🇰🇷',4:'🇨🇿',5:'🇨🇦',6:'🇧🇦',7:'🇶🇦',8:'🇨🇭',
-            9:'🇧🇷',10:'🇲🇦',11:'🇭🇹',12:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',13:'🇺🇸',14:'🇵🇾',15:'🇦🇺',16:'🇹🇷',
-            17:'🇩🇪',18:'🇨🇼',19:'🇨🇮',20:'🇪🇨',21:'🇳🇱',22:'🇯🇵',23:'🇸🇪',24:'🇹🇳',
-            25:'🇧🇪',26:'🇪🇬',27:'🇮🇷',28:'🇳🇿',29:'🇪🇸',30:'🇨🇻',31:'🇸🇦',32:'🇺🇾',
-            33:'🇫🇷',34:'🇸🇳',35:'🇮🇶',36:'🇳🇴',37:'🇦🇷',38:'🇩🇿',39:'🇦🇹',40:'🇯🇴',
-            41:'🇵🇹',42:'🇨🇩',43:'🇺🇿',44:'🇨🇴',45:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',46:'🇭🇷',47:'🇬🇭',48:'🇵🇦'
+            1:'mx',2:'za',3:'kr',4:'cz',5:'ca',6:'ba',7:'qa',8:'ch',
+            9:'br',10:'ma',11:'ht',12:'gb-sct',13:'us',14:'py',15:'au',16:'tr',
+            17:'de',18:'cw',19:'ci',20:'ec',21:'nl',22:'jp',23:'se',24:'tn',
+            25:'be',26:'eg',27:'ir',28:'nz',29:'es',30:'cv',31:'sa',32:'uy',
+            33:'fr',34:'sn',35:'iq',36:'no',37:'ar',38:'dz',39:'at',40:'jo',
+            41:'pt',42:'cd',43:'uz',44:'co',45:'gb-eng',46:'hr',47:'gh',48:'pa'
         };
+        function flagImg(cc) {
+            return cc ? `<img src="https://flagcdn.com/28x21/${cc}.png" width="22" height="16" style="border-radius:2px;vertical-align:-2px;display:inline-block" alt="" loading="lazy">` : '';
+        }
 
         async function loadWorldCup() {
             try {
@@ -344,7 +348,7 @@
             const hid = g.home_team_id, aid = g.away_team_id;
             const home = teams[hid]||g.home_team_name_en||'?';
             const away = teams[aid]||g.away_team_name_en||'?';
-            const hflag = FLAGS[hid]||'', aflag = FLAGS[aid]||'';
+            const hflag = flagImg(FLAGS[hid]), aflag = flagImg(FLAGS[aid]);
             const labels = { live:'● 进行中', final:'已结束', upcoming:'即将开始' };
             let scorers='';
             if(status==='final'&&(Number(g.home_score)>0||Number(g.away_score)>0))
@@ -386,7 +390,7 @@
                 ${list.map((t,i)=>{
                     const tid=t.team_id||t.id;
                     const n=ZH[tid]||teamMap[tid]||`Team ${tid}`;
-                    const fl=FLAGS[tid]||'';
+                    const fl=flagImg(FLAGS[tid]);
                     const mp=t.played||t.mp||t.p||0,w=t.wins||t.won||t.w||0,d=t.draws||t.drawn||t.d||0,l=t.losses||t.lost||t.l||0;
                     const gf=t.gf||t.goals_for||0,ga=t.ga||t.goals_against||0,gd=gf-ga,pts=w*3+d;
                     return `<tr><td>${i+1}</td><td class="team-name"><span class="flag">${fl}</span>${n}</td><td class="stats">${mp}</td><td class="stats">${w}</td><td class="stats">${d}</td><td class="stats">${l}</td><td class="stats">${gf}-${ga}</td><td class="stats gd ${gd>0?'positive':gd<0?'negative':''}">${gd>0?'+':''}${gd}</td><td class="pts">${pts}</td></tr>`;
@@ -398,32 +402,35 @@
         // 每队队徽：SVG圆形徽章 + 城市特色元素
         const SPFL = [
             { pos:1, name:'盐城队', p:5, w:5, d:0, l:0, gf:7, ga:1, gd:6, pts:15,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="yc" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B4513"/><stop offset="100%" stop-color="#D2691E"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#yc)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">鹿</text></svg>` },
+              crest:'511e539bd0904595b737bcdf149d3c4b' },
             { pos:2, name:'无锡队', p:4, w:2, d:2, l:0, gf:6, ga:2, gd:4, pts:8,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="wx" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1E90FF"/><stop offset="100%" stop-color="#4169E1"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#wx)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">锡</text></svg>` },
+              crest:'a452dee3e7e143369652e0d52af9b371' },
             { pos:3, name:'徐州队', p:4, w:2, d:1, l:1, gf:6, ga:3, gd:3, pts:7,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="xz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#B22222"/><stop offset="100%" stop-color="#DC143C"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#xz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">彭</text></svg>` },
+              crest:'30b33fb9d3b640bc8e6a4bd33d19ad57' },
             { pos:4, name:'苏州队', p:4, w:2, d:1, l:1, gf:5, ga:4, gd:1, pts:7,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="sz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2E8B57"/><stop offset="100%" stop-color="#3CB371"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#sz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">苏</text></svg>` },
+              crest:'d9f31bc949df4bdeafc9b67f91bc5331' },
             { pos:5, name:'淮安队', p:4, w:2, d:1, l:1, gf:4, ga:3, gd:1, pts:7,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="ha" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4B0082"/><stop offset="100%" stop-color="#6A5ACD"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#ha)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">淮</text></svg>` },
+              crest:'97cbe6bb2c4b42cba164be4815107422' },
             { pos:6, name:'常州队', p:4, w:2, d:0, l:2, gf:7, ga:4, gd:3, pts:6,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="cz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF4500"/><stop offset="100%" stop-color="#FF6347"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#cz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">龙</text></svg>` },
+              crest:'9610e966f08043d4a5fc1825698de23a' },
             { pos:7, name:'宿迁队', p:4, w:2, d:0, l:2, gf:5, ga:4, gd:1, pts:6,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="sq" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#191970"/><stop offset="100%" stop-color="#4682B4"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#sq)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">迁</text></svg>` },
+              crest:'70e901cd67e34632b4614045a2108ae7' },
             { pos:8, name:'南京队', p:4, w:1, d:2, l:1, gf:2, ga:3, gd:-1, pts:5,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="nj" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8B0000"/><stop offset="100%" stop-color="#CD5C5C"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#nj)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">宁</text></svg>` },
+              crest:'04d3ee534594484b872b49f6edf3084c' },
             { pos:9, name:'南通队', p:4, w:1, d:2, l:1, gf:2, ga:4, gd:-2, pts:5,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="nt" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2F4F4F"/><stop offset="100%" stop-color="#556B2F"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#nt)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" font-family="sans-serif">通</text></svg>` },
+              crest:'3a459b17bbb14225a32667449c4fb8d5' },
             { pos:10, name:'扬州队', p:5, w:1, d:1, l:3, gf:3, ga:6, gd:-3, pts:4,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="yz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#006400"/><stop offset="100%" stop-color="#228B22"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#yz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">扬</text></svg>` },
+              crest:'57bf50a4f1de45c2a1633cae32a9d0a9' },
             { pos:11, name:'泰州队', p:4, w:1, d:0, l:3, gf:5, ga:9, gd:-4, pts:3,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="tz" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#000080"/><stop offset="100%" stop-color="#1E3A8A"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#tz)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" font-family="sans-serif">泰</text></svg>` },
+              crest:'d6aa1108ea6749698a4b9b1153d92c24' },
             { pos:12, name:'连云港队', p:4, w:0, d:2, l:2, gf:3, ga:6, gd:-3, pts:2,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="lyg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0B5E8A"/><stop offset="100%" stop-color="#2196F3"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#lyg)"/><text x="24" y="30" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" font-family="sans-serif">連</text></svg>` },
+              crest:'8c5cfd8789df4172aaba82597ee5e8a5' },
             { pos:13, name:'镇江队', p:4, w:0, d:0, l:4, gf:2, ga:8, gd:-6, pts:0,
-              crest:`<svg viewBox="0 0 48 48"><defs><linearGradient id="zj" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5D4037"/><stop offset="100%" stop-color="#795548"/></linearGradient></defs><circle cx="24" cy="24" r="22" fill="url(#zj)"/><text x="24" y="30" text-anchor="middle" fill="#FFD700" font-size="22" font-weight="700" font-family="sans-serif">镇</text></svg>` }
+              crest:'78ec43cc181f478d8e41708cf0625b29' }
         ];
+        function crestImg(id) {
+            return `<img src="http://jsstyj.jiangsu.gov.cn/picture/0/${id}.png" width="28" height="28" style="border-radius:50%;display:block" alt="" loading="lazy">`;
+        }
 
         function cls(p) {
             if(p===1)return'c1';if(p===2)return'c2';if(p===3)return'c3';if(p===13)return'cl';return'';
@@ -435,7 +442,7 @@
             <tr><th></th><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
             ${SPFL.map(t=>`<tr>
                 <td><span class="pos ${cls(t.pos)}">${t.pos}</span></td>
-                <td><span class="crest">${t.crest}</span></td>
+                <td><span class="crest">${crestImg(t.crest)}</span></td>
                 <td class="team-name">${t.name}</td>
                 <td class="stats">${t.p}</td><td class="stats">${t.w}</td><td class="stats">${t.d}</td><td class="stats">${t.l}</td>
                 <td class="stats">${t.gf}-${t.ga}</td>
