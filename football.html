@@ -452,36 +452,24 @@
                 <td class="pts">${t.pts}</td>
             </tr>`).join('')}`;
 
-            // 赛程预告 - 第9轮
+            // 赛程预告 - 第9轮（带队徽）
+            const crestMap = {};
+            SPFL.forEach(t => { crestMap[t.name] = t.crest; });
+            const fixRow = (home, away) => `
+                <div class="match-card">
+                    <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
+                    <div class="match-teams">
+                        <div class="match-team"><span class="crest">${crestImg(crestMap[home])}</span><span>${home}</span></div>
+                        <div class="match-score vs">VS</div>
+                        <div class="match-team"><span class="crest">${crestImg(crestMap[away])}</span><span>${away}</span></div>
+                    </div>
+                </div>`;
+
             const fixturesHTML = `
             <div style="margin-top:8px;">
-                <div class="match-card">
-                    <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
-                    <div class="match-teams">
-                        <div class="match-team"><span>徐州队</span></div>
-                        <div class="match-score vs">VS</div>
-                        <div class="match-team"><span>无锡队</span></div>
-                    </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>徐州奥林匹克体育中心体育场</div>
-                </div>
-                <div class="match-card">
-                    <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
-                    <div class="match-teams">
-                        <div class="match-team"><span>宿迁队</span></div>
-                        <div class="match-score vs">VS</div>
-                        <div class="match-team"><span>镇江队</span></div>
-                    </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>宿迁奥林匹克体育中心体育场</div>
-                </div>
-                <div class="match-card">
-                    <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
-                    <div class="match-teams">
-                        <div class="match-team"><span>南通队</span></div>
-                        <div class="match-score vs">VS</div>
-                        <div class="match-team"><span>泰州队</span></div>
-                    </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>南通体育会展中心体育场</div>
-                </div>
+                ${fixRow('徐州队','无锡队')}
+                ${fixRow('宿迁队','镇江队')}
+                ${fixRow('南通队','泰州队')}
             </div>`;
             document.getElementById('spflFixtures').innerHTML = fixturesHTML;
         }
