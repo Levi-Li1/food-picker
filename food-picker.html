@@ -56,6 +56,12 @@
             margin-top: 6px;
         }
         
+        .header .version {
+            font-size: 11px;
+            color: #c7c7cc;
+            margin-top: 2px;
+        }
+        
         /* Apple Card */
         .card {
             background: var(--card);
@@ -507,6 +513,7 @@
     <div class="header">
         <h1>今天吃什么？</h1>
         <p id="date"></p>
+        <span class="version" id="version"></span>
     </div>
     
     <!-- 转盘卡片 -->
@@ -646,6 +653,7 @@
             const today = new Date();
             const options = { weekday: 'long', month: 'long', day: 'numeric' };
             document.getElementById('date').textContent = today.toLocaleDateString('zh-CN', options);
+            document.getElementById('version').textContent = 'v.f47a939';
 
             // 加载餐厅数据
             foods = await loadRestaurants();
