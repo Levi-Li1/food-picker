@@ -6,308 +6,162 @@
     <title>2026 足球赛况</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --primary: #007aff;
-            --green: #30d158;
-            --red: #ff453a;
-            --orange: #ff9f0a;
-            --text: #ffffff;
-            --text2: rgba(255,255,255,0.75);
-            --text3: rgba(255,255,255,0.50);
-            --glass: rgba(255,255,255,0.12);
-            --glass-hover: rgba(255,255,255,0.18);
-            --glass-border: rgba(255,255,255,0.15);
-            --glass-active: rgba(255,255,255,0.25);
+            --green: #30d158; --red: #ff453a; --orange: #ff9f0a;
+            --text: #ffffff; --text2: rgba(255,255,255,0.75); --text3: rgba(255,255,255,0.50);
+            --glass: rgba(255,255,255,0.12); --glass-hover: rgba(255,255,255,0.18);
+            --glass-border: rgba(255,255,255,0.15); --glass-active: rgba(255,255,255,0.25);
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
             background: linear-gradient(180deg, #0a1628 0%, #162447 30%, #1a1a2e 60%, #0f3460 100%);
-            min-height: 100vh;
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-            overflow-x: hidden;
+            min-height: 100vh; color: var(--text);
+            -webkit-font-smoothing: antialiased; position: relative; overflow-x: hidden;
         }
-
-        /* 动态光晕背景 */
         body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(ellipse at 20% 20%, rgba(0,122,255,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 60%, rgba(48,209,88,0.10) 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 80%, rgba(255,159,10,0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+            content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 20% 20%, rgba(0,122,255,0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 60%, rgba(48,209,88,0.10) 0%, transparent 50%),
+                        radial-gradient(ellipse at 40% 80%, rgba(255,159,10,0.08) 0%, transparent 50%);
+            pointer-events: none; z-index: 0;
         }
-
         .content { position: relative; z-index: 1; }
-
-        .header {
-            text-align: center;
-            padding: 60px 20px 24px;
-        }
+        .header { text-align: center; padding: 60px 20px 24px; }
         .header h1 {
-            font-size: 34px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 34px; font-weight: 700; letter-spacing: -0.5px;
             background: linear-gradient(135deg, #ffffff 0%, #a0c4ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-        .header .sub {
-            font-size: 14px;
-            color: var(--text3);
-            margin-top: 6px;
-            letter-spacing: 1px;
-        }
+        .header .sub { font-size: 14px; color: var(--text3); margin-top: 6px; letter-spacing: 1px; }
 
-        /* 标签切换——液态玻璃 */
         .section-tabs {
-            display: flex;
-            gap: 0;
-            margin: 0 20px 16px;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 14px;
-            padding: 3px;
-            border: 1px solid var(--glass-border);
+            display: flex; gap: 0; margin: 0 20px 16px;
+            background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 14px; padding: 3px; border: 1px solid var(--glass-border);
         }
         .section-tab {
-            flex: 1;
-            padding: 11px 16px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            border: none;
-            border-radius: 11px;
-            cursor: pointer;
-            background: transparent;
-            color: var(--text3);
-            font-family: inherit;
-            transition: all 0.3s ease;
+            flex: 1; padding: 11px 16px; text-align: center; font-size: 14px; font-weight: 600;
+            border: none; border-radius: 11px; cursor: pointer; background: transparent;
+            color: var(--text3); font-family: inherit; transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
         }
         .section-tab.active {
-            background: var(--glass-active);
-            color: #fff;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: var(--glass-active); color: #fff;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
+        .tab-icon { width: 18px; height: 18px; }
 
-        /* 卡片——液态玻璃 */
         .card {
-            background: var(--glass);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-radius: 20px;
-            margin: 12px 16px;
-            padding: 22px 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            background: var(--glass); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border-radius: 20px; margin: 12px 16px; padding: 22px 20px;
+            border: 1px solid var(--glass-border); box-shadow: 0 8px 32px rgba(0,0,0,0.15);
         }
         .card h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text2);
-            letter-spacing: -0.2px;
+            font-size: 18px; font-weight: 600; margin-bottom: 16px;
+            color: var(--text2); letter-spacing: -0.2px;
+            display: flex; align-items: center; gap: 8px;
         }
+        .card h2 .heading-icon { width: 20px; height: 20px; }
 
-        /* 比赛卡片 */
         .match-card {
-            background: rgba(255,255,255,0.06);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 14px;
-            padding: 16px 18px;
-            margin-bottom: 10px;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.2s;
+            background: rgba(255,255,255,0.06); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-radius: 14px; padding: 16px 18px; margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.08); transition: all 0.2s;
         }
         .match-card:hover { background: rgba(255,255,255,0.10); }
         .match-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--text3);
-            margin-bottom: 12px;
-            letter-spacing: 0.3px;
+            display: flex; justify-content: space-between; font-size: 12px;
+            color: var(--text3); margin-bottom: 12px; letter-spacing: 0.3px;
         }
         .match-status {
-            font-weight: 600;
-            font-size: 10px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
+            font-weight: 600; font-size: 10px; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px;
         }
-        .match-status.live {
-            background: var(--red);
-            color: #fff;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        .match-status.final {
-            background: rgba(255,255,255,0.12);
-            color: var(--text2);
-        }
-        .match-status.upcoming {
-            background: rgba(0,122,255,0.3);
-            color: #a0d2ff;
-        }
-        .match-teams {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .match-team {
-            flex: 1;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: -0.2px;
-        }
-        .match-team:last-child { text-align: right; }
-        .match-score {
-            font-size: 30px;
-            font-weight: 700;
-            margin: 0 20px;
-            min-width: 70px;
-            text-align: center;
-            letter-spacing: 4px;
-            font-variant-numeric: tabular-nums;
-        }
-        .match-score.vs {
-            font-size: 14px;
-            color: var(--text3);
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-        .match-scorers {
-            font-size: 11px;
-            color: var(--text3);
-            margin-top: 8px;
-            letter-spacing: 0.3px;
-        }
+        .match-status.live { background: var(--red); color: #fff; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+        .match-status.final { background: rgba(255,255,255,0.12); color: var(--text2); }
+        .match-status.upcoming { background: rgba(0,122,255,0.3); color: #a0d2ff; }
 
-        /* 表格 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
+        .match-teams { display: flex; align-items: center; justify-content: space-between; }
+        .match-team {
+            flex: 1; font-size: 16px; font-weight: 600; letter-spacing: -0.2px;
+            display: flex; align-items: center; gap: 8px;
         }
+        .match-team:last-child { justify-content: flex-end; text-align: right; flex-direction: row-reverse; }
+        .match-team .flag { font-size: 24px; line-height: 1; }
+        .match-score {
+            font-size: 30px; font-weight: 700; margin: 0 20px; min-width: 70px;
+            text-align: center; letter-spacing: 4px; font-variant-numeric: tabular-nums;
+        }
+        .match-score.vs { font-size: 14px; color: var(--text3); letter-spacing: 2px; font-weight: 500; }
+        .match-scorers { font-size: 11px; color: var(--text3); margin-top: 8px; letter-spacing: 0.3px; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
         th {
-            text-align: left;
-            padding: 10px 4px 8px;
-            font-size: 10px;
-            color: var(--text3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            font-weight: 500;
+            text-align: left; padding: 10px 4px 8px; font-size: 10px; color: var(--text3);
+            text-transform: uppercase; letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 500;
         }
         th:first-child { width: 30px; }
-        th:nth-child(2) { min-width: 110px; }
+        th:nth-child(2) { min-width: 100px; }
         th:last-child, td:last-child { text-align: right; }
-        td {
-            padding: 10px 4px;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-        }
+        td { padding: 10px 4px; border-bottom: 1px solid rgba(255,255,255,0.04); }
         tr:last-child td { border-bottom: none; }
 
         .pos {
-            width: 22px; height: 22px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 700;
+            width: 22px; height: 22px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 700;
         }
         .pos.c1 { background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; }
         .pos.c2 { background: linear-gradient(135deg, #C0C0C0, #A8A8A8); color: #000; }
         .pos.c3 { background: linear-gradient(135deg, #CD7F32, #B8860B); color: #fff; }
         .pos.cl { background: rgba(255,69,58,0.5); color: #fff; font-size: 10px; }
-        .team-name { font-weight: 500; }
+        .team-name { font-weight: 500; font-size: 13px; }
+        .team-name .flag { font-size: 16px; margin-right: 4px; vertical-align: -1px; }
         .stats { font-size: 11px; color: var(--text3); font-variant-numeric: tabular-nums; }
         .pts { font-weight: 700; font-size: 14px; color: #fff; }
         .gd { font-weight: 500; }
         .gd.positive { color: var(--green); }
         .gd.negative { color: var(--red); }
 
-        /* 小组选择器 */
-        .group-selector {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin-bottom: 14px;
-        }
+        .group-selector { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
         .group-btn {
-            width: 34px; height: 34px;
-            border-radius: 50%;
+            width: 34px; height: 34px; border-radius: 50%;
             border: 1px solid rgba(255,255,255,0.12);
             background: rgba(255,255,255,0.06);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-            color: var(--text3);
-            transition: all 0.25s;
+            font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
+            color: var(--text3); transition: all 0.25s;
         }
         .group-btn:hover { background: rgba(255,255,255,0.12); }
         .group-btn.active {
-            background: rgba(0,122,255,0.3);
-            border-color: rgba(0,122,255,0.4);
-            color: #fff;
-            box-shadow: 0 0 12px rgba(0,122,255,0.2);
+            background: rgba(0,122,255,0.3); border-color: rgba(0,122,255,0.4);
+            color: #fff; box-shadow: 0 0 12px rgba(0,122,255,0.2);
         }
 
-        .loading {
-            text-align: center;
-            padding: 36px;
-            color: var(--text3);
-        }
-
+        .loading { text-align: center; padding: 36px; color: var(--text3); }
         .bottom-spacer { height: 40px; }
+        .note { font-size: 11px; color: var(--text3); margin-top: 16px; text-align: center; letter-spacing: 0.5px; }
 
-        .note {
-            font-size: 11px;
-            color: var(--text3);
-            margin-top: 16px;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        /* 苏超英雄卡 */
-        .champion-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        .leader-badge {
+            display: inline-flex; align-items: center; gap: 6px;
             background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,165,0,0.15));
             border: 1px solid rgba(255,215,0,0.25);
-            border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 12px;
-            font-weight: 600;
-            color: #FFD700;
-            margin-bottom: 16px;
+            border-radius: 20px; padding: 6px 14px;
+            font-size: 12px; font-weight: 600; color: #FFD700; margin-bottom: 16px;
         }
+        .summary-row {
+            display: flex; justify-content: space-between; padding: 6px 0;
+            font-size: 13px;
+        }
+        .summary-row .label { color: var(--text3); }
+        .summary-row .value { font-weight: 600; }
 
-        /* 响应式表格 */
         @media (max-width: 380px) {
-            th:nth-child(4), td:nth-child(4),
-            th:nth-child(5), td:nth-child(5),
-            th:nth-child(6), td:nth-child(6) { display: none; }
+            th:nth-child(4),td:nth-child(4),
+            th:nth-child(5),td:nth-child(5),
+            th:nth-child(6),td:nth-child(6) { display: none; }
         }
     </style>
 </head>
@@ -315,72 +169,79 @@
     <div class="content">
         <div class="header">
             <h1>2026 足球赛况</h1>
-            <p class="sub">FIFA WORLD CUP · SCOTTISH PREMIERSHIP</p>
+            <p class="sub">FIFA WORLD CUP · 江苏省城市足球联赛</p>
         </div>
 
         <div class="section-tabs">
-            <button class="section-tab active" onclick="showSection('worldcup')">🏆 世界杯 2026</button>
-            <button class="section-tab" onclick="showSection('spfl')">🏴󠁧󠁢󠁳󠁣󠁴󠁿 苏超 2026</button>
+            <button class="section-tab active" onclick="showSection('worldcup')">
+                <!-- globe icon -->
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                世界杯 2026
+            </button>
+            <button class="section-tab" onclick="showSection('spfl')">
+                <!-- trophy icon -->
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 7 8 9"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 17 7 16 9"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                苏超 2026
+            </button>
         </div>
 
-        <!-- 世界杯 -->
         <div id="worldcup-section">
             <div class="card" id="wc-recent">
-                <h2>最新赛果</h2>
+                <h2>
+                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    最新赛果
+                </h2>
                 <div class="loading">加载中...</div>
             </div>
             <div class="card" id="wc-today">
-                <h2>今日赛程</h2>
+                <h2>
+                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    今日赛程
+                </h2>
                 <div class="loading">加载中...</div>
             </div>
             <div class="card">
-                <h2>小组积分</h2>
+                <h2>
+                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    小组积分
+                </h2>
                 <div class="group-selector" id="groupBtns"></div>
                 <div id="groupTable"></div>
             </div>
         </div>
 
-        <!-- 苏超 -->
         <div id="spfl-section" style="display:none;">
             <div class="card">
-                <div class="champion-badge">🏆 Celtic（凯尔特人）· 2025/26 赛季冠军</div>
-                <h2>积分榜</h2>
+                <div class="leader-badge">🥇 盐城队 · 5战全胜领跑</div>
+                <h2>
+                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    积分榜
+                </h2>
                 <table id="spflTable"></table>
-                <p class="note">赛季已结束 · 数据来源 ESPN / footballdatabase.com</p>
+                <p class="note">数据来源 jscl.moyu.js.cn · 实时更新</p>
             </div>
-
             <div class="card">
-                <h2>赛季摘要</h2>
+                <h2>
+                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    联赛速览
+                </h2>
                 <div class="match-card" style="margin-bottom:0;">
-                    <div class="match-teams" style="flex-direction:column;gap:12px;">
-                        <div style="display:flex;justify-content:space-between;width:100%;">
-                            <span style="color:var(--text3)">冠军</span>
-                            <span style="font-weight:600;">Celtic · 82分</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;width:100%;">
-                            <span style="color:var(--text3)">进球最多</span>
-                            <span style="font-weight:600;">Rangers（流浪者）· 76球</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;width:100%;">
-                            <span style="color:var(--text3)">降级</span>
-                            <span style="font-weight:600;color:var(--red);">Livingston（利文斯顿）</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;width:100%;">
-                            <span style="color:var(--text3)">场均进球</span>
-                            <span style="font-weight:600;">2.78</span>
-                        </div>
+                    <div style="display:flex;flex-direction:column;gap:14px;">
+                        <div class="summary-row"><span class="label">参赛队伍</span><span class="value">13 支城市代表队</span></div>
+                        <div class="summary-row"><span class="label">赛制</span><span class="value">常规赛 + 淘汰赛</span></div>
+                        <div class="summary-row"><span class="label">领头羊</span><span class="value" style="color:#FFD700;">盐城队 · 15分</span></div>
+                        <div class="summary-row"><span class="label">已进行</span><span class="value">4–5 轮</span></div>
+                        <div class="summary-row"><span class="label">阶段</span><span class="value">常规赛进行中</span></div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="bottom-spacer"></div>
     </div>
 
     <script>
         const API = 'https://worldcup26.ir';
 
-        // 中文队名映射 (team_id → 中文名)
         const ZH = {
             1:'墨西哥',2:'南非',3:'韩国',4:'捷克',5:'加拿大',6:'波黑',7:'卡塔尔',8:'瑞士',
             9:'巴西',10:'摩洛哥',11:'海地',12:'苏格兰',13:'美国',14:'巴拉圭',15:'澳大利亚',16:'土耳其',
@@ -390,129 +251,134 @@
             41:'葡萄牙',42:'民主刚果',43:'乌兹别克斯坦',44:'哥伦比亚',45:'英格兰',46:'克罗地亚',47:'加纳',48:'巴拿马'
         };
 
+        const FLAGS = {
+            1:'🇲🇽',2:'🇿🇦',3:'🇰🇷',4:'🇨🇿',5:'🇨🇦',6:'🇧🇦',7:'🇶🇦',8:'🇨🇭',
+            9:'🇧🇷',10:'🇲🇦',11:'🇭🇹',12:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',13:'🇺🇸',14:'🇵🇾',15:'🇦🇺',16:'🇹🇷',
+            17:'🇩🇪',18:'🇨🇼',19:'🇨🇮',20:'🇪🇨',21:'🇳🇱',22:'🇯🇵',23:'🇸🇪',24:'🇹🇳',
+            25:'🇧🇪',26:'🇪🇬',27:'🇮🇷',28:'🇳🇿',29:'🇪🇸',30:'🇨🇻',31:'🇸🇦',32:'🇺🇾',
+            33:'🇫🇷',34:'🇸🇳',35:'🇮🇶',36:'🇳🇴',37:'🇦🇷',38:'🇩🇿',39:'🇦🇹',40:'🇯🇴',
+            41:'🇵🇹',42:'🇨🇩',43:'🇺🇿',44:'🇨🇴',45:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',46:'🇭🇷',47:'🇬🇭',48:'🇵🇦'
+        };
+
         async function loadWorldCup() {
             try {
                 const [gamesRes, teamsRes, groupsRes] = await Promise.all([
-                    fetch(`${API}/get/games`),
-                    fetch(`${API}/get/teams`),
-                    fetch(`${API}/get/groups`)
+                    fetch(`${API}/get/games`), fetch(`${API}/get/teams`), fetch(`${API}/get/groups`)
                 ]);
-                const gamesData = await gamesRes.json();
-                const teamsData = await teamsRes.json();
-                const groupsData = await groupsRes.json();
+                const gd = await gamesRes.json(), td = await teamsRes.json(), grd = await groupsRes.json();
                 const teams = {};
-                (teamsData.teams || teamsData).forEach(t => {
-                    const id = t.id || t._id;
-                    teams[id] = ZH[id] || t.name_en || t.name;
-                });
-                const games = gamesData.games || gamesData || [];
+                (td.teams||td).forEach(t => { const id=t.id||t._id; teams[id]=ZH[id]||t.name_en||t.name; });
+                const games = gd.games||gd||[];
                 renderWorldCupMatches(games, teams);
-                renderGroupStandings(groupsData, teams);
+                renderGroupStandings(grd, teams);
             } catch(e) {
-                document.querySelectorAll('#wc-recent .loading, #wc-today .loading').forEach(el => {
-                    el.textContent = '数据加载失败，请稍后再试';
-                });
+                document.querySelectorAll('#wc-recent .loading, #wc-today .loading').forEach(el =>
+                    el.textContent='数据加载失败，请稍后再试');
             }
         }
 
         function renderWorldCupMatches(games, teams) {
-            const finished = games.filter(g => g.finished === 'TRUE' || g.time_elapsed === 'finished');
+            const finished = games.filter(g => g.finished==='TRUE'||g.time_elapsed==='finished');
             const today = new Date().toISOString().split('T')[0];
             const upcoming = games.filter(g => {
-                if (g.finished === 'TRUE') return false;
-                const gd = g.local_date ? g.local_date.split(' ')[0] : '';
-                const [m,d,y] = gd.split('/');
-                return `20${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}` === today;
+                if(g.finished==='TRUE') return false;
+                const d=g.local_date?g.local_date.split(' ')[0]:'';
+                const [m,dy,y]=d.split('/');
+                return `20${y}-${m.padStart(2,'0')}-${dy.padStart(2,'0')}`===today;
             });
 
-            const recentDiv = document.getElementById('wc-recent');
-            recentDiv.innerHTML = finished.length
-                ? '<h2>最新赛果</h2>' + finished.map(g => matchHTML(g, teams, 'final')).join('')
-                : '<h2>最新赛果</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无已结束的比赛</p>';
+            const rd=document.getElementById('wc-recent');
+            rd.innerHTML = finished.length
+                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final')).join('')
+                : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无已结束的比赛</p>';
 
-            const todayDiv = document.getElementById('wc-today');
-            const running = games.filter(g => g.time_elapsed === 'live');
-            const all = [...running, ...upcoming];
-            todayDiv.innerHTML = all.length
-                ? '<h2>今日赛程</h2>' + all.map(g => matchHTML(g, teams, g.time_elapsed === 'live' ? 'live' : 'upcoming')).join('')
-                : '<h2>今日赛程</h2><p style="color:var(--text3);text-align:center;padding:10px;">今日无比赛</p>';
+            const td2=document.getElementById('wc-today');
+            const running=games.filter(g=>g.time_elapsed==='live');
+            const all=[...running,...upcoming];
+            td2.innerHTML = all.length
+                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>今日赛程</h2>'+all.map(g=>matchHTML(g,teams,g.time_elapsed==='live'?'live':'upcoming')).join('')
+                : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>今日赛程</h2><p style="color:var(--text3);text-align:center;padding:10px;">今日无比赛</p>';
         }
 
         function matchHTML(g, teams, status) {
-            const home = teams[g.home_team_id] || g.home_team_name_en || '?';
-            const away = teams[g.away_team_id] || g.away_team_name_en || '?';
-            const labels = { live: '● 进行中', final: '已结束', upcoming: '即将开始' };
-            let scorers = '';
-            if (status === 'final' && (Number(g.home_score) > 0 || Number(g.away_score) > 0)) {
-                scorers = `<div class="match-scorers">⚽ ${g.home_scorers || ''}${g.away_scorers ? '  ·  ⚽ ' + g.away_scorers : ''}</div>`;
-            }
+            const hid = g.home_team_id, aid = g.away_team_id;
+            const home = teams[hid]||g.home_team_name_en||'?';
+            const away = teams[aid]||g.away_team_name_en||'?';
+            const hflag = FLAGS[hid]||'', aflag = FLAGS[aid]||'';
+            const labels = { live:'● 进行中', final:'已结束', upcoming:'即将开始' };
+            let scorers='';
+            if(status==='final'&&(Number(g.home_score)>0||Number(g.away_score)>0))
+                scorers=`<div class="match-scorers">⚽ ${g.home_scorers||''}${g.away_scorers?'  ·  ⚽ '+g.away_scorers:''}</div>`;
             return `<div class="match-card">
-                <div class="match-header"><span>${g.group || ''}组 · ${g.local_date || ''}</span><span class="match-status ${status}">${labels[status]}</span></div>
+                <div class="match-header"><span>${g.group||''}组 · ${g.local_date||''}</span><span class="match-status ${status}">${labels[status]}</span></div>
                 <div class="match-teams">
-                    <div class="match-team">${home}</div>
+                    <div class="match-team"><span class="flag">${hflag}</span><span>${home}</span></div>
                     <div class="match-score ${status==='upcoming'?'vs':''}">${status==='upcoming'?'VS':`${g.home_score||0} – ${g.away_score||0}`}</div>
-                    <div class="match-team">${away}</div>
-                </div>${scorers}
-            </div>`;
+                    <div class="match-team"><span class="flag">${aflag}</span><span>${away}</span></div>
+                </div>${scorers}</div>`;
         }
 
-        let currentGroup = 'A', allGroups = [], teamMap = {};
+        let currentGroup='A', allGroups=[], teamMap={};
 
         function renderGroupStandings(groupsData, teams) {
-            teamMap = teams;
-            allGroups = (groupsData.groups || groupsData).filter(g => g.name || g.group);
-            document.getElementById('groupBtns').innerHTML = 'ABCDEFGHIJKL'.split('').map(l =>
+            teamMap=teams;
+            allGroups=(groupsData.groups||groupsData).filter(g=>g.name||g.group);
+            document.getElementById('groupBtns').innerHTML='ABCDEFGHIJKL'.split('').map(l=>
                 `<button class="group-btn${l===currentGroup?' active':''}" onclick="showGroup('${l}')">${l}</button>`
             ).join('');
             showGroup(currentGroup);
         }
 
         function showGroup(letter) {
-            currentGroup = letter;
-            document.querySelectorAll('.group-btn').forEach(b => b.classList.remove('active'));
+            currentGroup=letter;
+            document.querySelectorAll('.group-btn').forEach(b=>b.classList.remove('active'));
             event.target.classList.add('active');
-            const g = allGroups.find(g => (g.name||g.group) === letter);
-            if (!g) { document.getElementById('groupTable').innerHTML = '<p style="color:var(--text3);text-align:center;">暂无数据</p>'; return; }
-            const list = (g.teams||g.standings||[]).sort((a,b) => {
-                const pa = (a.wins||a.won||a.w||0)*3 + (a.draws||a.drawn||a.d||0);
-                const pb = (b.wins||b.won||b.w||0)*3 + (b.draws||b.drawn||b.d||0);
-                if (pb!==pa) return pb-pa;
-                return ((b.gf||b.goals_for||0)-(b.ga||b.goals_against||0)) - ((a.gf||a.goals_for||0)-(a.ga||a.goals_against||0));
+            const g=allGroups.find(g=>(g.name||g.group)===letter);
+            if(!g){document.getElementById('groupTable').innerHTML='<p style="color:var(--text3);text-align:center;">暂无数据</p>';return;}
+            const list=(g.teams||g.standings||[]).sort((a,b)=>{
+                const pa=(a.wins||a.won||a.w||0)*3+(a.draws||a.drawn||a.d||0);
+                const pb=(b.wins||b.won||b.w||0)*3+(b.draws||b.drawn||b.d||0);
+                if(pb!==pa)return pb-pa;
+                return((b.gf||b.goals_for||0)-(b.ga||b.goals_against||0))-((a.gf||a.goals_for||0)-(a.ga||a.goals_against||0));
             });
-            document.getElementById('groupTable').innerHTML = `<table>
+            document.getElementById('groupTable').innerHTML=`<table>
                 <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
-                ${list.map((t,i) => {
-                    const n = ZH[t.team_id||t.id] || teamMap[t.team_id||t.id] || `Team ${t.team_id||t.id}`;
-                    const mp=t.played||t.mp||t.p||0, w=t.wins||t.won||t.w||0, d=t.draws||t.drawn||t.d||0, l=t.losses||t.lost||t.l||0;
-                    const gf=t.gf||t.goals_for||0, ga=t.ga||t.goals_against||0, gd=gf-ga, pts=w*3+d;
-                    return `<tr><td>${i+1}</td><td class="team-name">${n}</td><td class="stats">${mp}</td><td class="stats">${w}</td><td class="stats">${d}</td><td class="stats">${l}</td><td class="stats">${gf}-${ga}</td><td class="stats gd ${gd>0?'positive':gd<0?'negative':''}">${gd>0?'+':''}${gd}</td><td class="pts">${pts}</td></tr>`;
+                ${list.map((t,i)=>{
+                    const tid=t.team_id||t.id;
+                    const n=ZH[tid]||teamMap[tid]||`Team ${tid}`;
+                    const fl=FLAGS[tid]||'';
+                    const mp=t.played||t.mp||t.p||0,w=t.wins||t.won||t.w||0,d=t.draws||t.drawn||t.d||0,l=t.losses||t.lost||t.l||0;
+                    const gf=t.gf||t.goals_for||0,ga=t.ga||t.goals_against||0,gd=gf-ga,pts=w*3+d;
+                    return `<tr><td>${i+1}</td><td class="team-name"><span class="flag">${fl}</span>${n}</td><td class="stats">${mp}</td><td class="stats">${w}</td><td class="stats">${d}</td><td class="stats">${l}</td><td class="stats">${gf}-${ga}</td><td class="stats gd ${gd>0?'positive':gd<0?'negative':''}">${gd>0?'+':''}${gd}</td><td class="pts">${pts}</td></tr>`;
                 }).join('')}
             </table>`;
         }
 
+        // === 江苏省城市足球联赛（苏超）===
         const SPFL = [
-            { pos:1, name:'Celtic（凯尔特人）', p:38, w:26, d:4, l:8, gf:73, ga:41, gd:32, pts:82 },
-            { pos:2, name:'Hearts（哈茨）', p:38, w:24, d:8, l:6, gf:67, ga:34, gd:33, pts:80 },
-            { pos:3, name:'Rangers（流浪者）', p:38, w:20, d:12, l:6, gf:76, ga:43, gd:33, pts:72 },
-            { pos:4, name:'Motherwell（马瑟韦尔）', p:38, w:16, d:13, l:9, gf:59, ga:36, gd:23, pts:61 },
-            { pos:5, name:'Hibernian（希伯尼安）', p:38, w:15, d:12, l:11, gf:58, ga:44, gd:14, pts:57 },
-            { pos:6, name:'Falkirk（福尔柯克）', p:38, w:14, d:7, l:17, gf:50, ga:62, gd:-12, pts:49 },
-            { pos:7, name:'Dundee Utd（邓迪联）', p:38, w:10, d:15, l:13, gf:49, ga:60, gd:-11, pts:45 },
-            { pos:8, name:'Dundee（邓迪）', p:38, w:11, d:9, l:18, gf:42, ga:61, gd:-19, pts:42 },
-            { pos:9, name:'Aberdeen（阿伯丁）', p:38, w:11, d:7, l:20, gf:40, ga:55, gd:-15, pts:40 },
-            { pos:10, name:'Kilmarnock（基尔马诺克）', p:38, w:10, d:10, l:18, gf:50, ga:68, gd:-18, pts:40 },
-            { pos:11, name:'St. Mirren（圣米伦）', p:38, w:8, d:10, l:20, gf:30, ga:55, gd:-25, pts:34 },
-            { pos:12, name:'Livingston（利文斯顿）', p:38, w:2, d:15, l:21, gf:40, ga:75, gd:-35, pts:21 }
+            { pos:1, name:'盐城队', p:5, w:5, d:0, l:0, gf:7, ga:1, gd:6, pts:15 },
+            { pos:2, name:'无锡队', p:4, w:2, d:2, l:0, gf:6, ga:2, gd:4, pts:8 },
+            { pos:3, name:'徐州队', p:4, w:2, d:1, l:1, gf:6, ga:3, gd:3, pts:7 },
+            { pos:4, name:'苏州队', p:4, w:2, d:1, l:1, gf:5, ga:4, gd:1, pts:7 },
+            { pos:5, name:'淮安队', p:4, w:2, d:1, l:1, gf:4, ga:3, gd:1, pts:7 },
+            { pos:6, name:'常州队', p:4, w:2, d:0, l:2, gf:7, ga:4, gd:3, pts:6 },
+            { pos:7, name:'宿迁队', p:4, w:2, d:0, l:2, gf:5, ga:4, gd:1, pts:6 },
+            { pos:8, name:'南京队', p:4, w:1, d:2, l:1, gf:2, ga:3, gd:-1, pts:5 },
+            { pos:9, name:'南通队', p:4, w:1, d:2, l:1, gf:2, ga:4, gd:-2, pts:5 },
+            { pos:10, name:'扬州队', p:5, w:1, d:1, l:3, gf:3, ga:6, gd:-3, pts:4 },
+            { pos:11, name:'泰州队', p:4, w:1, d:0, l:3, gf:5, ga:9, gd:-4, pts:3 },
+            { pos:12, name:'连云港队', p:4, w:0, d:2, l:2, gf:3, ga:6, gd:-3, pts:2 },
+            { pos:13, name:'镇江队', p:4, w:0, d:0, l:4, gf:2, ga:8, gd:-6, pts:0 }
         ];
 
         function cls(p) {
-            if (p===1) return 'c1'; if (p===2) return 'c2'; if (p===3) return 'c3'; if (p===12) return 'cl'; return '';
+            if(p===1)return'c1';if(p===2)return'c2';if(p===3)return'c3';if(p===13)return'cl';return'';
         }
 
         function renderSPFL() {
-            document.getElementById('spflTable').innerHTML = `
+            document.getElementById('spflTable').innerHTML=`
             <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
-            ${SPFL.map(t => `<tr>
+            ${SPFL.map(t=>`<tr>
                 <td><span class="pos ${cls(t.pos)}">${t.pos}</span></td>
                 <td class="team-name">${t.name}</td>
                 <td class="stats">${t.p}</td><td class="stats">${t.w}</td><td class="stats">${t.d}</td><td class="stats">${t.l}</td>
@@ -523,14 +389,13 @@
         }
 
         function showSection(s) {
-            document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
-            document.getElementById('worldcup-section').style.display = s==='worldcup'?'block':'none';
-            document.getElementById('spfl-section').style.display = s==='spfl'?'block':'none';
+            document.querySelectorAll('.section-tab').forEach(t=>t.classList.remove('active'));
+            document.getElementById('worldcup-section').style.display=s==='worldcup'?'block':'none';
+            document.getElementById('spfl-section').style.display=s==='spfl'?'block':'none';
             document.querySelectorAll('.section-tab')[s==='worldcup'?0:1].classList.add('active');
         }
 
-        loadWorldCup();
-        renderSPFL();
+        loadWorldCup(); renderSPFL();
     </script>
 </body>
 </html>
