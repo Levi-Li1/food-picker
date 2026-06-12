@@ -21,7 +21,7 @@
             transition: background 0.6s ease;
         }
         body.spfl-mode {
-            background: linear-gradient(180deg, #1a0a0a 0%, #2d1010 30%, #1f0d0d 60%, #3d1212 100%);
+            background: linear-gradient(180deg, #3b0a0a 0%, #5c1010 30%, #4a0000 60%, #7a1515 100%);
         }
         body::before {
             content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -32,32 +32,73 @@
             transition: background 0.6s ease;
         }
         body.spfl-mode::before {
-            background: radial-gradient(ellipse at 20% 15%, rgba(255,69,58,0.25) 0%, transparent 50%),
-                        radial-gradient(ellipse at 75% 70%, rgba(220,38,38,0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 40% 85%, rgba(255,159,10,0.12) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 20% 15%, rgba(255,40,30,0.38) 0%, transparent 50%),
+                        radial-gradient(ellipse at 75% 70%, rgba(255,30,20,0.28) 0%, transparent 50%),
+                        radial-gradient(ellipse at 40% 80%, rgba(255,160,20,0.18) 0%, transparent 50%);
         }
         /* 赛事氛围装饰 - 球场灯光效果 */
         body.spfl-mode::after {
             content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: 
-                radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.03) 0%, transparent 70%),
-                radial-gradient(circle at 15% 50%, rgba(255,69,58,0.06) 0%, transparent 40%),
-                radial-gradient(circle at 85% 60%, rgba(239,68,68,0.05) 0%, transparent 35%);
+                radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.06) 0%, transparent 60%),
+                radial-gradient(circle at 12% 50%, rgba(255,50,35,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 88% 55%, rgba(255,40,30,0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(255,120,30,0.08) 0%, transparent 35%);
             pointer-events: none; z-index: 0;
             animation: fieldGlow 4s ease-in-out infinite alternate;
         }
         @keyframes fieldGlow {
-            0% { opacity: 0.6; }
+            0% { opacity: 0.65; }
             100% { opacity: 1; }
         }
         .content { position: relative; z-index: 1; }
-        .header { text-align: center; padding: 60px 20px 24px; }
+        /* 世界杯海报风格头部 */
+        .header {
+            text-align: center; padding: 60px 20px 30px;
+            position: relative;
+        }
+        .header::before {
+            content: '2026';
+            position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+            font-size: 120px; font-weight: 900; letter-spacing: 8px;
+            color: rgba(255,255,255,0.03);
+            pointer-events: none; z-index: -1;
+            line-height: 1;
+        }
+        .header .trophy-icon { margin-bottom: 8px; opacity: 0.8; }
         .header h1 {
             font-size: 34px; font-weight: 700; letter-spacing: -0.5px;
             background: linear-gradient(135deg, #ffffff 0%, #a0c4ff 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            position: relative;
         }
-        .header .sub { font-size: 14px; color: var(--text3); margin-top: 6px; letter-spacing: 1px; }
+        .header .sub {
+            font-size: 13px; color: var(--text3); margin-top: 6px; letter-spacing: 2px;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+        }
+        .header .sub::before, .header .sub::after {
+            content: ''; width: 40px; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+        /* 折叠面板 */
+        .date-group { margin-bottom: 12px; }
+        .date-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 14px; border-radius: 10px;
+            background: rgba(255,255,255,0.08);
+            cursor: pointer; font-size: 13px; font-weight: 600;
+            color: var(--text2); user-select: none;
+            transition: background 0.2s;
+        }
+        .date-header:hover { background: rgba(255,255,255,0.12); }
+        .date-header .arrow {
+            transition: transform 0.3s;
+            width: 14px; height: 14px;
+        }
+        .date-header .arrow.open { transform: rotate(180deg); }
+        .date-body { overflow: hidden; max-height: 0; transition: max-height 0.4s ease; }
+        .date-body.open { max-height: 2000px; }
+        .date-body .match-card { margin-top: 8px; }
 
         .section-tabs {
             display: flex; gap: 0; margin: 0 20px 16px;
@@ -196,6 +237,14 @@
 <body>
     <div class="content">
         <div class="header">
+            <div class="trophy-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <path d="M12 8h24v6a12 12 0 0 1-24 0V8Z" fill="rgba(255,215,0,0.3)" stroke="rgba(255,215,0,0.5)" stroke-width="1.5"/>
+                    <path d="M18 8V4h12v4" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                    <path d="M14 6h20" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                    <circle cx="24" cy="12" r="3" fill="rgba(255,215,0,0.4)"/>
+                </svg>
+            </div>
             <h1>2026 足球赛况</h1>
             <p class="sub">FIFA WORLD CUP · 江苏省城市足球联赛</p>
         </div>
@@ -340,12 +389,43 @@
                 ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final',stadiums)).join('')
                 : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无已结束的比赛</p>';
 
-            const td2=document.getElementById('wc-today');
+            // 赛程预告按日期折叠
             const running=games.filter(g=>g.time_elapsed==='live');
             const all=[...running,...upcoming];
-            td2.innerHTML = all.length
-                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2>'+all.map(g=>matchHTML(g,teams,g.time_elapsed==='live'?'live':'upcoming',stadiums)).join('')
-                : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无预告数据</p>';
+            const grouped = {};
+            all.forEach(g => {
+                const gd = g.local_date ? g.local_date.split(' ')[0] : '未知';
+                if(!grouped[gd]) grouped[gd] = [];
+                grouped[gd].push(g);
+            });
+            const todayDiv = document.getElementById('wc-today');
+            if (all.length === 0) {
+                todayDiv.innerHTML = '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无预告数据</p>';
+            } else {
+                let html = '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2>';
+                const dates = Object.keys(grouped).sort();
+                dates.forEach((date, idx) => {
+                    const ms = grouped[date];
+                    const f = idx === 0; // 第一个（最近）默认展开
+                    html += `<div class="date-group">
+                        <div class="date-header" onclick="toggleDate(this)">
+                            <span>📅 ${date} · ${ms.length} 场比赛</span>
+                            <svg class="arrow${f?' open':''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                        <div class="date-body${f?' open':''}">
+                            ${ms.map(g => matchHTML(g, teams, g.time_elapsed==='live'?'live':'upcoming', stadiums)).join('')}
+                        </div>
+                    </div>`;
+                });
+                todayDiv.innerHTML = html;
+            }
+        }
+
+        function toggleDate(el) {
+            const body = el.nextElementSibling;
+            const arrow = el.querySelector('.arrow');
+            body.classList.toggle('open');
+            arrow.classList.toggle('open');
         }
 
         function matchHTML(g, teams, status, stadiums) {
