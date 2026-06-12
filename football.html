@@ -18,6 +18,10 @@
             background: linear-gradient(180deg, #0a1628 0%, #162447 30%, #1a1a2e 60%, #0f3460 100%);
             min-height: 100vh; color: var(--text);
             -webkit-font-smoothing: antialiased; position: relative; overflow-x: hidden;
+            transition: background 0.6s ease;
+        }
+        body.spfl-mode {
+            background: linear-gradient(180deg, #0d1f0d 0%, #1a3a1a 30%, #0f2b0f 60%, #064206 100%);
         }
         body::before {
             content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -25,6 +29,12 @@
                         radial-gradient(ellipse at 80% 60%, rgba(48,209,88,0.10) 0%, transparent 50%),
                         radial-gradient(ellipse at 40% 80%, rgba(255,159,10,0.08) 0%, transparent 50%);
             pointer-events: none; z-index: 0;
+            transition: background 0.6s ease;
+        }
+        body.spfl-mode::before {
+            background: radial-gradient(ellipse at 20% 20%, rgba(34,197,94,0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 60%, rgba(72,187,120,0.10) 0%, transparent 50%),
+                        radial-gradient(ellipse at 40% 80%, rgba(255,215,0,0.10) 0%, transparent 50%);
         }
         .content { position: relative; z-index: 1; }
         .header { text-align: center; padding: 60px 20px 24px; }
@@ -330,8 +340,11 @@
             const hflag = flagImg(FLAGS[hid]), aflag = flagImg(FLAGS[aid]);
             const labels = { live:'● 进行中', final:'已结束', upcoming:'即将开始' };
             let scorers='';
-            if(status==='final'&&(Number(g.home_score)>0||Number(g.away_score)>0))
-                scorers=`<div class="match-scorers">⚽ ${g.home_scorers||''}${g.away_scorers?'  ·  ⚽ '+g.away_scorers:''}</div>`;
+            if(status==='final'){
+                const hs = g.home_scorers && g.home_scorers !== 'null' ? g.home_scorers : '';
+                const as = g.away_scorers && g.away_scorers !== 'null' ? g.away_scorers : '';
+                if(hs || as) scorers = `<div class="match-scorers">⚽ ${hs}${hs&&as?'  ·  ⚽ ':''}${as}</div>`;
+            }
             return `<div class="match-card">
                 <div class="match-header"><span>${g.group||''}组 · ${g.local_date||''}</span><span class="match-status ${status}">${labels[status]}</span></div>
                 <div class="match-teams">
@@ -439,23 +452,25 @@
                         <div class="match-score vs">VS</div>
                         <div class="match-team"><span>无锡队</span></div>
                     </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">徐州奥林匹克体育中心体育场</div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">📍 徐州奥林匹克体育中心体育场</div>
                 </div>
                 <div class="match-card">
+                    <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
                     <div class="match-teams">
                         <div class="match-team"><span>宿迁队</span></div>
                         <div class="match-score vs">VS</div>
                         <div class="match-team"><span>镇江队</span></div>
                     </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">宿迁奥林匹克体育中心体育场</div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">📍 宿迁奥林匹克体育中心体育场</div>
                 </div>
                 <div class="match-card">
+                    <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
                     <div class="match-teams">
                         <div class="match-team"><span>南通队</span></div>
                         <div class="match-score vs">VS</div>
                         <div class="match-team"><span>泰州队</span></div>
                     </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">南通体育会展中心体育场</div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">📍 南通体育会展中心体育场</div>
                 </div>
             </div>`;
             document.getElementById('spflFixtures').innerHTML = fixturesHTML;
@@ -466,6 +481,7 @@
             document.getElementById('worldcup-section').style.display=s==='worldcup'?'block':'none';
             document.getElementById('spfl-section').style.display=s==='spfl'?'block':'none';
             document.querySelectorAll('.section-tab')[s==='worldcup'?0:1].classList.add('active');
+            document.body.classList.toggle('spfl-mode', s==='spfl');
         }
 
         loadWorldCup(); renderSPFL();
