@@ -785,11 +785,15 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
 
-            // renderWheel中sweep-flag=0逆时针画弧，扇形从顶部(index0)开始逆时针排列
-            // 索引i的扇形中心在 270° - (i+0.5)*angleStep
-            // 要让指针(顶部270°)指向索引i: 270° ≡ 270° - (i+0.5)*angleStep + θ (mod 360)
-            // θ = (i+0.5)*angleStep (顺时针旋转)
-            const targetAngle = (randomIndex + 0.5) * angleStep + extraSpins * 360;
+            // sweep-flag=1 顺时针画弧，扇形从topAngle开始顺时针排列
+            // 索引i的扇形中心在 topAngle - (i+0.5)*angleStep
+            // 指针固定在topAngle，旋转θ°后指针指向轮盘角度 topAngle - θ
+            // 要让指针指向索引i: topAngle - θ ≡ topAngle - (i+0.5)*angleStep (mod 360)
+            // θ = (i+0.5)*angleStep ... 但CSS rotate顺时针所以
+            // 指针在旋转后指向轮盘角度 topAngle + θ (mod 360)
+            // 需要 topAngle + θ ≡ topAngle - (i+0.5)*angleStep (mod 360) 
+            // θ = 360 - (i+0.5)*angleStep
+            const targetAngle = 360 - (randomIndex + 0.5) * angleStep + extraSpins * 360;
 
             console.log(`选择: ${randomIndex}(${foods[randomIndex]?.name}), 角度: ${targetAngle.toFixed(0)}°`);
 
