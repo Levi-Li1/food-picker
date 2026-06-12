@@ -285,14 +285,16 @@
 
         async function loadWorldCup() {
             try {
-                const [gamesRes, teamsRes, groupsRes] = await Promise.all([
-                    fetch(`${API}/get/games`), fetch(`${API}/get/teams`), fetch(`${API}/get/groups`)
+                const [gamesRes, teamsRes, groupsRes, stadiumsRes] = await Promise.all([
+                    fetch(`${API}/get/games`), fetch(`${API}/get/teams`), fetch(`${API}/get/groups`), fetch(`${API}/get/stadiums`)
                 ]);
-                const gd = await gamesRes.json(), td = await teamsRes.json(), grd = await groupsRes.json();
+                const gd = await gamesRes.json(), td = await teamsRes.json(), grd = await groupsRes.json(), sd = await stadiumsRes.json();
                 const teams = {};
                 (td.teams||td).forEach(t => { const id=t.id||t._id; teams[id]=ZH[id]||t.name_en||t.name; });
+                const stadiums = {};
+                (sd.stadiums||sd).forEach(s => { stadiums[s.id||s._id] = s.name_en||s.name; });
                 const games = gd.games||gd||[];
-                renderWorldCupMatches(games, teams);
+                renderWorldCupMatches(games, teams, stadiums);
                 renderGroupStandings(grd, teams, games);
             } catch(e) {
                 document.querySelectorAll('#wc-recent .loading, #wc-today .loading').forEach(el =>
@@ -300,7 +302,7 @@
             }
         }
 
-        function renderWorldCupMatches(games, teams) {
+        function renderWorldCupMatches(games, teams, stadiums) {
             const finished = games.filter(g => g.finished==='TRUE'||g.time_elapsed==='finished');
 
             // 合并今日+未来3天 → 赛程预告
@@ -321,36 +323,42 @@
 
             const rd=document.getElementById('wc-recent');
             rd.innerHTML = finished.length
-                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final')).join('')
+                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final',stadiums)).join('')
                 : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无已结束的比赛</p>';
 
             const td2=document.getElementById('wc-today');
             const running=games.filter(g=>g.time_elapsed==='live');
             const all=[...running,...upcoming];
             td2.innerHTML = all.length
-                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2>'+all.map(g=>matchHTML(g,teams,g.time_elapsed==='live'?'live':'upcoming')).join('')
+                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2>'+all.map(g=>matchHTML(g,teams,g.time_elapsed==='live'?'live':'upcoming',stadiums)).join('')
                 : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无预告数据</p>';
         }
 
-        function matchHTML(g, teams, status) {
+        function matchHTML(g, teams, status, stadiums) {
             const hid = g.home_team_id, aid = g.away_team_id;
             const home = teams[hid]||g.home_team_name_en||'?';
             const away = teams[aid]||g.away_team_name_en||'?';
             const hflag = flagImg(FLAGS[hid]), aflag = flagImg(FLAGS[aid]);
             const labels = { live:'● 进行中', final:'已结束', upcoming:'即将开始' };
+            const venue = stadiums?.[g.stadium_id]||'';
+
+            const clean = (v) => {
+                if(!v || v==='null' || v==='undefined') return '';
+                try { const p=JSON.parse(v); return typeof p==='string' ? p : ''; } catch(e) { return String(v); }
+            };
             let scorers='';
             if(status==='final'){
-                const hs = g.home_scorers && g.home_scorers !== 'null' ? g.home_scorers : '';
-                const as = g.away_scorers && g.away_scorers !== 'null' ? g.away_scorers : '';
+                const hs = clean(g.home_scorers), as = clean(g.away_scorers);
                 if(hs || as) scorers = `<div class="match-scorers">⚽ ${hs}${hs&&as?'  ·  ⚽ ':''}${as}</div>`;
             }
+
             return `<div class="match-card">
                 <div class="match-header"><span>${g.group||''}组 · ${g.local_date||''}</span><span class="match-status ${status}">${labels[status]}</span></div>
                 <div class="match-teams">
                     <div class="match-team"><span class="flag">${hflag}</span><span>${home}</span></div>
                     <div class="match-score ${status==='upcoming'?'vs':''}">${status==='upcoming'?'VS':`${g.home_score||0} – ${g.away_score||0}`}</div>
                     <div class="match-team"><span class="flag">${aflag}</span><span>${away}</span></div>
-                </div>${scorers}</div>`;
+                </div>${scorers}${venue?`<div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${venue}</div>`:''}</div>`;
         }
 
         let currentGroup='A', allGroups=[], teamMap={};
