@@ -393,50 +393,34 @@
         // 每队队徽：SVG圆形徽章 + 城市特色元素
         const SPFL = [
             { pos:1, name:'盐城队', p:5, w:5, d:0, l:0, gf:7, ga:1, gd:6, pts:15,
-              crest:'511e539bd0904595b737bcdf149d3c4b' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731690066016533.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:2, name:'无锡队', p:4, w:2, d:2, l:0, gf:6, ga:2, gd:4, pts:8,
-              crest:'a452dee3e7e143369652e0d52af9b371' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731687099088565.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:3, name:'徐州队', p:4, w:2, d:1, l:1, gf:6, ga:3, gd:3, pts:7,
-              crest:'30b33fb9d3b640bc8e6a4bd33d19ad57' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731687482071394.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:4, name:'苏州队', p:4, w:2, d:1, l:1, gf:5, ga:4, gd:1, pts:7,
-              crest:'d9f31bc949df4bdeafc9b67f91bc5331' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731688259091649.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:5, name:'淮安队', p:4, w:2, d:1, l:1, gf:4, ga:3, gd:1, pts:7,
-              crest:'97cbe6bb2c4b42cba164be4815107422' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731689730099097.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:6, name:'常州队', p:4, w:2, d:0, l:2, gf:7, ga:4, gd:3, pts:6,
-              crest:'9610e966f08043d4a5fc1825698de23a' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731687910005131.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:7, name:'宿迁队', p:4, w:2, d:0, l:2, gf:5, ga:4, gd:1, pts:6,
-              crest:'70e901cd67e34632b4614045a2108ae7' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731691618007787.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:8, name:'南京队', p:4, w:1, d:2, l:1, gf:2, ga:3, gd:-1, pts:5,
-              crest:'04d3ee534594484b872b49f6edf3084c' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731686598010011.png?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:9, name:'南通队', p:4, w:1, d:2, l:1, gf:2, ga:4, gd:-2, pts:5,
-              crest:'3a459b17bbb14225a32667449c4fb8d5' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731688702073016.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:10, name:'扬州队', p:5, w:1, d:1, l:3, gf:3, ga:6, gd:-3, pts:4,
-              crest:'57bf50a4f1de45c2a1633cae32a9d0a9' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731690475038336.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:11, name:'泰州队', p:4, w:1, d:0, l:3, gf:5, ga:9, gd:-4, pts:3,
-              crest:'d6aa1108ea6749698a4b9b1153d92c24' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731691252026937.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:12, name:'连云港队', p:4, w:0, d:2, l:2, gf:3, ga:6, gd:-3, pts:2,
-              crest:'8c5cfd8789df4172aaba82597ee5e8a5' },
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731689270001686.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' },
             { pos:13, name:'镇江队', p:4, w:0, d:0, l:4, gf:2, ga:8, gd:-6, pts:0,
-              crest:'78ec43cc181f478d8e41708cf0625b29' }
+              crest:'https://imgcdn.yzwb.net/@/catchimages/20260317/1773731690860009466.jpg?imageMogr2/thumbnail/100x>/strip/ignore-error/1|imageslim' }
         ];
-        function crestImg(id) {
-            const crests = {
-                '511e539bd0904595b737bcdf149d3c4b': {bg:'#2d5016',fg:'#FFD700',t:'盐'},
-                'a452dee3e7e143369652e0d52af9b371': {bg:'#1a56db',fg:'#fff',t:'锡'},
-                '30b33fb9d3b640bc8e6a4bd33d19ad57': {bg:'#991b1b',fg:'#fff',t:'徐'},
-                'd9f31bc949df4bdeafc9b67f91bc5331': {bg:'#0d9488',fg:'#fff',t:'苏'},
-                '97cbe6bb2c4b42cba164be4815107422': {bg:'#4c1d95',fg:'#fbbf24',t:'淮'},
-                '9610e966f08043d4a5fc1825698de23a': {bg:'#ea580c',fg:'#fff',t:'常'},
-                '70e901cd67e34632b4614045a2108ae7': {bg:'#1e3a5f',fg:'#fff',t:'宿'},
-                '04d3ee534594484b872b49f6edf3084c': {bg:'#7f1d1d',fg:'#fbbf24',t:'宁'},
-                '3a459b17bbb14225a32667449c4fb8d5': {bg:'#374151',fg:'#fff',t:'通'},
-                '57bf50a4f1de45c2a1633cae32a9d0a9': {bg:'#166534',fg:'#fff',t:'扬'},
-                'd6aa1108ea6749698a4b9b1153d92c24': {bg:'#1e3a8a',fg:'#fff',t:'泰'},
-                '8c5cfd8789df4172aaba82597ee5e8a5': {bg:'#0369a1',fg:'#fff',t:'连'},
-                '78ec43cc181f478d8e41708cf0625b29': {bg:'#57534e',fg:'#fbbf24',t:'镇'}
-            };
-            const c = crests[id] || {bg:'#444',fg:'#fff',t:'?'};
-            return `<svg viewBox="0 0 48 48" width="28" height="28"><circle cx="24" cy="24" r="23" fill="${c.bg}" stroke="rgba(255,255,255,0.25)" stroke-width="2"/><text x="24" y="31" text-anchor="middle" fill="${c.fg}" font-size="22" font-weight="700" font-family="-apple-system,sans-serif">${c.t}</text></svg>`;
+        function crestImg(url) {
+            return `<img src="${url}" width="28" height="28" style="border-radius:50%;display:block;object-fit:cover" alt="" loading="lazy" onerror="this.style.display='none'">`;
         }
 
         function cls(p) {
