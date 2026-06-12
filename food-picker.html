@@ -154,7 +154,7 @@
         
         .wheel-pointer {
             position: absolute;
-            bottom: -14px;
+            top: -16px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
@@ -163,7 +163,6 @@
         .wheel-pointer svg {
             width: 28px;
             height: 32px;
-            transform: rotate(180deg);
         }
         
         /* 按钮组 */
@@ -779,11 +778,13 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
 
-            // offset 调整：使指针指向与弹窗一致
+            // 指针在顶部(270°)
+            // 转盘旋转θ后，原来在角度α的扇形移动到α+θ
+            // 指针指向扇形满足: (i+0.5)*angleStep + θ ≡ 270°
+            // 所以: θ = 270 - (i+0.5)*angleStep
             const offset = -4;
             const targetIndex = (randomIndex + offset + foods.length) % foods.length;
-
-            const targetAngle = 90 - (targetIndex + 0.5) * angleStep + 360 + extraSpins * 360;
+            const targetAngle = 270 - (targetIndex + 0.5) * angleStep + 360 + extraSpins * 360;
 
             console.log(`选择: ${randomIndex}(${foods[randomIndex]?.name}), 目标: ${targetIndex}, 角度: ${targetAngle.toFixed(0)}°`);
 
