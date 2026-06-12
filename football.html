@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>足球赛况</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #007aff;
+            --bg: #f2f2f7;
+            --card: #ffffff;
+            --gray1: #8e8e93;
+            --gray2: #636366;
+            --green: #34c759;
+            --red: #ff3b30;
+            --orange: #ff9500;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+            background: var(--bg);
+            color: #000;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .header {
+            text-align: center;
+            padding: 50px 20px 20px;
+            background: #fff;
+        }
+        .header h1 { font-size: 28px; font-weight: 700; }
+        .header .sub { font-size: 13px; color: var(--gray1); margin-top: 4px; }
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            margin: 12px 16px;
+            padding: 20px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-tabs {
+            display: flex;
+            gap: 0;
+            margin: 0 16px;
+            background: #e5e5ea;
+            border-radius: 10px;
+            padding: 2px;
+        }
+        .section-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: transparent;
+            color: var(--gray2);
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .section-tab.active {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .match-card {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+        }
+        .match-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--gray1);
+            margin-bottom: 10px;
+        }
+        .match-status {
+            font-weight: 600;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .match-status.live { background: var(--red); color: #fff; }
+        .match-status.final { background: #e5e5ea; color: var(--gray2); }
+        .match-status.upcoming { background: var(--primary); color: #fff; }
+        .match-teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .match-team {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .match-team:last-child { justify-content: flex-end; text-align: right; }
+        .match-score {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 16px;
+            min-width: 60px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .match-score.vs { font-size: 16px; color: var(--gray1); letter-spacing: 0; }
+        .match-scorers {
+            font-size: 11px;
+            color: var(--gray1);
+            margin-top: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            text-align: left;
+            padding: 8px 4px;
+            font-size: 11px;
+            color: var(--gray1);
+            text-transform: uppercase;
+            border-bottom: 1px solid #e5e5ea;
+            font-weight: 500;
+        }
+        th:first-child { width: 28px; }
+        th:nth-child(2) { min-width: 120px; }
+        th:last-child, td:last-child { text-align: right; }
+        td {
+            padding: 8px 4px;
+            border-bottom: 0.5px solid #f2f2f7;
+        }
+        .pos { 
+            width: 24px; height: 24px; 
+            border-radius: 6px; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 12px; 
+            font-weight: 700;
+        }
+        .pos.c1 { background: #FFD700; color: #000; }
+        .pos.c2 { background: #C0C0C0; color: #000; }
+        .pos.c3 { background: #CD7F32; color: #fff; }
+        .pos.cl { background: var(--red); color: #fff; }
+        .team-name { font-weight: 500; }
+        .stats { font-size: 11px; color: var(--gray1); }
+        .pts { font-weight: 700; font-size: 14px; }
+        .gd { font-weight: 500; }
+        .gd.positive { color: var(--green); }
+        .gd.negative { color: var(--red); }
+        .group-selector {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .group-btn {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            border: none;
+            background: #f2f2f7;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--gray2);
+        }
+        .group-btn.active {
+            background: var(--primary);
+            color: #fff;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray1);
+        }
+        .bottom-spacer { height: 30px; }
+        .flag { font-size: 20px; }
+        .note { font-size: 11px; color: var(--gray1); margin-top: 12px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚽ 足球赛况</h1>
+        <p class="sub">2026 世界杯 · 苏超联赛</p>
+    </div>
+
+    <div class="section-tabs">
+        <button class="section-tab active" onclick="showSection('worldcup')">🏆 世界杯</button>
+        <button class="section-tab" onclick="showSection('spfl')">🏴󠁧󠁢󠁳󠁣󠁴󠁿 苏超</button>
+    </div>
+
+    <!-- 世界杯 -->
+    <div id="worldcup-section">
+        <div class="card" id="wc-recent">
+            <h2>📋 最新赛果</h2>
+            <div class="loading">加载中...</div>
+        </div>
+        <div class="card" id="wc-today">
+            <h2>📅 今日赛程</h2>
+            <div class="loading">加载中...</div>
+        </div>
+        <div class="card">
+            <h2>📊 小组积分</h2>
+            <div class="group-selector" id="groupBtns"></div>
+            <div id="groupTable"></div>
+        </div>
+    </div>
+
+    <!-- 苏超 -->
+    <div id="spfl-section" style="display:none;">
+        <div class="card">
+            <h2>🏆 苏超 2025/26 赛季积分榜</h2>
+            <table id="spflTable"></table>
+            <p class="note">🏅 Celtic 夺冠 | 📅 赛季结束</p>
+        </div>
+    </div>
+
+    <div class="bottom-spacer"></div>
+
+    <script>
+        // === 世界杯数据 ===
+        const API = 'https://worldcup26.ir';
+
+        async function loadWorldCup() {
+            try {
+                const [gamesRes, teamsRes, groupsRes] = await Promise.all([
+                    fetch(`${API}/get/games`),
+                    fetch(`${API}/get/teams`),
+                    fetch(`${API}/get/groups`)
+                ]);
+                const gamesData = await gamesRes.json();
+                const teamsData = await teamsRes.json();
+                const groupsData = await groupsRes.json();
+
+                const teams = {};
+                (teamsData.teams || teamsData).forEach(t => { teams[t.id || t._id] = t.name_en || t.name; });
+
+                const games = gamesData.games || gameData || [];
+                renderWorldCupMatches(games, teams);
+                renderGroupStandings(groupsData, teams);
+            } catch(e) {
+                console.error('世界杯数据加载失败', e);
+                document.querySelectorAll('#wc-recent .loading, #wc-today .loading').forEach(el => {
+                    el.textContent = '数据加载失败，请稍后再试';
+                });
+            }
+        }
+
+        function renderWorldCupMatches(games, teams) {
+            const finished = games.filter(g => g.finished === 'TRUE' || g.time_elapsed === 'finished');
+            const today = new Date().toISOString().split('T')[0]; // 2026-06-12
+            const upcoming = games.filter(g => {
+                if (g.finished === 'TRUE') return false;
+                const gDate = g.local_date ? g.local_date.split(' ')[0] : '';
+                const [m,d,y] = gDate.split('/');
+                const dateStr = `20${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
+                return dateStr === today;
+            });
+
+            // 已结束
+            const recentDiv = document.getElementById('wc-recent');
+            if (finished.length === 0) {
+                recentDiv.innerHTML = '<h2>📋 最新赛果</h2><p style="color:var(--gray1);text-align:center;padding:10px;">暂无已结束的比赛</p>';
+            } else {
+                recentDiv.innerHTML = '<h2>📋 最新赛果</h2>' + finished.map(g => matchHTML(g, teams, 'final')).join('');
+            }
+
+            // 今天
+            const todayDiv = document.getElementById('wc-today');
+            if (upcoming.length === 0) {
+                todayDiv.innerHTML = '<h2>📅 今日赛程</h2><p style="color:var(--gray1);text-align:center;padding:10px;">今日无比赛</p>';
+            } else {
+                const alsoRunning = games.filter(g => g.time_elapsed === 'live');
+                const all = [...alsoRunning, ...upcoming];
+                todayDiv.innerHTML = '<h2>📅 今日赛程</h2>' + all.map(g => matchHTML(g, teams, g.time_elapsed === 'live' ? 'live' : 'upcoming')).join('');
+            }
+        }
+
+        function matchHTML(g, teams, status) {
+            const home = teams[g.home_team_id] || g.home_team_name_en || '?';
+            const away = teams[g.away_team_id] || g.away_team_name_en || '?';
+            const statusLabels = { live: '🔴 进行中', final: '✓ 已结束', upcoming: '⏳ 即将开始' };
+            const time = g.local_date ? g.local_date.split(' ')[1] : '';
+            
+            let scorersHTML = '';
+            if (status === 'final' && (g.home_score > 0 || g.away_score > 0)) {
+                scorersHTML = `<div class="match-scorers">⚽ ${g.home_scorers || ''} ${g.away_scorers ? '| ⚽ ' + g.away_scorers : ''}</div>`;
+            }
+
+            return `
+            <div class="match-card">
+                <div class="match-header">
+                    <span>${g.group || ''}组 · ${g.local_date || ''}</span>
+                    <span class="match-status ${status}">${statusLabels[status]}</span>
+                </div>
+                <div class="match-teams">
+                    <div class="match-team"><span>${home}</span></div>
+                    <div class="match-score ${status === 'upcoming' ? 'vs' : ''}">${status === 'upcoming' ? 'VS' : `${g.home_score || 0} - ${g.away_score || 0}`}</div>
+                    <div class="match-team"><span>${away}</span></div>
+                </div>
+                ${scorersHTML}
+            </div>`;
+        }
+
+        // === 小组积分 ===
+        let currentGroup = 'A';
+        let allGroups = [];
+        let teamMap = {};
+
+        function renderGroupStandings(groupsData, teams) {
+            teamMap = teams;
+            allGroups = (groupsData.groups || groupsData).filter(g => g.name || g.group);
+            
+            const btnDiv = document.getElementById('groupBtns');
+            const letters = 'ABCDEFGHIJKL'.split('');
+            btnDiv.innerHTML = letters.map(l => 
+                `<button class="group-btn${l === currentGroup ? ' active' : ''}" onclick="showGroup('${l}')">${l}</button>`
+            ).join('');
+            showGroup(currentGroup);
+        }
+
+        function showGroup(letter) {
+            currentGroup = letter;
+            document.querySelectorAll('.group-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const group = allGroups.find(g => (g.name || g.group) === letter);
+            if (!group) { document.getElementById('groupTable').innerHTML = '<p style="color:var(--gray1)">暂无数据</p>'; return; }
+            
+            const teams = (group.teams || group.standings || []).sort((a,b) => {
+                const ptsA = ((a.wins || a.won || a.w || 0) * 3) + (a.draws || a.drawn || a.d || 0);
+                const ptsB = ((b.wins || b.won || b.w || 0) * 3) + (b.draws || b.drawn || b.d || 0);
+                if (ptsB !== ptsA) return ptsB - ptsA;
+                const gdA = (a.gf || a.goals_for || 0) - (a.ga || a.goals_against || 0);
+                const gdB = (b.gf || b.goals_for || 0) - (b.ga || b.goals_against || 0);
+                return gdB - gdA;
+            });
+
+            const rows = teams.map((t, i) => {
+                const tid = t.team_id || t.id;
+                const name = teamMap[tid] || `Team ${tid}`;
+                const played = t.played || t.mp || t.p || 0;
+                const wins = t.wins || t.won || t.w || 0;
+                const draws = t.draws || t.drawn || t.d || 0;
+                const losses = t.losses || t.lost || t.l || 0;
+                const gf = t.gf || t.goals_for || 0;
+                const ga = t.ga || t.goals_against || 0;
+                const gd = gf - ga;
+                const pts = wins * 3 + draws;
+                const gdClass = gd > 0 ? 'positive' : gd < 0 ? 'negative' : '';
+                return `<tr>
+                    <td>${i+1}</td>
+                    <td><span class="team-name">${name}</span></td>
+                    <td class="stats">${played}</td>
+                    <td class="stats">${wins}</td>
+                    <td class="stats">${draws}</td>
+                    <td class="stats">${losses}</td>
+                    <td class="stats">${gf}-${ga}</td>
+                    <td class="stats gd ${gdClass}">${gd > 0 ? '+' : ''}${gd}</td>
+                    <td class="pts">${pts}</td>
+                </tr>`;
+            }).join('');
+
+            document.getElementById('groupTable').innerHTML = `
+            <table>
+                <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
+                ${rows}
+            </table>`;
+        }
+
+        // === 苏超 ===
+        const SPFL = [
+            { pos:1, name:'Celtic', p:38, w:26, d:4, l:8, gf:73, ga:41, gd:32, pts:82 },
+            { pos:2, name:'Heart of Midlothian', p:37, w:23, d:8, l:6, gf:65, ga:33, gd:32, pts:77 },
+            { pos:3, name:'Rangers', p:37, w:20, d:12, l:5, gf:75, ga:41, gd:34, pts:72 },
+            { pos:4, name:'Motherwell', p:38, w:16, d:13, l:9, gf:59, ga:36, gd:23, pts:61 },
+            { pos:5, name:'Hibernian', p:38, w:15, d:12, l:11, gf:58, ga:44, gd:14, pts:57 },
+            { pos:6, name:'Falkirk', p:38, w:14, d:7, l:17, gf:50, ga:62, gd:-12, pts:49 },
+            { pos:7, name:'Dundee United', p:38, w:10, d:15, l:13, gf:49, ga:60, gd:-11, pts:45 },
+            { pos:8, name:'Dundee FC', p:38, w:11, d:9, l:18, gf:42, ga:61, gd:-19, pts:42 },
+            { pos:9, name:'Aberdeen', p:38, w:11, d:7, l:20, gf:40, ga:55, gd:-15, pts:40 },
+            { pos:10, name:'Kilmarnock', p:38, w:10, d:10, l:18, gf:50, ga:68, gd:-18, pts:40 },
+            { pos:11, name:'St. Mirren', p:38, w:8, d:10, l:20, gf:30, ga:55, gd:-25, pts:34 },
+            { pos:12, name:'Livingston FC', p:38, w:2, d:15, l:21, gf:40, ga:75, gd:-35, pts:21 }
+        ];
+
+        function renderSPFL() {
+            const posClass = (p) => {
+                if (p === 1) return 'c1';
+                if (p === 2) return 'c2';
+                if (p === 3) return 'c3';
+                if (p === 12) return 'cl';
+                return '';
+            };
+            document.getElementById('spflTable').innerHTML = `
+            <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
+            ${SPFL.map(t => `
+            <tr>
+                <td><span class="pos ${posClass(t.pos)}">${t.pos}</span></td>
+                <td><span class="team-name">${t.name}</span></td>
+                <td class="stats">${t.p}</td>
+                <td class="stats">${t.w}</td>
+                <td class="stats">${t.d}</td>
+                <td class="stats">${t.l}</td>
+                <td class="stats">${t.gf}-${t.ga}</td>
+                <td class="stats gd ${t.gd > 0 ? 'positive' : 'negative'}">${t.gd > 0 ? '+' : ''}${t.gd}</td>
+                <td class="pts">${t.pts}</td>
+            </tr>`).join('')}`;
+        }
+
+        function showSection(section) {
+            document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('worldcup-section').style.display = section === 'worldcup' ? 'block' : 'none';
+            document.getElementById('spfl-section').style.display = section === 'spfl' ? 'block' : 'none';
+            document.querySelectorAll('.section-tab')[section === 'worldcup' ? 0 : 1].classList.add('active');
+        }
+
+        // 初始化
+        loadWorldCup();
+        renderSPFL();
+    </script>
+</body>
+</html>
