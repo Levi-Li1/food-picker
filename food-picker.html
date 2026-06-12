@@ -154,15 +154,16 @@
         
         .wheel-pointer {
             position: absolute;
-            top: -14px;
+            bottom: -14px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
         }
-        
+
         .wheel-pointer svg {
             width: 28px;
             height: 32px;
+            transform: rotate(180deg);
         }
         
         /* 按钮组 */
@@ -775,11 +776,12 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
 
-            // 计算旋转角度，让扇形randomIndex停在指针下方
-            // 指针指向下方(90°)，扇形中心在 (i+0.5)*angleStep
-            // 旋转后: 90 + targetAngle = (i+0.5)*angleStep + targetAngle
-            // 所以: targetAngle = (i+0.5)*angleStep - 90
-            const targetAngle = (randomIndex + 0.5) * angleStep - 90 + extraSpins * 360;
+            // 指针在6点钟方向(90°)
+            // 转盘旋转θ后，指针指向转盘上初始角度为(90°-θ)的位置
+            // 要让指针指向扇形i的中心((i+0.5)*angleStep):
+            // (90°-θ) = (i+0.5)*angleStep
+            // θ = 90° - (i+0.5)*angleStep
+            const targetAngle = 90 - (randomIndex + 0.5) * angleStep + extraSpins * 360;
 
             wheel.style.transform = `rotate(${targetAngle}deg)`;
             
