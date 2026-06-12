@@ -606,19 +606,30 @@
     </div>
 
     <script>
-        // 数据 - 保利绿地广场B1层餐厅
+        // 默认餐厅数据（当 JSON 加载失败时使用）
         const DEFAULT_FOODS = [
             { name: '复川小食堂', address: '辽阳路195号B1层B113', tags: ['川味', '工作餐'] },
-            { name: '大富贵', address: '保利绿地广场B1层', tags: ['本帮', '小吃'] },
-            { name: '老乡鸡', address: '保利绿地广场B1层', tags: ['快餐', '家常菜'] },
-            { name: '大鼓米线', address: '保利绿地广场B1层', tags: ['米线', '快餐'] },
-            { name: '逸山咖啡', address: '保利绿地广场B1层', tags: ['咖啡', '简餐'] }
+            { name: '流芳面馆', address: '悦活坊B1层', tags: ['面馆', '杭帮面'] },
+            { name: '赛百味', address: '辽阳路195号B1层', tags: ['西式', '快餐'] },
+            { name: '瑞幸咖啡', address: '悦活坊B1层', tags: ['咖啡'] },
+            { name: '茶百道', address: '悦活坊B1层', tags: ['奶茶'] }
         ];
-        
-        // 强制使用默认数据
-        let foods = JSON.parse(JSON.stringify(DEFAULT_FOODS));
-        localStorage.setItem('foods', JSON.stringify(foods));
-        
+
+        // 从配置文件加载数据
+        async function loadRestaurants() {
+            try {
+                const response = await fetch('restaurants.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.restaurants || DEFAULT_FOODS;
+                }
+            } catch (e) {
+                console.log('使用默认餐厅数据');
+            }
+            return DEFAULT_FOODS;
+        }
+
+        let foods = [];
         let isRolling = false;
         
         // 扇形颜色
@@ -627,14 +638,17 @@
             '#007AFF', '#5856D6', '#AF52DE', '#FF2D55'
         ];
         
-        function init() {
+        async function init() {
             const today = new Date();
             const options = { weekday: 'long', month: 'long', day: 'numeric' };
             document.getElementById('date').textContent = today.toLocaleDateString('zh-CN', options);
-            
+
+            // 加载餐厅数据
+            foods = await loadRestaurants();
+
             renderWheel();
             renderFoodList();
-            
+
             document.getElementById('foodInput').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') addFood();
             });
@@ -655,8 +669,8 @@
             const fontSize = foods.length > 5 ? 12 : (foods.length > 3 ? 14 : 16);
             
             foods.forEach((food, i) => {
-                const startAngle = (i * angleStep - 90) * Math.PI / 180;
-                const endAngle = ((i + 1) * angleStep - 90) * Math.PI / 180;
+                const startAngle = (i * angleStep) * Math.PI / 180;
+                const endAngle = ((i + 1) * angleStep) * Math.PI / 180;
                 
                 const color = COLORS[i % COLORS.length];
                 
@@ -685,7 +699,7 @@
                 wheel.appendChild(svg);
                 
                 // 文字标签 - 居中显示在扇形中间
-                const textAngle = (i * angleStep + angleStep / 2 - 90) * Math.PI / 180;
+                const textAngle = (i * angleStep + angleStep / 2) * Math.PI / 180;
                 const textRadius = radius * 0.62;
                 const textX = center + textRadius * Math.cos(textAngle);
                 const textY = center + textRadius * Math.sin(textAngle);
@@ -761,8 +775,8 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
             
-            // 计算让扇形randomIndex停在指针下的角度
-            const targetAngle = ((randomIndex + 0.5) * angleStep - 90 + 360) % 360 + extraSpins * 360;
+            // 计算旋转角度，让扇形randomIndex停在指针(顶部)下
+            const targetAngle = randomIndex * angleStep + extraSpins * 360;
             
             wheel.style.transform = `rotate(${targetAngle}deg)`;
             
