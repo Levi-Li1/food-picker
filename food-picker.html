@@ -760,7 +760,9 @@
             const randomIndex = Math.floor(Math.random() * foods.length);
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
-            const targetAngle = extraSpins * 360 + (360 - randomIndex * angleStep - angleStep / 2);
+            
+            // 计算让扇形randomIndex停在指针下的角度
+            const targetAngle = ((randomIndex + 0.5) * angleStep - 90 + 360) % 360 + extraSpins * 360;
             
             wheel.style.transform = `rotate(${targetAngle}deg)`;
             
