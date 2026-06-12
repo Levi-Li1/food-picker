@@ -145,20 +145,33 @@
         }
         .match-status.live { background: var(--red); color: #fff; animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
-        .match-status.final { background: rgba(255,255,255,0.12); color: var(--text2); }
-        .match-status.upcoming { background: rgba(0,122,255,0.3); color: #a0d2ff; }
+        .match-status.final { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
+        .match-status.upcoming { background: rgba(255,255,255,0.2); color: #fff; }
 
-        .match-teams { display: flex; align-items: center; justify-content: space-between; }
-        .match-team {
-            flex: 1; font-size: 16px; font-weight: 600; letter-spacing: -0.2px;
-            display: flex; align-items: center; gap: 8px;
+        .match-teams {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 12px;
         }
-        .match-team:last-child { justify-content: flex-end; text-align: right; flex-direction: row-reverse; }
-        .match-team .flag { display: inline-flex; align-items: center; }
+        .match-team {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 16px; font-weight: 600; letter-spacing: -0.2px;
+            min-width: 0;
+        }
+        .match-team.home { justify-content: flex-start; }
+        .match-team.away { justify-content: flex-end; flex-direction: row-reverse; }
+        .match-team .flag { display: inline-flex; align-items: center; flex-shrink: 0; }
         .match-team .flag img { display: block; }
+        .match-name {
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
         .match-score {
-            font-size: 30px; font-weight: 700; margin: 0 20px; min-width: 70px;
-            text-align: center; letter-spacing: 4px; font-variant-numeric: tabular-nums;
+            font-size: 28px; font-weight: 700;
+            text-align: center; letter-spacing: 4px;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            min-width: 80px;
         }
         .match-score.vs { font-size: 14px; color: var(--text3); letter-spacing: 2px; font-weight: 500; }
         .match-scorers { font-size: 11px; color: var(--text3); margin-top: 8px; letter-spacing: 0.3px; }
@@ -462,10 +475,10 @@
             return `<div class="match-card">
                 <div class="match-header"><span>${g.group||''}组 · ${g.local_date||''}</span><span class="match-status ${status}">${labels[status]}</span></div>
                 <div class="match-teams">
-                    <div class="match-team"><span class="flag">${hflag}</span><span>${home}</span></div>
+                    <div class="match-team home"><span class="flag">${hflag}</span><span class="match-name">${home}</span></div>
                     <div class="match-score ${status==='upcoming'?'vs':''}">${status==='upcoming'?'VS':`${g.home_score||0} – ${g.away_score||0}`}</div>
-                    <div class="match-team"><span class="flag">${aflag}</span><span>${away}</span></div>
-                </div>${scorers}${venue?`<div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${venue}</div>`:''}</div>`;
+                    <div class="match-team away"><span class="flag">${aflag}</span><span class="match-name">${away}</span></div>
+                </div>${scorers}${venue?`<div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${venue}</div>`:''}</div>`;
         }
 
         let currentGroup='A', allGroups=[], teamMap={};
@@ -575,9 +588,9 @@
                 <div class="match-card">
                     <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
                     <div class="match-teams">
-                        <div class="match-team"><span class="crest">${crestImg(crestMap[home])}</span><span>${home}</span></div>
+                        <div class="match-team home"><span class="crest">${crestImg(crestMap[home])}</span><span class="match-name">${home}</span></div>
                         <div class="match-score vs">VS</div>
-                        <div class="match-team"><span class="crest">${crestImg(crestMap[away])}</span><span>${away}</span></div>
+                        <div class="match-team away"><span class="crest">${crestImg(crestMap[away])}</span><span class="match-name">${away}</span></div>
                     </div>
                 </div>`;
 
