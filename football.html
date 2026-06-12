@@ -378,7 +378,8 @@
         function showGroup(letter) {
             currentGroup=letter;
             document.querySelectorAll('.group-btn').forEach(b=>b.classList.remove('active'));
-            event.target.classList.add('active');
+            const btn = document.querySelector(`.group-btn[onclick*="'${letter}'"]`);
+            if(btn) btn.classList.add('active');
             const g=allGroups.find(g=>(g.name||g.group)===letter);
             if(!g){document.getElementById('groupTable').innerHTML='<p style="color:var(--text3);text-align:center;">暂无数据</p>';return;}
             const list=(g.teams||g.standings||[]).sort((a,b)=>{
