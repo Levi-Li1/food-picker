@@ -343,7 +343,7 @@
         <!-- 苏超 -->
         <div id="spfl-section" style="display:none;">
             <div class="card">
-                <div class="champion-badge">🏆 Celtic · 2025/26 赛季冠军</div>
+                <div class="champion-badge">🏆 Celtic（凯尔特人）· 2025/26 赛季冠军</div>
                 <h2>积分榜</h2>
                 <table id="spflTable"></table>
                 <p class="note">赛季已结束 · 数据来源 ESPN / footballdatabase.com</p>
@@ -359,15 +359,15 @@
                         </div>
                         <div style="display:flex;justify-content:space-between;width:100%;">
                             <span style="color:var(--text3)">进球最多</span>
-                            <span style="font-weight:600;">Rangers · 75球</span>
+                            <span style="font-weight:600;">Rangers（流浪者）· 76球</span>
                         </div>
                         <div style="display:flex;justify-content:space-between;width:100%;">
                             <span style="color:var(--text3)">降级</span>
-                            <span style="font-weight:600;color:var(--red);">Livingston FC</span>
+                            <span style="font-weight:600;color:var(--red);">Livingston（利文斯顿）</span>
                         </div>
                         <div style="display:flex;justify-content:space-between;width:100%;">
                             <span style="color:var(--text3)">场均进球</span>
-                            <span style="font-weight:600;">2.68</span>
+                            <span style="font-weight:600;">2.78</span>
                         </div>
                     </div>
                 </div>
@@ -380,6 +380,16 @@
     <script>
         const API = 'https://worldcup26.ir';
 
+        // 中文队名映射 (team_id → 中文名)
+        const ZH = {
+            1:'墨西哥',2:'南非',3:'韩国',4:'捷克',5:'加拿大',6:'波黑',7:'卡塔尔',8:'瑞士',
+            9:'巴西',10:'摩洛哥',11:'海地',12:'苏格兰',13:'美国',14:'巴拉圭',15:'澳大利亚',16:'土耳其',
+            17:'德国',18:'库拉索',19:'科特迪瓦',20:'厄瓜多尔',21:'荷兰',22:'日本',23:'瑞典',24:'突尼斯',
+            25:'比利时',26:'埃及',27:'伊朗',28:'新西兰',29:'西班牙',30:'佛得角',31:'沙特',32:'乌拉圭',
+            33:'法国',34:'塞内加尔',35:'伊拉克',36:'挪威',37:'阿根廷',38:'阿尔及利亚',39:'奥地利',40:'约旦',
+            41:'葡萄牙',42:'民主刚果',43:'乌兹别克斯坦',44:'哥伦比亚',45:'英格兰',46:'克罗地亚',47:'加纳',48:'巴拿马'
+        };
+
         async function loadWorldCup() {
             try {
                 const [gamesRes, teamsRes, groupsRes] = await Promise.all([
@@ -391,7 +401,10 @@
                 const teamsData = await teamsRes.json();
                 const groupsData = await groupsRes.json();
                 const teams = {};
-                (teamsData.teams || teamsData).forEach(t => { teams[t.id || t._id] = t.name_en || t.name; });
+                (teamsData.teams || teamsData).forEach(t => {
+                    const id = t.id || t._id;
+                    teams[id] = ZH[id] || t.name_en || t.name;
+                });
                 const games = gamesData.games || gamesData || [];
                 renderWorldCupMatches(games, teams);
                 renderGroupStandings(groupsData, teams);
@@ -469,7 +482,7 @@
             document.getElementById('groupTable').innerHTML = `<table>
                 <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
                 ${list.map((t,i) => {
-                    const n = teamMap[t.team_id||t.id]||`Team ${t.team_id||t.id}`;
+                    const n = ZH[t.team_id||t.id] || teamMap[t.team_id||t.id] || `Team ${t.team_id||t.id}`;
                     const mp=t.played||t.mp||t.p||0, w=t.wins||t.won||t.w||0, d=t.draws||t.drawn||t.d||0, l=t.losses||t.lost||t.l||0;
                     const gf=t.gf||t.goals_for||0, ga=t.ga||t.goals_against||0, gd=gf-ga, pts=w*3+d;
                     return `<tr><td>${i+1}</td><td class="team-name">${n}</td><td class="stats">${mp}</td><td class="stats">${w}</td><td class="stats">${d}</td><td class="stats">${l}</td><td class="stats">${gf}-${ga}</td><td class="stats gd ${gd>0?'positive':gd<0?'negative':''}">${gd>0?'+':''}${gd}</td><td class="pts">${pts}</td></tr>`;
@@ -478,18 +491,18 @@
         }
 
         const SPFL = [
-            { pos:1, name:'Celtic', p:38, w:26, d:4, l:8, gf:73, ga:41, gd:32, pts:82 },
-            { pos:2, name:'Heart of Midlothian', p:37, w:23, d:8, l:6, gf:65, ga:33, gd:32, pts:77 },
-            { pos:3, name:'Rangers', p:37, w:20, d:12, l:5, gf:75, ga:41, gd:34, pts:72 },
-            { pos:4, name:'Motherwell', p:38, w:16, d:13, l:9, gf:59, ga:36, gd:23, pts:61 },
-            { pos:5, name:'Hibernian', p:38, w:15, d:12, l:11, gf:58, ga:44, gd:14, pts:57 },
-            { pos:6, name:'Falkirk', p:38, w:14, d:7, l:17, gf:50, ga:62, gd:-12, pts:49 },
-            { pos:7, name:'Dundee United', p:38, w:10, d:15, l:13, gf:49, ga:60, gd:-11, pts:45 },
-            { pos:8, name:'Dundee FC', p:38, w:11, d:9, l:18, gf:42, ga:61, gd:-19, pts:42 },
-            { pos:9, name:'Aberdeen', p:38, w:11, d:7, l:20, gf:40, ga:55, gd:-15, pts:40 },
-            { pos:10, name:'Kilmarnock', p:38, w:10, d:10, l:18, gf:50, ga:68, gd:-18, pts:40 },
-            { pos:11, name:'St. Mirren', p:38, w:8, d:10, l:20, gf:30, ga:55, gd:-25, pts:34 },
-            { pos:12, name:'Livingston FC', p:38, w:2, d:15, l:21, gf:40, ga:75, gd:-35, pts:21 }
+            { pos:1, name:'Celtic（凯尔特人）', p:38, w:26, d:4, l:8, gf:73, ga:41, gd:32, pts:82 },
+            { pos:2, name:'Hearts（哈茨）', p:38, w:24, d:8, l:6, gf:67, ga:34, gd:33, pts:80 },
+            { pos:3, name:'Rangers（流浪者）', p:38, w:20, d:12, l:6, gf:76, ga:43, gd:33, pts:72 },
+            { pos:4, name:'Motherwell（马瑟韦尔）', p:38, w:16, d:13, l:9, gf:59, ga:36, gd:23, pts:61 },
+            { pos:5, name:'Hibernian（希伯尼安）', p:38, w:15, d:12, l:11, gf:58, ga:44, gd:14, pts:57 },
+            { pos:6, name:'Falkirk（福尔柯克）', p:38, w:14, d:7, l:17, gf:50, ga:62, gd:-12, pts:49 },
+            { pos:7, name:'Dundee Utd（邓迪联）', p:38, w:10, d:15, l:13, gf:49, ga:60, gd:-11, pts:45 },
+            { pos:8, name:'Dundee（邓迪）', p:38, w:11, d:9, l:18, gf:42, ga:61, gd:-19, pts:42 },
+            { pos:9, name:'Aberdeen（阿伯丁）', p:38, w:11, d:7, l:20, gf:40, ga:55, gd:-15, pts:40 },
+            { pos:10, name:'Kilmarnock（基尔马诺克）', p:38, w:10, d:10, l:18, gf:50, ga:68, gd:-18, pts:40 },
+            { pos:11, name:'St. Mirren（圣米伦）', p:38, w:8, d:10, l:20, gf:30, ga:55, gd:-25, pts:34 },
+            { pos:12, name:'Livingston（利文斯顿）', p:38, w:2, d:15, l:21, gf:40, ga:75, gd:-35, pts:21 }
         ];
 
         function cls(p) {
