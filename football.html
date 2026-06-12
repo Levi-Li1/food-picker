@@ -226,7 +226,6 @@
 
         <div id="spfl-section" style="display:none;">
             <div class="card">
-                <div class="leader-badge">🥇 盐城队 · 5战全胜领跑</div>
                 <h2>
                     <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                     积分榜
@@ -421,7 +420,23 @@
               crest:'78ec43cc181f478d8e41708cf0625b29' }
         ];
         function crestImg(id) {
-            return `<img src="http://jsstyj.jiangsu.gov.cn/picture/0/${id}.png" width="28" height="28" style="border-radius:50%;display:block" alt="" loading="lazy">`;
+            const crests = {
+                '511e539bd0904595b737bcdf149d3c4b': {bg:'#2d5016',fg:'#FFD700',t:'盐'},
+                'a452dee3e7e143369652e0d52af9b371': {bg:'#1a56db',fg:'#fff',t:'锡'},
+                '30b33fb9d3b640bc8e6a4bd33d19ad57': {bg:'#991b1b',fg:'#fff',t:'徐'},
+                'd9f31bc949df4bdeafc9b67f91bc5331': {bg:'#0d9488',fg:'#fff',t:'苏'},
+                '97cbe6bb2c4b42cba164be4815107422': {bg:'#4c1d95',fg:'#fbbf24',t:'淮'},
+                '9610e966f08043d4a5fc1825698de23a': {bg:'#ea580c',fg:'#fff',t:'常'},
+                '70e901cd67e34632b4614045a2108ae7': {bg:'#1e3a5f',fg:'#fff',t:'宿'},
+                '04d3ee534594484b872b49f6edf3084c': {bg:'#7f1d1d',fg:'#fbbf24',t:'宁'},
+                '3a459b17bbb14225a32667449c4fb8d5': {bg:'#374151',fg:'#fff',t:'通'},
+                '57bf50a4f1de45c2a1633cae32a9d0a9': {bg:'#166534',fg:'#fff',t:'扬'},
+                'd6aa1108ea6749698a4b9b1153d92c24': {bg:'#1e3a8a',fg:'#fff',t:'泰'},
+                '8c5cfd8789df4172aaba82597ee5e8a5': {bg:'#0369a1',fg:'#fff',t:'连'},
+                '78ec43cc181f478d8e41708cf0625b29': {bg:'#57534e',fg:'#fbbf24',t:'镇'}
+            };
+            const c = crests[id] || {bg:'#444',fg:'#fff',t:'?'};
+            return `<svg viewBox="0 0 48 48" width="28" height="28"><circle cx="24" cy="24" r="23" fill="${c.bg}" stroke="rgba(255,255,255,0.25)" stroke-width="2"/><text x="24" y="31" text-anchor="middle" fill="${c.fg}" font-size="22" font-weight="700" font-family="-apple-system,sans-serif">${c.t}</text></svg>`;
         }
 
         function cls(p) {
@@ -452,7 +467,7 @@
                         <div class="match-score vs">VS</div>
                         <div class="match-team"><span>无锡队</span></div>
                     </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">📍 徐州奥林匹克体育中心体育场</div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>徐州奥林匹克体育中心体育场</div>
                 </div>
                 <div class="match-card">
                     <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
@@ -461,7 +476,7 @@
                         <div class="match-score vs">VS</div>
                         <div class="match-team"><span>镇江队</span></div>
                     </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">📍 宿迁奥林匹克体育中心体育场</div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>宿迁奥林匹克体育中心体育场</div>
                 </div>
                 <div class="match-card">
                     <div class="match-header"><span>6月13日 · 第9轮</span><span class="match-status upcoming">19:40</span></div>
@@ -470,7 +485,7 @@
                         <div class="match-score vs">VS</div>
                         <div class="match-team"><span>泰州队</span></div>
                     </div>
-                    <div style="font-size:11px;color:var(--text3);margin-top:6px;">📍 南通体育会展中心体育场</div>
+                    <div style="font-size:11px;color:var(--text3);margin-top:6px;display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>南通体育会展中心体育场</div>
                 </div>
             </div>`;
             document.getElementById('spflFixtures').innerHTML = fixturesHTML;
