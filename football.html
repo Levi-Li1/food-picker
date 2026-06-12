@@ -457,11 +457,25 @@
             arrow.classList.toggle('open');
         }
 
+        // 球场时区偏移 (UTC) → 北京时间 +8
+        const TZ = {1:-6,2:-6,3:-6,4:-5,5:-5,6:-5,7:-4,8:-4,9:-4,10:-4,11:-4,12:-4,13:-7,14:-7,15:-7,16:-7};
+        function toBeijing(dateStr, stadiumId) {
+            if(!dateStr) return '';
+            const [d,t] = dateStr.split(' ');
+            const [m,dy,y] = d.split('/');
+            const [h,mi] = (t||'00:00').split(':');
+            const utc = new Date(Date.UTC(+y, +m-1, +dy, +h, +mi));
+            utc.setHours(utc.getHours() - (TZ[stadiumId]||0));
+            const bj = new Date(utc.getTime() + 8*3600000);
+            return `${bj.getMonth()+1}/${bj.getDate()} ${String(bj.getHours()).padStart(2,'0')}:${String(bj.getMinutes()).padStart(2,'0')}`;
+        }
+
         function matchHTML(g, teams, status, stadiums) {
             const hid = g.home_team_id, aid = g.away_team_id;
             const home = teams[hid]||g.home_team_name_en||'?';
             const away = teams[aid]||g.away_team_name_en||'?';
             const hflag = flagImg(FLAGS[hid]), aflag = flagImg(FLAGS[aid]);
+            const bjTime = toBeijing(g.local_date, g.stadium_id);
             const labels = { live:'<span style="display:inline-flex;align-items:center;gap:4px;"><svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#ff453a"/></svg>进行中</span>', final:'已结束', upcoming:'即将开始' };
             const venue = stadiums?.[g.stadium_id]||'';
 
@@ -487,7 +501,7 @@
             }
 
             return `<div class="match-card">
-                <div class="match-header"><span>${g.group||''}组 · ${g.local_date||''}</span><span class="match-status ${status}">${labels[status]}</span></div>
+                <div class="match-header"><span>${g.group||''}组 · ${bjTime}（北京时间）</span><span class="match-status ${status}">${labels[status]}</span></div>
                 <div class="match-teams">
                     <div class="match-team home"><span class="flag">${hflag}</span><span class="match-name">${home}</span></div>
                     <div class="match-score ${status==='upcoming'?'vs':''}">${status==='upcoming'?'VS':`${g.home_score||0} – ${g.away_score||0}`}</div>
