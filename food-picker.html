@@ -779,14 +779,9 @@
             const angleStep = 360 / foods.length;
             const extraSpins = 5 + Math.random() * 3;
 
-            // 8个扇形，尝试不同的offset修正
-            // offset=0: 无修正
-            // offset=1: 差1个
-            // offset=2: 差2个
-            // offset=3: 差3个
-            // offset=4: 差4个
-            const offset = 3;
-            const targetIndex = (randomIndex + offset) % foods.length;
+            // 8个扇形，offset=-3 表示弹窗比指针落后3个位置
+            const offset = -3;
+            const targetIndex = (randomIndex + offset + foods.length) % foods.length;
 
             const targetAngle = 90 - (targetIndex + 0.5) * angleStep + 360 + extraSpins * 360;
 
