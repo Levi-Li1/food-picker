@@ -440,7 +440,18 @@
 
             const clean = (v) => {
                 if(!v || v==='null' || v==='undefined') return '';
-                try { const p=JSON.parse(v); return typeof p==='string' ? p : ''; } catch(e) { return String(v); }
+                // 处理 JSON 数组: ["a","b"]
+                try {
+                    const p = JSON.parse(v);
+                    if(Array.isArray(p)) return p.filter(x=>x).join(', ');
+                    if(typeof p === 'string') return p;
+                    return '';
+                } catch(e) {}
+                // 处理 PostgreSQL 风格: {"a","b"}
+                if(v.startsWith('{') && v.endsWith('}')) {
+                    return v.slice(1,-1).split(',').map(s=>s.replace(/^"|"$/g,'').trim()).filter(x=>x).join(', ');
+                }
+                return String(v);
             };
             let scorers='';
             if(status==='final'){
