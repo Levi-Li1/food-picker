@@ -65,7 +65,7 @@
             pointer-events: none; z-index: -1;
             line-height: 1;
         }
-        .header .trophy-icon { margin-bottom: 8px; opacity: 0.8; }
+        
         .header h1 {
             font-size: 34px; font-weight: 700; letter-spacing: -0.5px;
             background: linear-gradient(135deg, #ffffff 0%, #a0c4ff 100%);
@@ -116,7 +116,6 @@
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-        .tab-icon { width: 18px; height: 18px; }
 
         .card {
             background: var(--glass); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
@@ -128,7 +127,7 @@
             color: var(--text2); letter-spacing: -0.2px;
             display: flex; align-items: center; gap: 8px;
         }
-        .card h2 .heading-icon { width: 20px; height: 20px; }
+        
 
         .match-card {
             background: rgba(255,255,255,0.06); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
@@ -250,30 +249,7 @@
 <body>
     <div class="content">
         <div class="header">
-            <div class="trophy-icon">
-                <svg width="44" height="44" viewBox="0 0 64 64" fill="none">
-                    <defs>
-                        <radialGradient id="bg" cx="50%" cy="40%" r="50%">
-                            <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
-                            <stop offset="100%" stop-color="rgba(255,255,255,0.03)"/>
-                        </radialGradient>
-                    </defs>
-                    <circle cx="32" cy="32" r="30" fill="url(#bg)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
-                    <!-- 五边形 -->
-                    <polygon points="32,10 40,16 37,26 27,26 24,16" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3" stroke-linejoin="round"/>
-                    <polygon points="32,54 24,48 27,38 37,38 40,48" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3" stroke-linejoin="round"/>
-                    <polygon points="10,30 16,22 26,25 26,35 16,38" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3" stroke-linejoin="round"/>
-                    <polygon points="54,30 48,22 38,25 38,35 48,38" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.3" stroke-linejoin="round"/>
-                    <!-- 连接线 -->
-                    <line x1="32" y1="10" x2="32" y2="22" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-                    <line x1="24" y1="16" x2="16" y2="22" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-                    <line x1="40" y1="16" x2="48" y2="22" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-                    <line x1="27" y1="26" x2="10" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-                    <line x1="37" y1="26" x2="54" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-                    <line x1="16" y1="38" x2="24" y2="48" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-                    <line x1="48" y1="38" x2="40" y2="48" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/>
-                </svg>
-            </div>
+            
             <h1>2026 足球赛况</h1>
             <p class="sub">FIFA WORLD CUP · 江苏省城市足球联赛</p>
         </div>
@@ -281,35 +257,29 @@
         <div class="section-tabs">
             <button class="section-tab active" onclick="showSection('worldcup')">
                 <!-- globe icon -->
-                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                
                 世界杯 2026
             </button>
             <button class="section-tab" onclick="showSection('spfl')">
                 <!-- trophy icon -->
-                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 7 8 9"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 17 7 16 9"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                
                 苏超 2026
             </button>
         </div>
 
         <div id="worldcup-section">
             <div class="card" id="wc-recent">
-                <h2>
-                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    最新赛果
+                <h2>最新赛果
                 </h2>
                 <div class="loading">加载中...</div>
             </div>
             <div class="card" id="wc-today">
-                <h2>
-                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    赛程预告
+                <h2>赛程预告
                 </h2>
                 <div class="loading">加载中...</div>
             </div>
             <div class="card">
-                <h2>
-                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    小组积分
+                <h2>小组积分
                 </h2>
                 <div class="group-selector" id="groupBtns"></div>
                 <div id="groupTable"></div>
@@ -318,24 +288,18 @@
 
         <div id="spfl-section" style="display:none;">
             <div class="card">
-                <h2>
-                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    积分榜
+                <h2>积分榜
                 </h2>
                 <table id="spflTable"></table>
                 <p class="note">数据来源 jscl.moyu.js.cn · 实时更新</p>
             </div>
             <div class="card" id="spfl-upcoming">
-                <h2>
-                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    赛程预告 · 第 9 轮
+                <h2>赛程预告 · 第 9 轮
                 </h2>
                 <div id="spflFixtures"></div>
             </div>
             <div class="card">
-                <h2>
-                    <svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    联赛速览
+                <h2>联赛速览
                 </h2>
                 <div class="match-card" style="margin-bottom:0;">
                     <div style="display:flex;flex-direction:column;gap:14px;">
@@ -413,8 +377,8 @@
 
             const rd=document.getElementById('wc-recent');
             rd.innerHTML = finished.length
-                ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final',stadiums)).join('')
-                : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无已结束的比赛</p>';
+                ? '<h2>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final',stadiums)).join('')
+                : '<h2>最新赛果</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无已结束的比赛</p>';
 
             // 赛程预告按北京时间日期折叠
             const running=games.filter(g=>g.time_elapsed==='live');
@@ -428,9 +392,9 @@
             });
             const todayDiv = document.getElementById('wc-today');
             if (all.length === 0) {
-                todayDiv.innerHTML = '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无预告数据</p>';
+                todayDiv.innerHTML = '<h2>赛程预告</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无预告数据</p>';
             } else {
-                let html = '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>赛程预告</h2>';
+                let html = '<h2>赛程预告</h2>';
                 const dates = Object.keys(grouped).sort();
                 dates.forEach((date, idx) => {
                     const ms = grouped[date];
