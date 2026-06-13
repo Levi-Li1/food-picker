@@ -543,10 +543,10 @@
             const g=allGroups.find(g=>(g.name||g.group)===letter);
             if(!g){document.getElementById('groupTable').innerHTML='<p style="color:var(--text3);text-align:center;">暂无数据</p>';return;}
             const list=(g.teams||g.standings||[]).sort((a,b)=>{
-                const pa=(a.wins||a.won||a.w||0)*3+(a.draws||a.drawn||a.d||0);
-                const pb=(b.wins||b.won||b.w||0)*3+(b.draws||b.drawn||b.d||0);
+                const pa=(+(a.wins||a.won||a.w||0))*3+(+(a.draws||a.drawn||a.d||0));
+                const pb=(+(b.wins||b.won||b.w||0))*3+(+(b.draws||b.drawn||b.d||0));
                 if(pb!==pa)return pb-pa;
-                return((b.gf||b.goals_for||0)-(b.ga||b.goals_against||0))-((a.gf||a.goals_for||0)-(a.ga||a.goals_against||0));
+                return(+((b.gf||b.goals_for||0))-(+(b.ga||b.goals_against||0)))-(+((a.gf||a.goals_for||0))-(+(a.ga||a.goals_against||0)));
             });
             document.getElementById('groupTable').innerHTML=`<table>
                 <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
@@ -554,8 +554,8 @@
                     const tid=t.team_id||t.id;
                     const n=ZH[tid]||teamMap[tid]||`Team ${tid}`;
                     const fl=flagImg(FLAGS[tid]);
-                    const mp=t.played||t.mp||t.p||0,w=t.wins||t.won||t.w||0,d=t.draws||t.drawn||t.d||0,l=t.losses||t.lost||t.l||0;
-                    const gf=t.gf||t.goals_for||0,ga=t.ga||t.goals_against||0,gd=gf-ga,pts=w*3+d;
+                    const mp=+t.played||+t.mp||+t.p||0, w=+t.wins||+t.won||+t.w||0, d=+t.draws||+t.drawn||+t.d||0, l=+t.losses||+t.lost||+t.l||0;
+                    const gf=+t.gf||+t.goals_for||0, ga=+t.ga||+t.goals_against||0, gd=gf-ga, pts=w*3+d;
                     return `<tr><td>${i+1}</td><td class="team-name"><span class="flag">${fl}</span>${n}</td><td class="stats">${mp}</td><td class="stats">${w}</td><td class="stats">${d}</td><td class="stats">${l}</td><td class="stats">${gf}-${ga}</td><td class="stats gd ${gd>0?'positive':gd<0?'negative':''}">${gd>0?'+':''}${gd}</td><td class="pts">${pts}</td></tr>`;
                 }).join('')}
             </table>`;
