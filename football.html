@@ -397,20 +397,18 @@
         function renderWorldCupMatches(games, teams, stadiums) {
             const finished = games.filter(g => g.finished==='TRUE'||g.time_elapsed==='finished');
 
-            // 合并今日+未来3天 → 赛程预告
+            // 合并今日+未来3天 → 赛程预告（按北京时间筛选）
             const now = new Date();
             const dateSet = new Set();
             for (let i=0; i<=3; i++) {
                 const d = new Date(now);
                 d.setDate(d.getDate()+i);
-                dateSet.add(d.toISOString().split('T')[0]);
+                dateSet.add(`${d.getMonth()+1}/${d.getDate()}`);
             }
             const upcoming = games.filter(g => {
-                if(g.finished==='TRUE'||g.finished==='TRUE'||g.time_elapsed==='finished') return false;
-                const gd=g.local_date?g.local_date.split(' ')[0]:'';
-                if(!gd) return false;
-                const [m,d,y]=gd.split('/');
-                return dateSet.has(`${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`);
+                if(g.finished==='TRUE'||g.time_elapsed==='finished') return false;
+                const bj = toBeijing(g.local_date, g.stadium_id);
+                return bj && dateSet.has(bj.split(' ')[0]);
             });
 
             const rd=document.getElementById('wc-recent');
@@ -418,12 +416,13 @@
                 ? '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2>'+finished.map(g=>matchHTML(g,teams,'final',stadiums)).join('')
                 : '<h2><svg class="heading-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>最新赛果</h2><p style="color:var(--text3);text-align:center;padding:10px;">暂无已结束的比赛</p>';
 
-            // 赛程预告按日期折叠
+            // 赛程预告按北京时间日期折叠
             const running=games.filter(g=>g.time_elapsed==='live');
             const all=[...running,...upcoming];
             const grouped = {};
             all.forEach(g => {
-                const gd = g.local_date ? g.local_date.split(' ')[0] : '未知';
+                const bj = toBeijing(g.local_date, g.stadium_id);
+                const gd = bj ? bj.split(' ')[0] : '未知';
                 if(!grouped[gd]) grouped[gd] = [];
                 grouped[gd].push(g);
             });
@@ -438,7 +437,7 @@
                     const f = idx === 0; // 第一个（最近）默认展开
                     html += `<div class="date-group">
                         <div class="date-header" onclick="toggleDate(this)">
-                            <span>📅 ${date} · ${ms.length} 场比赛</span>
+                            <span>${date}（北京时间）· ${ms.length} 场比赛</span>
                             <svg class="arrow${f?' open':''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                         <div class="date-body${f?' open':''}">
