@@ -199,10 +199,9 @@
         .pos.cl { background: rgba(255,69,58,0.5); color: #fff; font-size: 10px; }
         .team-name { font-weight: 500; font-size: 13px; }
         .team-name .flag { font-size: 16px; margin-right: 4px; vertical-align: -1px; }
-        .crest { width: 28px; height: 28px; display: inline-block; vertical-align: middle; margin-right: 2px; }
-        .crest img, .crest svg { width: 28px; height: 28px; border-radius: 50%; display: block; }
-        .spfl-crest-cell { padding-right: 2px !important; }
-        th:nth-child(2) { width: 36px; }
+        .crest-inline { width: 28px; height: 28px; display: inline-block; vertical-align: middle; margin-right: 6px; }
+        .crest-inline img { width: 28px; height: 28px; border-radius: 50%; display: block; }
+        th:nth-child(2) { width: auto; }
         .stats { font-size: 11px; color: var(--text3); font-variant-numeric: tabular-nums; }
         .pts { font-weight: 700; font-size: 14px; color: #fff; }
         .gd { font-weight: 500; }
@@ -602,11 +601,10 @@
         function renderSPFL() {
             // 积分榜
             document.getElementById('spflTable').innerHTML=`
-            <tr><th></th><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
+            <tr><th></th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进球</th><th>净胜</th><th>分</th></tr>
             ${SPFL.map(t=>`<tr>
                 <td><span class="pos ${cls(t.pos)}">${t.pos}</span></td>
-                <td class="spfl-crest-cell"><span class="crest">${crestImg(t.crest)}</span></td>
-                <td class="team-name">${t.name}</td>
+                <td class="team-name"><span class="crest-inline">${crestImg(t.crest)}</span>${t.name}</td>
                 <td class="stats">${t.p}</td><td class="stats">${t.w}</td><td class="stats">${t.d}</td><td class="stats">${t.l}</td>
                 <td class="stats">${t.gf}-${t.ga}</td>
                 <td class="stats gd ${t.gd>0?'positive':'negative'}">${t.gd>0?'+':''}${t.gd}</td>
