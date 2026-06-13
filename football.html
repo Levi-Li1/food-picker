@@ -143,6 +143,7 @@
             font-weight: 600; font-size: 10px; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px;
         }
         .match-status.live { background: var(--red); color: #fff; animation: pulse 2s infinite; }
+        .match-status.live::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:#fff; margin-right:5px; vertical-align:middle; }
         @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
         .match-status.final { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.45); }
         .match-status.upcoming { background: rgba(255,159,10,0.3); color: #ffb74d; }
@@ -442,7 +443,7 @@
             const away = teams[aid]||g.away_team_name_en||'?';
             const hflag = flagImg(FLAGS[hid]), aflag = flagImg(FLAGS[aid]);
             const bjTime = toBeijing(g.local_date, g.stadium_id);
-            const labels = { live:'<span style="display:inline-flex;align-items:center;gap:4px;"><svg width="7" height="7" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#ff453a"/></svg>进行中</span>', final:'已结束', upcoming:'即将开始' };
+            const labels = { live:'进行中', final:'已结束', upcoming:'即将开始' };
             const city = CITY[g.stadium_id]||'';
             const venue = stadiums?.[g.stadium_id]||'';
 
