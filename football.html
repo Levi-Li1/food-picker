@@ -465,10 +465,12 @@
             const [d,t] = dateStr.split(' ');
             const [m,dy,y] = d.split('/');
             const [h,mi] = (t||'00:00').split(':');
-            const utc = new Date(Date.UTC(+y, +m-1, +dy, +h, +mi));
-            utc.setHours(utc.getHours() - (TZ[stadiumId]||0));
-            const bj = new Date(utc.getTime() + 8*3600000);
-            return `${bj.getMonth()+1}/${bj.getDate()} ${String(bj.getHours()).padStart(2,'0')}:${String(bj.getMinutes()).padStart(2,'0')}`;
+            // 当地时间 → UTC（减去时区偏移）
+            const utcMs = Date.UTC(+y, +m-1, +dy, +h - (TZ[stadiumId]||0), +mi);
+            // UTC → 北京时间（+8小时）
+            const bjMs = utcMs + 8 * 3600000;
+            const bj = new Date(bjMs);
+            return `${bj.getUTCMonth()+1}/${bj.getUTCDate()} ${String(bj.getUTCHours()).padStart(2,'0')}:${String(bj.getUTCMinutes()).padStart(2,'0')}`;
         }
 
         function matchHTML(g, teams, status, stadiums) {
