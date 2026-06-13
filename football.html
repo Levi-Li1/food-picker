@@ -370,7 +370,7 @@
                 dateSet.add(`${d.getMonth()+1}/${d.getDate()}`);
             }
             const upcoming = games.filter(g => {
-                if(g.finished==='TRUE'||g.time_elapsed==='finished') return false;
+                if(g.finished==='TRUE'||g.time_elapsed==='finished'||g.time_elapsed==='live') return false;
                 const bj = toBeijing(g.local_date, g.stadium_id);
                 return bj && dateSet.has(bj.split(' ')[0]);
             });
