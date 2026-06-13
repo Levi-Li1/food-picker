@@ -343,6 +343,17 @@
         }
 
         async function loadWorldCup() {
+            const CK = 'wc_cache', CK_TS = 'wc_cache_ts';
+            // 1. 先渲染缓存数据（秒开）
+            try {
+                const cached = JSON.parse(localStorage.getItem(CK));
+                if(cached && cached.games) {
+                    renderWorldCupMatches(cached.games, {...ZH}, {...STADIUMS});
+                    if(cached.groups) renderGroupStandings(cached.groups, {...ZH}, cached.games);
+                }
+            } catch(e) {}
+
+            // 2. 后台刷新
             try {
                 const [gamesRes, groupsRes] = await Promise.all([
                     fetch(`${API}/get/games`), fetch(`${API}/get/groups`)
@@ -351,6 +362,8 @@
                 const teams = {...ZH};
                 const stadiums = {...STADIUMS};
                 const games = gd.games||gd||[];
+                // 保存缓存（5 分钟有效）
+                localStorage.setItem(CK, JSON.stringify({games, groups:grd, ts:Date.now()}));
                 renderWorldCupMatches(games, teams, stadiums);
                 renderGroupStandings(grd, teams, games);
             } catch(e) {
