@@ -355,6 +355,8 @@
     <script>
         const API = 'https://worldcup26.ir';
 
+        const STADIUMS = {1:'Estadio Azteca',2:'Estadio Akron',3:'Estadio BBVA',4:'AT&T Stadium',5:'NRG Stadium',6:'GEHA Field at Arrowhead',7:'Mercedes-Benz Stadium',8:'Hard Rock Stadium',9:'Gillette Stadium',10:'Lincoln Financial Field',11:'MetLife Stadium',12:'BMO Field',13:'BC Place',14:'Lumen Field',15:"Levi's Stadium",16:'SoFi Stadium'};
+
         const ZH = {
             1:'墨西哥',2:'南非',3:'韩国',4:'捷克',5:'加拿大',6:'波黑',7:'卡塔尔',8:'瑞士',
             9:'巴西',10:'摩洛哥',11:'海地',12:'苏格兰',13:'美国',14:'巴拉圭',15:'澳大利亚',16:'土耳其',
@@ -373,19 +375,17 @@
             41:'pt',42:'cd',43:'uz',44:'co',45:'gb-eng',46:'hr',47:'gh',48:'pa'
         };
         function flagImg(cc) {
-            return cc ? `<img src="https://flagcdn.com/28x21/${cc}.png" width="22" height="16" style="border-radius:2px;vertical-align:-2px;display:inline-block" alt="" loading="lazy">` : '';
+            return cc ? `<img src="https://flagcdn.com/48x36/${cc}.png" width="24" height="18" style="border-radius:3px;vertical-align:-3px;display:inline-block;object-fit:cover" alt="" loading="lazy">` : '';
         }
 
         async function loadWorldCup() {
             try {
-                const [gamesRes, groupsRes, stadiumsRes] = await Promise.all([
-                    fetch(`${API}/get/games`), fetch(`${API}/get/groups`), fetch(`${API}/get/stadiums`)
+                const [gamesRes, groupsRes] = await Promise.all([
+                    fetch(`${API}/get/games`), fetch(`${API}/get/groups`)
                 ]);
-                const gd = await gamesRes.json(), grd = await groupsRes.json(), sd = await stadiumsRes.json();
-                // teams 直接从内置 ZH 映射，无需额外 API 请求
+                const gd = await gamesRes.json(), grd = await groupsRes.json();
                 const teams = {...ZH};
-                const stadiums = {};
-                (sd.stadiums||sd).forEach(s => { stadiums[s.id||s._id] = s.name_en||s.name; });
+                const stadiums = {...STADIUMS};
                 const games = gd.games||gd||[];
                 renderWorldCupMatches(games, teams, stadiums);
                 renderGroupStandings(grd, teams, games);
