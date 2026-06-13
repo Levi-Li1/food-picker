@@ -377,12 +377,12 @@
 
         async function loadWorldCup() {
             try {
-                const [gamesRes, teamsRes, groupsRes, stadiumsRes] = await Promise.all([
-                    fetch(`${API}/get/games`), fetch(`${API}/get/teams`), fetch(`${API}/get/groups`), fetch(`${API}/get/stadiums`)
+                const [gamesRes, groupsRes, stadiumsRes] = await Promise.all([
+                    fetch(`${API}/get/games`), fetch(`${API}/get/groups`), fetch(`${API}/get/stadiums`)
                 ]);
-                const gd = await gamesRes.json(), td = await teamsRes.json(), grd = await groupsRes.json(), sd = await stadiumsRes.json();
-                const teams = {};
-                (td.teams||td).forEach(t => { const id=t.id||t._id; teams[id]=ZH[id]||t.name_en||t.name; });
+                const gd = await gamesRes.json(), grd = await groupsRes.json(), sd = await stadiumsRes.json();
+                // teams 直接从内置 ZH 映射，无需额外 API 请求
+                const teams = {...ZH};
                 const stadiums = {};
                 (sd.stadiums||sd).forEach(s => { stadiums[s.id||s._id] = s.name_en||s.name; });
                 const games = gd.games||gd||[];
