@@ -346,7 +346,8 @@
             41:'pt',42:'cd',43:'uz',44:'co',45:'gb-eng',46:'hr',47:'gh',48:'pa'
         };
         function flagImg(cc) {
-            return cc ? `<span style="display:inline-block;width:24px;height:18px;border-radius:3px;overflow:hidden;vertical-align:-3px;border:1px solid rgba(255,255,255,0.08);"><img src="https://flagcdn.com/48x36/${cc}.png" style="display:block;object-fit:contain;width:100%;height:100%" alt="" loading="lazy"></span>` : '';
+            const svg={mx:'🇲🇽',za:'🇿🇦',kr:'🇰🇷',cz:'🇨🇿',ca:'🇨🇦',ba:'🇧🇦',qa:'🇶🇦',ch:'🇨🇭',br:'🇧🇷',ma:'🇲🇦',ht:'🇭🇹','gb-sct':'🏴󠁧󠁢󠁳󠁣󠁴󠁿',us:'🇺🇸',py:'🇵🇾',au:'🇦🇺',tr:'🇹🇷',de:'🇩🇪',cw:'🇨🇼',ci:'🇨🇮',ec:'🇪🇨',nl:'🇳🇱',jp:'🇯🇵',se:'🇸🇪',tn:'🇹🇳',be:'🇧🇪',eg:'🇪🇬',ir:'🇮🇷',nz:'🇳🇿',es:'🇪🇸',cv:'🇨🇻',sa:'🇸🇦',uy:'🇺🇾',fr:'🇫🇷',sn:'🇸🇳',iq:'🇮🇶',no:'🇳🇴',ar:'🇦🇷',dz:'🇩🇿',at:'🇦🇹',jo:'🇯🇴',pt:'🇵🇹',cd:'🇨🇩',uz:'🇺🇿',co:'🇨🇴','gb-eng':'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:'🇭🇷',gh:'🇬🇭',pa:'🇵🇦'};
+            return cc ? `<span style="font-size:16px;line-height:1;vertical-align:-2px">${svg[cc]||''}</span>` : '';
         }
 
         async function loadWorldCup() {
