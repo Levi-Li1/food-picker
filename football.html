@@ -658,6 +658,9 @@
         }
 
         loadWorldCup(); renderSPFL();
+
+        // 立即用嵌入数据渲染（不等待 loadWorldCup）
+        (function(){if(typeof E_G!=='undefined'&&typeof E_P!=='undefined'){var t={},s={};for(var k in ZH)t[k]=ZH[k];for(var k in STADIUMS)s[k]=STADIUMS[k];renderWorldCupMatches(E_G,t,s);renderGroupStandings({groups:E_P},t,E_G);}})();
     </script>
 </body>
 </html>
