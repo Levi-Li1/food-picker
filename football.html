@@ -346,8 +346,7 @@
             41:'pt',42:'cd',43:'uz',44:'co',45:'gb-eng',46:'hr',47:'gh',48:'pa'
         };
         function flagImg(cc) {
-            const svg={mx:'🇲🇽',za:'🇿🇦',kr:'🇰🇷',cz:'🇨🇿',ca:'🇨🇦',ba:'🇧🇦',qa:'🇶🇦',ch:'🇨🇭',br:'🇧🇷',ma:'🇲🇦',ht:'🇭🇹','gb-sct':'🏴󠁧󠁢󠁳󠁣󠁴󠁿',us:'🇺🇸',py:'🇵🇾',au:'🇦🇺',tr:'🇹🇷',de:'🇩🇪',cw:'🇨🇼',ci:'🇨🇮',ec:'🇪🇨',nl:'🇳🇱',jp:'🇯🇵',se:'🇸🇪',tn:'🇹🇳',be:'🇧🇪',eg:'🇪🇬',ir:'🇮🇷',nz:'🇳🇿',es:'🇪🇸',cv:'🇨🇻',sa:'🇸🇦',uy:'🇺🇾',fr:'🇫🇷',sn:'🇸🇳',iq:'🇮🇶',no:'🇳🇴',ar:'🇦🇷',dz:'🇩🇿',at:'🇦🇹',jo:'🇯🇴',pt:'🇵🇹',cd:'🇨🇩',uz:'🇺🇿',co:'🇨🇴','gb-eng':'🏴󠁧󠁢󠁥󠁮󠁧󠁿',hr:'🇭🇷',gh:'🇬🇭',pa:'🇵🇦'};
-            return cc ? `<span style="font-size:16px;line-height:1;vertical-align:-2px">${svg[cc]||''}</span>` : '';
+            return cc ? `<img src="flags/${cc}.png" width="24" height="18" style="border-radius:3px;vertical-align:-2px;display:inline-block;border:1px solid rgba(255,255,255,0.08)" alt="" loading="lazy">` : '';
         }
 
         async function loadWorldCup() {
