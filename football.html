@@ -352,13 +352,7 @@
         async function loadWorldCup() {
             const teams = {...ZH}, stadiums = {...STADIUMS};
 
-            // 1. 秒开：直接用嵌入数据渲染
-            if(typeof E_G!=='undefined') {
-                renderWorldCupMatches(E_G, teams, stadiums);
-                if(typeof E_P!=='undefined') renderGroupStandings({groups:E_P}, teams, E_G);
-            }
-
-            // 2. 后台刷新最新数据
+            // 后台刷新最新数据（嵌入数据已由 IIFE 秒开渲染）
             try {
                 const [gamesRes, groupsRes] = await Promise.all([
                     fetch(`${API}/get/games`), fetch(`${API}/get/groups`)
