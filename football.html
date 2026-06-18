@@ -630,7 +630,15 @@
         loadWorldCup(); renderSPFL();
 
         // 立即用嵌入数据渲染（不等待 loadWorldCup）
-        (function(){if(typeof E_G!=='undefined'&&typeof E_P!=='undefined'){var t={},s={};for(var k in ZH)t[k]=ZH[k];for(var k in STADIUMS)s[k]=STADIUMS[k];renderWorldCupMatches(E_G,t,s);renderGroupStandings({groups:E_P},t,E_G);}})();
+        (function(){if(typeof E_G!=='undefined'&&typeof E_P!=='undefined'){var t={},s={};for(var k in ZH)t[k]=ZH[k];for(var k in STADIUMS)s[k]=STADIUMS[k];
+// 将缩写字段名映射为全名（兼容嵌入优化格式）
+var games=E_G[0]&&E_G[0].i!==undefined?
+  E_G.map(function(m){return{id:m.i,group:m.g,home_team_id:m.h,away_team_id:m.a,home_score:m.hs,away_score:m.as,home_scorers:m.hs2,away_scorers:m.as2,local_date:m.ld,stadium_id:m.s,finished:m.f,time_elapsed:m.te};}):
+  E_G;
+var groups=E_P[0]&&E_P[0].n!==undefined?
+  E_P.map(function(g){return{name:g.n||g.name||g.group,teams:(g.t||g.teams||g.standings||[]).map(function(t){return{team_id:t.id,wins:t.w,draws:t.d,losses:t.l,played:t.p,goals_for:t.gf,goals_against:t.ga};})};}):
+  E_P;
+renderWorldCupMatches(games,t,s);renderGroupStandings({groups:groups},t,games);}})();
     </script>
 </body>
 </html>
