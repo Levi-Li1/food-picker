@@ -343,11 +343,11 @@
 
         async function loadWorldCup() {
             // 嵌入数据已由底部 IIFE 秒开渲染
-            // 后台静默刷新，5s 超时
+            // 后台静默刷新，最多尝试 15s
             const API = 'https://worldcup26.ir';
             try {
                 const ctl = new AbortController();
-                const t = setTimeout(() => ctl.abort(), 5000);
+                const t = setTimeout(() => ctl.abort(), 15000);
                 const [gr, pr] = await Promise.all([
                     fetch(API+'/get/games', {signal: ctl.signal}),
                     fetch(API+'/get/groups', {signal: ctl.signal})
