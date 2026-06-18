@@ -341,8 +341,26 @@
             return cc ? `<img src="flags/${cc}.png" width="24" height="18" style="border-radius:3px;vertical-align:-2px;display:inline-block;border:1px solid rgba(255,255,255,0.08)" alt="" loading="lazy">` : '';
         }
 
-        function loadWorldCup() {
-            // 嵌入数据已由底部 IIFE 秒开渲染，无需异步 API 调用
+        async function loadWorldCup() {
+            // 嵌入数据已由底部 IIFE 秒开渲染
+            // 后台静默刷新，5s 超时
+            const API = 'https://worldcup26.ir';
+            try {
+                const ctl = new AbortController();
+                const t = setTimeout(() => ctl.abort(), 5000);
+                const [gr, pr] = await Promise.all([
+                    fetch(API+'/get/games', {signal: ctl.signal}),
+                    fetch(API+'/get/groups', {signal: ctl.signal})
+                ]);
+                clearTimeout(t);
+                const gd = await gr.json(), pd = await pr.json();
+                const games = gd.games||gd||[];
+                const teams = {...ZH}, stadiums = {...STADIUMS};
+                renderWorldCupMatches(games, teams, stadiums);
+                renderGroupStandings(pd, teams, games);
+            } catch(e) {
+                // 静默失败，嵌入数据已显示
+            }
         }
 
         function renderWorldCupMatches(games, teams, stadiums) {
