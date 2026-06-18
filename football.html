@@ -474,7 +474,7 @@
 
         function renderGroupStandings(groupsData, teams, games) {
             teamMap=teams;
-            allGroups=(groupsData.groups||groupsData).filter(g=>g.name||g.group);
+            allGroups=(groupsData.groups||groupsData).map(g=>({name:g.name||g.n||g.group,teams:g.teams||g.t||g.standings})).filter(g=>g.name);
 
             // 默认展开最新比赛所在小组
             const active = games.filter(g => g.time_elapsed==='live' || g.finished==='TRUE');
@@ -497,7 +497,7 @@
             document.querySelectorAll('.group-btn').forEach(b=>b.classList.remove('active'));
             const btn = document.querySelector(`.group-btn[onclick*="'${letter}'"]`);
             if(btn) btn.classList.add('active');
-            const g=allGroups.find(g=>(g.name||g.group)===letter);
+            const g=allGroups.find(g=>g.name===letter);
             if(!g){document.getElementById('groupTable').innerHTML='<p style="color:var(--text3);text-align:center;">暂无数据</p>';return;}
             const list=(g.teams||g.standings||[]).sort((a,b)=>{
                 const pa=(+(a.wins||a.won||a.w||0))*3+(+(a.draws||a.drawn||a.d||0));
