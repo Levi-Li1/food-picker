@@ -227,8 +227,8 @@ ${sg30()}
 </div></div>`
 };
 
-// Process each week
-for (const wid of ['w1','w2','w3','w4','w5','w6','w7','w8','w9']) {
+// Process each week (skip w1 - it has unique manual structure)
+for (const wid of ['w2','w3','w4','w5','w6','w7','w8','w9']) {
   let html = fs.readFileSync(`${wid}.html`, 'utf8');
   let added = 0;
 
