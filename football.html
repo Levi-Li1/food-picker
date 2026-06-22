@@ -306,8 +306,8 @@
                     <div style="display:flex;flex-direction:column;gap:14px;">
                         <div class="summary-row"><span class="label">参赛队伍</span><span class="value">13 支城市代表队</span></div>
                         <div class="summary-row"><span class="label">赛制</span><span class="value">常规赛 + 淘汰赛</span></div>
-                        <div class="summary-row"><span class="label">领头羊</span><span class="value" style="color:#FFD700;">盐城队 · 15分（5战全胜）</span></div>
-                        <div class="summary-row"><span class="label">已进行</span><span class="value">5 轮</span></div>
+                        <div class="summary-row"><span class="label">领头羊</span><span class="value" style="color:#FFD700;">盐城队 · 15分（6战5胜）</span></div>
+                        <div class="summary-row"><span class="label">已进行</span><span class="value">6 轮</span></div>
                         <div class="summary-row"><span class="label">阶段</span><span class="value">常规赛进行中</span></div>
                     </div>
                 </div>
@@ -539,29 +539,29 @@
         // === 江苏省城市足球联赛（苏超）===
         // 每队队徽：SVG圆形徽章 + 城市特色元素
         const SPFL = [
-            { pos:1, name:'盐城队', p:5, w:5, d:0, l:0, gf:7, ga:1, gd:6, pts:15,
+            { pos:1, name:'盐城队', p:6, w:5, d:0, l:1, gf:8, ga:3, gd:5, pts:15,
               crest:'crests/1773731690066016533.png' },
             { pos:2, name:'无锡队', p:5, w:3, d:2, l:0, gf:7, ga:2, gd:5, pts:11,
               crest:'crests/1773731687099088565.png' },
-            { pos:3, name:'宿迁队', p:5, w:3, d:0, l:2, gf:8, ga:4, gd:4, pts:9,
-              crest:'crests/1773731691618007787.png' },
-            { pos:4, name:'徐州队', p:5, w:2, d:1, l:2, gf:7, ga:4, gd:3, pts:7,
-              crest:'crests/1773731687482071394.png' },
-            { pos:5, name:'苏州队', p:4, w:2, d:1, l:1, gf:5, ga:4, gd:1, pts:7,
-              crest:'crests/1773731688259091649.png' },
-            { pos:6, name:'淮安队', p:4, w:2, d:1, l:1, gf:4, ga:3, gd:1, pts:7,
-              crest:'crests/1773731689730099097.png' },
-            { pos:7, name:'常州队', p:4, w:2, d:0, l:2, gf:7, ga:4, gd:3, pts:6,
+            { pos:3, name:'常州队', p:5, w:3, d:0, l:2, gf:9, ga:5, gd:4, pts:9,
               crest:'crests/1773731687910005131.png' },
-            { pos:8, name:'泰州队', p:5, w:2, d:0, l:3, gf:6, ga:9, gd:-3, pts:6,
-              crest:'crests/1773731691252026937.png' },
-            { pos:9, name:'南京队', p:4, w:1, d:2, l:1, gf:2, ga:3, gd:-1, pts:5,
+            { pos:4, name:'宿迁队', p:5, w:3, d:0, l:2, gf:8, ga:4, gd:4, pts:9,
+              crest:'crests/1773731691618007787.png' },
+            { pos:5, name:'苏州队', p:5, w:2, d:2, l:1, gf:7, ga:6, gd:1, pts:8,
+              crest:'crests/1773731688259091649.png' },
+            { pos:6, name:'南京队', p:5, w:2, d:2, l:1, gf:4, ga:4, gd:0, pts:8,
               crest:'crests/1773731686598010011.png' },
-            { pos:10, name:'南通队', p:5, w:1, d:2, l:2, gf:2, ga:5, gd:-3, pts:5,
-              crest:'crests/1773731688702073016.png' },
-            { pos:11, name:'扬州队', p:5, w:1, d:1, l:3, gf:3, ga:6, gd:-3, pts:4,
+            { pos:7, name:'徐州队', p:5, w:2, d:1, l:2, gf:7, ga:4, gd:3, pts:7,
+              crest:'crests/1773731687482071394.png' },
+            { pos:8, name:'淮安队', p:5, w:2, d:1, l:2, gf:5, ga:5, gd:0, pts:7,
+              crest:'crests/1773731689730099097.png' },
+            { pos:9, name:'扬州队', p:6, w:2, d:1, l:3, gf:4, ga:6, gd:-2, pts:7,
               crest:'crests/1773731690475038336.png' },
-            { pos:12, name:'连云港队', p:4, w:0, d:2, l:2, gf:3, ga:7, gd:-4, pts:2,
+            { pos:10, name:'泰州队', p:5, w:2, d:0, l:3, gf:6, ga:9, gd:-3, pts:6,
+              crest:'crests/1773731691252026937.png' },
+            { pos:11, name:'南通队', p:6, w:1, d:3, l:2, gf:4, ga:7, gd:-3, pts:6,
+              crest:'crests/1773731688702073016.png' },
+            { pos:12, name:'连云港队', p:5, w:0, d:2, l:3, gf:3, ga:8, gd:-5, pts:2,
               crest:'crests/1773731689270001686.png' },
             { pos:13, name:'镇江队', p:5, w:0, d:0, l:5, gf:2, ga:11, gd:-9, pts:0,
               crest:'crests/1773731690860009466.png' }
@@ -624,15 +624,15 @@
 
             const fixturesHTML = `
             <div style="margin-top:8px;">
-                <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">6月20日</div>
-                ${fixRow('常州队','盐城队','常州奥体中心体育场','6月20日')}
-                ${fixRow('扬州队','连云港队','扬州体育公园体育场','6月20日')}
-                ${fixRow('苏州队','南通队','苏州市体育中心体育场','6月20日')}
-                ${fixRow('南京队','淮安队','南京奥体中心体育场','6月20日')}
-                <div style="font-size:12px;color:var(--text3);margin:12px 0 8px 2px;">6月27日</div>
+                <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">6月27日</div>
                 ${fixRow('淮安队','无锡队','淮安市体育中心体育场','6月27日')}
                 ${fixRow('镇江队','苏州队','镇江市体育会展中心体育场','6月27日')}
                 ${fixRow('连云港队','常州队','连云港市体育中心体育场','6月27日')}
+                <div style="font-size:12px;color:var(--text3);margin:12px 0 8px 2px;">7月4日</div>
+                ${fixRow('盐城队','苏州队','盐城奥体中心体育场','7月4日')}
+                ${fixRow('无锡队','宿迁队','江阴市体育中心体育场','7月4日')}
+                ${fixRow('泰州队','镇江队','泰州体育公园体育场','7月4日')}
+                ${fixRow('徐州队','南京队','徐州奥体中心体育场','7月4日')}
             </div>`;
             document.getElementById('spflFixtures').innerHTML = fixturesHTML;
         }
