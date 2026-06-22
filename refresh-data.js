@@ -64,9 +64,9 @@ function replaceBetween(html, startMarker, nextMarker, newData, varPrefix) {
     + html.slice(end);
 }
 
-html = replaceBetween(html, '/*E_G*/', 'const STADIUMS', gs, 'const E_G=');
+html = replaceBetween(html, '/*E_G*/', 'const E_P=', gs, 'const E_G=');
 if (gr) {
-  html = replaceBetween(html, '/*E_P*/', 'const ZH', gr, 'const E_P=');
+  html = replaceBetween(html, '/*E_P*/', 'const STADIUMS', gr, 'const E_P=');
 }
 
 // Update timestamp
