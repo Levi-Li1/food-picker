@@ -11,7 +11,7 @@ try {
   console.log('Games API: OK,', (games.games || games).length, 'matches');
 } catch (e) {
   console.error('Games API FAIL:', e.message);
-  process.exit(0); // No changes to commit
+  process.exit(0);
 }
 
 try {
@@ -26,52 +26,57 @@ try {
 
 // Minimize to short field names
 const gs = (games.games || games).map(m => ({
-  i: m.id || m._id,
-  g: m.group,
-  h: m.home_team_id,
-  a: m.away_team_id,
-  hs: m.home_score,
-  as: m.away_score,
-  hs2: m.home_scorers,
-  as2: m.away_scorers,
-  ld: m.local_date,
-  s: m.stadium_id,
-  f: m.finished,
-  te: m.time_elapsed
+  i: m.id || m._id, g: m.group, h: m.home_team_id, a: m.away_team_id,
+  hs: m.home_score, as: m.away_score, hs2: m.home_scorers, as2: m.away_scorers,
+  ld: m.local_date, s: m.stadium_id, f: m.finished, te: m.time_elapsed
 }));
 
 const gr = groups
   ? (groups.groups || groups).map(g => ({
       n: g.name || g.group,
       t: (g.teams || g.standings || []).map(t => ({
-        id: t.team_id || t.id,
-        w: +t.wins || +t.won || +t.w || 0,
-        d: +t.draws || +t.drawn || +t.d || 0,
-        l: +t.losses || +t.lost || +t.l || 0,
-        p: +t.played || +t.mp || +t.p || 0,
-        gf: +t.gf || +t.goals_for || 0,
+        id: t.team_id || t.id, w: +t.wins || +t.won || +t.w || 0,
+        d: +t.draws || +t.drawn || +t.d || 0, l: +t.losses || +t.lost || +t.l || 0,
+        p: +t.played || +t.mp || +t.p || 0, gf: +t.gf || +t.goals_for || 0,
         ga: +t.ga || +t.goals_against || 0
       }))
     }))
   : null;
 
-// Read HTML, replace embedded data
+// Safe array boundary finder using depth tracking
+function findArrayEnd(html, startMarker) {
+  const start = html.indexOf(startMarker);
+  if (start < 0) return null;
+  // Skip the 'const XXX=[' prefix (marker length)
+  let i = start + startMarker.length;
+  let depth = 0, inStr = false, esc = false;
+  while (i < html.length) {
+    const c = html[i];
+    if (esc) { esc = false; i++; continue; }
+    if (c === '\\') { esc = true; i++; continue; }
+    if (c === '"' && !esc) { inStr = !inStr; i++; continue; }
+    if (inStr) { i++; continue; }
+    if (c === '[' || c === '{') { depth++; }
+    else if (c === ']' || c === '}') { depth--; if (depth === 0) { return i; } }
+    i++;
+  }
+  return null;
+}
+
 let html = fs.readFileSync('football.html', 'utf8');
 const oldSize = html.length;
 
 // Replace E_G
-const egStart = html.indexOf('const E_G=[');
-const egEnd = html.indexOf('];', egStart);
-if (egStart > 0 && egEnd > 0) {
-  html = html.slice(0, egStart + 10) + JSON.stringify(gs) + html.slice(egEnd + 1);
+const egEnd = findArrayEnd(html, 'const E_G=[');
+if (egEnd) {
+  html = html.slice(0, html.indexOf('const E_G=') + 10) + JSON.stringify(gs) + html.slice(egEnd + 1);
 }
 
 // Replace E_P
 if (gr) {
-  const epStart = html.indexOf('const E_P=[');
-  const epEnd = html.indexOf('];', epStart);
-  if (epStart > 0 && epEnd > 0) {
-    html = html.slice(0, epStart + 10) + JSON.stringify(gr) + html.slice(epEnd + 1);
+  const epEnd = findArrayEnd(html, 'const E_P=[');
+  if (epEnd) {
+    html = html.slice(0, html.indexOf('const E_P=') + 10) + JSON.stringify(gr) + html.slice(epEnd + 1);
   }
 }
 
@@ -83,8 +88,6 @@ fs.writeFileSync('football.html', html);
 
 if (html.length !== oldSize) {
   console.log('Data changed, will commit.');
-  process.exit(0); // Changed
 } else {
   console.log('No changes.');
-  process.exit(0);
 }
