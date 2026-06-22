@@ -24,7 +24,6 @@ try {
   groups = null;
 }
 
-// Minimize to short field names
 const gs = (games.games || games).map(m => ({
   i: m.id || m._id, g: m.group, h: m.home_team_id, a: m.away_team_id,
   hs: m.home_score, as: m.away_score, hs2: m.home_scorers, as2: m.away_scorers,
@@ -43,51 +42,40 @@ const gr = groups
     }))
   : null;
 
-// Safe array boundary finder using depth tracking
-function findArrayEnd(html, startMarker) {
-  const start = html.indexOf(startMarker);
-  if (start < 0) return null;
-  // Skip the 'const XXX=[' prefix (marker length)
-  let i = start + startMarker.length;
-  let depth = 0, inStr = false, esc = false;
-  while (i < html.length) {
-    const c = html[i];
-    if (esc) { esc = false; i++; continue; }
-    if (c === '\\') { esc = true; i++; continue; }
-    if (c === '"' && !esc) { inStr = !inStr; i++; continue; }
-    if (inStr) { i++; continue; }
-    if (c === '[' || c === '{') { depth++; }
-    else if (c === ']' || c === '}') { depth--; if (depth === 0) { return i; } }
-    i++;
-  }
-  return null;
-}
-
+// Replace in HTML using unique marker approach
 let html = fs.readFileSync('football.html', 'utf8');
 const oldSize = html.length;
 
-// Replace E_G
-const egEnd = findArrayEnd(html, 'const E_G=[');
-if (egEnd) {
-  html = html.slice(0, html.indexOf('const E_G=') + 10) + JSON.stringify(gs) + html.slice(egEnd + 1);
+// Insert a marker before each embedded data block (one-time setup)
+if (!html.includes('/*EMBED')) {
+  html = html.replace('const E_G=[', '/*E_G*/const E_G=[');
+  html = html.replace('const E_P=[', '/*E_P*/const E_P=[');
 }
 
-// Replace E_P
+// Replace between markers and next variable declaration
+function replaceBetween(html, startMarker, nextMarker, newData, varPrefix) {
+  const start = html.indexOf(startMarker);
+  if (start < 0) return html;
+  const searchFrom = start + startMarker.length;
+  const end = html.indexOf(nextMarker, searchFrom);
+  if (end < 0) return html;
+  return html.slice(0, start + startMarker.length)
+    + varPrefix + JSON.stringify(newData) + ';'
+    + html.slice(end);
+}
+
+html = replaceBetween(html, '/*E_G*/', 'const STADIUMS', gs, 'const E_G=');
 if (gr) {
-  const epEnd = findArrayEnd(html, 'const E_P=[');
-  if (epEnd) {
-    html = html.slice(0, html.indexOf('const E_P=') + 10) + JSON.stringify(gr) + html.slice(epEnd + 1);
-  }
+  html = replaceBetween(html, '/*E_P*/', 'const ZH', gr, 'const E_P=');
 }
 
-// Update version timestamp
+// Update timestamp
 const ts = new Date().toISOString().replace(/[-:]/g, '').slice(0, 15).replace('T', '-');
 html = html.replace(/>\d{8}-\d{4} \(git [a-f0-9]{7}\)</, `>${ts} (git auto)</`);
 
-fs.writeFileSync('football.html', html);
+// Validate JS
+const js = html.substring(html.indexOf('<script>') + 8, html.lastIndexOf('</script>'));
+require('child_process').execSync('node --check -', { input: js, stdio: 'pipe' });
 
-if (html.length !== oldSize) {
-  console.log('Data changed, will commit.');
-} else {
-  console.log('No changes.');
-}
+fs.writeFileSync('football.html', html);
+console.log('Data updated and validated.');
