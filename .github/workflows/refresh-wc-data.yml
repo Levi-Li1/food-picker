@@ -1,9 +1,9 @@
-name: Refresh World Cup Data
+name: Refresh Football Data
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Every 15 minutes
-  workflow_dispatch:  # Manual trigger
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,8 +20,11 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Fetch and embed data
+      - name: Refresh World Cup data
         run: node refresh-data.js
+
+      - name: Refresh Su Chao data
+        run: node refresh-suchao.js
 
       - name: Commit and push if changed
         run: |
@@ -31,6 +34,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Auto-refresh World Cup data [skip ci]"
+            git commit -m "Auto-refresh football data [skip ci]"
             git push
           fi
