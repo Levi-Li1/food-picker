@@ -322,17 +322,7 @@ function speak(text) {
 </script>
 
 </div>
-<script>
-function speak(text) {
-  if (window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = 0.75;
-    window.speechSynthesis.speak(u);
-  }
-}
-</script>
+<script>function speak(text){if(window.speechSynthesis){window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=0.75;window.speechSynthesis.speak(u);}}function showAns(btn){btn.nextElementSibling.classList.toggle("show");}</script>
 
 </body>
 </html>
