@@ -194,11 +194,12 @@ def process_day(day):
         else:
             body = process_normal_section(body)
         
-        # Insert h3 inside the FIRST steps container
+        # Always wrap h3 + body in steps container
         steps_open = '<div class="steps">'
         if body.startswith(steps_open):
-            # For English: might have 2 steps containers. Put h3 in the first one.
             body = steps_open + '\n' + h3_tag + '\n' + body[len(steps_open):]
+        else:
+            body = steps_open + '\n' + h3_tag + '\n' + body + '\n</div>'
         
         new_dbody += body
     
