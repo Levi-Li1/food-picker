@@ -138,6 +138,25 @@ def process_english_section(body):
     # Step 5: Add word list as separate step full (if present)
     if wl_html:
         result += '\n<div class="steps">\n<div class="step full">\n' + wl_html + '\n</div>\n</div>'
+    else:
+        # Fallback: if wl_html was not extracted but result still contains f0f0f5 word list,
+        # extract it forcibly from the result
+        wl2_start = result.find('<div style=\"background:#f0f0f5')
+        if wl2_start != -1:
+            # Find matching close
+            depth = 0; wl2_i = wl2_start
+            while wl2_i < len(result):
+                if result[wl2_i:wl2_i+4] == '<div': depth += 1; wl2_i += 4
+                elif result[wl2_i:wl2_i+6] == '</div>':
+                    depth -= 1
+                    if depth == 0: wl2_end = wl2_i + 6; break
+                    wl2_i += 6
+                else: wl2_i += 1
+            else:
+                wl2_end = len(result)
+            wl2_html = result[wl2_start:wl2_end]
+            result = result[:wl2_start] + result[wl2_end:]
+            result += '\n<div class="steps">\n<div class="step full">\n' + wl2_html + '\n</div>\n</div>'
     
     # Clean up: remove extra </div> that might close dbody prematurely before word list
     result = result.replace('</div>\n</div>\n\n\n<div class="steps">\n<div class="step full">', 
@@ -171,7 +190,13 @@ def process_day(day):
         body = dbody[h3_end:sec_end]
         
         if '英语' in h3_text:
+            body_before = body
             body = process_english_section(body)
+            sc_before = body_before.count('<div class="steps"')
+            sc_after = body.count('<div class="steps"')
+            if sc_after <= 1 and 'f0f0f5' in body:
+                h3_short = h3_text[:30]
+                print(f'  DEBUG {h3_short}: steps {sc_before}→{sc_after}, f0f0f5 still in body')
         else:
             body = process_normal_section(body)
         
@@ -198,7 +223,7 @@ for wnum in range(2, 10):
     h = h.replace('</div><div class="step full"', '</div>\n<div class="step full"')
     h = h.replace('<div class="dbody"><h3', '<div class="dbody">\n<h3')
 
-    day_starts = [m.start() for m in re.finditer(r'<div class="day-page">', h)]
+    day_starts = [m.start() for m in re.finditer(r'<div class="day-page"', h)]
     parts = []; le = 0
     for i, ds in enumerate(day_starts):
         de = day_starts[i+1] if i+1 < len(day_starts) else len(h)
