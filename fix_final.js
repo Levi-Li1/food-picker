@@ -77,29 +77,8 @@ for (const wid of ['w1','w2','w3','w4','w5','w6','w7','w8','w9']) {
     html = html.replace('</style>','.svg-diagram{text-align:center;margin:10px 0;background:#fafafa;border-radius:10px;padding:8px}\n.svg-diagram svg{max-width:100%;height:auto}\n</style>');
   }
 
-  // 3. Add tips/SVGs BEFORE gray box (search for COMPLETE gray box opening tag)
-  if (wid === 'w1') {
-    // Day 1: find its gray box, inject before it
-    html = html.replace(
-      /(<div class="dnum">Day 1<\/div>[\s\S]*?)<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">/,
-      '$1' + CONTENT.w1_D1 + '\n<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">'
-    );
-    // Day 2
-    html = html.replace(
-      /(<div class="dnum">Day 2<\/div>[\s\S]*?)<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">/,
-      '$1' + CONTENT.w1_D2 + '\n<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">'
-    );
-    // Day 3
-    html = html.replace(
-      /(<div class="dnum">Day 3<\/div>[\s\S]*?)<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">/,
-      '$1' + CONTENT.w1_D3 + '\n<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">'
-    );
-    // Day 4
-    html = html.replace(
-      /(<div class="dnum">Day 4<\/div>[\s\S]*?)<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">/,
-      '$1' + CONTENT.w1_D4 + '\n<div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">'
-    );
-  }
+  // 3. W1 tips are handled separately by fix_w1_v2.py (step full cards in grid)
+  //    W2-W9 tips are injected via build_weeks.js pipeline
 
   // 4. Add supplementary days
   if (wid === 'w4' && !html.includes('Day 23')) {

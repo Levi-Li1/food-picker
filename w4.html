@@ -113,35 +113,52 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div class="container">
 <div class="week-marker" id="w4">📅 第四周（7月22日-28日）<div class="wnote">主题：几何综合+化学启蒙 · 每天学习时间 5h（数学2h + 物理1h + 化学1h + 英语/语文交替1h）</div></div>
 
-<div class="day-page">
-<div class="dtop"><div class="dnum">Day 22</div><div class="dinfo"><div>7月22日 周二</div><div style="font-size:12px">数学+物理+化学</div></div></div>
+<div class="day-page" id="d22"><div class="dtop"><div class="dnum">Day 22</div><div class="dinfo"><div>7月22日 周二</div><div style="font-size:12px">数学+物理+化学</div></div></div>
 <div class="dbody">
-<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 几何综合复习（全等+勾股+四边形）（2h）</h3><div class="steps">
-<div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲练（2h）</h4><p><b>几何证明通用思路</b>：</p><p>①从已知条件出发往前推（综合法）——由已知推可知</p><p>②从要证明的结论倒推（分析法）——要证这个需要先证什么</p><p>③两路夹击，找到中间桥梁</p></div>
-</div></div><h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:20px 0 12px">⚡ 物理 · 浮力（阿基米德原理）（1h）</h3><div class="steps">
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>讲（30min）</h4><p><b>⭐ 阿基米德原理</b>——浸在液体中的物体受到向上的浮力，浮力的大小等于物体排开的液体所受的重力。</p><div class="formula"><div class="eq">F浮 = G排 = ρ液 × g × V排</div><div class="meaning">ρ液为液体密度；g≈10N/kg；V排为排开液体的体积</div></div><p><b>物体沉浮条件</b>（比较F浮和G物，或比较ρ物和ρ液）：</p><p>上浮（最终漂浮，F浮=G）：F浮&gt;G 或 ρ物&lt;ρ液</p><p>悬浮：F浮=G 或 ρ物=ρ液</p><p>下沉：F浮&lt;G 或 ρ物&gt;ρ液</p><div class="q-block"><span class="q-num">1.</span><span class="question">一物体浸没在水中，排开水的体积为0.002m³，求浮力。</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">F浮=ρ水gV排=1.0×10³×10×0.002=20N</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">一物体重5N，浸没在水中时弹簧测力计示数为3N。求浮力大小。</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">F浮=G-F示=5-3=2N（称重法）</div></div></div>
-</div><h3 style="color:#9c27b0;border-bottom:2px solid #9c27b0;padding-bottom:6px;margin:20px 0 12px">🧪 化学 · 化学变化vs物理变化（1h）</h3><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲练（1h）</h4><p><b>判断依据</b>：是否有<b>新物质</b>生成。</p><p><b>物理变化</b>：物质形状/状态改变但没有新物质。如水结冰、铁制成铁钉、石蜡熔化。</p><p><b>化学变化</b>：有新物质生成。如蜡烛燃烧（生成CO₂+H₂O）、铁生锈（生成Fe₂O₃）、食物腐败。</p><p>化学变化常伴随的现象：发光、放热、变色、产生气体、生成沉淀（但注意这些不是判断依据！是否有新物质才是）。</p><div class="q-block"><span class="q-num">1.</span><span class="question">水沸腾变成水蒸气是什么变化？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">物理变化（只是状态改变，水蒸气还是H₂O）</div>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 几何综合复习（全等+勾股+四边形）（2h）</h3><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲练（2h）</h4><p><b>几何证明通用思路</b>：</p><p>①从已知条件出发往前推（综合法）——由已知推可知</p><p>②从要证明的结论倒推（分析法）——要证这个需要先证什么</p><p>③两路夹击，找到中间桥梁</p></div></div><h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:20px 0 12px">⚡ 物理 · 浮力（阿基米德原理）（1h）</h3><div class="step"><h4><span class="dot" style="background:var(--orange)"></span>讲（30min）</h4><p><b>⭐ 阿基米德原理</b>——浸在液体中的物体受到向上的浮力，浮力的大小等于物体排开的液体所受的重力。</p><div class="formula"><div class="eq">F浮 = G排 = ρ液 × g × V排</div><div class="meaning">ρ液为液体密度；g≈10N/kg；V排为排开液体的体积</div></div><p><b>物体沉浮条件</b>（比较F浮和G物，或比较ρ物和ρ液）：</p><p>上浮（最终漂浮，F浮=G）：F浮&gt;G 或 ρ物&lt;ρ液</p><p>悬浮：F浮=G 或 ρ物=ρ液</p><p>下沉：F浮&lt;G 或 ρ物&gt;ρ液</p><div class="q-block"><span class="q-num">1.</span><span class="question">一物体浸没在水中，排开水的体积为0.002m³，求浮力。</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">F浮=ρ水gV排=1.0×10³×10×0.002=20N</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">一物体重5N，浸没在水中时弹簧测力计示数为3N。求浮力大小。</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">F浮=G-F示=5-3=2N（称重法）</div></div></div><h3 style="color:#9c27b0;border-bottom:2px solid #9c27b0;padding-bottom:6px;margin:20px 0 12px">🧪 化学 · 化学变化vs物理变化（1h）</h3><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲练（1h）</h4><p><b>判断依据</b>：是否有<b>新物质</b>生成。</p><p><b>物理变化</b>：物质形状/状态改变但没有新物质。如水结冰、铁制成铁钉、石蜡熔化。</p><p><b>化学变化</b>：有新物质生成。如蜡烛燃烧（生成CO₂+H₂O）、铁生锈（生成Fe₂O₃）、食物腐败。</p><p>化学变化常伴随的现象：发光、放热、变色、产生气体、生成沉淀（但注意这些不是判断依据！是否有新物质才是）。</p><div class="q-block"><span class="q-num">1.</span><span class="question">水沸腾变成水蒸气是什么变化？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">物理变化（只是状态改变，水蒸气还是H₂O）</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">木柴燃烧是什么变化？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">化学变化（木柴变成CO₂、灰烬等新物质）</div></div></div></div></div></div>
+
+
+<div class="day-page" id="d23"><div class="dtop"><div class="dnum">Day 23</div><div class="dinfo"><div>7月23日 周三</div><div style="font-size:12px">数学+物理+化学</div></div></div>
+<div class="dbody">
+<div class="goal"><b>🎯 今日目标</b>：四边形综合证明；空气组成与氧气；分子原子</div>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 四边形综合证明（2h）</h3>
+<div class="steps">
+<div class="step"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>矩形判定</b>：三个直角/对角线相等的平行四边形/一个直角+平行四边形</p><p><b>菱形判定</b>：四边相等/对角线垂直的平行四边形/邻边相等+平行四边形</p><p><b>梯形中位线</b>=(上底+下底)/2</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4><div class="q-block"><span class="q-num">1.</span><span class="question">矩形AB=6,BC=8,AC=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">10</div></div>
+<div class="q-block"><span class="q-num">2.</span><span class="question">梯形AD=5,BC=13,中位线=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">9</div></div>
+<div class="q-block"><span class="q-num">3.</span><span class="question">菱形对角线8和6,边长=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">5</div></div></div>
+<div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（20min）</h4><p>四边形家族树:四边形→平行四边形→矩形/菱形/正方形</p></div>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 默写所有判定方法</p></div>
+</div>
+<h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:16px 0 12px">⚡ 物理 · 透镜成像复习（1h）</h3>
+<div class="steps">
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>讲（25min）</h4><p><b>凸透镜成像口诀</b>:一倍焦距分虚实,二倍焦距分大小。物近像远像变大。</p><p>u>2f:照相机 | f<u<2f:投影仪 | u<f:放大镜</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4>
+<div class="q-block"><span class="q-num">1.</span><span class="question">物体在2f处,像的性质?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">倒立等大实像。</div></div>
+<div class="q-block"><span class="q-num">2.</span><span class="question">放大镜原理?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">u<f时成正立放大虚像。</div></div>
+<div class="q-block"><span class="q-num">3.</span><span class="question">近视眼镜是什么透镜?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">凹透镜（发散光线，使像后移到视网膜）。</div></div>
+</div>
+</div>
+<h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 空气+氧气（1h）</h3>
+<div class="steps">
+<div class="step"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>空气组成</b>:N₂78% O₂21% 稀有0.94% CO₂0.03%</p><p><b>O₂化学性质</b>:C+O₂→CO₂(白光) S+O₂→SO₂(蓝紫) 3Fe+2O₂→Fe₃O₄(火星四射)</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--purple)"></span>练（25min）</h4><div class="q-block"><span class="q-num">1.</span><span class="question">空气中含量最多?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">N₂（78%）。</div></div>
+<div class="q-block"><span class="q-num">2.</span><span class="question">铁丝燃烧现象?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">火星四射，生成黑色固体Fe₃O₄。</div></div>
+<div class="q-block"><span class="q-num">3.</span><span class="question">木炭燃烧生成?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">CO₂。</div></div></div>
+</div>
+
 <h3 style="color:var(--green);border-bottom:2px solid var(--green);padding-bottom:6px;margin:16px 0 12px">🔤 英语 · 现在完成时与一般过去时对比（1h）</h3>
 <div class="steps">
-<div class="step"><h4><span class="dot" style="background:var(--green)"></span>讲（20min）</h4><p><b>现在完成时(have/has+done)</b>：强调对现在的影响，常与already/yet/ever/never连用。<b>一般过去时(did)</b>：只描述过去动作，常与yesterday/ago/last连用。</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--green)"></span>讲（20min）</h4><p><b>现在完成时(have/has+done)：强调对现在的影响，常与already/yet/ever/never连用。一般过去时(did)：只描述过去动作，常与yesterday/last week/ago连用。</b></p></div>
 <div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（30min）</h4>
-<div class="q-block"><span class="q-num">1.</span><span class="question">I have seen the film.(已看，知道内容) vs I saw it yesterday.？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">只陈述事实</div></div>
+<div class="q-block"><span class="q-num">1.</span><span class="question">I have seen the film.(已看) vs I saw it yesterday.？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">只陈述</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">She ___(    ) here since</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">live</div></div>
 <div class="q-block"><span class="q-num">2010.</span><span class="question">？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">has lived</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">They ___(go) to Beijing last month.</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">went</div></div>
 </div>
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（5min）</h4><p>整理笔记+错题</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（5min）</h4><p>📔 用现在完成时和一般过去时各造2句</p></div>
-</div>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（5min）</h4><p>📔 用今天语法造3句</p></div></div>
 
-</div><div class="q-block"><span class="q-num">2.</span><span class="question">木柴燃烧是什么变化？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">化学变化（木柴变成CO₂、灰烬等新物质）</div></div></div></div>
-
-</div></div>
-
-
-
-<div class="steps">
-<div class="step full">
 <div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">
 <p style="margin:0 0 8px 0"><b>今日30词</b>（点击 ▶ 按钮听发音）</p>
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">1.</span><b style="color:#1d1d1f;min-width:80px">later</b> <span style="color:var(--sub);font-size:12px;min-width:100px">ˈleɪtər</span> <span style="color:var(--green);min-width:30px"><i>adv.</i></span> 后来;稍后 <button onclick="speak('later')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">I will call you later. <span style="color:#999">我稍后给你打电话。</span></div>
@@ -175,49 +192,15 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">29.</span><b style="color:#1d1d1f;min-width:80px">lose</b> <span style="color:var(--sub);font-size:12px;min-width:100px">luːz</span> <span style="color:var(--green);min-width:30px"><i>v.</i></span> 失去;输 <button onclick="speak('lose')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">Do not lose hope. <span style="color:#999">不要失去希望。</span></div>
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">30.</span><b style="color:#1d1d1f;min-width:80px">lot</b> <span style="color:var(--sub);font-size:12px;min-width:100px">lɑːt</span> <span style="color:var(--green);min-width:30px"><i>n.</i></span> 许多 <button onclick="speak('lot')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">I have a lot of homework. <span style="color:#999">我有很多作业。</span></div>
 </div>
-</div>
-</div><div class="day-page">
-<div class="dtop"><div class="dnum">Day 23</div><div class="dinfo"><div>7月23日 周三</div><div style="font-size:12px">数学+物理+化学</div></div></div>
-<div class="dbody">
-<div class="goal"><b>🎯 今日目标</b>：四边形综合证明；空气组成与氧气；分子原子</div>
-<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 四边形综合证明（2h）</h3>
-<div class="steps">
-<div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>矩形判定</b>：三个直角/对角线相等的平行四边形/一个直角+平行四边形</p><p><b>菱形判定</b>：四边相等/对角线垂直的平行四边形/邻边相等+平行四边形</p><p><b>梯形中位线</b>=(上底+下底)/2</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4><div class="q-block"><span class="q-num">1.</span><span class="question">矩形AB=6,BC=8,AC=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">10</div></div>
-<div class="q-block"><span class="q-num">2.</span><span class="question">梯形AD=5,BC=13,中位线=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">9</div></div>
-<div class="q-block"><span class="q-num">3.</span><span class="question">菱形对角线8和6,边长=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">5</div></div></div>
-<div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（20min）</h4><p>四边形家族树:四边形→平行四边形→矩形/菱形/正方形</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 默写所有判定方法</p></div>
-</div>
-
-
-<h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:16px 0 12px">⚡ 物理 · 透镜成像复习（1h）</h3>
-<div class="steps">
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>讲（25min）</h4><p><b>凸透镜成像口诀</b>:一倍焦距分虚实,二倍焦距分大小。物近像远像变大。</p><p>u>2f:照相机 | f<u<2f:投影仪 | u<f:放大镜</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4>
-<div class="q-block"><span class="q-num">1.</span><span class="question">物体在2f处,像的性质?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">倒立等大实像。</div></div>
-<div class="q-block"><span class="q-num">2.</span><span class="question">放大镜原理?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">u<f时成正立放大虚像。</div></div>
-<div class="q-block"><span class="q-num">3.</span><span class="question">近视眼镜是什么透镜?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">凹透镜（发散光线，使像后移到视网膜）。</div></div>
-</div>
-</div>
-<h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 空气+氧气（1h）</h3>
-<div class="steps">
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>空气组成</b>:N₂78% O₂21% 稀有0.94% CO₂0.03%</p><p><b>O₂化学性质</b>:C+O₂→CO₂(白光) S+O₂→SO₂(蓝紫) 3Fe+2O₂→Fe₃O₄(火星四射)</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>练（25min）</h4><div class="q-block"><span class="q-num">1.</span><span class="question">空气中含量最多?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">N₂（78%）。</div></div>
-<div class="q-block"><span class="q-num">2.</span><span class="question">铁丝燃烧现象?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">火星四射，生成黑色固体Fe₃O₄。</div></div>
-<div class="q-block"><span class="q-num">3.</span><span class="question">木炭燃烧生成?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">CO₂。</div></div></div>
-</div>
-
 <div class="check"><b>✔ 今日达标检查</b>（睡前逐条确认）：<br>□ 四边形判定默全？ □ 透镜成像表画出？ □ 3个燃烧方程式？</div>
 </div></div>
-<div class="day-page">
-<div class="dtop"><div class="dnum">Day 24</div><div class="dinfo"><div>7月24日 周四</div><div style="font-size:12px">数学+化学+英语</div></div></div>
+<div class="day-page" id="d24"><div class="dtop"><div class="dnum">Day 24</div><div class="dinfo"><div>7月24日 周四</div><div style="font-size:12px">数学+化学+英语</div></div></div>
 <div class="dbody">
 <div class="goal"><b>🎯 今日目标</b>：梯形中位线应用；氧气制取；定语从句+词汇</div>
 <h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 梯形中位线+几何（2h）</h3>
 <div class="steps">
-<div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>梯形中位线</b>=(上底+下底)/2。等腰梯形:两腰等/同底角等/对角线等。</p><p><b>辅助线四法</b>:作高/平移腰/平移对角线/延长两腰</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4>
+<div class="step"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>梯形中位线</b>=(上底+下底)/2。等腰梯形:两腰等/同底角等/对角线等。</p><p><b>辅助线四法</b>:作高/平移腰/平移对角线/延长两腰</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">梯形AD=4,BC=10,中位线=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">7</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">等腰梯形∠B=60°,高3√<span style="text-decoration:overline">3</span>,腰=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">6</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">中位线8,下底12,上底=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">4</div></div>
@@ -227,8 +210,8 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 </div>
 <h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · O₂的制取（1h）</h3>
 <div class="steps">
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>三种制O₂方法</b>:①2KMnO₄→△→K₂MnO₄+MnO₂+O₂↑ ②2KClO₃→MnO₂△→2KCl+3O₂↑ ③2H₂O₂→MnO₂→2H₂O+O₂↑</p><p>收集:排水法/向上排空气法</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>练（25min）</h4>
+<div class="step"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>三种制O₂方法</b>:①2KMnO₄→△→K₂MnO₄+MnO₂+O₂↑ ②2KClO₃→MnO₂△→2KCl+3O₂↑ ③2H₂O₂→MnO₂→2H₂O+O₂↑</p><p>收集:排水法/向上排空气法</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--purple)"></span>练（25min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">KMnO₄制O₂为何塞棉花?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">防止KMnO₄粉末进入导管堵塞。</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">催化剂特点?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">改变反应速率，本身质量和化学性质不变。</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">如何验满O₂?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">带火星木条伸到集气瓶口，复燃则满。</div></div>
@@ -250,24 +233,23 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 </div></div>
 
 
-<div class="day-page">
-<div class="dtop"><div class="dnum">Day 25</div><div class="dinfo"><div>7月25日 周五</div><div style="font-size:12px">数学+物理+化学</div></div></div>
+<div class="day-page" id="d25"><div class="dtop"><div class="dnum">Day 25</div><div class="dinfo"><div>7月25日 周五</div><div style="font-size:12px">数学+物理+化学</div></div></div>
 <div class="dbody">
 <div class="goal"><b>🎯 今日目标</b>：相似三角形判定；物态变化综合；分子原子</div>
-<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 相似三角形（一）——判定（2h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>⭐ 相似三角形</b>：对应角相等，对应边成比例。</p><p><b>判定方法</b>：①AA（两角对应相等）②SAS（两边成比例且夹角相等）③SSS（三边成比例）</p><p><b>相似比k</b>：对应边的比值。面积比=k²。</p><div class="formula"><div class="eq">AB/DE = BC/EF = AC/DF = k</div><div class="meaning">对应边成比例，比例系数k</div></div></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 相似三角形（一）——判定（2h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>⭐ 相似三角形</b>：对应角相等，对应边成比例。</p><p><b>判定方法</b>：①AA（两角对应相等）②SAS（两边成比例且夹角相等）③SSS（三边成比例）</p><p><b>相似比k</b>：对应边的比值。面积比=k²。</p><div class="formula"><div class="eq">AB/DE = BC/EF = AC/DF = k</div><div class="meaning">对应边成比例，比例系数k</div></div></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">△ABC中AB=4,BC=6,AC=5; △DEF中DE=8,EF=12,DF=10。是否相似?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考上方讲解内容）</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">两三角形相似,相似比k=2/3,小三角形面积9,大面积=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">9×9/4=81/4=20.25</div></div>
 </div>
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（20min）</h4><p>全等是相似的特例(k=1)；面积比=k²；体积比=k³</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 对比全等与相似的判定条件</p></div></div><h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:16px 0 12px">⚡ 物理 · 物态变化综合（1h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>讲（25min）</h4><p><b>六种物态变化</b>：熔化(固态→液态吸热)/凝固(液态→固态放热)/汽化(液态→气态吸热)/液化(气态→液态放热)/升华(固态→气态吸热)/凝华(气态→固态放热)</p><p><b>晶体熔化特点</b>：有固定熔点，熔化时温度不变。冰的熔点0°C。</p><p><b>影响蒸发快慢</b>：温度/表面积/空气流速</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 对比全等与相似的判定条件</p></div></div><h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:16px 0 12px">⚡ 物理 · 物态变化综合（1h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--orange)"></span>讲（25min）</h4><p><b>六种物态变化</b>：熔化(固态→液态吸热)/凝固(液态→固态放热)/汽化(液态→气态吸热)/液化(气态→液态放热)/升华(固态→气态吸热)/凝华(气态→固态放热)</p><p><b>晶体熔化特点</b>：有固定熔点，熔化时温度不变。冰的熔点0°C。</p><p><b>影响蒸发快慢</b>：温度/表面积/空气流速</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">晒被子利用什么原理?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">增大表面积和温度→加快蒸发。</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">哈气暖手→液化放热; 吹气凉手？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">蒸发吸热。</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">干冰制造舞台烟雾→升华吸热？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">水蒸气液化成小水滴。</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">干冰(固态CO₂)制造舞台烟雾→？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">升华吸热，周围水蒸气液化成小水滴形成白雾。</div></div>
-</div></div><h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 分子和原子（1h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲（20min）</h4><p><b>⭐ 分子</b>：保持物质化学性质的最小粒子。分子由原子构成。</p><p><b>分子的特点</b>：①质量和体积都很小 ②分子在不停地运动（扩散现象）③分子间有间隔（气体可压缩）</p><p><b>原子</b>：化学变化中的最小粒子。在化学变化中分子可分而原子不可分。</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
+</div></div><h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 分子和原子（1h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--purple)"></span>讲（20min）</h4><p><b>⭐ 分子</b>：保持物质化学性质的最小粒子。分子由原子构成。</p><p><b>分子的特点</b>：①质量和体积都很小 ②分子在不停地运动（扩散现象）③分子间有间隔（气体可压缩）</p><p><b>原子</b>：化学变化中的最小粒子。在化学变化中分子可分而原子不可分。</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">湿衣服晾干是什么现象?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">分子在不断运动（扩散）。</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">50mL水+50mL酒精混合<100mL说明?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">分子间有间隔。</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">2H₂O→电解？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">2H₂+O₂中，水分子变了但H和O原子没变</div></div>
@@ -275,20 +257,15 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 
 <h3 style="color:var(--green);border-bottom:2px solid var(--green);padding-bottom:6px;margin:16px 0 12px">🔤 英语 · 不定式与动名词（1h）</h3>
 <div class="steps">
-<div class="step"><h4><span class="dot" style="background:var(--green)"></span>讲（20min）</h4><p><b>不定式(to do)：表目的/将来。动名词(doing)：表习惯/已发生。enjoy/finish/mind+doing；want/decide/hope+to do；stop to do(停下→去做) vs stop doing(停止做)</b></p></div>
+<div class="step"><h4><span class="dot" style="background:var(--green)"></span>讲（20min）</h4><p><b>不定式(to do)：表目的/将来。动名词(doing)：表习惯/已发生。enjoy/finish/mind+doing；want/decide/hope+to do。</b></p></div>
 <div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（30min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">I enjoy___(swim).</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">swimming</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">He decided___(go) abroad.</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">to go</div></div>
-<div class="q-block"><span class="q-num">3.</span><span class="question">Remember___(lock) the door when you leave.</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">to lock</div></div>
+<div class="q-block"><span class="q-num">3.</span><span class="question">Remember___(lock) the door.</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">to lock</div></div>
 </div>
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（5min）</h4><p>整理笔记+错题</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（5min）</h4><p>📔 用今天语法点造3个句子</p></div>
-</div>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（5min）</h4><p>📔 用今天语法造3句</p></div></div>
 
-
-
-<div class="steps">
-<div class="step full">
 <div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">
 <p style="margin:0 0 8px 0"><b>今日30词</b>（点击 ▶ 按钮听发音）</p>
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">1.</span><b style="color:#1d1d1f;min-width:80px">jacket</b> <span style="color:var(--sub);font-size:12px;min-width:100px">ˈdʒækɪt</span> <span style="color:var(--green);min-width:30px"><i>n.</i></span> 夹克;外套 <button onclick="speak('jacket')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">Put on your jacket. It is cold. <span style="color:#999">穿上外套，天很冷。</span></div>
@@ -322,27 +299,23 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">29.</span><b style="color:#1d1d1f;min-width:80px">last</b> <span style="color:var(--sub);font-size:12px;min-width:100px">læst</span> <span style="color:var(--green);min-width:30px"><i>adj./v.</i></span> 最后的;持续 <button onclick="speak('last')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">Last weekend I visited my aunt. <span style="color:#999">上周末我去看了姑妈。</span></div>
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">30.</span><b style="color:#1d1d1f;min-width:80px">late</b> <span style="color:var(--sub);font-size:12px;min-width:100px">leɪt</span> <span style="color:var(--green);min-width:30px"><i>adj.</i></span> 迟到的 <button onclick="speak('late')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">Do not be late for school. <span style="color:#999">上学别迟到。</span></div>
 </div>
-</div>
-</div><div class="check"><b>✔ 今日达标检查</b>（睡前逐条确认）：<br>□ AA/SAS/SSS各证一题？ □ 六种物态变化默写？ □ 分子三大特点？</div>
+<div class="check"><b>✔ 今日达标检查</b>（睡前逐条确认）：<br>□ AA/SAS/SSS各证一题？ □ 六种物态变化默写？ □ 分子三大特点？</div>
 </div></div>
 
 
-<div class="day-page">
-<div class="dtop"><div class="dnum">Day 26</div><div class="dinfo"><div>7月26日 周六</div><div style="font-size:12px">数学+化学+英语</div></div></div>
+<div class="day-page" id="d26"><div class="dtop"><div class="dnum">Day 26</div><div class="dinfo"><div>7月26日 周六</div><div style="font-size:12px">数学+化学+英语</div></div></div>
 <div class="dbody">
 <div class="goal"><b>🎯 今日目标</b>：相似性质应用；元素符号；过去完成时</div>
-<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 相似三角形（二）——性质应用（2h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>相似三角形的性质</b>：①对应高/中线/角平分线比=相似比k ②周长比=k ③面积比=k²</p><p><b>常见模型</b>：①A字型(DE∥BC→△ADE∽△ABC) ②X字型(AB∥CD→对顶三角形相似) ③母子型(直角三角形斜边上的高)</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 相似三角形（二）——性质应用（2h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--blue)"></span>讲（40min）</h4><p><b>相似三角形的性质</b>：①对应高/中线/角平分线比=相似比k ②周长比=k ③面积比=k²</p><p><b>常见模型</b>：①A字型(DE∥BC→△ADE∽△ABC) ②X字型(AB∥CD→对顶三角形相似) ③母子型(直角三角形斜边上的高)</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（60min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">△ABC∽△DEF,k=3,△DEF周长为12,△ABC周长?(36) △DEF面积为8,△ABC面积?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">72</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">如图,DE∥BC,AD=4,DB=6,DE=5,求BC? AD/AB=4/10=2/5,DE/BC=2/5</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">BC=12.5</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">高1.6m的人影长2m,同地点旗杆影长10m,旗杆高?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考上方讲解内容）</div></div>
 <div class="q-block"><span class="q-num">1.</span><span class="question">6/2=x/10？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">x=8m</div></div>
 </div>
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（20min）</h4><p>A字型和X字型是中考高频考点</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 画A字型和X字型各一例</p></div></div>
-
-<h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 元素和元素符号（1h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>⭐ 元素</b>：具有相同核电荷数（质子数）的一类原子的总称。</p><p><b>元素符号含义</b>：H可以表示①氢元素 ②1个氢原子。2H只表示2个氢原子。</p><p><b>地壳中含量前五</b>：O>Si>Al>Fe>Ca</p><p><b>生物体中最多</b>：O>C>H>N</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 画A字型和X字型各一例</p></div></div><h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 元素和元素符号（1h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>⭐ 元素</b>：具有相同核电荷数（质子数）的一类原子的总称。</p><p><b>元素符号含义</b>：H可以表示①氢元素 ②1个氢原子。2H只表示2个氢原子。</p><p><b>地壳中含量前五</b>：O>Si>Al>Fe>Ca</p><p><b>生物体中最多</b>：O>C>H>N</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">O表示什么?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">氧元素/1个氧原子。</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">3Fe表示?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">3个铁原子。</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">空气中含量最高的元素?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">N（氮元素）。</div></div>
@@ -357,10 +330,6 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（10min）</h4><p>had done = 过去的过去；by the time/when/before常搭配过去完成时</p></div>
 <div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（5min）</h4><p>📔 用过去完成时写3句话</p></div></div>
 
-
-
-<div class="steps">
-<div class="step full">
 <div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">
 <p style="margin:0 0 8px 0"><b>今日30词</b>（点击 ▶ 按钮听发音）</p>
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">1.</span><b style="color:#1d1d1f;min-width:80px">horse</b> <span style="color:var(--sub);font-size:12px;min-width:100px">hɔːrs</span> <span style="color:var(--green);min-width:30px"><i>n.</i></span> 马 <button onclick="speak('horse')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">He can ride a horse. <span style="color:#999">他会骑马。</span></div>
@@ -394,17 +363,15 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">29.</span><b style="color:#1d1d1f;min-width:80px">invite</b> <span style="color:var(--sub);font-size:12px;min-width:100px">ɪnˈvaɪt</span> <span style="color:var(--green);min-width:30px"><i>v.</i></span> 邀请 <button onclick="speak('invite')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">I invite you to my party. <span style="color:#999">我邀请你来我的聚会。</span></div>
 <div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">30.</span><b style="color:#1d1d1f;min-width:80px">island</b> <span style="color:var(--sub);font-size:12px;min-width:100px">ˈaɪlənd</span> <span style="color:var(--green);min-width:30px"><i>n.</i></span> 岛屿 <button onclick="speak('island')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div><div style="font-size:11px;color:#888;margin-left:122px;margin-bottom:2px">Hainan is a beautiful island. <span style="color:#999">海南是个美丽的岛屿。</span></div>
 </div>
-</div>
-</div><div class="check"><b>✔ 今日达标检查</b>（睡前逐条确认）：<br>□ 相似面积比=k²证一遍？ □ 前20号元素写一遍？ □ had+done=过去的过去？</div>
+<div class="check"><b>✔ 今日达标检查</b>（睡前逐条确认）：<br>□ 相似面积比=k²证一遍？ □ 前20号元素写一遍？ □ had+done=过去的过去？</div>
 </div></div>
 
 
-<div class="day-page">
-<div class="dtop"><div class="dnum">Day 27</div><div class="dinfo"><div>7月27日 周日</div><div style="font-size:12px">数学+化学+语文</div></div></div>
+<div class="day-page" id="d27"><div class="dtop"><div class="dnum">Day 27</div><div class="dinfo"><div>7月27日 周日</div><div style="font-size:12px">数学+化学+语文</div></div></div>
 <div class="dbody">
 <div class="goal"><b>🎯 今日目标</b>：相似测高应用；化合价；议论文阅读</div>
-<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 相似三角形应用——测高（2h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（35min）</h4><p><b>利用相似测高</b>：①影子法——物高/影长=杆高/杆影长 ②镜子反射——入射角=反射角→△相似 ③标杆法——两杆的影子和视线构成相似</p><p><b>实际应用</b>：测树高、测楼高、测河宽——核心都是构建相似三角形找比例关系</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（55min）</h4>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 相似三角形应用——测高（2h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--blue)"></span>讲（35min）</h4><p><b>利用相似测高</b>：①影子法——物高/影长=杆高/杆影长 ②镜子反射——入射角=反射角→△相似 ③标杆法——两杆的影子和视线构成相似</p><p><b>实际应用</b>：测树高、测楼高、测河宽——核心都是构建相似三角形找比例关系</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（55min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">小明高1.5m影长2m,同时树影长8m,树高?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考上方讲解内容）</div></div>
 <div class="q-block"><span class="q-num">1.</span><span class="question">5/2=x/8？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">x=6m</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">用镜子法:人距镜子2m,镜子距树8m,人眼高1.6m,树高?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考上方讲解内容）</div></div>
@@ -412,45 +379,41 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div class="q-block"><span class="q-num">3.</span><span class="question">河对岸有树,已知岸这边A点与树底C点距离AC。取AB⊥AC,从B看C,AB=4m,从B到河另一点D=6m,AD⊥AB。求AC?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考上方讲解内容）</div></div>
 </div>
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（20min）</h4><p>相似测高核心：找到包含待测高度的相似三角形</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 画三种测高方法的示意图</p></div></div><h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 化合价（1h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>化合价口诀</b>：一价钾钠银氢铵(K/Na/Ag/H/NH₄+)；二价氧钙钡镁锌(O/Ca/Ba/Mg/Zn)；三价铝四硅五价磷(Al/Si/P)；二三铁二四碳二四硫(Fe/C/S)；铜汞正二最常见(Cu/Hg)</p><p><b>化合价规则</b>：①化合物各元素化合价代数和为0 ②单质化合价为0</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4><div class="q-block"><span class="q-num">1.</span><span class="question">Fe₂O₃中Fe的化合价? +3(+3×2+(-2)×3=0？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考讲解部分内容）</div></div>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 画三种测高方法的示意图</p></div></div><h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 化合价（1h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--purple)"></span>讲（25min）</h4><p><b>化合价口诀</b>：一价钾钠银氢铵(K/Na/Ag/H/NH₄+)；二价氧钙钡镁锌(O/Ca/Ba/Mg/Zn)；三价铝四硅五价磷(Al/Si/P)；二三铁二四碳二四硫(Fe/C/S)；铜汞正二最常见(Cu/Hg)</p><p><b>化合价规则</b>：①化合物各元素化合价代数和为0 ②单质化合价为0</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（25min）</h4><div class="q-block"><span class="q-num">1.</span><span class="question">Fe₂O₃中Fe的化合价? +3(+3×2+(-2)×3=0？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考讲解部分内容）</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">KMnO₄中Mn? +7(+1+x+(-2)×4=0？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考讲解部分内容）</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">KClO₃中Cl? +5(+1+x+(-2)×3=0？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">x=+5)</div></div>
-<div class="q-block"><span class="q-num">4.</span><span class="question">H₂SO₄中S?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">+6</div></div></div></div><h3 style="color:var(--red);border-bottom:2px solid var(--red);padding-bottom:6px;margin:16px 0 12px">📚 语文 · 议论文阅读（1h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>讲（20min）</h4><p><b>议论文三要素</b>：论点（作者的观点主张）、论据（支撑论点的事实/道理）、论证（用论据证明论点的过程）。</p><p><b>论证方法</b>：举例论证/道理论证/对比论证/比喻论证/引用论证</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
+<div class="q-block"><span class="q-num">4.</span><span class="question">H₂SO₄中S?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">+6</div></div></div></div><h3 style="color:var(--red);border-bottom:2px solid var(--red);padding-bottom:6px;margin:16px 0 12px">📚 语文 · 议论文阅读（1h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--red)"></span>讲（20min）</h4><p><b>议论文三要素</b>：论点（作者的观点主张）、论据（支撑论点的事实/道理）、论证（用论据证明论点的过程）。</p><p><b>论证方法</b>：举例论证/道理论证/对比论证/比喻论证/引用论证</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">"不以规矩，不成方圆"用的是?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">道理/引用论证。</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">议论文开头的作用?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">引出论点/吸引读者/概括内容。</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">找到论点的技巧？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">看标题→看开头→看结尾→看过渡句。</div></div>
 </div></div>
 
-
 <h3 style="color:#e91e63;border-bottom:2px solid #e91e63;padding-bottom:6px;margin:16px 0 12px">⚖️ 道法 · 遵守社会规则（八上）（30min）</h3>
-<div class="steps">
-<div class="step full"><h4><span class="dot" style="background:#e91e63"></span>讲练（30min）</h4>
-<p><b>核心考点</b>：</p><ul><li>社会秩序靠规则维护：道德、纪律、法律</li><li>自由与规则：自由不是随心所欲，受社会规则约束</li><li>违法行为分类：一般违法(民事/行政)与犯罪(刑事)——犯罪最本质特征是严重社会危害性</li></ul>
-<div class="q-block"><span class="q-num">1.</span><span class="question">遵守社会规则（八上）的核心内容是什么？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">社会秩序靠规则维护：道德、纪律、法律</div></div>
+<div class="steps"><div class="step full"><h4><span class="dot" style="background:#e91e63"></span>讲练（30min）</h4>
+<p><b>核心考点</b>：</p><ul><li>社会秩序靠规则：道德/纪律/法律</li><li>自由与规则：自由不是随心所欲</li><li>违法分类：一般违法(民事/行政)与犯罪(刑事)</li></ul>
+<div class="q-block"><span class="q-num">1.</span><span class="question">遵守社会规则（八上）的核心内容？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">社会秩序靠规则：道德/纪律/法律</div></div>
 </div></div>
-
 <div class="check"><b>✔ 今日达标检查</b>（睡前逐条确认）：<br>□ 三种测高方法各画一遍？ □ 化合价口诀背出来？ □ 论证方法列五种？</div>
 </div></div>
 
 
-<div class="day-page">
-<div class="dtop"><div class="dnum">Day 28</div><div class="dinfo"><div>7月28日 周一</div><div style="font-size:12px">数学+物理+化学</div></div></div>
+<div class="day-page" id="d28"><div class="dtop"><div class="dnum">Day 28</div><div class="dinfo"><div>7月28日 周一</div><div style="font-size:12px">数学+物理+化学</div></div></div>
 <div class="dbody">
 <div class="goal"><b>🎯 今日目标</b>：位似+周复习；机械效率；化学式书写</div>
-<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 位似图形+周复习（2h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（30min）</h4><p><b>位似图形</b>：不仅相似，而且对应点连线经过同一点（位似中心）。</p><p>位似比=相似比。以原点O为位似中心，放大k倍的坐标变化：(x,y)→(kx,ky)或(-kx,-ky)</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（40min）</h4>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 位似图形+周复习（2h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--blue)"></span>讲（30min）</h4><p><b>位似图形</b>：不仅相似，而且对应点连线经过同一点（位似中心）。</p><p>位似比=相似比。以原点O为位似中心，放大k倍的坐标变化：(x,y)→(kx,ky)或(-kx,-ky)</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（40min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">以O为位似中心,把△ABC缩小为1/2。A(4,2)→A'(2,1)或A'？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">-2,-1</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">以原点为位似中心,放大2倍。B(3,-1)→B'(6,-2)或？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">-6,2</div></div>
 </div>
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（40min）</h4><p><b>周复习</b>：重新做Day22-27的所有错题，确保全对。重点回顾：全等/相似/四边形判定。</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 整理本周错题到错题本</p></div></div><h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:16px 0 12px">⚡ 物理 · 功与机械效率（1h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>讲（20min）</h4><p><b>有用功W有</b>：为达到目的必须做的功。如提水上楼。</p><p><b>额外功W额</b>：不得不做但没用。如提桶上楼（桶的重力做功）。</p><p><b>总功W总</b>=W有+W额</p><div class="formula"><div class="eq">η = W有/W总 × 100%</div><div class="meaning">机械效率=有用功÷总功，总小于100%</div></div></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（10min）</h4><p>📔 整理本周错题到错题本</p></div></div><h3 style="color:var(--orange);border-bottom:2px solid var(--orange);padding-bottom:6px;margin:16px 0 12px">⚡ 物理 · 功与机械效率（1h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--orange)"></span>讲（20min）</h4><p><b>有用功W有</b>：为达到目的必须做的功。如提水上楼。</p><p><b>额外功W额</b>：不得不做但没用。如提桶上楼（桶的重力做功）。</p><p><b>总功W总</b>=W有+W额</p><div class="formula"><div class="eq">η = W有/W总 × 100%</div><div class="meaning">机械效率=有用功÷总功，总小于100%</div></div></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">用斜面推1000N重物上2m高,斜面长5m,推力500N。W有=? W总=? η=?</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考上方讲解内容）</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">滑轮组n=3,物重600N,拉力250N,η=? η=G/nF=600/750=80%</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">（参考上方讲解内容）</div></div>
-</div></div><h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 化学式书写（1h）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>讲（20min）</h4><p><b>化学式书写规则</b>：①正价在前负价在后 ②交换价数即为角标 ③化简约分 ④化合价代数和为0</p><p><b>示例</b>：Al(+3)+O(-2)→Al₂O₃；Ca(+2)+Cl(-1)→CaCl₂；Na(+1)+SO₄(-2)→Na₂SO₄</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
+</div></div><h3 style="color:var(--purple);border-bottom:2px solid var(--purple);padding-bottom:6px;margin:16px 0 12px">🧪 化学 · 化学式书写（1h）</h3><div class="steps"><div class="step"><h4><span class="dot" style="background:var(--purple)"></span>讲（20min）</h4><p><b>化学式书写规则</b>：①正价在前负价在后 ②交换价数即为角标 ③化简约分 ④化合价代数和为0</p><p><b>示例</b>：Al(+3)+O(-2)→Al₂O₃；Ca(+2)+Cl(-1)→CaCl₂；Na(+1)+SO₄(-2)→Na₂SO₄</p></div>
+<div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（20min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">氧化铁？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">Fe₂O₃</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">氢氧化钠？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">NaOH</div></div>
 <div class="q-block"><span class="q-num">3.</span><span class="question">碳酸钙？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">CaCO₃</div></div>
@@ -459,28 +422,21 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div class="q-block"><span class="q-num">6.</span><span class="question">硝酸铵？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">NH₄NO₃</div></div>
 </div></div>
 
-
-
-
 <h3 style="color:var(--green);border-bottom:2px solid var(--green);padding-bottom:6px;margin:16px 0 12px">🔤 英语 · 直接引语与间接引语（1h）</h3>
 <div class="steps">
-<div class="step"><h4><span class="dot" style="background:var(--green)"></span>讲（20min）</h4><p><b>直接引语→间接引语三变化：①人称(I→he/she) ②时态(一般现在→一般过去，is→was) ③时间状语(now→then，today→that day)。注意：客观真理时态不变！</b></p></div>
+<div class="step"><h4><span class="dot" style="background:var(--green)"></span>讲（20min）</h4><p><b>直接引语→间接引语：人称(I→he/she)、时态(一般现在→一般过去)、时间状语(now→then)三变化。客观真理时态不变！</b></p></div>
 <div class="step"><h4><span class="dot" style="background:var(--orange)"></span>练（30min）</h4>
 <div class="q-block"><span class="q-num">1.</span><span class="question">He said,"I am tired."？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">He said he was tired</div></div>
 <div class="q-block"><span class="q-num">2.</span><span class="question">She asked,"Where do you live?"</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">She asked where I lived</div></div>
-<div class="q-block"><span class="q-num">3.</span><span class="question">The teacher said,"The earth goes around the sun."？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">不变!</div></div>
 </div>
 <div class="step full"><h4><span class="dot" style="background:var(--green)"></span>固（5min）</h4><p>整理笔记+错题</p></div>
-<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（5min）</h4><p>📔 用今天语法点造3个句子</p></div>
-</div>
+<div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>结（5min）</h4><p>📔 用今天语法造3句</p></div></div>
 
 <h3 style="color:#795548;border-bottom:2px solid #795548;padding-bottom:6px;margin:16px 0 12px">🏛️ 历史 · 鸦片战争与近代开端（八上）（30min）</h3>
-<div class="steps">
-<div class="step full"><h4><span class="dot" style="background:#795548"></span>讲练（30min）</h4>
-<p><b>知识梳理</b>：</p><ul><li>1840年鸦片战争，中国开始沦为半殖民地半封建社会</li><li>《南京条约》：割香港岛、开放五口、协定关税</li><li>林则徐虎门销烟——民族英雄，近代开眼看世界第一人</li></ul>
-<div class="q-block"><span class="q-num">1.</span><span class="question">鸦片战争与近代开端（八上）的标志性事件是？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">1840年鸦片战争，中国开始沦为半殖民地半封建社会</div></div>
+<div class="steps"><div class="step full"><h4><span class="dot" style="background:#795548"></span>讲练（30min）</h4>
+<p><b>知识梳理</b>：</p><ul><li>1840年鸦片战争→半殖民地半封建社会</li><li>《南京条约》：割香港岛/五口通商/协定关税</li><li>林则徐虎门销烟——开眼看世界第一人</li></ul>
+<div class="q-block"><span class="q-num">1.</span><span class="question">鸦片战争与近代开端（八上）的标志性事件？</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">1840年鸦片战争→半殖民地半封建社会</div></div>
 </div></div>
-
 
 <div style="background:#f0f0f5;border-radius:10px;padding:12px 16px;margin:10px 0;border:1px solid #e5e5ea">
 <p style="margin:0 0 8px 0"><b>今日30词</b>（点击 ▶ 按钮听发音）</p>

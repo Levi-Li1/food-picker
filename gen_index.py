@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate standardized index.html with week-day-subject-wordlist hierarchy."""
+"""Generate standardized index.html with week-day-subject-wordlist hierarchy + jump links."""
 import re, glob
 
 weeks = {}
@@ -17,13 +17,13 @@ for fname in sorted(glob.glob('C:/Users/Tebon/BangMaker/Claw/w*.html')):
         de = days[i+1].start() if i+1 < len(days) else len(c)
         chunk = c[dm.start():de]
         
-        date_m = re.search(r'<div>([\d月日]+ [\u4e00-\u9fff]+)</div>', chunk)
+        date_m = re.search(r'<div>([\d\u6708\u65e5]+ [\u4e00-\u9fff]+)</div>', chunk)
         date_str = date_m.group(1) if date_m else ''
         
         h3s = re.findall(r'<h3[^>]*>([^<]*)</h3>', chunk)
         subjects = []
         for h in h3s:
-            for s in ['数学', '物理', '英语', '化学', '语文', '道法', '历史']:
+            for s in ['\u6570\u5b66', '\u7269\u7406', '\u82f1\u8bed', '\u5316\u5b66', '\u8bed\u6587', '\u9053\u6cd5', '\u5386\u53f2']:
                 if s in h:
                     parts = h.split('\u00b7')
                     topic = parts[-1].strip() if len(parts) > 1 else h.strip()
@@ -31,7 +31,7 @@ for fname in sorted(glob.glob('C:/Users/Tebon/BangMaker/Claw/w*.html')):
                     subjects.append((s, topic))
                     break
         
-        has_words = '今日30词' in chunk
+        has_words = '\u4eca\u65e530\u8bcd' in chunk
         word_count = chunk.count('min-width:80px')
         
         week_data.append({'day': dn, 'date': date_str, 'subjects': subjects,
@@ -40,23 +40,22 @@ for fname in sorted(glob.glob('C:/Users/Tebon/BangMaker/Claw/w*.html')):
     weeks[wn] = week_data
 
 week_labels = {
-    1: ('第一周（7月1日-7日）', '代数基础回炉'),
-    2: ('第二周（7月8日-14日）', '几何入门+全等三角形'),
-    3: ('第三周（7月15日-21日）', '函数入门+力学深化'),
-    4: ('第四周（7月22日-28日）', '几何综合+化学启蒙'),
-    5: ('第五周（7月29日-8月4日）', '几何证明强化+化学元素'),
-    6: ('第六周（8月5日-11日）', '函数提高+力学综合'),
-    7: ('第七周（8月12日-18日）', '中考真题实战'),
-    8: ('第八周（8月19日-25日）', '初三新课预习'),
-    9: ('第九周（8月26日-29日）', '收尾冲刺·开学准备'),
+    1: ('\u7b2c\u4e00\u5468\uff087\u67081\u65e5-7\u65e5\uff09', '\u4ee3\u6570\u57fa\u7840\u56de\u7089'),
+    2: ('\u7b2c\u4e8c\u5468\uff087\u67088\u65e5-14\u65e5\uff09', '\u51e0\u4f55\u5165\u95e8+\u5168\u7b49\u4e09\u89d2\u5f62'),
+    3: ('\u7b2c\u4e09\u5468\uff087\u670815\u65e5-21\u65e5\uff09', '\u51fd\u6570\u5165\u95e8+\u529b\u5b66\u6df1\u5316'),
+    4: ('\u7b2c\u56db\u5468\uff087\u670822\u65e5-28\u65e5\uff09', '\u51e0\u4f55\u7efc\u5408+\u5316\u5b66\u542f\u8499'),
+    5: ('\u7b2c\u4e94\u5468\uff087\u670829\u65e5-8\u67084\u65e5\uff09', '\u51e0\u4f55\u8bc1\u660e\u5f3a\u5316+\u5316\u5b66\u5143\u7d20'),
+    6: ('\u7b2c\u516d\u5468\uff088\u67085\u65e5-11\u65e5\uff09', '\u51fd\u6570\u63d0\u9ad8+\u529b\u5b66\u7efc\u5408'),
+    7: ('\u7b2c\u4e03\u5468\uff088\u670812\u65e5-18\u65e5\uff09', '\u4e2d\u8003\u771f\u9898\u5b9e\u6218'),
+    8: ('\u7b2c\u516b\u5468\uff088\u670819\u65e5-25\u65e5\uff09', '\u521d\u4e09\u65b0\u8bfe\u9884\u4e60'),
+    9: ('\u7b2c\u4e5d\u5468\uff088\u670826\u65e5-29\u65e5\uff09', '\u6536\u5c3e\u51b2\u523a\u00b7\u5f00\u5b66\u51c6\u5907'),
 }
 
-subj_emoji = {'数学': '📖', '物理': '⚡', '英语': '🔤',
-              '化学': '🧪', '语文': '📚', '道法': '⚖️', '历史': '🏛️'}
-subj_color = {'数学': 'var(--blue)', '物理': 'var(--orange)', '英语': 'var(--green)',
-              '化学': 'var(--purple)', '语文': 'var(--red)', '道法': '#e91e63', '历史': '#795548'}
+subj_emoji = {'\u6570\u5b66': '\U0001f4d6', '\u7269\u7406': '\u26a1', '\u82f1\u8bed': '\U0001f524',
+              '\u5316\u5b66': '\U0001f9ea', '\u8bed\u6587': '\U0001f4da', '\u9053\u6cd5': '\u2696\ufe0f', '\u5386\u53f2': '\U0001f3db\ufe0f'}
+subj_color = {'\u6570\u5b66': 'var(--blue)', '\u7269\u7406': 'var(--orange)', '\u82f1\u8bed': 'var(--green)',
+              '\u5316\u5b66': 'var(--purple)', '\u8bed\u6587': 'var(--red)', '\u9053\u6cd5': '#e91e63', '\u5386\u53f2': '#795548'}
 
-# HTML template
 html_parts = []
 
 html_parts.append('''<!DOCTYPE html>
@@ -82,9 +81,9 @@ nav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;ga
 .week-header h2{font-size:20px}
 .week-header .wtheme{font-size:13px;opacity:.85}
 .week-body{padding:16px}
-.day-row{display:grid;grid-template-columns:80px 100px 1fr 80px;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid #f0f0f5;font-size:13px}
+.day-row{display:grid;grid-template-columns:80px 100px 1fr 80px;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid #f0f0f5;font-size:13px;text-decoration:none;color:inherit;cursor:pointer}
 .day-row:last-child{border-bottom:none}
-.day-row:hover{background:#f8f8fa;border-radius:8px}
+.day-row:hover{background:#f0f7ff;border-radius:8px}
 .day-num{font-weight:700;color:var(--blue);font-size:15px}
 .day-date{color:var(--sub);font-size:12px}
 .day-subjects{display:flex;gap:4px;flex-wrap:wrap}
@@ -109,7 +108,7 @@ html_parts.append('<a href="kaogang.html">🧠 考纲</a>')
 html_parts.append('<a href="index.html" class="active">📋 总览</a>')
 html_parts.append('</div></nav>\n<div class="container">\n')
 html_parts.append('<h1>📋 60天逆袭计划 · 总览</h1>\n')
-html_parts.append('<p class="subtitle">初二升初三暑假 · 全科系统复习+初三预习</p>\n')
+html_parts.append('<p class="subtitle">初二升初三暑假 · 全科系统复习+初三预习 · 点击每天可跳转</p>\n')
 
 # Stats
 total_d = sum(len(w) for w in weeks.values())
@@ -119,20 +118,19 @@ total_wl = sum(sum(1 for d in w if d['has_words']) for w in weeks.values())
 html_parts.append('<div class="stats">\n')
 html_parts.append(f'<div class="stat-card"><div class="num">{total_d}</div><div class="label">总天数</div></div>\n')
 html_parts.append(f'<div class="stat-card"><div class="num">9</div><div class="label">总周数</div></div>\n')
+html_parts.append(f'<div class="stat-card"><div class="num">7</div><div class="label">覆盖科目</div></div>\n')
 html_parts.append(f'<div class="stat-card"><div class="num">{total_wl}</div><div class="label">含词表天数</div></div>\n')
 html_parts.append(f'<div class="stat-card"><div class="num">{total_w}</div><div class="label">词条总数</div></div>\n')
 html_parts.append(f'<div class="stat-card"><div class="num">349</div><div class="label">练习题数</div></div>\n')
-html_parts.append(f'<div class="stat-card"><div class="num">7</div><div class="label">覆盖科目</div></div>\n')
 html_parts.append('</div>\n')
 
 # Week cards
 for wn in range(1, 10):
-    if wn not in weeks:
-        continue
+    if wn not in weeks: continue
     label, theme = week_labels[wn]
     wd = weeks[wn]
     
-    html_parts.append('<div class="week-card">\n')
+    html_parts.append(f'<div class="week-card" id="w{wn}">\n')
     html_parts.append(f'<div class="week-header"><h2>📅 第{wn}周</h2><span class="wtheme">{label} · {theme}</span></div>\n')
     html_parts.append('<div class="week-body">\n')
     
@@ -143,14 +141,16 @@ for wn in range(1, 10):
         
         words_html = f'<span class="has">📝 {d["word_count"]}词</span>' if d['has_words'] else '<span style="color:#ccc">—</span>'
         
-        html_parts.append('<div class="day-row">')
+        day_anchor = d['day'].replace('-', '_')
+        link = f'w{wn}.html#d{day_anchor}'
+        
+        html_parts.append(f'<a class="day-row" href="{link}">')
         html_parts.append(f'<span class="day-num">Day {d["day"]}</span>')
         html_parts.append(f'<span class="day-date">{d["date"]}</span>')
         html_parts.append(f'<span class="day-subjects">{subj_tags}</span>')
         html_parts.append(f'<span class="day-words">{words_html}</span>')
-        html_parts.append('</div>\n')
+        html_parts.append('</a>\n')
     
-    # Week summary stats
     week_w = sum(d['word_count'] for d in wd)
     week_wl = sum(1 for d in wd if d['has_words'])
     html_parts.append(f'<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: {len(wd)}天 · {week_wl}天含词表 · {week_w}词条</div>\n')
@@ -163,4 +163,4 @@ html_parts.append('</div></body></html>')
 with open('C:/Users/Tebon/BangMaker/Claw/index.html', 'w', encoding='utf-8') as f:
     f.write('\n'.join(html_parts))
 
-print(f'index.html created: {len(weeks)} weeks, {total_d} days, {total_w} words')
+print(f'index.html created: {len(weeks)} weeks, {total_d} days, {total_w} words, with jump links')

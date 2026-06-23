@@ -613,7 +613,7 @@ for (const wid of ['w2','w3','w4','w5','w6','w7','w8','w9']) {
   // Inject word lists into English sections that don't have them
   let c2 = c;
   // Find day-page blocks
-  const dayRe = /<div class="day-page">/g;
+  const dayRe = /<div class="day-page"/g;
   let dayMatch;
   const dayStarts = [];
   while ((dayMatch = dayRe.exec(c2)) !== null) {
