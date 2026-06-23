@@ -194,14 +194,7 @@ def process_day(day):
         else:
             body = process_normal_section(body)
         
-        # Always wrap h3 + body in steps container
-        steps_open = '<div class="steps">'
-        if body.startswith(steps_open):
-            body = steps_open + '\n' + h3_tag + '\n' + body[len(steps_open):]
-        else:
-            body = steps_open + '\n' + h3_tag + '\n' + body + '\n</div>'
-        
-        new_dbody += body
+        new_dbody += h3_tag + body
     
     if h3s:
         last = h3s[-1].end()
