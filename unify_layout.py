@@ -11,7 +11,7 @@ def process_file(fname):
     # Collect all replacements first (to avoid position shift bug)
     replacements = []
     
-    days = list(re.finditer(r'<div class="day-page">', c))
+    days = list(re.finditer(r'<div class="day-page"', c))
     for i, dm in enumerate(days):
         day_end = days[i+1].start() if i+1 < len(days) else len(c)
         day = c[dm.start():day_end]
