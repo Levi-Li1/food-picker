@@ -190,17 +190,17 @@ def process_day(day):
         body = dbody[h3_end:sec_end]
         
         if '英语' in h3_text:
-            body_before = body
             body = process_english_section(body)
-            sc_before = body_before.count('<div class="steps"')
-            sc_after = body.count('<div class="steps"')
-            if sc_after <= 1 and 'f0f0f5' in body:
-                h3_short = h3_text[:30]
-                print(f'  DEBUG {h3_short}: steps {sc_before}→{sc_after}, f0f0f5 still in body')
         else:
             body = process_normal_section(body)
         
-        new_dbody += h3_tag + body
+        # Put h3 INSIDE the steps container
+        if body.startswith('<div class="steps">'):
+            body = '<div class="steps">\n' + h3_tag + '\n' + body[21:]
+        else:
+            body = '<div class="steps">\n' + h3_tag + '\n' + body + '\n</div>'
+        
+        new_dbody += body
     
     if h3s:
         last = h3s[-1].end()
