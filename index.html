@@ -3,158 +3,581 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>初二升初三 · 暑假60天逆袭计划 · 完整版</title>
+<title>初二升初三 · 暑假60天逆袭计划 · 总览</title>
 <style>
-:root{--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--purple:#af52de;--teal:#5ac8fa;--pink:#ff2d55;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b}
+:root{--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--purple:#af52de;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.9;font-size:15px;padding:0}
-.container{max-width:1000px;margin:0 auto;padding:0 16px}
-h1{text-align:center;font-size:30px;padding:32px 0 4px;letter-spacing:-0.5px}
-.subtitle{text-align:center;color:var(--sub);font-size:14px;margin-bottom:20px}
-
-/* Navigation */
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:14px}
+.container{max-width:1100px;margin:0 auto;padding:16px}
+h1{text-align:center;font-size:28px;padding:24px 0 4px}
+.subtitle{text-align:center;color:var(--sub);font-size:13px;margin-bottom:8px}
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid #e5e5ea;padding:8px 0;margin-bottom:16px}
-nav select{padding:8px 14px;border-radius:10px;border:1px solid #ccc;font-size:15px;margin:0 8px}
-nav .title{font-weight:700;font-size:16px;vertical-align:middle}
+nav a{padding:6px 12px;border-radius:8px;text-decoration:none;font-weight:600;font-size:12px;background:#e5e5ea;color:#666;margin:0 2px}
+nav a.active{background:var(--blue);color:#fff}
+nav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:4px;padding:0 16px;flex-wrap:wrap}
 
-/* Mind Map Section */
-.mm-section{background:var(--card);border-radius:16px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-.mm-section h2{font-size:22px;margin-bottom:4px}
-.mm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:12px 0}
-.mm-box{background:#f8f8fa;border-radius:12px;padding:14px;border-left:4px solid var(--blue)}
-.mm-box h4{font-size:15px;margin-bottom:6px;color:var(--blue)}
-.mm-box ul{margin-left:16px;font-size:13px}
-.mm-box ul li{margin:2px 0;color:#444}
-.mm-box .star{color:var(--red);font-size:12px}
-
-/* Day Page */
-.day-page{border:2px solid #e5e5ea;background:var(--card);border-radius:16px;margin-bottom:20px;overflow:hidden}
-.day-page .dtop{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.day-page .dtop .dnum{font-size:32px;font-weight:800}
-.day-page .dtop .dinfo{text-align:right;font-size:13px;opacity:.9}
-.day-page .dbody{padding:20px}
-.day-page .goal{background:#fffbf0;border:1px solid #ffd54f;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:14px}
-.day-page .goal b{color:#e65100}
-
-/* Step blocks */
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.step{background:#f8f8fa;border-radius:12px;padding:14px 16px}
-.step.full{grid-column:1/-1}
-.step h4{font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.step .dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
-.step p,.step ul li{font-size:14px;color:#444;margin:4px 0}
-.step ul{padding-left:18px}
-
-/* Practice questions */
-.q-block{background:#fff;border:1px solid #e5e5ea;border-radius:10px;padding:12px 16px;margin:8px 0}
-.q-block .q-num{font-weight:700;color:var(--blue);margin-right:6px}
-.q-block .question{font-size:14px;margin:4px 0}
-.ans-btn{display:inline-block;margin-top:6px;padding:4px 14px;border-radius:14px;border:1px solid var(--blue);color:var(--blue);background:transparent;font-size:12px;cursor:pointer;transition:.2s}
-.ans-btn:hover{background:var(--blue);color:#fff}
-.answer{display:none;background:#f0f7ff;padding:10px 14px;border-radius:8px;margin-top:8px;font-size:13px;border-left:3px solid var(--blue)}
-.answer.show{display:block}
-
-/* Tips and checks */
-.tip{background:#f0f7ff;border-left:3px solid var(--blue);padding:10px 14px;margin:10px 0;font-size:13px;border-radius:0 8px 8px 0}
-.tip b{color:var(--blue)}
-.err-box{background:#fff5f5;border-left:3px solid var(--red);padding:10px 14px;margin:10px 0;font-size:13px;border-radius:0 8px 8px 0}
-.err-box b{color:var(--red)}
-.check{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:10px;padding:10px 14px;margin:10px 0;font-size:13px}
-.check b{color:#2e7d32}
-
-/* Formula box */
-.formula{background:#fffbf0;border:1px solid #ffcc80;border-radius:10px;padding:12px 16px;margin:8px 0;font-size:14px;text-align:center}
-.formula .eq{font-size:18px;font-weight:700;color:#e65100;letter-spacing:1px;padding:4px 0}
-.formula .meaning{font-size:12px;color:#888;margin-top:4px}
-
-/* Mind Map Tabs */
-.mm-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.mm-tab{padding:8px 16px;border-radius:18px;font-size:13px;font-weight:600;border:none;cursor:pointer;background:#e5e5ea;color:#666;transition:.2s}
-.mm-tab.active{background:var(--blue);color:#fff}
-.mm-panel{display:none}
-.mm-panel.active{display:block}
-
-/* Print */
-@media print{
- body{font-size:11px;background:#fff}
- .day-page{break-inside:avoid;border:1px solid #ccc;box-shadow:none}
- .dtop{background:#333;color:#fff}
- nav{display:none}
- .answer{display:block!important}
- .ans-btn{display:none}
-}
-
-/* Summary table */
-.summ-table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
-.summ-table th,.summ-table td{padding:6px 8px;border:1px solid #e5e5ea;text-align:center}
-.summ-table th{background:#f8f8fa;font-weight:600}
-
-/* Weekly marker */
-.week-marker{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;text-align:center;padding:16px;border-radius:14px;font-size:20px;font-weight:700;margin:32px 0 20px}
-.week-marker .wnote{font-size:13px;opacity:.85;margin-top:4px}
-
-.special-card{background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;border-radius:16px;padding:24px;margin-bottom:20px}
-.special-card h2,.special-card td{color:#fff}
-.special-card b{color:#ffcc80}
-.footer{text-align:center;color:var(--sub);font-size:12px;padding:30px}
+.week-card{background:var(--card);border-radius:16px;margin-bottom:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.week-header{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.week-header h2{font-size:20px}
+.week-header .wtheme{font-size:13px;opacity:.85}
+.week-body{padding:16px}
+.day-row{display:grid;grid-template-columns:80px 100px 1fr 80px;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid #f0f0f5;font-size:13px}
+.day-row:last-child{border-bottom:none}
+.day-row:hover{background:#f8f8fa;border-radius:8px}
+.day-num{font-weight:700;color:var(--blue);font-size:15px}
+.day-date{color:var(--sub);font-size:12px}
+.day-subjects{display:flex;gap:4px;flex-wrap:wrap}
+.subj-tag{padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.day-words{text-align:center;font-size:11px;color:var(--sub)}
+.day-words .has{color:var(--green);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:var(--card);border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.stat-card .num{font-size:32px;font-weight:800;color:var(--blue)}
+.stat-card .label{font-size:12px;color:var(--sub);margin-top:4px}
+.footer{text-align:center;color:var(--sub);font-size:12px;padding:20px}
 </style>
 </head>
 <body>
-<nav>
-<div style="max-width:1000px;margin:0 auto;display:flex;align-items:center;padding:0 16px">
-<span class="title">📚 暑假逆袭计划</span>
-<a href="kaogang.html" style="padding:6px 12px;border-radius:8px;text-decoration:none;font-weight:600;font-size:12px;background:#e5e5ea;color:#666;margin-left:auto">🧠 考纲</a>
-</div>
-</nav>
+<nav><div class="nav-inner">
+<span style="font-weight:700;font-size:15px;margin-right:8px">📚 暑假逆袭计划</span>
+
+<a href="w1.html">第1周</a>
+<a href="w2.html">第2周</a>
+<a href="w3.html">第3周</a>
+<a href="w4.html">第4周</a>
+<a href="w5.html">第5周</a>
+<a href="w6.html">第6周</a>
+<a href="w7.html">第7周</a>
+<a href="w8.html">第8周</a>
+<a href="w9.html">第9周</a>
+<a href="kaogang.html">🧠 考纲</a>
+<a href="index.html" class="active">📋 总览</a>
+</div></nav>
 <div class="container">
-<h1>📚 初二升初三 · 暑假60天逆袭计划</h1>
-<p class="subtitle">泰州 · 2027中考 · 选择一周开始学习</p>
-<a href="kaogang.html" style="display:block;background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:14px;padding:20px 24px;text-decoration:none;color:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s;margin-bottom:20px" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">🧠 各科中考知识体系考纲</div>
-<div style="font-size:13px;opacity:.9">数学150 + 语文150 + 英语120 + 物理100 + 化学80 · 标注★高频考点</div>
-</a>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:20px 0">
-<a href="w1.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第一周（7月1日-7日）</div>
-</a>
-<a href="w2.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第二周（7月8日-14日）</div>
-</a>
-<a href="w3.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第三周（7月15日-21日）</div>
-</a>
-<a href="w4.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第四周（7月22日-28日）</div>
-</a>
-<a href="w5.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第五周（7月29日-8月4日）</div>
-</a>
-<a href="w6.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第六周（8月5日-11日）</div>
-</a>
-<a href="w7.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第七周（8月12日-18日）</div>
-</a>
-<a href="w8.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第八周（8月19日-25日）</div>
-</a>
-<a href="w9.html" style="display:block;background:var(--card);border-radius:14px;padding:20px 24px;text-decoration:none;color:var(--text);box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-<div style="font-size:20px;font-weight:700;margin-bottom:8px">📅 第九周（8月26日-29日）</div>
-</a></div>
-</div>
+
+<h1>📋 60天逆袭计划 · 总览</h1>
+
+<p class="subtitle">初二升初三暑假 · 全科系统复习+初三预习</p>
+
+<div class="stats">
+
+<div class="stat-card"><div class="num">59</div><div class="label">总天数</div></div>
+
+<div class="stat-card"><div class="num">9</div><div class="label">总周数</div></div>
+
+<div class="stat-card"><div class="num">37</div><div class="label">含词表天数</div></div>
+
+<div class="stat-card"><div class="num">1078</div><div class="label">词条总数</div></div>
+
+<div class="stat-card"><div class="num">349</div><div class="label">练习题数</div></div>
+
+<div class="stat-card"><div class="num">7</div><div class="label">覆盖科目</div></div>
 
 </div>
 
-<script>
-function speak(text) {
-  if (window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = 0.75;
-    window.speechSynthesis.speak(u);
-  }
-}
-</script>
-</body></html>
-</body></html>
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第1周</h2><span class="wtheme">第一周（7月1日-7日） · 代数基础回炉</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 1</span>
+<span class="day-date">7月1日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 2</span>
+<span class="day-date">7月2日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 3</span>
+<span class="day-date">7月3日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--red)">📚 语文</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 4</span>
+<span class="day-date">7月4日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 5</span>
+<span class="day-date">7月5日 周六</span>
+<span class="day-subjects"></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 6-7</span>
+<span class="day-date"></span>
+<span class="day-subjects"></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 6天 · 5天含词表 · 150词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第2周</h2><span class="wtheme">第二周（7月8日-14日） · 几何入门+全等三角形</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 8</span>
+<span class="day-date">7月8日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 29词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 9</span>
+<span class="day-date">7月9日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 10</span>
+<span class="day-date">7月10日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 11</span>
+<span class="day-date">7月11日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 12</span>
+<span class="day-date">7月12日 周六</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 13</span>
+<span class="day-date">7月13日 周日</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 14</span>
+<span class="day-date">7月14日 周一</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 7天 · 7天含词表 · 209词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第3周</h2><span class="wtheme">第三周（7月15日-21日） · 函数入门+力学深化</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 15</span>
+<span class="day-date">7月15日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 16</span>
+<span class="day-date">7月16日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 17</span>
+<span class="day-date">7月17日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span class="has">📝 29词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 18</span>
+<span class="day-date">7月18日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 19</span>
+<span class="day-date">7月19日 周六</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 20</span>
+<span class="day-date">7月20日 周日</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 21</span>
+<span class="day-date">7月21日 周一</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 7天 · 5天含词表 · 149词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第4周</h2><span class="wtheme">第四周（7月22日-28日） · 几何综合+化学启蒙</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 22</span>
+<span class="day-date">7月22日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 23</span>
+<span class="day-date">7月23日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 24</span>
+<span class="day-date">7月24日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 0词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 25</span>
+<span class="day-date">7月25日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 26</span>
+<span class="day-date">7月26日 周六</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 27</span>
+<span class="day-date">7月27日 周日</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 28</span>
+<span class="day-date">7月28日 周一</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 7天 · 2天含词表 · 30词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第5周</h2><span class="wtheme">第五周（7月29日-8月4日） · 几何证明强化+化学元素</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 29</span>
+<span class="day-date">7月29日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 30</span>
+<span class="day-date">7月30日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 31</span>
+<span class="day-date">7月31日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 32</span>
+<span class="day-date">8月1日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:#e91e63">⚖️ 道法</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 33</span>
+<span class="day-date">8月2日 周六</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 34</span>
+<span class="day-date">8月3日 周日</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 35</span>
+<span class="day-date">8月4日 周一</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:#e91e63">⚖️ 道法</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 7天 · 2天含词表 · 60词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第6周</h2><span class="wtheme">第六周（8月5日-11日） · 函数提高+力学综合</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 36</span>
+<span class="day-date">8月5日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 37</span>
+<span class="day-date">8月6日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 38</span>
+<span class="day-date">8月7日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 39</span>
+<span class="day-date">8月8日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 40</span>
+<span class="day-date">8月9日 周六</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 41</span>
+<span class="day-date">8月10日 周日</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 42</span>
+<span class="day-date">8月11日 周一</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 7天 · 4天含词表 · 120词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第7周</h2><span class="wtheme">第七周（8月12日-18日） · 中考真题实战</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 43</span>
+<span class="day-date">8月12日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 44</span>
+<span class="day-date">8月13日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--green)">🔤 英语</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 45</span>
+<span class="day-date">8月14日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 46</span>
+<span class="day-date">8月15日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 47</span>
+<span class="day-date">8月16日 周六</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 48</span>
+<span class="day-date">8月17日 周日</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 49</span>
+<span class="day-date">8月18日 周一</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 7天 · 5天含词表 · 150词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第8周</h2><span class="wtheme">第八周（8月19日-25日） · 初三新课预习</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 50</span>
+<span class="day-date">8月19日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 51</span>
+<span class="day-date">8月20日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 52</span>
+<span class="day-date">8月21日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 53</span>
+<span class="day-date">8月22日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 54</span>
+<span class="day-date">8月23日 周六</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 55</span>
+<span class="day-date">8月24日 周日</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--red)">📚 语文</span></span>
+<span class="day-words"><span style="color:#ccc">—</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 56</span>
+<span class="day-date">8月25日 周一</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span><span class="subj-tag" style="color:var(--green)">🔤 英语</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 7天 · 3天含词表 · 90词条</div>
+
+</div></div>
+
+<div class="week-card">
+
+<div class="week-header"><h2>📅 第9周</h2><span class="wtheme">第九周（8月26日-29日） · 收尾冲刺·开学准备</span></div>
+
+<div class="week-body">
+
+<div class="day-row">
+<span class="day-num">Day 57</span>
+<span class="day-date">8月26日 周二</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 58</span>
+<span class="day-date">8月27日 周三</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--orange)">⚡ 物理</span><span class="subj-tag" style="color:var(--purple)">🧪 化学</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 59</span>
+<span class="day-date">8月28日 周四</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div class="day-row">
+<span class="day-num">Day 60</span>
+<span class="day-date">8月29日 周五</span>
+<span class="day-subjects"><span class="subj-tag" style="color:var(--blue)">📖 数学</span></span>
+<span class="day-words"><span class="has">📝 30词</span></span>
+</div>
+
+<div style="text-align:right;padding:8px 12px 0;font-size:11px;color:var(--sub)">本周: 4天 · 4天含词表 · 120词条</div>
+
+</div></div>
+
+<div class="footer">📚 每天进步一点点，60天后你会感谢现在努力的自己</div>
+
+</div></body></html>

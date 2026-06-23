@@ -16,7 +16,7 @@ def steps_container(children):
     return f'<div class="steps">{"".join(children)}</div>'
 
 def h3_block(color_name, emoji, text):
-    return f'<h3 style="color:var({color_name});border-bottom:2px solid var({color_name});padding-bottom:6px;margin:16px 0 12px">{emoji} {text}</h3>'
+    return f'<h3 style="color:var(--{color_name});border-bottom:2px solid var(--{color_name});padding-bottom:6px;margin:16px 0 12px">{emoji} {text}</h3>'
 
 def q_block(n, q, a):
     return f'<div class="q-block"><span class="q-num">{n}.</span><span class="question">{q}</span><button class="ans-btn" onclick="showAns(this)">点击查看答案</button><div class="answer">{a}</div></div>'
@@ -50,7 +50,7 @@ def make_sections(*args):
         # h3: ("blue", "📖", "数学·xxx")
         h3_args = args[i]
         i += 1
-        h3_html = f'<h3 style="color:var({h3_args[0]});border-bottom:2px solid var({h3_args[0]});padding-bottom:6px;margin:16px 0 12px">{h3_args[1]} {h3_args[2]}</h3>'
+        h3_html = f'<h3 style="color:var(--{h3_args[0]});border-bottom:2px solid var(--{h3_args[0]});padding-bottom:6px;margin:16px 0 12px">{h3_args[1]} {h3_args[2]}</h3>'
         # steps: list of (title, color, body, is_full)
         steps = args[i] if i < len(args) and isinstance(args[i], list) else []
         i += 1

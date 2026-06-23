@@ -382,7 +382,7 @@ const wb = [
 let wi = 0;
 function nextW() { const w = wb[wi % wb.length]; wi++; return w; }
 function wc(n,w) {
-  return `<div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">${n}.</span><b style="color:#1d1d1f;min-width:80px">${w[0]}</b> <span style="color:var(--sub);font-size:12px;min-width:100px">${w[1]}</span> <span style="color:var(--green);min-width:30px"><i>${w[2]}</i></span> ${w[3]} <button onclick="speak('${w[0]}')" style="border:none;background:#8e8e93;color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div>`;
+  return `<div style="display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid #eee;font-size:13px"><span style="color:#999;min-width:24px;font-size:11px">${n}.</span><b style="color:#1d1d1f;min-width:80px">${w[0]}</b> <span style="color:var(--sub);font-size:12px;min-width:100px">${w[1]}</span> <span style="color:var(--green);min-width:30px"><i>${w[2]}</i></span> ${w[3]} <button onclick="speak('${w[0]}')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:10px;flex-shrink:0" title="播放发音">▶</button></div>`;
 }
 function gray30() {
   let s = '';
@@ -458,6 +458,40 @@ for (const wid of ['w2','w3','w4','w5','w6','w7','w8','w9']) {
       return `<div class="wnote">${wl.note}`;
     }
   );
+  // Inject word lists into English sections that don't have them
+  let c2 = c;
+  // Find day-page blocks
+  const dayRe = /<div class="day-page">/g;
+  let dayMatch;
+  const dayStarts = [];
+  while ((dayMatch = dayRe.exec(c2)) !== null) {
+    dayStarts.push(dayMatch.index);
+  }
+  
+  // Process days in reverse to avoid position shifts
+  for (let di = dayStarts.length - 1; di >= 0; di--) {
+    const ds = dayStarts[di];
+    const de = di < dayStarts.length - 1 ? dayStarts[di + 1] : c2.length;
+    const day = c2.slice(ds, de);
+    
+    // Check if this day has English but no word list
+    if (day.includes('英语') && !day.includes('今日30词')) {
+      // Find insertion point: before <div class="check"> or before closing </div></div>
+      let insertPos;
+      const checkIdx = day.indexOf('<div class="check">');
+      if (checkIdx > 0) {
+        insertPos = ds + checkIdx;
+      } else {
+        // Find the last </div></div> before day end
+        const lastDD = day.lastIndexOf('</div></div>');
+        insertPos = lastDD > 0 ? ds + lastDD : de - 12;
+      }
+      
+      const wordBlock = '\n' + gray30() + '\n';
+      c2 = c2.slice(0, insertPos) + wordBlock + c2.slice(insertPos);
+    }
+  }
+  c = c2;
   const out = w1css + '\n' + makeNav(wid) + '\n\n<div class="container">\n' + c + '\n</div>\n' + script + '\n\n</body>\n</html>';
   fs.writeFileSync(`${wid}.html`, out, 'utf8');
   const wc = (c.match(/今日30词/g) || []).length;
