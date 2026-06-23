@@ -398,15 +398,8 @@ const bodyIdx = w1src.indexOf('<body>');
 const w1css = bodyIdx > 0 ? w1src.slice(0, bodyIdx + 6) : w1src.slice(0, w1src.indexOf('<nav>'));
 const src = fs.readFileSync('guct.html','utf8');
 
-// ─── Global replace ALL "今日30词" old format sections ───
-// Matches: header + content + trailing </div></div> (the structural closing of the containing block)
-const oldHdr = '<p style="margin:10px 0"><b>今日30词</b>（点击 ▶ 按钮听发音）</p>';
-let count = 0;
-const processed = src.replace(
-  new RegExp(oldHdr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\\s\\S]*?(?=<\\/div><\\/div>)', 'g'),
-  () => { count++; return gray30(); }
-);
-console.log(`Replaced ${count} word sections`);
+// ─── NO WORD REPLACEMENT - pass through guct.html as-is ───
+const processed = src;
 
 // ─── Split by week markers ───
 const wkMarkers = [...processed.matchAll(/<div class="week-marker" id="(w\d)">/g)];
