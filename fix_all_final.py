@@ -93,6 +93,10 @@ def process_normal_section(body):
     steps = find_step_cards(body)
     if not steps: return body
     fs, fe = steps[0][0], steps[-1][1]
+    # Check if already wrapped (new days from gen_missing_days.py)
+    prefix = body[:fs]
+    if '<div class="steps"' in prefix:
+        return body
     return body[:fs] + '<div class="steps">\n' + body[fs:fe] + '\n</div>' + body[fe:]
 
 def process_english_section(body):
@@ -107,8 +111,7 @@ def process_english_section(body):
         sc = find_matching_close(body, so)
         if sc != -1:
             full_html = body[so:sc + 6]
-            # Change step full -> step
-            full_html = full_html.replace('<div class="step full">', '<div class="step">')
+            # Keep step full as-is (固/结 should be 100% width)
             step_cards.append(full_html)
     
     # Step 3: Find what's before the first step and after the last step
@@ -121,9 +124,15 @@ def process_english_section(body):
         after = ''
     
     # Step 4: Build result
+    # Check if body already has steps wrapper (from gen_missing_days.py)
+    already_wrapped = '<div class="steps"' in before
+    
     result = before
     if step_cards:
-        result += '<div class="steps">\n' + '\n'.join(step_cards) + '\n</div>'
+        if already_wrapped:
+            result += '\n'.join(step_cards)
+        else:
+            result += '<div class="steps">\n' + '\n'.join(step_cards) + '\n</div>'
     result += after
     
     # Step 5: Add word list as separate step full (if present)
