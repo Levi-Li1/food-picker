@@ -113,9 +113,11 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div class="mm-tabs">
 <button class="mm-tab active" onclick="showMM('math')">📐 数学（150分）</button>
 <button class="mm-tab" onclick="showMM('chinese')">📖 语文（150分）</button>
-<button class="mm-tab" onclick="showMM('english')">🔤 英语（120分）</button>
+<button class="mm-tab" onclick="showMM('english')">🔤 英语（150分）</button>
 <button class="mm-tab" onclick="showMM('physics')">⚡ 物理（100分）</button>
-<button class="mm-tab" onclick="showMM('chem')">🧪 化学（80分）</button>
+<button class="mm-tab" onclick="showMM('chem')">🧪 化学（60分）</button>
+<button class="mm-tab" onclick="showMM('politics')">🏛️ 政治（50分）</button>
+<button class="mm-tab" onclick="showMM('history')">📜 历史（50分）</button>
 </div>
 
 <div class="mm-panel active" id="mm-math">
@@ -219,7 +221,7 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <div class="mm-panel" id="mm-english">
 <h3 style="text-align:center;margin:12px 0;color:var(--green)">初中英语 · 三年全部知识点梳理</h3>
 <div class="mm-grid">
-<div class="mm-box" style="border-color:var(--green)"><h4>一、词汇（120分的基础！）</h4><ul>
+<div class="mm-box" style="border-color:var(--green)"><h4>一、词汇（150分的基础！）</h4><ul>
 <li><b>课标词汇</b>：1500-1600词(初一约500+初二约500+初三约500)</li>
 <li><b>中考高频核心词</b>：800词(完形填空和阅读理解的出题词) <span class="star">★★★</span></li>
 <li><b>词性转换</b>：名词变形容词(care→careful→careless)|动词变名词(decide→decision)|形容词变副词(quick→quickly)</li>
@@ -315,6 +317,84 @@ nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 <li><b>酸碱盐</b>：常见酸(HCl/H₂SO₄/HNO₃)|常见碱(NaOH/Ca(OH)₂)|pH值|中和反应</li>
 </ul></div>
 </div>
+</div>
+</div>
+
+<div class="mm-panel" id="mm-politics">
+<h3 style="text-align:center;margin:12px 0;color:#e91e63">初中道德与法治 · 三年全部知识点梳理</h3>
+<div class="mm-grid">
+<div class="mm-box" style="border-color:#e91e63"><h4>一、七/八年级·成长与社会（~25分）</h4><ul>
+<li><b>成长的节拍</b>：中学时代|梦想|学会学习</li>
+<li><b>友谊与师长</b>：友谊特质|师生交往|孝亲敬长</li>
+<li><b>生命</b>：敬畏生命|守护生命|挫折 <span class="star">★</span></li>
+<li><b>青春</b>：青春期变化|独立思考|批判精神</li>
+<li><b>情绪情感</b>：情绪管理|情感作用|传递正能量</li>
+<li><b>集体</b>：集体力量|个人与集体|美好集体</li>
+<li><b>法治</b>：法律特征|未成年人四大保护|依法办事 <span class="star">★★</span></li>
+<li><b>社会生活</b>：亲社会行为|网络|诚信|尊重</li>
+<li><b>规则与责任</b>：自由与规则|承担责任|关爱他人 <span class="star">★</span></li>
+<li><b>国家利益</b>：维护国家利益|总体国家安全观 <span class="star">★★</span></li>
+<li><b>宪法</b>：宪法是根本法|公民权利义务|国家机构 <span class="star">★★★</span></li>
+<li><b>制度</b>：基本经济制度|根本政治制度|基本政治制度 <span class="star">★★</span></li>
+<li><b>公平正义</b>：公平/正义/自由/平等|守护正义 <span class="star">★</span></li>
+</ul></div>
+<div class="mm-box" style="border-color:var(--red)"><h4>二、九年级·国情与价值观（~15分）</h4><ul>
+<li><b>改革开放</b>：强国之路|共同富裕|基本经济制度 <span class="star">★★★</span></li>
+<li><b>创新</b>：科技创新|科教兴国|知识产权 <span class="star">★★</span></li>
+<li><b>民主与法治</b>：社会主义民主|法治中国|依法行政 <span class="star">★★</span></li>
+<li><b>中华文化</b>：源远流长+博大精深|传统美德|民族精神|文化自信 <span class="star">★★★</span></li>
+<li><b>社会主义核心价值观</b>：国家/社会/个人三个层面 <span class="star">★</span></li>
+<li><b>生态文明</b>：人口/资源/环境|绿色发展|人与自然和谐共生 <span class="star">★★</span></li>
+<li><b>民族团结与统一</b>：民族区域自治|一国两制|反对分裂 <span class="star">★</span></li>
+<li><b>中国梦</b>：内涵|两个一百年|自信中国人|新时代 <span class="star">★★</span></li>
+<li><b>经济全球化</b>：人类命运共同体|中国担当|青年责任 <span class="star">★</span></li>
+</ul></div>
+<div class="mm-box" style="border-color:var(--orange)"><h4>三、五大题型·答题方法论（~10分）</h4><ul>
+<li><b>选择题</b>：排谬法(排除明显错误)|排异法(排除与题无关)|最佳选择</li>
+<li><b>简答题</b>：考点句+一句话解释。不展开，点到为止（4-6分）</li>
+<li><b>辨析题</b>：①判断对错 ②说理由（引书本知识）③正确做法（6-8分）</li>
+<li><b>材料分析题</b>："材料说明了…"+"体现课本…（知识点）"+"启示/做法…"（8-10分）</li>
+<li><b>实践探究题</b>：主题+活动形式+具体方案+意义感悟（10-12分）</li>
+<li><b>常见易错</b>：根本政治制度=人民代表大会制度|根本制度=社会主义制度|基本政治制度=多党合作/民族区域自治/基层群众自治</li>
+</ul></div>
+</div>
+</div>
+
+<div class="mm-panel" id="mm-history">
+<h3 style="text-align:center;margin:12px 0;color:#795548">初中历史 · 三年全部知识点梳理</h3>
+<div class="mm-grid">
+<div class="mm-box" style="border-color:#795548"><h4>一、中国古代史·七上/七下（~15分）</h4><ul>
+<li><b>夏商周</b>：禅让制|分封制|青铜器|甲骨文</li>
+<li><b>春秋战国</b>：诸侯争霸|商鞅变法|百家争鸣(儒道墨法) <span class="star">★★</span></li>
+<li><b>秦朝</b>：统一六国(前221年)|中央集权制|焚书坑儒|长城|陈胜吴广起义 <span class="star">★★★</span></li>
+<li><b>汉朝</b>：文景之治|汉武帝大一统(推恩令/独尊儒术)|丝绸之路|造纸术 <span class="star">★★</span></li>
+<li><b>三国两晋南北朝</b>：官渡/赤壁之战|北魏孝文帝改革(汉化)|江南开发</li>
+<li><b>隋朝</b>：大运河|科举制创立|三省六部制 <span class="star">★</span></li>
+<li><b>唐朝</b>：贞观之治(李世民)|开元盛世(唐玄宗)|文成公主入藏|鉴真东渡|玄奘西行 <span class="star">★★★</span></li>
+<li><b>宋元</b>：经济重心南移完成|行省制|四大发明(印刷/火药/指南针/造纸)|《清明上河图》 <span class="star">★★</span></li>
+<li><b>明朝</b>：厂卫特务|郑和七下西洋|八股取士|闭关锁国 <span class="star">★</span></li>
+<li><b>清朝</b>：军机处(君主专制顶峰)|文字狱|闭关锁国|疆域奠定 <span class="star">★</span></li>
+</ul></div>
+<div class="mm-box" style="border-color:var(--red)"><h4>二、中国近现代史·八上/八下（~20分）</h4><ul>
+<li><b>列强侵略</b>：鸦片战争(1840)/《南京条约》→甲午战争/《马关条约》→八国联军/《辛丑条约》 <span class="star">★★★</span></li>
+<li><b>近代化探索</b>：洋务运动(自强求富)→戊戌变法(君主立宪)→辛亥革命(民主共和)→新文化运动(民主科学) <span class="star">★★★</span></li>
+<li><b>五四与中共成立</b>：五四运动(1919)/中共一大(1921·上海→嘉兴南湖) <span class="star">★★★</span></li>
+<li><b>国民革命与长征</b>：北伐战争|南昌起义(1927.8.1建军节)|长征(1934-1936)/遵义会议(转折点) <span class="star">★★</span></li>
+<li><b>抗日战争</b>：九一八事变(1931)|西安事变(1936)|七七事变(1937)|南京大屠杀|中共七大(1945·毛泽东思想) <span class="star">★★★</span></li>
+<li><b>解放战争</b>：重庆谈判(1945)|三大战役|渡江战役|新中国成立(1949.10.1) <span class="star">★</span></li>
+<li><b>建设与改革</b>：土地改革|一五计划|三大改造|十一届三中全会(1978·伟大转折)|改革开放|经济特区 <span class="star">★★★</span></li>
+<li><b>新时代</b>：中国特色社会主义|一带一路|中国梦·两个一百年 <span class="star">★★</span></li>
+</ul></div>
+<div class="mm-box" style="border-color:var(--blue)"><h4>三、世界史·九上/九下（~15分）</h4><ul>
+<li><b>古代文明</b>：古埃及(金字塔)|古巴比伦|古印度|古希腊(雅典民主)|古罗马 <span class="star">★</span></li>
+<li><b>中世纪</b>：西欧封建|拜占庭帝国|阿拉伯帝国|大化改新</li>
+<li><b>文艺复兴与新航路</b>：但丁/达芬奇/莎士比亚|哥伦布发现美洲|麦哲伦环球航行|三角贸易 <span class="star">★★</span></li>
+<li><b>资产阶级革命</b>：英国(光荣革命1688)|美国(独立战争1775-1783/1787宪法)|法国(大革命1789/拿破仑) <span class="star">★</span></li>
+<li><b>工业革命</b>：第一次(蒸汽机·瓦特)→第二次(电力·内燃机) <span class="star">★★★</span></li>
+<li><b>马克思主义与国际共运</b>：《共产党宣言》(1848)|巴黎公社|俄国十月革命(1917) <span class="star">★</span></li>
+<li><b>两次世界大战</b>：一战(1914-1918/凡尔赛-华盛顿体系)→二战(1939-1945/联合国/雅尔塔会议) <span class="star">★★★</span></li>
+<li><b>战后世界</b>：冷战(杜鲁门主义/北约vs华约)|苏联解体(1991)|欧盟|第三次科技革命|经济全球化 <span class="star">★</span></li>
+</ul></div>
 </div>
 </div>
 
