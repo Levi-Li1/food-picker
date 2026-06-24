@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>暑假逆袭 · Day 1</title><style>/* plan.css - 暑假逆袭计划共享样式 */
+:root{--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--purple:#af52de;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:14px}
+.container{max-width:800px;margin:0 auto;padding:0 12px}
+
+/* TOP NAV */
+.topbar{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.topbar .title{font-size:20px;font-weight:800}
+.topbar a{color:#fff;text-decoration:none;font-size:13px;opacity:.9}
+.topbar a:hover{opacity:1}
+
+/* 天卡片 */
+.day-card{border:2px solid #e5e5ea;background:var(--card);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.day-card .dhead{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.day-card .dhead .dnum{font-size:24px;font-weight:800}
+.day-card .dhead .dinfo{text-align:right;font-size:12px;opacity:.9}
+.day-card .dbody{padding:14px}
+.day-card .goal{background:#fffbf0;border:1px solid #ffd54f;border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:13px}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.step{background:#f8f8fa;border-radius:10px;padding:10px 12px}
+.step.full{grid-column:1/-1}
+.step h4{font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+p,li{font-size:13px;color:#444;margin:3px 0;line-height:1.7}
+.q-block{background:#fff;border:1px solid #e5e5ea;border-radius:8px;padding:8px 10px;margin:5px 0}
+.q-num{font-weight:700;color:var(--blue);margin-right:4px}
+.question{font-size:12px}
+.ans-btn{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:10px;border:1px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;cursor:pointer}
+.ans-btn:hover{background:var(--blue);color:#fff}
+.answer{display:none;background:#f0f7ff;padding:6px 10px;border-radius:6px;margin-top:4px;font-size:12px;border-left:3px solid var(--blue)}
+.answer.show{display:block}
+.tip{background:#f0f7ff;border-left:3px solid var(--blue);padding:6px 10px;margin:5px 0;font-size:12px;border-radius:0 6px 6px 0}
+.tip b{color:var(--blue)}
+.err-box{background:#fff5f5;border-left:3px solid var(--red);padding:6px 10px;margin:5px 0;font-size:12px;border-radius:0 6px 6px 0}
+.err-box b{color:var(--red)}
+.check{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:12px}
+.check b{color:#2e7d32}
+.summ-table{width:100%;border-collapse:collapse;font-size:12px;margin:5px 0}
+.summ-table th,.summ-table td{padding:3px 6px;border:1px solid #e5e5ea}
+.summ-table th{background:#f0e6f6;color:var(--purple);font-weight:600}
+h3{font-size:15px;display:flex;align-items:center;gap:6px;margin-top:12px}
+.formula{background:#fffbf0;border:1px solid #ffcc80;border-radius:8px;padding:8px 12px;margin:5px 0;font-size:13px;text-align:center}
+.formula .eq{font-size:16px;font-weight:700;color:#e65100}
+.formula .meaning{font-size:11px;color:#888}
+.vocab-box{background:#f0f0f5;border-radius:8px;padding:10px 14px;margin:8px 0;border:1px solid #e5e5ea}
+.vocab-box p{margin:0 0 6px 0;font-size:12px;font-weight:600}
+.week-marker{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;text-align:center;padding:12px;border-radius:12px;font-size:18px;font-weight:700;margin:24px 0 16px}
+.week-marker .wnote{font-size:12px;opacity:.85;margin-top:4px}
+.footer{text-align:center;color:var(--sub);font-size:11px;padding:20px}
+
+/* 完成按钮 */
+.complete-bar{padding:12px 16px;background:var(--bg);border-top:1px solid #e5e5ea;text-align:center}
+.complete-btn{padding:10px 32px;border-radius:24px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:.3s}
+.complete-btn.todo{background:var(--blue);color:#fff}
+.complete-btn.todo:hover{background:#0056b3}
+.complete-btn.done{background:#e8f5e9;color:#2e7d32;border:2px solid #a5d6a7}
+.nav-links{display:flex;justify-content:space-between;padding:12px 16px;gap:12px}
+.nav-links a{padding:8px 16px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:600;flex:1;text-align:center}
+.nav-links .prev{background:#e5e5ea;color:#666}
+.nav-links .home{background:var(--blue);color:#fff}
+.nav-links .next{background:var(--blue);color:#fff}
+</style></head><body>
+<div class="topbar"><span class="title">📚 Day 1 · 7月6日 周一</span><a href="../index.html">📋 目录</a></div>
+<div class="container">
+<div class="day-card">
+<div class="dhead"><div class="dnum">Day 1</div><div class="dinfo"><div>7月6日 周一</div><div>数学+英语+语文</div></div></div>
+<div class="dbody">
+<div class="goal"><b>今日目标</b>：第1天学习目标</div>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学 · 认识负数与数轴</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（25min）</h4><p><b>什么是负数？</b></p><p>🤔 <b>想一想</b>：冬天零下10度怎么表示？欠别人5元钱怎么记？</p><p>📌 <b>第一步</b>：比0小的数叫做负数，前面加"-"号。如-3、-5、-10都是负数。</p><p>📌 <b>第二步</b>：正数是比0大的数（前面可以加"+"或不加）。0既不是正数也不是负数。</p><p>📌 <b>第三步</b>：数轴上，以0为原点，右边是正数（越来越大），左边是负数（越来越小）。</p><div class="formula"><div class="eq">-3 < 0 < 3</div></div><p>💡 <b>举例</b>：温度计：零下5度记作-5°C，零上5度记作+5°C或5°C</p></div><div class="step full"><h4><span class="dot" style="background:var(--green)"></span>A组基础</h4><div class="q-block"><span class="q-num">1.</span><span class="question">哪个是负数 A.5 B.0 C.-3</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">C.-3</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">零下5度怎么表示？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">-5°C</div></div><div class="q-block"><span class="q-num">3.</span><span class="question">收入20记+20，支出15记？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">-15元</div></div><div class="q-block"><span class="q-num">4.</span><span class="question">-2,3,0从小到大排列</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">-2<0<3</div></div><div class="q-block"><span class="q-num">5.</span><span class="question">数轴三要素？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">原点+正方向+单位长度</div></div><div class="q-block"><span class="q-num">6.</span><span class="question">在数轴上，-3的右边第一个整数是？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">-2</div></div><div class="q-block"><span class="q-num">7.</span><span class="question">海拔-100米比0米</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">低100米</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>B组进阶</h4><div class="q-block"><span class="q-num">8.</span><span class="question">画数轴标-5,-2,0,3,6</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">从左到右排列</div></div><div class="q-block"><span class="q-num">9.</span><span class="question">-4到2之间有几个整数？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">7个：-4,-3,-2,-1,0,1,2</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>C组真题</h4><div class="q-block"><span class="q-num">10.</span><span class="question">【2023泰州】-2的相反数 A.2 B.-2 C.±2</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">A.2</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法总结</h4><div class="tip"><b>方法</b>：负数<0<正数。数轴上右边>左边。相反数=符号不同的两个数，和=0。</div><div class="err-box"><b>易错</b>：不要写成"-3读作减三"，应该读"负三"！</div></div></div><h3 style="color:var(--green);border-bottom:2px solid var(--green);padding-bottom:6px;margin:16px 0 12px">🔤 英语 · 26个字母与基本发音</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--green)"></span>讲（20min）</h4><p><b>字母表</b></p><p>🤔 英语有26个字母，你知道哪5个是元音吗？</p><p><b>规则</b>：26个字母=5个元音(Aa,Ee,Ii,Oo,Uu)+21个辅音。元音是字母的骨架，每个单词至少有一个元音。</p><p><b>详细讲解</b>：字母Aa读/eɪ/，Ee读/iː/，Ii读/aɪ/，Oo读/oʊ/，Uu读/juː/。辅音Bb读/biː/，Cc读/siː/，Dd读/diː/</p><p><b>举例</b>：</p><p>• 元</p><p>• 音</p><p>• 字</p><p>• 母</p><p>• 必</p><p>• 须</p><p>• 会</p><p>• 背</p><p>• 诵</p><p>• 、</p><p>• 会</p><p>• 默</p><p>• 写</p><p>• ！</p><p>• 字</p><p>• 母</p><p>• 发</p><p>• 音</p><p>• 要</p><p>• 准</p><p>• 确</p><p>• ，</p><p>• 不</p><p>• 要</p><p>• 用</p><p>• 拼</p><p>• 音</p><p>• 代</p><p>• 替</p><p>• 。</p></div><div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练</h4><div class="q-block"><span class="q-num">1.</span><span class="question">默写5个元音字母</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">A E I O U</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">字母表共多少个？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">26个</div></div><div class="q-block"><span class="q-num">3.</span><span class="question">字母b读音？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">/biː/</div></div><div class="q-block"><span class="q-num">4.</span><span class="question">按顺序填空：K_L_N</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">K L M N</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>总结</h4><div class="tip"><b>方法</b>：元音字母a/e/i/o/u是英语的灵魂。每天背一遍字母表！</div></div></div><div class="vocab-box"><p style="font-weight:700;margin-bottom:6px">📖 今日词汇（完整词典格式）</p><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">1.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">pink</b>
+<button onclick="speak('pink')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">2.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">detail</b>
+<button onclick="speak('detail')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">3.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">people</b>
+<button onclick="speak('people')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">4.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">spot</b>
+<button onclick="speak('spot')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">5.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">island</b>
+<button onclick="speak('island')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ˈaɪlənd</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">岛屿</span>
+<span style="font-size:11px;color:#666">Hainan is a beautiful island.</span>
+<span style="font-size:10px;color:#999">“海南是个美丽的岛屿。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">6.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">visitor</b>
+<button onclick="speak('visitor')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">7.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">impossible</b>
+<button onclick="speak('impossible')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ɪmˈpɑːsəbl</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">adj.</span>
+<span style="color:var(--text);min-width:40px">不可能的</span>
+<span style="font-size:11px;color:#666">Nothing is impossible.</span>
+<span style="font-size:10px;color:#999">“没有什么是不可能的。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">8.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">sad</b>
+<button onclick="speak('sad')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">sæd</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">adj.</span>
+<span style="color:var(--text);min-width:40px">悲伤的</span>
+<span style="font-size:11px;color:#666">Why are you so sad?</span>
+<span style="font-size:10px;color:#999">“你为什么这么悲伤？”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">9.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">respect</b>
+<button onclick="speak('respect')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">rɪˈspekt</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v./n.</span>
+<span style="color:var(--text);min-width:40px">尊重</span>
+<span style="font-size:11px;color:#666">We should respect the elderly.</span>
+<span style="font-size:10px;color:#999">“我们应该尊重老人。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">10.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">graduate</b>
+<button onclick="speak('graduate')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ˈɡrædʒueɪt</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
+<span style="color:var(--text);min-width:40px">毕业</span>
+<span style="font-size:11px;color:#666">I will graduate next year.</span>
+<span style="font-size:10px;color:#999">“我明年毕业。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">11.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">minister</b>
+<button onclick="speak('minister')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">12.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">able</b>
+<button onclick="speak('able')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">13.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">cook</b>
+<button onclick="speak('cook')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">14.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">member</b>
+<button onclick="speak('member')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ˈmembər</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">成员</span>
+<span style="font-size:11px;color:#666">He is a member of the team.</span>
+<span style="font-size:10px;color:#999">“他是团队的一员。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">15.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">fit</b>
+<button onclick="speak('fit')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">fɪt</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v./adj.</span>
+<span style="color:var(--text);min-width:40px">适合;健康的</span>
+<span style="font-size:11px;color:#666">This coat fits you well.</span>
+<span style="font-size:10px;color:#999">“这件外套很适合你。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">16.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">develop</b>
+<button onclick="speak('develop')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">17.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">milk</b>
+<button onclick="speak('milk')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">mɪlk</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">牛奶</span>
+<span style="font-size:11px;color:#666">Drink a glass of milk every day.</span>
+<span style="font-size:10px;color:#999">“每天喝一杯牛奶。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">18.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">design</b>
+<button onclick="speak('design')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">19.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">honor</b>
+<button onclick="speak('honor')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">20.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">important</b>
+<button onclick="speak('important')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">21.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">little</b>
+<button onclick="speak('little')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ˈlɪtl</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">adj.</span>
+<span style="color:var(--text);min-width:40px">小的;少的</span>
+<span style="font-size:11px;color:#666">I have a little money.</span>
+<span style="font-size:10px;color:#999">“我有一点钱。”</span></div></div><h3 style="color:var(--red);border-bottom:2px solid var(--red);padding-bottom:6px;margin:16px 0 12px">📖 语文 · 古诗文入门《观沧海》</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>讲</h4><p><b>观沧海</b> · 曹操（东汉末）</p><p>此诗是曹操北征乌桓时所作。全诗描写了大海的壮阔景象，表达了诗人博大的胸襟和建功立业的抱负。</p><p>全诗：东临碣石，以观沧海。水何澹澹，山岛竦峙。树木丛生，百草丰茂。秋风萧瑟，洪波涌起。日月之行，若出其中；星汉灿烂，若出其里。幸甚至哉，歌以咏志。</p><p><b>逐句详析</b>：<br>①东临碣石，以观沧海——东行登上碣石山，来观赏大海<br>②水何澹澹，山岛竦峙——海水宽阔浩荡，山岛高高耸立<br>③树木丛生，百草丰茂——（近看）树木和百草十分茂盛<br>④秋风萧瑟，洪波涌起——秋风吹动树木，海中涌起巨浪<br>⑤日月之行，若出其中——太阳和月亮的运行，仿佛从大海中升起（想象）<br>⑥星汉灿烂，若出其里——银河星光灿烂，仿佛从大海中产生<br>⑦幸甚至哉，歌以咏志——太庆幸了，用诗歌表达志向（套话）</p><p><b>中考考点</b>：①"星汉"指银河 ②"澹澹"意为水波荡漾 ③名句"日月之行，若出其中"的想象手法</p></div><div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练</h4><div class="q-block"><span class="q-num">1.</span><span class="question">星汉指的是什么？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">银河</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">水何澹澹中澹澹的意思？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">水波荡漾</div></div><div class="q-block"><span class="q-num">3.</span><span class="question">曹操表达什么情感？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">博大的胸襟和远大的抱负</div></div><div class="q-block"><span class="q-num">4.</span><span class="question">日月之行若出其中用了什么手法？</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">想象/夸张</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法</h4><div class="tip"><b>方法</b>：古诗三遍背诵法：看译文理解-逐句背-闭眼默写。注意"竦峙""澹澹"等易错字。</div></div><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>背诵</h4><table class="summ-table"><tr><th>背诵内容</th><th>已背/已默</th></tr><tr><td style="font-size:12px">《观沧海》全诗背诵</td><td>□ □</td></tr><tr><td style="font-size:12px">重点字：澹澹/竦峙/星汉/志</td><td>□ □</td></tr><tr><td style="font-size:12px">曹操时代背景常识</td><td>□ □</td></tr></table></div></div><p style="color:#999;font-size:11px;text-align:center;margin:16px 0 4px">本日词汇量：21词 | 累计词汇：21词</p>
+<function check_html at 0x000001F6DE13A7A0>
+</div>
+<div class="complete-bar"><button id="cbtn" class="complete-btn todo" onclick="toggleComplete(1)">标记完成</button></div>
+</div>
+<div class="nav-links"><span></span><a href="../index.html" class="home">📋 目录</a><a href="day002.html" class="next">Day 2 →</a></div>
+</div>
+<script>
+function speak(t){if(window.speechSynthesis){window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.7;window.speechSynthesis.speak(u);}}
+function showAns(b){var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}
+function toggleComplete(dn){var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){localStorage.setItem("day_"+dn+"_done","true");btn.className="complete-btn done";btn.textContent="已完成";}else{localStorage.setItem("day_"+dn+"_done","false");btn.className="complete-btn todo";btn.textContent="标记完成";}}
+window.onload=function(){if(localStorage.getItem("day_'+str(num)+'_done")==="true"){var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成";}}
+</script></body></html>

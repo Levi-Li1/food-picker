@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>初二升初三 · 暑假60天逆袭计划 · 完整版</title>
+<title>初二升初三 · 暑假60天逆袭计划 · 中考考纲</title>
 <style>
 :root{--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--purple:#af52de;--teal:#5ac8fa;--pink:#ff2d55;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -11,426 +11,295 @@ body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;backgr
 .container{max-width:1000px;margin:0 auto;padding:0 16px}
 h1{text-align:center;font-size:30px;padding:32px 0 4px;letter-spacing:-0.5px}
 .subtitle{text-align:center;color:var(--sub);font-size:14px;margin-bottom:20px}
-
-/* Navigation */
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid #e5e5ea;padding:8px 0;margin-bottom:16px}
-nav select{padding:8px 14px;border-radius:10px;border:1px solid #ccc;font-size:15px;margin:0 8px}
 nav .title{font-weight:700;font-size:16px;vertical-align:middle}
 
-/* Mind Map Section */
+/* 考纲总览 */
+.exam-info{background:#fff;border-radius:16px;padding:20px 24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.exam-info table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+.exam-info th,.exam-info td{padding:8px 12px;border:1px solid #e5e5ea;text-align:center}
+.exam-info th{background:#f8f8fa;font-weight:600}
+.exam-info .highlight{background:#fffbf0;font-weight:700;color:#e65100}
+.exam-info .note{font-size:12px;color:var(--sub);margin-top:8px;padding:8px 12px;background:#f0f7ff;border-radius:8px;border-left:3px solid var(--blue)}
+.exam-info .warn{font-size:12px;color:var(--sub);margin-top:8px;padding:8px 12px;background:#fff5f5;border-radius:8px;border-left:3px solid var(--red)}
+
+/* 知识体系网格 */
 .mm-section{background:var(--card);border-radius:16px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-.mm-section h2{font-size:22px;margin-bottom:4px}
-.mm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:12px 0}
+.mm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin:12px 0}
 .mm-box{background:#f8f8fa;border-radius:12px;padding:14px;border-left:4px solid var(--blue)}
 .mm-box h4{font-size:15px;margin-bottom:6px;color:var(--blue)}
 .mm-box ul{margin-left:16px;font-size:13px}
 .mm-box ul li{margin:2px 0;color:#444}
 .mm-box .star{color:var(--red);font-size:12px}
+.mm-box .sub{font-size:11px;color:#999;margin-top:6px;padding:4px 8px;background:#fff;border-radius:6px}
 
-/* Day Page */
-.day-page{border:2px solid #e5e5ea;background:var(--card);border-radius:16px;margin-bottom:20px;overflow:hidden}
-.day-page .dtop{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.day-page .dtop .dnum{font-size:32px;font-weight:800}
-.day-page .dtop .dinfo{text-align:right;font-size:13px;opacity:.9}
-.day-page .dbody{padding:20px}
-.day-page .goal{background:#fffbf0;border:1px solid #ffd54f;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:14px}
-.day-page .goal b{color:#e65100}
-
-/* Step blocks */
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.step{background:#f8f8fa;border-radius:12px;padding:14px 16px}
-.step.full{grid-column:1/-1}
-.step h4{font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.step .dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
-.step p,.step ul li{font-size:14px;color:#444;margin:4px 0}
-.step ul{padding-left:18px}
-
-/* Practice questions */
-.q-block{background:#fff;border:1px solid #e5e5ea;border-radius:10px;padding:12px 16px;margin:8px 0}
-.q-block .q-num{font-weight:700;color:var(--blue);margin-right:6px}
-.q-block .question{font-size:14px;margin:4px 0}
-.ans-btn{display:inline-block;margin-top:6px;padding:4px 14px;border-radius:14px;border:1px solid var(--blue);color:var(--blue);background:transparent;font-size:12px;cursor:pointer;transition:.2s}
-.ans-btn:hover{background:var(--blue);color:#fff}
-.answer{display:none;background:#f0f7ff;padding:10px 14px;border-radius:8px;margin-top:8px;font-size:13px;border-left:3px solid var(--blue)}
-.answer.show{display:block}
-
-/* Tips and checks */
-.tip{background:#f0f7ff;border-left:3px solid var(--blue);padding:10px 14px;margin:10px 0;font-size:13px;border-radius:0 8px 8px 0}
-.tip b{color:var(--blue)}
-.err-box{background:#fff5f5;border-left:3px solid var(--red);padding:10px 14px;margin:10px 0;font-size:13px;border-radius:0 8px 8px 0}
-.err-box b{color:var(--red)}
-.check{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:10px;padding:10px 14px;margin:10px 0;font-size:13px}
-.check b{color:#2e7d32}
-
-/* Formula box */
-.formula{background:#fffbf0;border:1px solid #ffcc80;border-radius:10px;padding:12px 16px;margin:8px 0;font-size:14px;text-align:center}
-.formula .eq{font-size:18px;font-weight:700;color:#e65100;letter-spacing:1px;padding:4px 0}
-.formula .meaning{font-size:12px;color:#888;margin-top:4px}
-
-/* Mind Map Tabs */
+/* Tab 切换 */
 .mm-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .mm-tab{padding:8px 16px;border-radius:18px;font-size:13px;font-weight:600;border:none;cursor:pointer;background:#e5e5ea;color:#666;transition:.2s}
 .mm-tab.active{background:var(--blue);color:#fff}
 .mm-panel{display:none}
 .mm-panel.active{display:block}
 
-/* Print */
-@media print{
- body{font-size:11px;background:#fff}
- .day-page{break-inside:avoid;border:1px solid #ccc;box-shadow:none}
- .dtop{background:#333;color:#fff}
- nav{display:none}
- .answer{display:block!important}
- .ans-btn{display:none}
-}
-
-/* Summary table */
-.summ-table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
-.summ-table th,.summ-table td{padding:6px 8px;border:1px solid #e5e5ea;text-align:center}
-.summ-table th{background:#f8f8fa;font-weight:600}
-
-/* Weekly marker */
-.week-marker{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;text-align:center;padding:16px;border-radius:14px;font-size:20px;font-weight:700;margin:32px 0 20px}
-.week-marker .wnote{font-size:13px;opacity:.85;margin-top:4px}
-
-.special-card{background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;border-radius:16px;padding:24px;margin-bottom:20px}
-.special-card h2,.special-card td{color:#fff}
-.special-card b{color:#ffcc80}
 .footer{text-align:center;color:var(--sub);font-size:12px;padding:30px}
+@media print{body{font-size:11px;background:#fff} nav,.mm-tabs{display:none}}
 </style>
 </head>
 <body>
-<nav>
-<div style="max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:0 16px;flex-wrap:wrap">
+<nav><div style="max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:0 16px;flex-wrap:wrap">
 <span class="title">📚 暑假逆袭计划</span>
 <a href="index.html" style="font-size:12px;color:var(--sub);text-decoration:none;margin-left:auto">📋 总览</a>
-</div>
-</nav>
+</div></nav>
 <div class="container">
-<h2>🧠 各科中考知识体系完整考纲</h2>
-<p style="color:var(--sub);font-size:14px;margin-bottom:12px">根据江苏省泰州市中考大纲整理，标注★为高频考点</p>
 
+<h2>🧠 中考知识体系 · 完整考纲</h2>
+<p style="color:var(--sub);font-size:14px;margin-bottom:12px">以2025年泰州市初中学业水平考试方案为基础，对照义务教育课程标准（2025年修订版）编制。详细讲解、练习、方法总结见每日学习计划。</p>
+
+<!-- ═══ 考纲总览 ═══ -->
+<div class="exam-info">
+<h3 style="font-size:18px;margin-bottom:8px">📋 2025年泰州市中考总览</h3>
+<table>
+<tr><th>科目</th><th>分值</th><th>考试形式</th><th>考试时长</th><th>备注</th></tr>
+<tr><td>📖 语文</td><td class="highlight">150分</td><td>闭卷笔试</td><td>150分钟</td><td>含作文60分</td></tr>
+<tr><td>📐 数学</td><td class="highlight">150分</td><td>闭卷笔试</td><td>120分钟</td><td>可携带指定计算器</td></tr>
+<tr><td>🔤 英语</td><td class="highlight">150分</td><td>闭卷笔试+机考</td><td>100'+30'</td><td>听力口语30分(省统考)</td></tr>
+<tr><td>⚡ 物理</td><td class="highlight">100分</td><td>闭卷笔试</td><td>90分钟</td><td>含实验探究题</td></tr>
+<tr><td>🧪 化学</td><td class="highlight">60分</td><td>闭卷笔试</td><td>60分钟</td><td>初三新增科目</td></tr>
+<tr><td>🏛️ 道德与法治</td><td class="highlight">50分</td><td>开卷笔试</td><td>60分钟</td><td>可带教参</td></tr>
+<tr><td>📜 历史</td><td class="highlight">50分</td><td>闭卷笔试</td><td>60分钟</td><td>中国史+世界史</td></tr>
+<tr><td>⚽ 体育</td><td class="highlight">40分</td><td>现场测试</td><td>—</td><td>过程评价+统一测试</td></tr>
+<tr><td>🎵 音乐</td><td class="highlight">5分</td><td>考查</td><td>—</td><td>等级/分数计入</td></tr>
+<tr><td>🎨 美术</td><td class="highlight">5分</td><td>考查</td><td>—</td><td>等级/分数计入</td></tr>
+<tr style="background:#fffbf0"><td><b>合计</b></td><td><b>760分</b></td><td colspan="3">地理/生物八年级会考计入</td></tr>
+</table>
+<div class="note">💡 <b>2027年趋势</b>：可能取消地理/生物/音美计分，总分调整至750分左右。以泰州市教育局正式文件为准。</div>
+</div>
+
+<!-- ═══ TAB 导航 ═══ -->
 <div class="mm-tabs">
-<button class="mm-tab active" onclick="showMM('math')">📐 数学（150分）</button>
-<button class="mm-tab" onclick="showMM('chinese')">📖 语文（150分）</button>
-<button class="mm-tab" onclick="showMM('english')">🔤 英语（150分）</button>
-<button class="mm-tab" onclick="showMM('physics')">⚡ 物理（100分）</button>
-<button class="mm-tab" onclick="showMM('chem')">🧪 化学（60分）</button>
-<button class="mm-tab" onclick="showMM('politics')">🏛️ 政治（50分）</button>
-<button class="mm-tab" onclick="showMM('history')">📜 历史（50分）</button>
+<button class="mm-tab active" onclick="showMM('math')">📐 数学(150分)</button>
+<button class="mm-tab" onclick="showMM('chinese')">📖 语文(150分)</button>
+<button class="mm-tab" onclick="showMM('english')">🔤 英语(150分)</button>
+<button class="mm-tab" onclick="showMM('physics')">⚡ 物理(100分)</button>
+<button class="mm-tab" onclick="showMM('chem')">🧪 化学(60分)</button>
+<button class="mm-tab" onclick="showMM('politics')">🏛️ 政治(50分)</button>
+<button class="mm-tab" onclick="showMM('history')">📜 历史(50分)</button>
 </div>
 
+<!-- ═══ 数学 ═══ -->
 <div class="mm-panel active" id="mm-math">
-<h3 style="text-align:center;margin:12px 0;color:var(--blue)">初中数学 · 三年全部知识点梳理（初一~初三）</h3>
+<h3 style="text-align:center;color:var(--blue)">📐 数学 · 知识体系总览（150分，120分钟）</h3>
 <div class="mm-grid">
-<div class="mm-box" style="border-color:var(--blue)"><h4>一、数与式（初一/初二上）</h4><ul>
-<li><b>有理数</b>：正负数概念|数轴三要素|相反数(和为0)|绝对值(|a|≥0，几何意义=距离)|倒数(积为1)</li>
-<li><b>有理数运算</b>：加减法则|乘除法则|乘方(aⁿ)|混合运算顺序：先乘方→再乘除→后加减，有括号先括号</li>
-<li><b>科学记数法</b>：a×10ⁿ(1≤|a|&lt;10)，如360000=3.6×10⁵</li>
-<li><b>近似数</b>：精确度|有效数字</li>
-<li><b>实数</b>：平方根(√a)|立方根(∛a)|无理数(π、√2不能写成分数)|实数与数轴一一对应</li>
-<li><b>二次根式</b>：√a²=|a||√(ab)=√a·√b|√(a/b)=√a/√b|最简二次根式|同类二次根式|分母有理化<span class="star">★</span></li>
-<li><b>整式</b>：单项式(系数+次数)|多项式(项+次数)|同类项定义(字母相同+相同字母指数相同)</li>
-<li><b>整式加减</b>：去括号法则(括号前"-"→各项变号)|合并同类项(系数相加，字母不变)</li>
-<li><b>整式乘法</b>：aᵐ·aⁿ=aᵐ⁺ⁿ|(aᵐ)ⁿ=aᵐⁿ|(ab)ⁿ=aⁿbⁿ|单项式乘多项式=分配律|多项式乘多项式</li>
-<li><b>乘法公式</b>：平方差公式 (a+b)(a-b)=a²-b² <span class="star">★</span>|完全平方公式 (a±b)²=a²±2ab+b² <span class="star">★★★</span></li>
-<li><b>因式分解</b>：提公因式法|公式法(平方差/完全平方)|十字相乘法x²+(a+b)x+ab=(x+a)(x+b) <span class="star">★★</span></li>
-<li><b>分式</b>：定义(分母含字母，分母≠0)|约分|通分|分式运算|分式方程(必须检验增根!)</li>
+<div class="mm-box" style="border-color:var(--blue)"><h4>一、数与式（~30分）</h4><ul>
+<li>有理数/实数(数轴/绝对值/平方根) ★</li>
+<li>二次根式(运算/化简/分母有理化)</li>
+<li>整式(加减乘除/乘法公式) ★★★</li>
+<li>因式分解(提公因式/公式/十字相乘) ★★</li>
+<li>分式(运算/分式方程+验根) ★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--orange)"><h4>二、方程与不等式（初一/初二）</h4><ul>
-<li><b>一元一次方程</b>：ax+b=0(a≠0)|解法五步：去分母→去括号→移项变号→合并→系数化1 <span class="star">★</span></li>
-<li><b>二元一次方程组</b>：代入消元法|加减消元法|应用题(行程/工程/利润/配套) <span class="star">★★</span></li>
-<li><b>分式方程</b>：转化为整式方程|必须验根(使分母=0的是增根要舍去)</li>
-<li><b>一元二次方程</b>：ax²+bx+c=0(a≠0)|配方法|公式法 x=[-b±√(b²-4ac)]/2a <span class="star">★★★</span>|根的判别式Δ=b²-4ac|韦达定理 x₁+x₂=-b/a, x₁x₂=c/a</li>
-<li><b>不等式</b>：性质1(加减同数不等号不变)|性质2(乘除正数不变)|性质3(乘除负数必须变号!!!) <span class="star">★</span></li>
-<li><b>不等式组</b>：分别求解→数轴找公共部分(交集)</li>
+<div class="mm-box" style="border-color:var(--orange)"><h4>二、方程与不等式（~25分）</h4><ul>
+<li>一元一次方程(五步法) ★</li>
+<li>二元一次方程组(代入/加减消元) ★★</li>
+<li>一元二次方程(公式法/Δ/韦达定理) ★★★</li>
+<li>分式方程(必须验增根)</li>
+<li>不等式(组)(乘除负数要变号!) ★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--green)"><h4>三、函数（初二/初三）</h4><ul>
-<li><b>平面直角坐标系</b>：四个象限|点的对称和平移|两点距离公式</li>
-<li><b>一次函数 y=kx+b</b>：k决定倾斜程度和方向（k&gt;0上升，k&lt;0下降，|k|越大越陡）|b是y轴截距 <span class="star">★★★</span></li>
-<li><b>一次函数图像</b>：k&gt;0,b&gt;0过一二三象限|k&gt;0,b&lt;0过一三四|k&lt;0,b&gt;0过一二四|k&lt;0,b&lt;0过二三四</li>
-<li><b>一次函数应用</b>：待定系数法求解析式|行程问题|费用问题|两直线交点=方程组解 <span class="star">★</span></li>
-<li><b>反比例函数 y=k/x</b>：k&gt;0在一三象限，k&lt;0在二四象限|k的几何意义=S矩形</li>
-<li><b>二次函数 y=ax²+bx+c</b>：开口方向(a&gt;0向上，a&lt;0向下)|对称轴x=-b/2a|顶点|最值 <span class="star">★★★</span></li>
-<li><b>二次函数三种形式</b>：一般式|顶点式 y=a(x-h)²+k|交点式 y=a(x-x₁)(x-x₂)</li>
+<div class="mm-box" style="border-color:var(--green)"><h4>三、函数（~30分）★★★</h4><ul>
+<li>平面直角坐标系</li>
+<li>一次函数 y=kx+b(k决定倾斜/b是截距) ★★★</li>
+<li>反比例函数 y=k/x ★★</li>
+<li>二次函数 y=ax²+bx+c(开口/顶点/对称轴) ★★★</li>
+<li>函数应用题 ★★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--purple)"><h4>四、图形与几何（初二/初三）</h4><ul>
-<li><b>线与角</b>：两点确定一条直线|线段中点|角的度量(度分秒1°=60′=3600″)|余角(和90°)、补角(和180°)|对顶角相等</li>
-<li><b>平行线</b>：同位角相等、内错角相等、同旁内角互补(判定与性质互逆)</li>
-<li><b>三角形</b>：内角和180°|外角定理=不相邻两内角和|三边关系(两边之和&gt;第三边)|中线/高/角平分线</li>
-<li><b>全等三角形</b>：SSS/SAS/ASA/AAS/HL五种判定法(SSA不能判定!) <span class="star">★★★</span>|性质：对应边相等+对应角相等</li>
-<li><b>等腰三角形</b>：等边对等角|三线合一(顶角平分线/底边中线/底边高重合)|等边三角形(三边相等+三角都是60°)</li>
-<li><b>勾股定理</b>：a²+b²=c²|逆定理(用三边判直角)|勾股数(3-4-5,5-12-13,6-8-10,7-24-25,8-15-17) <span class="star">★★★</span></li>
-<li><b>平行四边形</b>：判定(对边平行/相等/一组对边平行且相等/对角线互相平分)|矩形/菱形/正方形性质 <span class="star">★★</span></li>
-<li><b>中位线</b>：三角形中位线平行于第三边且等于一半|梯形中位线=(上底+下底)/2</li>
-<li><b>相似三角形</b>：AA/SAS/SSS判定法|对应边成比例|面积比=相似比² <span class="star">★★</span></li>
-<li><b>圆</b>：垂径定理|圆周角定理(圆周角=圆心角/2)|切线性质与判定|弧长L=nπr/180|扇形面积S=nπr²/360 <span class="star">★★★</span></li>
+<div class="mm-box" style="border-color:var(--purple)"><h4>四、几何（~45分）★★★</h4><ul>
+<li>三角形(全等SSS/SAS/ASA/AAS/HL + 相似AA/SAS/SSS) ★★★</li>
+<li>勾股定理 a²+b²=c² ★★★</li>
+<li>四边形(平行四边形→矩形/菱形/正方形) ★★</li>
+<li>圆(垂径定理/圆周角/切线性质) ★★★</li>
+<li>弧长L=nπr/180 扇形S=nπr²/360 ★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--red)"><h4>五、统计与概率</h4><ul>
-<li><b>数据收集</b>：普查vs抽样调查|总体/个体/样本/样本容量</li>
-<li><b>数据描述</b>：平均数|中位数(排序后中间的数/两个中间数的平均)|众数(出现次数最多的) <span class="star">★</span></li>
-<li><b>波动程度</b>：方差(越大越不稳定)|标准差=√方差</li>
-<li><b>概率</b>：P(A)=m/n|列举法|树状图(不重不漏)|用频率估计概率</li>
-<li><b>统计图</b>：条形/折线/扇形/直方图</li>
+<div class="mm-box" style="border-color:var(--red)"><h4>五、统计与概率（~10分）</h4><ul>
+<li>平均数/中位数/众数 ★</li>
+<li>方差(越大越不稳定)</li>
+<li>概率P(A)=m/n(列举法+树状图)</li>
 </ul></div>
 </div>
 </div>
 
+<!-- ═══ 语文 ═══ -->
 <div class="mm-panel" id="mm-chinese">
-<h3 style="text-align:center;margin:12px 0;color:var(--red)">初中语文 · 三年全部知识点梳理</h3>
+<h3 style="text-align:center;color:var(--red)">📖 语文 · 知识体系总览（150分，150分钟）</h3>
 <div class="mm-grid">
 <div class="mm-box" style="border-color:var(--red)"><h4>一、基础知识与运用（~20分）</h4><ul>
-<li><b>字音</b>：多音字辨析|易读错字|形声字|前后鼻音</li>
-<li><b>字形</b>：同音字|形近字|错别字纠正|书法常识(楷行草隶篆)</li>
-<li><b>词语成语</b>：成语误用类型(望文生义/褒贬误用/对象不当/语义重复) <span class="star">★</span></li>
-<li><b>病句修改</b>：搭配不当/成分残缺/语序不当/句式杂糅/表意不明/不合逻辑</li>
-<li><b>标点符号</b>：顿号vs逗号|引号内外|分号连接并列分句|冒号总结上文</li>
-<li><b>修辞手法</b>：比喻(明喻/暗喻/借喻)|拟人|夸张|排比|对偶|反复|设问|反问</li>
-<li><b>文学常识</b>：重要作家作品(鲁迅/老舍/朱自清/冰心等)|文体知识|朝代顺序</li>
-<li><b>古诗文默写</b>：61篇必背篇目(初一初二约40篇) <span class="star">★★★</span>|直接默写和理解性默写两种考查方式</li>
-<li><b>综合性学习</b>：图表解读|材料概括|口语交际|应用文(通知/启事/倡议书)</li>
+<li>字音字形(多音字/形声字/易错字)</li>
+<li>词语成语(六大误用类型) ★</li>
+<li>病句修改(六种类型) ★</li>
+<li>标点/修辞(8种修辞手法) ★</li>
+<li>古诗文默写(61篇必背) ★★★</li>
+<li>综合性学习(图表/概括/口语/应用文)</li>
 </ul></div>
 <div class="mm-box" style="border-color:var(--orange)"><h4>二、文言文阅读（~15分）</h4><ul>
-<li><b>实词理解</b>：通假字(说=悦/女=汝)|古今异义(妻子=妻子和儿女)|一词多义|词类活用 <span class="star">★★</span></li>
-<li><b>虚词用法</b>：之(代词/助词/动词)/而(并列/转折/顺承/修饰)/以(用/因为/来/凭借)/于(在/从/比/对)/其(代词/语气词) <span class="star">★</span></li>
-<li><b>句子翻译</b>：逐字对译|补全省略|调整语序(倒装句还原)|保留专有名词(人名/地名/官名)</li>
-<li><b>断句</b>：凭虚词断/凭对话断/凭句式断/凭修辞断</li>
-<li><b>内容理解</b>：概括中心/分析人物/谈启示</li>
-<li><b>重点篇目</b>：《论语十二章》《陋室铭》《爱莲说》《三峡》《记承天寺夜游》《与朱元思书》《孟子二章》《愚公移山》《桃花源记》《小石潭记》《岳阳楼记》《醉翁亭记》《出师表》等</li>
+<li>实词(通假/古今异义/一词多义/词类活用) ★★</li>
+<li>虚词(之/而/以/于/其) ★</li>
+<li>翻译五字诀(留换补删调)</li>
+<li>断句</li>
+<li>重点篇目约20篇(论语/陋室铭/爱莲说/桃花源记/岳阳楼记/醉翁亭记/出师表等)</li>
 </ul></div>
 <div class="mm-box" style="border-color:var(--green)"><h4>三、现代文阅读（~35分）</h4><ul>
-<li><b>记叙文</b>：六要素|线索|顺序(顺/倒/插)|人称作用|概括事件(谁做了什么事结果怎样) <span class="star">★★</span></li>
-<li><b>赏析句子</b>：修辞角度(用了什么修辞+效果+情感)|描写角度(动作/语言/神态/心理/外貌)|用词角度(这个词好在哪里)</li>
-<li><b>句段作用</b>：开头(点题/引出下文/设置悬念)|中间(承上启下/铺垫)|结尾(总结全文/点明中心/首尾呼应/留白)</li>
-<li><b>标题含义</b>：表层意思+深层含义(象征/双关/点明主旨)</li>
-<li><b>说明文</b>：说明对象|说明方法(举例子/列数字/作比较/打比方/分类别)|说明顺序(时间/空间/逻辑)|语言准确性</li>
-<li><b>议论文</b>：论点(中心论点/分论点)|论据(事实论据/道理论据)|论证方法(举例论证/道理论证/对比论证/比喻论证) <span class="star">★</span></li>
+<li>记叙文(赏析/句段作用/标题含义/人物分析) ★★</li>
+<li>说明文(8种说明方法) ★</li>
+<li>议论文(三要素+4种论证方法) ★</li>
+<li>答题模板(概括/赏析/作用/含义/启示)</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--purple)"><h4>四、名著与写作</h4><ul>
-<li><b>名著12本</b>：《朝花夕拾》《西游记》《骆驼祥子》《海底两万里》《红星照耀中国》《昆虫记》《经典常谈》《钢铁是怎样炼成的》《艾青诗选》《水浒传》《儒林外史》《简·爱》<span class="star">★★</span></li>
-<li><b>名著考点</b>：作者/主要人物/主要情节/主题思想/艺术特色(每本记住3个关键情节)</li>
-<li><b>写作（60分）</b>：记叙文为主|六要素完整|字数600+</li>
-<li><b>开头三法</b>：开门见山法|环境渲染法|引用名言法</li>
-<li><b>结尾三法</b>：首尾呼应法|点明中心法|含蓄留白法</li>
-<li><b>语言加分项</b>：至少1处细节描写+1处环境描写+1处修辞手法+1处真情实感</li>
-<li><b>卷面要求</b>：字迹工整(占3-5分!)|不涂改|标点规范</li>
+<div class="mm-box" style="border-color:var(--purple)"><h4>四、写作（60分）★★★</h4><ul>
+<li>记叙文为主(六要素+600字+)</li>
+<li>开头四法(开门见山/设问/环境/引用)</li>
+<li>主体结构(起因→经过→高潮→结果)</li>
+<li>结尾三法(呼应/点题/留白)</li>
+<li>卷面/语言/细节(3-5分卷面分!)</li>
 </ul></div>
 </div>
 </div>
 
+<!-- ═══ 英语 ═══ -->
 <div class="mm-panel" id="mm-english">
-<h3 style="text-align:center;margin:12px 0;color:var(--green)">初中英语 · 三年全部知识点梳理</h3>
+<h3 style="text-align:center;color:var(--green)">🔤 英语 · 知识体系总览（150分）</h3>
 <div class="mm-grid">
-<div class="mm-box" style="border-color:var(--green)"><h4>一、词汇（150分的基础！）</h4><ul>
-<li><b>课标词汇</b>：1500-1600词(初一约500+初二约500+初三约500)</li>
-<li><b>中考高频核心词</b>：800词(完形填空和阅读理解的出题词) <span class="star">★★★</span></li>
-<li><b>词性转换</b>：名词变形容词(care→careful→careless)|动词变名词(decide→decision)|形容词变副词(quick→quickly)</li>
-<li><b>短语搭配</b>：look+介词(look at/for/after/up/forward to)|take+名词(take care/pride/part/place)|固定搭配(give up/put off/turn on/set out)</li>
+<div class="mm-box" style="border-color:var(--green)"><h4>一、词汇（贯穿全部）</h4><ul>
+<li>课标1600词(初一~初三) ★★★</li>
+<li>中考核心800词(高频出题词)</li>
+<li>词性转换(约80组高频转换) ★★</li>
+<li>短语搭配(约200组，以look/take/get/put/turn为中心) ★★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--blue)"><h4>二、语法（8大专题）</h4><ul>
-<li><b>1.时态（6种）</b>：一般现在时(do/does)|一般过去时(did)|一般将来时(will do/is going to do)|现在进行时(am/is/are doing)|现在完成时(have/has done)|过去进行时(was/were doing) <span class="star">★★★</span></li>
-<li><b>2.被动语态</b>：be+过去分词|一般现在被动(am/is/are done)|一般过去被动(was/were done)|情态动词被动(can/must be done) <span class="star">★★</span></li>
-<li><b>3.情态动词</b>：can/could(能力)|may/might(许可)|must/have to(必须)|should(应该)|need(需要)|mustn't(禁止≠needn't不必)</li>
-<li><b>4.宾语从句</b>：引导词(that/if/whether/wh-词)|语序必须陈述语序!!!|时态呼应(主过从过) <span class="star">★★★</span></li>
-<li><b>5.状语从句</b>：时间(when/while/as soon as)|条件(if/unless/as long as 主将从现!!!)|原因(because/since)|让步(although/though不与but连用!) <span class="star">★★</span></li>
-<li><b>6.定语从句</b>：who(人)|which(物)|that(人/物均可)|whose(所属) <span class="star">★</span></li>
-<li><b>7.形容词副词</b>：比较级(-er/more)|最高级(-est/most)|good/well→better→best</li>
-<li><b>8.非谓语动词</b>：to do(目的/将来)|doing(主动/进行)|done(被动/完成)</li>
+<div class="mm-box" style="border-color:var(--blue)"><h4>二、语法（8大专题）★★★</h4><ul>
+<li>时态(8种，重点：一般现在/过去/将来 + 现在完成) ★★★</li>
+<li>被动语态(be+done, 5种时态) ★★</li>
+<li>情态动词(must/have to/can/may/should) ★</li>
+<li>宾语从句(引导词+陈述语序+时态呼应) ★★★</li>
+<li>状语从句(主将从现!) ★★</li>
+<li>定语从句(who/which/that/whose) ★</li>
+<li>形容词副词比较级 ★</li>
+<li>非谓语动词(to do/doing/done) ★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--orange)"><h4>三、题型专项（~80分）</h4><ul>
-<li><b>听力（20分）</b>：提前读题→听关键词→速记数字/日期/地点</li>
-<li><b>完形填空（15×1=15分）</b>：先通读全文把握大意→逐空选择→检查验证|上下文线索|固定搭配|近义词辨析 <span class="star">★★</span></li>
-<li><b>阅读理解（20×2=40分）</b>：细节题(定位原文)|推断题(不选原文直接出现的!)|主旨题(首尾段找)|词义猜测(上下文) <span class="star">★★★</span></li>
-<li><b>写作（约15分）</b>：书信格式|三段式结构|80词以上|连接词(first/second/in addition/finally)|模板句型记忆</li>
+<div class="mm-box" style="border-color:var(--orange)"><h4>三、题型技巧（~120分笔试）</h4><ul>
+<li>完形填空(三步法：通读→选择→检查) ★★</li>
+<li>阅读理解(细节/推断/主旨/词义猜测) ★★★</li>
+<li>词汇运用(词性转换+语法填空) ★</li>
+<li>书面表达(三段式+连接词+模板句型) ★★</li>
 </ul></div>
 </div>
 </div>
 
+<!-- ═══ 物理 ═══ -->
 <div class="mm-panel" id="mm-physics">
-<h3 style="text-align:center;margin:12px 0;color:var(--orange)">初中物理 · 八/九年级全部知识点梳理</h3>
+<h3 style="text-align:center;color:var(--orange)">⚡ 物理 · 知识体系总览（100分，90分钟）</h3>
 <div class="mm-grid">
-<div class="mm-box" style="border-color:var(--orange)"><h4>一、声光热（八上，~25分）</h4><ul>
-<li><b>声现象</b>：声音由振动产生|真空不能传声|声速340m/s(v固&gt;v液&gt;v气)|音调↔频率|响度↔振幅|音色↔材料结构|超声波/次声波|噪声控制三途径</li>
-<li><b>光现象</b>：光源(自然/人造)|光的直线传播(影子/日月食/小孔成像)|光速3×10⁸m/s</li>
-<li><b>光的反射</b>：反射定律(三线共面/两线分居/反射角=入射角)|镜面反射vs漫反射|平面镜成像(等大/等距/垂直/虚像) <span class="star">★★</span></li>
-<li><b>光的折射</b>：折射规律(空→水:靠近法线，折射角&lt;入射角)|生活中的折射(筷子弯折/池水变浅/海市蜃楼)</li>
-<li><b>透镜</b>：凸透镜(会聚)/凹透镜(发散)|焦点(F)/焦距(f)/光心/主光轴</li>
-<li><b>凸透镜成像规律</b>：u&gt;2f→倒立缩小实像(照相机)|f&lt;u&lt;2f→倒立放大实像(投影仪)|u&lt;f→正立放大虚像(放大镜) <span class="star">★★★</span></li>
-<li><b>眼睛</b>：晶状体=凸透镜|近视眼(像在视网膜前→凹透镜矫正)|远视眼(像在视网膜后→凸透镜矫正)</li>
-<li><b>物态变化</b>：六种变化|晶体有熔点(冰0°C)/非晶体没有|蒸发(任何温度/表面)vs沸腾(沸点/内部)|液化的两种方法(降温/压缩体积)</li>
+<div class="mm-box" style="border-color:var(--orange)"><h4>一、声光热（八上~25分）</h4><ul>
+<li>声现象(振动产生/340m/s/三特征)</li>
+<li>光现象(直线传播/反射定律/折射)</li>
+<li>凸透镜成像规律(5种情况) ★★★</li>
+<li>物态变化(六种/晶体与非晶体)</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--red)"><h4>二、力学（八下，~50分★最核心！）</h4><ul>
-<li><b>质量</b>：属性，不随位置/形状/状态/温度改变|单位kg|天平使用</li>
-<li><b>密度</b>：ρ=m/V|1g/cm³=1000kg/m³|水的密度1.0×10³kg/m³|密度测量(天平+量筒+排水法) <span class="star">★★</span></li>
-<li><b>力</b>：三要素(大小/方向/作用点)|作用效果(改变形状/改变运动状态)|力的示意图</li>
-<li><b>重力</b>：G=mg(g≈10N/kg)|方向竖直向下|作用点:重心</li>
-<li><b>弹力</b>：弹性形变|弹簧测力计(在弹性限度内，伸长量与拉力成正比)</li>
-<li><b>摩擦力</b>：增大方法(增大压力/粗糙度)|减小方法(加润滑油/滚动代替滑动)</li>
-<li><b>牛顿第一定律</b>：一切物体不受力时保持静止或匀速直线运动 <span class="star">★★</span></li>
-<li><b>惯性</b>：一切物体都有惯性|质量越大惯性越大|与速度无关!</li>
-<li><b>二力平衡</b>：同体+等大+反向+共线|与相互作用力的区别(作用在不同物体上)</li>
-<li><b>压强</b>：固体压强 P=F/S(Pa)|增大(刀刃/针)减小(坦克履带)压强的方法 <span class="star">★★</span></li>
-<li><b>液体压强</b>：P=ρgh(只与密度和深度有关，与容器形状无关!)|连通器原理 <span class="star">★★★</span></li>
-<li><b>大气压强</b>：马德堡半球实验|托里拆利实验(1.01×10⁵Pa)|沸点随气压降低而降低</li>
-<li><b>浮力</b>：F浮=G排=ρ液gV排(阿基米德原理) <span class="star">★★★</span>|沉浮条件:漂浮/悬浮时F浮=G|上浮时F浮&gt;G|下沉时F浮&lt;G</li>
-<li><b>功</b>：W=Fs(J)|做功两个条件(有力+在力的方向有距离)|不做功三种情况</li>
-<li><b>功率</b>：P=W/t(W，表示做功快慢)</li>
-<li><b>动能和势能</b>：动能↔质量+速度|重力势能↔质量+高度|弹性势能↔弹性形变|机械能守恒 <span class="star">★</span></li>
-<li><b>简单机械</b>：杠杆平衡 F₁L₁=F₂L₂|滑轮(定滑轮/F=G动滑轮省一半力/滑轮组 F=G/n) <span class="star">★★</span></li>
+<div class="mm-box" style="border-color:var(--red)"><h4>二、力学（八下~50分）★★★</h4><ul>
+<li>质量ρ=m/V | 重力G=mg</li>
+<li>牛顿第一定律+惯性 | 二力平衡</li>
+<li>压强(P=F/S固体/P=ρgh液体) ★★★</li>
+<li>浮力(F浮=ρ液gV排) ★★★</li>
+<li>功和机械能(W=Fs/P=W/t) ★</li>
+<li>简单机械(杠杆F₁L₁=F₂L₂/滑轮) ★★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--blue)"><h4>三、电学（初三，~25分）</h4><ul>
-<li><b>电路</b>：串联(电流只有一条路径)|并联(有分支)|短路(不经过用电器)|断路</li>
-<li><b>电流</b>：I=Q/t|电流表串联|串:I₁=I₂=I 并:I=I₁+I₂</li>
-<li><b>电压</b>：电压表并联|串:U=U₁+U₂ 并:U=U₁=U₂</li>
-<li><b>电阻</b>：导体对电流的阻碍作用|影响因素(材料/长度/横截面积/温度)</li>
-<li><b>欧姆定律</b>：I=U/R <span class="star">★★★</span>|伏安法测电阻</li>
-<li><b>电功率</b>：P=UI=W/t|额定功率vs实际功率|P=I²R=U²/R</li>
-<li><b>焦耳定律</b>：Q=I²Rt|电热器</li>
-<span style="font-size:12px;color:#888">注：电学初三学，暑假预习前两章即可</span></ul></div>
+<div class="mm-box" style="border-color:var(--blue)"><h4>三、电学（初三~25分）</h4><ul>
+<li>电路(串联/并联/短路/断路)</li>
+<li>欧姆定律 I=U/R ★★★</li>
+<li>电功率 P=UI ★★</li>
+<li>焦耳定律 Q=I²Rt</li>
+</ul></div>
 </div>
 </div>
 
+<!-- ═══ 化学 ═══ -->
 <div class="mm-panel" id="mm-chem">
-<h3 style="text-align:center;margin:12px 0;color:#9c27b0">初中化学 · 九年级全部知识点梳理（初三新课）</h3>
-<div class="mm-grid">
+<h3 style="text-align:center;color:#9c27b0">🧪 化学 · 知识体系总览（60分，60分钟）</h3>
+<div class="mm-grid" style="grid-template-columns:1fr 1fr">
 <div class="mm-box" style="border-color:#9c27b0"><h4>一、基础概念</h4><ul>
-<li><b>物理变化vs化学变化</b>：是否有新物质生成(判断依据)</li>
-<li><b>物理性质vs化学性质</b>：是否需要化学变化才能表现</li>
-<li><b>元素</b>：质子数相同的一类原子|地壳含量前四:O&gt;Si&gt;Al&gt;Fe|前20号元素符号必须全背 <span class="star">★★</span></li>
-<li><b>原子结构</b>：原子核(质子+中子)+核外电子|原子序数=质子数=核外电子数</li>
-<li><b>离子</b>：阳离子(失电子，带正电)|阴离子(得电子，带负电)</li>
-<li><b>化合价</b>：常见元素化合价记忆口诀 <span class="star">★</span></li>
-<li><b>化学式</b>：用元素符号表示物质组成的式子|写法规则</li>
+<li>物理/化学变化(判断依据) ★</li>
+<li>元素+原子+离子(前20号元素) ★★</li>
+<li>化合价+化学式 ★</li>
 </ul></div>
 <div class="mm-box" style="border-color:var(--green)"><h4>二、化学反应</h4><ul>
-<li><b>质量守恒定律</b>：化学反应前后原子种类/数目/质量不变 <span class="star">★★</span></li>
-<li><b>化学方程式</b>：书写步骤(写→配→注)|配平方法(最小公倍数法/奇数偶配法) <span class="star">★★★</span></li>
-<li><b>四种基本反应类型</b>：化合(A+B→AB)|分解(AB→A+B)|置换(A+BC→AC+B)|复分解(AB+CD→AD+CB)</li>
-<li><b>根据方程式计算</b>：设未知数→写方程式→找关系→列比例→求解→答 <span class="star">★★</span></li>
+<li>质量守恒定律 ★★</li>
+<li>化学方程式(写→配→注) ★★★</li>
+<li>四种反应类型+计算 ★★</li>
 </ul></div>
 <div class="mm-box" style="border-color:var(--orange)"><h4>三、身边的化学物质</h4><ul>
-<li><b>空气</b>：O₂约占21%/N₂约占78%|氧气性质与制法(实验室/工业)</li>
-<li><b>水</b>：电解水 2H₂O=2H₂↑+O₂↑|硬水vs软水|净化方法(沉淀/过滤/吸附/蒸馏)</li>
-<li><b>碳</b>：金刚石/石墨/C₆₀(同素异形体)|CO₂性质与制法|CO的毒性</li>
-<li><b>金属</b>：金属活动性顺序|铁的冶炼|金属锈蚀条件与防护</li>
-<li><b>溶液</b>：溶质+溶剂|饱和vs不饱和|溶解度|溶质质量分数=溶质/溶液×100%</li>
-<li><b>酸碱盐</b>：常见酸(HCl/H₂SO₄/HNO₃)|常见碱(NaOH/Ca(OH)₂)|pH值|中和反应</li>
+<li>空气/水/碳/金属/溶液/酸碱盐 ★★</li>
 </ul></div>
 </div>
 </div>
-</div>
 
+<!-- ═══ 政治 ═══ -->
 <div class="mm-panel" id="mm-politics">
-<h3 style="text-align:center;margin:12px 0;color:#e91e63">初中道德与法治 · 三年全部知识点梳理</h3>
-<div class="mm-grid">
-<div class="mm-box" style="border-color:#e91e63"><h4>一、七/八年级·成长与社会（~25分）</h4><ul>
-<li><b>成长的节拍</b>：中学时代|梦想|学会学习</li>
-<li><b>友谊与师长</b>：友谊特质|师生交往|孝亲敬长</li>
-<li><b>生命</b>：敬畏生命|守护生命|挫折 <span class="star">★</span></li>
-<li><b>青春</b>：青春期变化|独立思考|批判精神</li>
-<li><b>情绪情感</b>：情绪管理|情感作用|传递正能量</li>
-<li><b>集体</b>：集体力量|个人与集体|美好集体</li>
-<li><b>法治</b>：法律特征|未成年人四大保护|依法办事 <span class="star">★★</span></li>
-<li><b>社会生活</b>：亲社会行为|网络|诚信|尊重</li>
-<li><b>规则与责任</b>：自由与规则|承担责任|关爱他人 <span class="star">★</span></li>
-<li><b>国家利益</b>：维护国家利益|总体国家安全观 <span class="star">★★</span></li>
-<li><b>宪法</b>：宪法是根本法|公民权利义务|国家机构 <span class="star">★★★</span></li>
-<li><b>制度</b>：基本经济制度|根本政治制度|基本政治制度 <span class="star">★★</span></li>
-<li><b>公平正义</b>：公平/正义/自由/平等|守护正义 <span class="star">★</span></li>
+<h3 style="text-align:center;color:#e91e63">🏛️ 道德与法治 · 知识体系总览（50分，开卷60分钟）</h3>
+<div class="mm-grid" style="grid-template-columns:1fr 1fr 1fr">
+<div class="mm-box" style="border-color:#e91e63"><h4>一、成长与社会</h4><ul>
+<li>成长的节拍/友谊/师长</li>
+<li>敬畏生命/挫折/青春期</li>
+<li>情绪管理/集体/个人</li>
+<li>法律/未成年人保护 ★★</li>
+<li>诚信/网络/责任 ★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--red)"><h4>二、九年级·国情与价值观（~15分）</h4><ul>
-<li><b>改革开放</b>：强国之路|共同富裕|基本经济制度 <span class="star">★★★</span></li>
-<li><b>创新</b>：科技创新|科教兴国|知识产权 <span class="star">★★</span></li>
-<li><b>民主与法治</b>：社会主义民主|法治中国|依法行政 <span class="star">★★</span></li>
-<li><b>中华文化</b>：源远流长+博大精深|传统美德|民族精神|文化自信 <span class="star">★★★</span></li>
-<li><b>社会主义核心价值观</b>：国家/社会/个人三个层面 <span class="star">★</span></li>
-<li><b>生态文明</b>：人口/资源/环境|绿色发展|人与自然和谐共生 <span class="star">★★</span></li>
-<li><b>民族团结与统一</b>：民族区域自治|一国两制|反对分裂 <span class="star">★</span></li>
-<li><b>中国梦</b>：内涵|两个一百年|自信中国人|新时代 <span class="star">★★</span></li>
-<li><b>经济全球化</b>：人类命运共同体|中国担当|青年责任 <span class="star">★</span></li>
+<div class="mm-box" style="border-color:var(--red)"><h4>二、国情与价值</h4><ul>
+<li>改革开放/共同富裕 ★★★</li>
+<li>科技创新/法治中国 ★★</li>
+<li>中华文化/民族精神/核心价值观 ★★★</li>
+<li>生态文明/绿色发展 ★★</li>
+<li>中国梦/两个一百年 ★★</li>
+<li>人类命运共同体/中国担当</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--orange)"><h4>三、五大题型·答题方法论（~10分）</h4><ul>
-<li><b>选择题</b>：排谬法(排除明显错误)|排异法(排除与题无关)|最佳选择</li>
-<li><b>简答题</b>：考点句+一句话解释。不展开，点到为止（4-6分）</li>
-<li><b>辨析题</b>：①判断对错 ②说理由（引书本知识）③正确做法（6-8分）</li>
-<li><b>材料分析题</b>："材料说明了…"+"体现课本…（知识点）"+"启示/做法…"（8-10分）</li>
-<li><b>实践探究题</b>：主题+活动形式+具体方案+意义感悟（10-12分）</li>
-<li><b>常见易错</b>：根本政治制度=人民代表大会制度|根本制度=社会主义制度|基本政治制度=多党合作/民族区域自治/基层群众自治</li>
+<div class="mm-box" style="border-color:var(--orange)"><h4>三、重点制度</h4><ul>
+<li>根本政治制度=人大制度</li>
+<li>根本制度=社会主义制度</li>
+<li>基本政治制度=多党合作/民族区域自治/基层群众自治</li>
+<li>基本经济制度</li>
 </ul></div>
 </div>
 </div>
 
+<!-- ═══ 历史 ═══ -->
 <div class="mm-panel" id="mm-history">
-<h3 style="text-align:center;margin:12px 0;color:#795548">初中历史 · 三年全部知识点梳理</h3>
-<div class="mm-grid">
-<div class="mm-box" style="border-color:#795548"><h4>一、中国古代史·七上/七下（~15分）</h4><ul>
-<li><b>夏商周</b>：禅让制|分封制|青铜器|甲骨文</li>
-<li><b>春秋战国</b>：诸侯争霸|商鞅变法|百家争鸣(儒道墨法) <span class="star">★★</span></li>
-<li><b>秦朝</b>：统一六国(前221年)|中央集权制|焚书坑儒|长城|陈胜吴广起义 <span class="star">★★★</span></li>
-<li><b>汉朝</b>：文景之治|汉武帝大一统(推恩令/独尊儒术)|丝绸之路|造纸术 <span class="star">★★</span></li>
-<li><b>三国两晋南北朝</b>：官渡/赤壁之战|北魏孝文帝改革(汉化)|江南开发</li>
-<li><b>隋朝</b>：大运河|科举制创立|三省六部制 <span class="star">★</span></li>
-<li><b>唐朝</b>：贞观之治(李世民)|开元盛世(唐玄宗)|文成公主入藏|鉴真东渡|玄奘西行 <span class="star">★★★</span></li>
-<li><b>宋元</b>：经济重心南移完成|行省制|四大发明(印刷/火药/指南针/造纸)|《清明上河图》 <span class="star">★★</span></li>
-<li><b>明朝</b>：厂卫特务|郑和七下西洋|八股取士|闭关锁国 <span class="star">★</span></li>
-<li><b>清朝</b>：军机处(君主专制顶峰)|文字狱|闭关锁国|疆域奠定 <span class="star">★</span></li>
+<h3 style="text-align:center;color:#795548">📜 历史 · 知识体系总览（50分，60分钟）</h3>
+<div class="mm-grid" style="grid-template-columns:1fr 1fr 1fr">
+<div class="mm-box" style="border-color:#795548"><h4>一、中国古代史</h4><ul>
+<li>夏商周/春秋战国(分封制/百家争鸣) ★★</li>
+<li>秦汉(秦始皇/汉武帝/丝绸之路) ★★★</li>
+<li>隋唐(科举制/贞观之治/开元盛世) ★★★</li>
+<li>宋元(经济南移/行省制/四大发明) ★★</li>
+<li>明清(郑和下西洋/闭关锁国) ★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--red)"><h4>二、中国近现代史·八上/八下（~20分）</h4><ul>
-<li><b>列强侵略</b>：鸦片战争(1840)/《南京条约》→甲午战争/《马关条约》→八国联军/《辛丑条约》 <span class="star">★★★</span></li>
-<li><b>近代化探索</b>：洋务运动(自强求富)→戊戌变法(君主立宪)→辛亥革命(民主共和)→新文化运动(民主科学) <span class="star">★★★</span></li>
-<li><b>五四与中共成立</b>：五四运动(1919)/中共一大(1921·上海→嘉兴南湖) <span class="star">★★★</span></li>
-<li><b>国民革命与长征</b>：北伐战争|南昌起义(1927.8.1建军节)|长征(1934-1936)/遵义会议(转折点) <span class="star">★★</span></li>
-<li><b>抗日战争</b>：九一八事变(1931)|西安事变(1936)|七七事变(1937)|南京大屠杀|中共七大(1945·毛泽东思想) <span class="star">★★★</span></li>
-<li><b>解放战争</b>：重庆谈判(1945)|三大战役|渡江战役|新中国成立(1949.10.1) <span class="star">★</span></li>
-<li><b>建设与改革</b>：土地改革|一五计划|三大改造|十一届三中全会(1978·伟大转折)|改革开放|经济特区 <span class="star">★★★</span></li>
-<li><b>新时代</b>：中国特色社会主义|一带一路|中国梦·两个一百年 <span class="star">★★</span></li>
+<div class="mm-box" style="border-color:var(--red)"><h4>二、中国近现代史</h4><ul>
+<li>列强侵略(三大条约) ★★★</li>
+<li>近代化探索(洋务→维新→辛亥→新文化) ★★★</li>
+<li>新民主主义革命(五四→一大→长征→抗战→解放) ★★★</li>
+<li>建设与改革(一五/三大改造/改革开放) ★★★</li>
 </ul></div>
-<div class="mm-box" style="border-color:var(--blue)"><h4>三、世界史·九上/九下（~15分）</h4><ul>
-<li><b>古代文明</b>：古埃及(金字塔)|古巴比伦|古印度|古希腊(雅典民主)|古罗马 <span class="star">★</span></li>
-<li><b>中世纪</b>：西欧封建|拜占庭帝国|阿拉伯帝国|大化改新</li>
-<li><b>文艺复兴与新航路</b>：但丁/达芬奇/莎士比亚|哥伦布发现美洲|麦哲伦环球航行|三角贸易 <span class="star">★★</span></li>
-<li><b>资产阶级革命</b>：英国(光荣革命1688)|美国(独立战争1775-1783/1787宪法)|法国(大革命1789/拿破仑) <span class="star">★</span></li>
-<li><b>工业革命</b>：第一次(蒸汽机·瓦特)→第二次(电力·内燃机) <span class="star">★★★</span></li>
-<li><b>马克思主义与国际共运</b>：《共产党宣言》(1848)|巴黎公社|俄国十月革命(1917) <span class="star">★</span></li>
-<li><b>两次世界大战</b>：一战(1914-1918/凡尔赛-华盛顿体系)→二战(1939-1945/联合国/雅尔塔会议) <span class="star">★★★</span></li>
-<li><b>战后世界</b>：冷战(杜鲁门主义/北约vs华约)|苏联解体(1991)|欧盟|第三次科技革命|经济全球化 <span class="star">★</span></li>
+<div class="mm-box" style="border-color:var(--blue)"><h4>三、世界史</h4><ul>
+<li>古代文明/中世纪</li>
+<li>文艺复兴/新航路/资产阶级革命 ★★</li>
+<li>工业革命(第一次/第二次) ★★★</li>
+<li>两次世界大战 ★★★</li>
+<li>冷战/经济全球化</li>
 </ul></div>
 </div>
 </div>
 
+</div>
+<div class="footer">📚 初二升初三 · 暑假60天逆袭计划 · 中考知识体系总览</div>
 <script>
 function showMM(subj){
  document.querySelectorAll('.mm-panel').forEach(e=>e.classList.remove('active'));
  document.querySelectorAll('.mm-tab').forEach(e=>e.classList.remove('active'));
  document.getElementById('mm-'+subj).classList.add('active');
- event.target.classList.add('active');
-}
-function showAns(btn){ var a=btn.nextElementSibling;a.classList.toggle('show');btn.textContent=a.classList.contains('show')?'隐藏答案':'点击查看答案'; }
-</script>
-
-<!-- ==================== WEEK 1 ==================== -->
-</div>
-<script>
-function showMM(subj) {
-  document.querySelectorAll('.mm-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.mm-panel').forEach(p=>p.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('mm-'+subj).classList.add('active');
+ event.target.classList.toggle('active');
 }
 </script>
-
-</div>
-
-<script>
-function speak(text) {
-  if (window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = 0.75;
-    window.speechSynthesis.speak(u);
-  }
-}
-</script>
-</body></html>
-</body></html>
+</body>
+</html>

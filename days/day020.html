@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>暑假逆袭 · Day 20</title><style>/* plan.css - 暑假逆袭计划共享样式 */
+:root{--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--purple:#af52de;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:14px}
+.container{max-width:800px;margin:0 auto;padding:0 12px}
+
+/* TOP NAV */
+.topbar{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.topbar .title{font-size:20px;font-weight:800}
+.topbar a{color:#fff;text-decoration:none;font-size:13px;opacity:.9}
+.topbar a:hover{opacity:1}
+
+/* 天卡片 */
+.day-card{border:2px solid #e5e5ea;background:var(--card);border-radius:14px;margin-bottom:16px;overflow:hidden}
+.day-card .dhead{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.day-card .dhead .dnum{font-size:24px;font-weight:800}
+.day-card .dhead .dinfo{text-align:right;font-size:12px;opacity:.9}
+.day-card .dbody{padding:14px}
+.day-card .goal{background:#fffbf0;border:1px solid #ffd54f;border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:13px}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.step{background:#f8f8fa;border-radius:10px;padding:10px 12px}
+.step.full{grid-column:1/-1}
+.step h4{font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+p,li{font-size:13px;color:#444;margin:3px 0;line-height:1.7}
+.q-block{background:#fff;border:1px solid #e5e5ea;border-radius:8px;padding:8px 10px;margin:5px 0}
+.q-num{font-weight:700;color:var(--blue);margin-right:4px}
+.question{font-size:12px}
+.ans-btn{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:10px;border:1px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;cursor:pointer}
+.ans-btn:hover{background:var(--blue);color:#fff}
+.answer{display:none;background:#f0f7ff;padding:6px 10px;border-radius:6px;margin-top:4px;font-size:12px;border-left:3px solid var(--blue)}
+.answer.show{display:block}
+.tip{background:#f0f7ff;border-left:3px solid var(--blue);padding:6px 10px;margin:5px 0;font-size:12px;border-radius:0 6px 6px 0}
+.tip b{color:var(--blue)}
+.err-box{background:#fff5f5;border-left:3px solid var(--red);padding:6px 10px;margin:5px 0;font-size:12px;border-radius:0 6px 6px 0}
+.err-box b{color:var(--red)}
+.check{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:12px}
+.check b{color:#2e7d32}
+.summ-table{width:100%;border-collapse:collapse;font-size:12px;margin:5px 0}
+.summ-table th,.summ-table td{padding:3px 6px;border:1px solid #e5e5ea}
+.summ-table th{background:#f0e6f6;color:var(--purple);font-weight:600}
+h3{font-size:15px;display:flex;align-items:center;gap:6px;margin-top:12px}
+.formula{background:#fffbf0;border:1px solid #ffcc80;border-radius:8px;padding:8px 12px;margin:5px 0;font-size:13px;text-align:center}
+.formula .eq{font-size:16px;font-weight:700;color:#e65100}
+.formula .meaning{font-size:11px;color:#888}
+.vocab-box{background:#f0f0f5;border-radius:8px;padding:10px 14px;margin:8px 0;border:1px solid #e5e5ea}
+.vocab-box p{margin:0 0 6px 0;font-size:12px;font-weight:600}
+.week-marker{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;text-align:center;padding:12px;border-radius:12px;font-size:18px;font-weight:700;margin:24px 0 16px}
+.week-marker .wnote{font-size:12px;opacity:.85;margin-top:4px}
+.footer{text-align:center;color:var(--sub);font-size:11px;padding:20px}
+
+/* 完成按钮 */
+.complete-bar{padding:12px 16px;background:var(--bg);border-top:1px solid #e5e5ea;text-align:center}
+.complete-btn{padding:10px 32px;border-radius:24px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:.3s}
+.complete-btn.todo{background:var(--blue);color:#fff}
+.complete-btn.todo:hover{background:#0056b3}
+.complete-btn.done{background:#e8f5e9;color:#2e7d32;border:2px solid #a5d6a7}
+.nav-links{display:flex;justify-content:space-between;padding:12px 16px;gap:12px}
+.nav-links a{padding:8px 16px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:600;flex:1;text-align:center}
+.nav-links .prev{background:#e5e5ea;color:#666}
+.nav-links .home{background:var(--blue);color:#fff}
+.nav-links .next{background:var(--blue);color:#fff}
+</style></head><body>
+<div class="topbar"><span class="title">📚 Day 20 · 7月28日 周二</span><a href="../index.html">📋 目录</a></div>
+<div class="container">
+<div class="day-card">
+<div class="dhead"><div class="dnum">Day 20</div><div class="dinfo"><div>7月28日 周二</div><div>数学+英语+语文+物理+化学</div></div></div>
+<div class="dbody">
+<div class="goal"><b>今日目标</b>：第20天学习目标</div>
+<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲</h4><p><b>本周数学内容</b>：方程进阶·方程组·不等式·函数入门。</p><p>从最简单的方程开始，每一步都讲清楚为什么。不明白往前翻！</p></div><div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练</h4><div class="q-block"><span class="q-num">1.</span><span class="question">本周的3道计算题</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">答案：略</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法</h4><div class="tip"><b>方法</b>：数学是累积的学科，前期不会很正常，每天复习前面学过的内容。</div></div></div><div class="vocab-box"><p style="font-weight:700;margin-bottom:6px">📖 今日词汇（完整词典格式）</p><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">1.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">power</b>
+<button onclick="speak('power')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ˈpaʊər</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">力量;权力</span>
+<span style="font-size:11px;color:#666">Knowledge is power.</span>
+<span style="font-size:10px;color:#999">“知识就是力量。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">2.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">mistake</b>
+<button onclick="speak('mistake')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">mɪˈsteɪk</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">错误</span>
+<span style="font-size:11px;color:#666">Everyone makes mistakes.</span>
+<span style="font-size:10px;color:#999">“每个人都会犯错。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">3.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">polite</b>
+<button onclick="speak('polite')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">pəˈlaɪt</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">adj.</span>
+<span style="color:var(--text);min-width:40px">有礼貌的</span>
+<span style="font-size:11px;color:#666">You should be polite to elders.</span>
+<span style="font-size:10px;color:#999">“你应该对长辈有礼貌。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">4.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">agree</b>
+<button onclick="speak('agree')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">5.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">stick</b>
+<button onclick="speak('stick')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">6.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">gift</b>
+<button onclick="speak('gift')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ɡɪft</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">礼物</span>
+<span style="font-size:11px;color:#666">Thank you for the gift.</span>
+<span style="font-size:10px;color:#999">“谢谢你的礼物。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">7.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">place</b>
+<button onclick="speak('place')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">pleɪs</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">地方</span>
+<span style="font-size:11px;color:#666">This is a beautiful place.</span>
+<span style="font-size:10px;color:#999">“这是个美丽的地方。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">8.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">three</b>
+<button onclick="speak('three')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">θriː</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">num.</span>
+<span style="color:var(--text);min-width:40px">三</span>
+<span style="font-size:11px;color:#666">Three books.</span>
+<span style="font-size:10px;color:#999">“三本书。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">9.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">permission</b>
+<button onclick="speak('permission')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">10.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">have</b>
+<button onclick="speak('have')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">hæv</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
+<span style="color:var(--text);min-width:40px">有</span>
+<span style="font-size:11px;color:#666">I have a dream.</span>
+<span style="font-size:10px;color:#999">“我有一个梦想。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">11.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">rope</b>
+<button onclick="speak('rope')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">roʊp</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
+<span style="color:var(--text);min-width:40px">绳子</span>
+<span style="font-size:11px;color:#666">Tie it with a rope.</span>
+<span style="font-size:10px;color:#999">“用绳子把它绑起来。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">12.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">soil</b>
+<button onclick="speak('soil')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">13.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">live</b>
+<button onclick="speak('live')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">lɪv</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
+<span style="color:var(--text);min-width:40px">居住;活着</span>
+<span style="font-size:11px;color:#666">I live in Beijing.</span>
+<span style="font-size:10px;color:#999">“我住在北京。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">14.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">remain</b>
+<button onclick="speak('remain')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">rɪˈmeɪn</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
+<span style="color:var(--text);min-width:40px">保持;剩余</span>
+<span style="font-size:11px;color:#666">Please remain seated.</span>
+<span style="font-size:10px;color:#999">“请保持坐姿。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">15.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">disease</b>
+<button onclick="speak('disease')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">16.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">chair</b>
+<button onclick="speak('chair')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">17.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">cross</b>
+<button onclick="speak('cross')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">18.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">pollute</b>
+<button onclick="speak('pollute')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">pəˈluːt</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
+<span style="color:var(--text);min-width:40px">污染</span>
+<span style="font-size:11px;color:#666">Cars pollute the air.</span>
+<span style="font-size:10px;color:#999">“汽车污染空气。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">19.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">thirsty</b>
+<button onclick="speak('thirsty')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ˈθɜːr.sti</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">adj.</span>
+<span style="color:var(--text);min-width:40px">口渴的</span>
+<span style="font-size:11px;color:#666">I am thirsty.</span>
+<span style="font-size:10px;color:#999">“我渴了。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">20.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">introduce</b>
+<button onclick="speak('introduce')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px">ˌɪntrəˈduːs</span>
+<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
+<span style="color:var(--text);min-width:40px">介绍</span>
+<span style="font-size:11px;color:#666">Let me introduce myself.</span>
+<span style="font-size:10px;color:#999">“让我介绍一下自己。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
+<span style="color:#999;min-width:18px;font-size:10px">21.</span>
+<b style="color:#1d1d1f;min-width:65px;font-size:13px">liberty</b>
+<button onclick="speak('liberty')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
+<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
+<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
+<span style="color:var(--text);min-width:40px"></span>
+<span style="font-size:11px;color:#666"></span>
+<span style="font-size:10px;color:#999">“”</span></div></div><h3 style="color:var(--red);border-bottom:2px solid var(--red);padding-bottom:6px;margin:16px 0 12px">📖 语文</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>讲</h4><p><b>古诗文背诵进度</b>：61篇按顺序每天背1篇。</p><p>第20天：背第20首。</p></div><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>背诵</h4><table class="summ-table"><tr><th>背诵内容</th><th>已背/已默</th></tr><tr><td style="font-size:12px">第20首古诗背诵 □</td><td>□ □</td></tr><tr><td style="font-size:12px">本周全部生词复习 □</td><td>□ □</td></tr></table></div></div><p style="color:#999;font-size:11px;text-align:center;margin:16px 0 4px">本日词汇量：21词 | 累计词汇：420词</p>
+<function check_html at 0x000001F6DE13A7A0>
+</div>
+<div class="complete-bar"><button id="cbtn" class="complete-btn todo" onclick="toggleComplete(20)">标记完成</button></div>
+</div>
+<div class="nav-links"><a href="day019.html" class="prev">← Day 19</a><a href="../index.html" class="home">📋 目录</a><a href="day021.html" class="next">Day 21 →</a></div>
+</div>
+<script>
+function speak(t){if(window.speechSynthesis){window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.7;window.speechSynthesis.speak(u);}}
+function showAns(b){var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}
+function toggleComplete(dn){var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){localStorage.setItem("day_"+dn+"_done","true");btn.className="complete-btn done";btn.textContent="已完成";}else{localStorage.setItem("day_"+dn+"_done","false");btn.className="complete-btn todo";btn.textContent="标记完成";}}
+window.onload=function(){if(localStorage.getItem("day_'+str(num)+'_done")==="true"){var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成";}}
+</script></body></html>
