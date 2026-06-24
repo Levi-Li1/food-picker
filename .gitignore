@@ -1,3 +1,11 @@
-test_token.ps1
-deploy.ps1
+# WorkBuddy workspace
+.workbuddy/
+
+# Temp files
+*.bak
+*.tmp
+
+# Scripts
 deploy.bat
+deploy.ps1
+test_token.ps1

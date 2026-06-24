@@ -244,7 +244,7 @@ for day_num in range(1, 55):
         
         body += h3('g','🔤','英语 · 26个字母与基本发音')
         body += sts(
-            eng_lecture('字母表','英语有26个字母，你知道哪5个是元音吗？','26个字母=5个元音(Aa,Ee,Ii,Oo,Uu)+21个辅音。元音是字母的骨架，每个单词至少有一个元音。','字母Aa读/eɪ/，Ee读/iː/，Ii读/aɪ/，Oo读/oʊ/，Uu读/juː/。辅音Bb读/biː/，Cc读/siː/，Dd读/diː/','元音字母必须会背诵、会默写！字母发音要准确，不要用拼音代替。'),
+            eng_lecture('字母表','英语有26个字母，你知道哪5个是元音吗？','26个字母=5个元音(Aa,Ee,Ii,Oo,Uu)+21个辅音。元音是字母的骨架，每个单词至少有一个元音。','字母Aa读/eɪ/，Ee读/iː/，Ii读/aɪ/，Oo读/oʊ/，Uu读/juː/。辅音Bb读/biː/，Cc读/siː/，Dd读/diː/',['Aa读/eɪ/，如apple','Ee读/iː/，如egg','Ii读/aɪ/，如ice','Oo读/oʊ/，如orange','Uu读/juː/，如umbrella'],'元音字母必须会背诵、会默写！字母发音要准确，不要用拼音代替。'),
             sh('练','o',qbs([(1,"默写5个元音字母","A E I O U"),(2,"字母表共多少个？","26个"),(3,"字母b读音？","/biː/"),(4,"按顺序填空：K_L_N","K L M N")])),
             sh('总结','p',tip('元音字母a/e/i/o/u是英语的灵魂。每天背一遍字母表！'),True))
         
@@ -270,7 +270,7 @@ for day_num in range(1, 55):
         
         body += h3('g','🔤','英语 · be动词：am/is/are')
         body += sts(
-            eng_lecture('be动词三兄弟','"I is a student"这句话对吗？','be动词有三个形式：am(用于I)，is(用于he/she/it)，are(用于you/we/they)。',['I am a student.（我是学生）','He is a boy.（他是男孩）','She is a girl.（她是女孩）','They are students.（他们是学生）','You are a teacher.（你是老师）'],'be动词随主语变化！否定句在be后加not：I am not... / He is not... / They are not...'),
+            eng_lecture('be动词三兄弟','"I is a student"这句话对吗？','be动词有三个形式：am(用于I)，is(用于he/she/it)，are(用于you/we/they)。','I用am，he/she/it用is，you/we/they用are。否定句在be后加not。',['I am a student.（我是学生）','He is a boy.（他是男孩）','She is a girl.（她是女孩）','They are students.（他们是学生）','You are a teacher.（你是老师）'],'be动词随主语变化！否定句在be后加not：I am not / He is not / They are not'),
             sh('练','o',qbs([(1,"I ___ a boy.","am"),(2,"She ___ a girl.","is"),(3,"They ___ students.","are"),(4,"He is a teacher.变否定","He is not a teacher."),(
 5,"用be动词填空：We ___ friends.","are"),(6,"翻译：她是我的好朋友。","She is my good friend.")])),
             sh('方法','p',tip('I用am，he/she/it用is，you/we/they用are。否定句末尾加not。'),True))
@@ -297,7 +297,7 @@ for day_num in range(1, 55):
         
         body += h3('g','🔤','英语 · 一般现在时')
         body += sts(
-            eng_lecture('一般现在时（三单现）','"I eats breakfast"对吗？为什么？','当主语是He/She/It时，动词要加s或es（第三人称单数）。I/You/复数主语用动词原形。',['I eat breakfast at 7.（我7点吃早餐）','He eats breakfast at 7.（他7点吃早餐）','They play football on Sunday.（他们周日踢足球）','She plays tennis well.（她网球打得好）','It looks beautiful.（它看起来很漂亮）'],'动词+s规则：一般+s；s/sh/ch/x+es；辅音+y变y为i+es(e.g. study→studies)'),
+            eng_lecture('一般现在时（三单现）','"I eats breakfast"对吗？为什么？','当主语是He/She/It时，动词要加s或es（第三人称单数）。I/You/复数主语用动词原形。','he/she/it+动词s/es，I/You/We/They+动词原形。be动词单独变化。',['I eat breakfast at 7.（我7点吃早餐）','He eats breakfast at 7.（他7点吃早餐）','They play football on Sunday.（他们周日踢足球）','She plays tennis well.（她网球打得好）','It looks beautiful.（它看起来很漂亮）'],"动词加s规则:一般加s,s/sh/ch/x加es,辅音变y为i+es"),
             sh('练','o',qbs([(1,"I ___(get) up at 6.","get"),(2,"She ___(get) up at 6.","gets"),(3,"They ___(play) basketball.","play"),(4,"He ___(study) English.","studies"),(5,"My mother ___(cook) dinner.","cooks")])),
             sh('方法','p',tip('三单口诀：he/she/it做主语，动词尾巴加s。否定句加doesn\'t(does not)动词还原！'),True))
         
@@ -321,7 +321,7 @@ for day_num in range(1, 55):
         
         body += h3('g','🔤','英语 · 本周复习')
         body += sts(
-            eng_lecture('字母+be动词+一般现在时综合','检查一下：你会默写字母表吗？be动词会变吗？一般现在时会用吗？','be动词：I用am，he/she/it用is，you/we/they用are。否定加not。','一般现在时：he/she/it做主语动词加s(三单)，其他用动词原形。否定用don\'t/doesn\'t。',['I am a student. / I am not a teacher.','He gets up at 6. / He doesn\'t get up at 7.','They play football. / They don\'t play basketball.'],'三单+s规则：一般+s，s/sh/ch/x+es，辅音+y变ies'),
+            eng_lecture('字母+be动词+一般现在时综合','检查一下：你会默写字母表吗？be动词会变吗？一般现在时会用吗？','be动词：I用am，he/she/it用is，you/we/they用are。否定加not。','一般现在时：he/she/it做主语动词加s(三单)，其他用动词原形。否定用do/does+not。',['I am a student. / I am not a teacher.','He gets up at 6. / He doesn\'t get up at 7.','They play football. / They don\'t play basketball.'],'三单+s规则：一般+s，s/sh/ch/x+es，辅音变y为i+es（study→studies）'),
             sh('练','o',qbs([(1,"I ___ a student. She ___ a teacher.","am / is"),(2,"早上好+下午好+晚上好","Good morning/afternoon/evening"),(3,"He get up 改正确","He gets up"),(4,"They ___ (not be) students.","are not"),(5,"She ___ (go) to school.","goes")])),
             sh('方法','p',tip('第一周目标达成！下周学动词时态和更多词汇。每天背10分钟单词+5分钟语法。'),True))
         

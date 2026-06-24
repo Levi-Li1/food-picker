@@ -11,13 +11,38 @@
           "name": "课标词汇1600词",
           "key": "1600词全覆盖，核心800词重点掌握",
           "level": "★★★",
-          "lecture": "词汇量决定英语成绩的上限。1600课标词需要做到：①会读(能根据音标准确发音)②会写(能拼写)③会用(知道词性和搭配)④知义(理解中文意思)。中考核心800词是完形和阅读的高频词。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：为什么词汇是英语的根基？</h4>\n<p>如果把英语学习比作建房子，词汇就是<b>砖块</b>。语法是框架，词汇是填充。中考英语试卷中，每道题都在考查词汇的掌握程度：阅读理解需要认识单词，完形填空需要辨析词义，写作需要准确拼写和搭配。没有足够的词汇量，一切技巧都是空中楼阁。</p>\n\n<h4>第一步：课标要求的1600词</h4>\n<p>教育部规定初中毕业生需要掌握约<b>1600个核心词汇</b>（含小学阶段学的约400词，初中新增约1200词）。但这1600词不是孤立地\"背\"——中考考查的是<b>四维能力</b>：</p>\n<p>① <b>会读</b>：能根据音标准确发音（听力+口语考试直接考查）<br>\n② <b>会写</b>：拼写正确，尤其是不规则变化的过去式、比较级等<br>\n③ <b>会用</b>：知道词性（动词/名词/形容词等）和常见搭配（be interested in, look forward to等）<br>\n④ <b>知义</b>：理解中文意思，尤其是一词多义——比如\"run\"既有\"跑步\"也有\"管理(run a company)\"的意思</p>\n\n<h4>第二步：核心800词——完形和阅读的高频词</h4>\n<p>1600词中有约<b>800个高频词</b>，在历年中考中反复出现。这些词要做到\"条件反射\"——看到立刻知道意思，听到立刻能拼写。比如：important/education/different/beautiful/interesting等。剩下800个扩展词做到阅读中能结合上下文猜出意思即可。</p>\n\n<h4>第三步：背单词四步法（每天坚持）</h4>\n<p><b>第1步</b>：听标准发音（跟读2遍）<br>\n<b>第2步</b>：写三遍（边写边读发音）<br>\n<b>第3步</b>：造一个简单句（把单词放在语境中）<br>\n<b>第4步</b>：第二天复习前一天的词（反复对抗遗忘曲线）</p>\n<p>举例：学习 \"effort\"（努力）<br>\n听 /ˈefərt/ → 写 effort, effort, effort → 造句 I put effort into my homework. → 第二天默写</p>\n\n<h4>⚠ 常见错误</h4>\n<p>① 只背意思不背词性 → 写作中容易用错（如用happy修饰动词）<br>\n② 只背单词不背搭配 → 完形填空中be interested in/of/for选不出<br>\n③ 背了就忘不复习 → 根据遗忘曲线，24小时后记得不到30%</p>\n\n<h4>📋 小结</h4>\n<p>1600课标词→核心800高频→四维能力(读/写/用/义)→四步法背+每日复习。词汇量决定英语成绩的上限！</p>\n</div>",
           "practice": [
-            "根据首字母或中文提示写出单词的正确形式",
-            "用所给词的适当形式填空"
+            {
+              "q": "根据首字母提示：The t______ exam is coming soon（期末考试）",
+              "a": "term（期末考试=term exam）"
+            },
+            {
+              "q": "根据中文提示：We should take an ________（积极的）part in sports.",
+              "a": "active（take an active part in = 积极参加）"
+            },
+            {
+              "q": "用所给词适当形式：He is an ________ (America) boy.",
+              "a": "American（America的形容词形式）"
+            },
+            {
+              "q": "用所给词适当形式：This book is ________ (interest). I like it.",
+              "a": "interesting（形容事物用interesting）"
+            },
+            {
+              "q": "根据上下文：My mother asked me to buy some ________ (potato).",
+              "a": "potatoes（以o结尾的名词复数加-es）"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】词汇运用(每空1分)"
+            {
+              "q": "【2024·成都中考】用所给词的适当形式填空。My father is a great ________ (invent). He has many patents.",
+              "a": "【答案】inventor\n【解析】冠词a后面需要可数名词单数。invent是动词\"发明\"，名词形式inventor\"发明家\"。句意：我父亲是一位伟大的发明家。故填inventor。"
+            },
+            {
+              "q": "【2024·广州中考】The ________ (pollute) of the river is very serious. We must take action to stop it.",
+              "a": "【答案】pollution\n【解析】定冠词the后面需要名词形式。pollute是动词\"污染\"，其名词形式为pollution。句意：这条河的污染很严重。故填pollution。"
+            }
           ],
           "method": "背单词四步法：听发音→跟读→写三遍→造一个句。每天背20个，复习前一天的。"
         },
@@ -25,12 +50,38 @@
           "name": "词性转换",
           "key": "名词/动词/形容词/副词之间的转换规则",
           "level": "★★",
-          "lecture": "中考必考的词性转换约80组。常见后缀：-tion(动词→名词),-ful(名词→形容词),-ly(形容词→副词),un-/dis-(加前缀变反义词)。care→careful→carefully→careless。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：一个单词的\"变身\"能力</h4>\n<p>英语中有很多单词可以通过<b>加前缀或后缀</b>来改变词性（意思基本不变，但用法变了）。中考词汇运用题中，词性转换几乎必考。</p>\n<p>例如：care（关心/动词）→ careful（仔细的/形容词）→ carefully（仔细地/副词）→ carefulness（仔细/名词）→ careless（粗心的/形容词）</p>\n\n<h4>第一步：名词变形容词</h4>\n<p>常见的名词→形容词后缀：<br>\n<b>-ful</b>：care→care<b>ful</b>(仔细的), beauty→beauty<b>ful</b>(美丽的), help→help<b>ful</b>(有帮助的)<br>\n<b>-less</b>（否定/没有）：care→care<b>less</b>(粗心的), help→help<b>less</b>(无助的), home→home<b>less</b>(无家可归的)<br>\n<b>-y</b>：sun→sunny(晴朗的), rain→rainy(下雨的), wind→windy(有风的), cloud→cloudy(多云的)<br>\n<b>-ly</b>：friend→friend<b>ly</b>(友好的), love→love<b>ly</b>(可爱的)</p>\n\n<h4>第二步：动词变名词</h4>\n<p><b>-tion/-sion</b>：act→act<b>tion</b>(行动), educate→educa<b>tion</b>(教育), invent→inven<b>tion</b>(发明), decide→deci<b>sion</b>(决定)<br>\n<b>-ment</b>：develop→develop<b>ment</b>(发展), achieve→achieve<b>ment</b>(成就), agree→agree<b>ment</b>(协议)<br>\n<b>-er/-or</b>（做...的人）：teach→teach<b>er</b>(老师), act→act<b>or</b>(演员), invent→invent<b>or</b>(发明家), visit→visit<b>or</b>(游客)</p>\n\n<h4>第三步：形容词变副词</h4>\n<p><b>大部分+ly</b>：quick→quick<b>ly</b>(快速地), careful→careful<b>ly</b>(仔细地), happy→happi<b>ly</b>(快乐地/y变i)<br>\n<b>特殊</b>：good→well(好,不规则), fast→fast(不变), hard→hard(不变), early→early(不变)</p>\n\n<h4>第四步：加前缀变反义词</h4>\n<p><b>un-</b>：happy→<b>un</b>happy(不开心的), fair→<b>un</b>fair(不公平的), lucky→<b>un</b>lucky(不幸的)<br>\n<b>dis-</b>：agree→<b>dis</b>agree(不同意), appear→<b>dis</b>appear(消失)<br>\n<b>im-</b>（加在p/m开头的词前）：possible→<b>im</b>possible(不可能的)</p>\n\n<h4>⚠ 常见错误</h4>\n<p>① 所有以ly结尾的都是副词？→错！friendly/lovely/lonely都是形容词<br>\n② 名词复数错误：potato→potatoes（加es），但photo→photos（加s）</p>\n\n<h4>📋 小结</h4>\n<p>词性转换规律：后缀改词性(-ful形容词/-tion名词/-ly副词/-er人)，前缀改意思(un/dis表否定)。记一组同时记4个形式(名/动/形/副)。</p>\n</div>",
           "practice": [
-            "用括号内所给单词的适当形式填空"
+            {
+              "q": "care → ________（仔细的adj.）→ ________（仔细地adv.）",
+              "a": "careful → carefully"
+            },
+            {
+              "q": "用所给词填空：He is a famous ________ (act). / She ________ (act) well.",
+              "a": "actor（n.演员）/ acted（v.表演）"
+            },
+            {
+              "q": "happy → ________（n.幸福）→ ________（adv.快乐地）",
+              "a": "happiness / happily"
+            },
+            {
+              "q": "用所给词适当形式：We should speak to the old ________ (polite).",
+              "a": "politely（副词修饰动词speak）"
+            },
+            {
+              "q": "用所给词适当形式：The ________ (five) month is May.",
+              "a": "fifth（基数词变序数词）"
+            }
           ],
           "exam_practice": [
-            "【2023泰州】词汇运用题中词性转换"
+            {
+              "q": "【2024·长沙中考】用所给单词的适当形式填空。Be ________ (care) when you cross the street.",
+              "a": "【答案】careful\n【解析】系动词be后面接形容词作表语。care的名词/动词形式，其形容词为careful（小心的）。句意：过马路时要小心。故填careful。"
+            },
+            {
+              "q": "【2024·苏州中考】The little girl danced so ________ (beautiful) that everyone clapped.",
+              "a": "【答案】beautifully\n【解析】副词修饰动词danced。beautiful的副词形式为beautifully。句意：这个小女孩跳得如此优美，大家都鼓掌了。故填beautifully。"
+            }
           ],
           "method": "记词性转换时同时记4个形式(名词/动词/形容词/副词)，用表格对比记忆。"
         },
@@ -38,13 +89,38 @@
           "name": "短语搭配",
           "key": "以动词为中心的固定搭配200组",
           "level": "★★",
-          "lecture": "短语搭配是完形填空的常考点。look系列(look at/for/after/up/forward to)、take系列(take care/place/part/off)、get系列(get up/along/ready/rid of)、turn系列(turn on/off/up/down)。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：短语是怎么来的？</h4>\n<p>短语=动词+小词（介词/副词）。同一个动词加不同的小词，意思完全不同。中考完形填空常考的就是<b>短语辨析</b>。</p>\n<p>比如look：look at(看) / look for(寻找) / look after(照顾) / look up(查阅) / look forward to(期待)</p>\n\n<h4>五大动词短语体系</h4>\n<p><b>★ look系列</b>：<br>\nlook <b>at</b> 看——Look at the blackboard.(看黑板)<br>\nlook <b>for</b> 寻找——I'm looking for my keys.(我在找钥匙)<br>\nlook <b>after</b> 照顾——Please look after your sister.(请照顾你妹妹)<br>\nlook <b>up</b> 查阅——Look up the word in the dictionary.(查词典)<br>\nlook <b>forward to</b> 期待——I look forward to meeting you.(期待见到你)</p>\n<p><b>★ take系列</b>：<br>\ntake <b>care of</b> 照顾——take care of your health(照顾好健康)<br>\ntake <b>part in</b> 参加——take part in the competition(参加比赛)<br>\ntake <b>off</b> 脱下/起飞——take off your coat(脱外套)/The plane takes off(起飞)<br>\ntake <b>place</b> 发生——Great changes have taken place(发生了巨大变化)</p>\n<p><b>★ get系列</b>：<br>\nget <b>up</b> 起床——I get up at 6 am.<br>\nget <b>along with</b> 相处——get along with classmates(和同学相处)<br>\nget <b>ready for</b> 为...做准备——get ready for the exam(备考)<br>\nget <b>rid of</b> 摆脱——get rid of bad habits(改掉坏习惯)</p>\n<p><b>★ turn系列</b>：<br>\nturn <b>on</b> 打开——turn on the light(开灯)<br>\nturn <b>off</b> 关闭——turn off the TV(关电视)<br>\nturn <b>up</b> 调大——turn up the radio(收音机调大声)<br>\nturn <b>down</b> 调小/拒绝——turn down the music/turn down the offer</p>\n<p><b>★ put系列</b>：<br>\nput <b>on</b> 穿上——put on your coat(穿外套)<br>\nput <b>off</b> 推迟——Don't put off till tomorrow what you can do today.<br>\nput <b>away</b> 收起来——put away your toys(收拾好玩具)</p>\n\n<h4>📋 小结</h4>\n<p>短语搭配不需要死记硬背，围绕<b>中心动词</b>按组记效果最好。中考重点：look/take/get/turn/put 五大动词的所有搭配。</p>\n</div>",
           "practice": [
-            "选择正确的短语完成句子",
-            "根据汉语提示完成句子"
+            {
+              "q": "选择：Please ______ (look at / look for) the blackboard.",
+              "a": "look at"
+            },
+            {
+              "q": "根据汉语完成：我期待见到你。I ______ ______ ______ meeting you.",
+              "a": "look forward to"
+            },
+            {
+              "q": "选择：Can you ______ (look after / look up) my cat?",
+              "a": "look after（照顾）"
+            },
+            {
+              "q": "根据汉语：请关灯。Please ______ ______ the light.",
+              "a": "turn off"
+            },
+            {
+              "q": "选择：He ______ (took off / took part in) the sports meeting.",
+              "a": "took part in（参加活动）"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】完形填空中短语搭配题"
+            {
+              "q": "【2024·南京中考】Tom, please ________ the lights before you leave the classroom.\nA. look for  B. turn off  C. take after  D. put away",
+              "a": "【答案】B\n【解析】A.look for寻找；B.turn off关闭；C.take after（外貌/性格）像；D.put away收好。句意：离开教室前请关灯。故选B。"
+            },
+            {
+              "q": "【2024·重庆中考】The old man often ________ his childhood with his grandchildren.\nA. looks forward to  B. takes part in  C. gets along with  D. looks back on",
+              "a": "【答案】D\n【解析】A.look forward to期待；B.take part in参加；C.get along with与...相处；D.look back on回顾。句意：老人经常和孙辈们回顾他的童年。故选D。"
+            }
           ],
           "method": "用中心词法记短语：围绕一个动词记所有搭配。看list/take/get/turn/put五大动词。"
         }
@@ -57,13 +133,38 @@
           "name": "时态",
           "key": "8种时态：重点一般现在/过去/将来+现在完成",
           "level": "★★★",
-          "lecture": "时态是语法的基础。判断时态三步法：①找时间标志词(yesterday→过去,every day→现在,tomorrow→将来)②判断动作与时间的关系③选对应结构。最常混的是现在完成时(have done)和一般过去时(did)——看是否对现在有影响。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：时间线理解时态</h4>\n<p>英语的动词会随着时间的变化而改变形式——这就是<b>时态</b>。中文说\"我昨天去\"和\"我明天去\"，动词\"去\"不发生变化。但英文必须说\"I went yesterday\"（用过去式went）和\"I will go tomorrow\"（用will+动词原形）。<b>时态=时(时间)+态(状态)</b>。</p>\n\n<h4>第一步：时态判断三步法</h4>\n<p>当你面对一个时态填空题时，按这三步思考：</p>\n<p><b>第1步：找时间标志词</b><br>\nyesterday → 过去时 | every day → 一般现在 | tomorrow → 将来时<br>\nnow → 现在进行 | already/ever → 完成时</p>\n<p><b>第2步：判断动作与时间的关系</b><br>\n动作发生在过去？现在？将来？是否对现在有影响？</p>\n<p><b>第3步：选择时态结构</b><br>\n不同时态有各自固定的动词形式。</p>\n\n<h4>第二步：中考八种时态详解</h4>\n<p><b>① 一般现在时</b>：do/does<br>\n用法：习惯性动作(He gets up at 7 every day)、客观事实(The earth goes around the sun)<br>\n举例：She <b>reads</b> books every night.（她每晚都读书）</p>\n<p><b>② 现在进行时</b>：am/is/are + doing<br>\n用法：此刻正在发生的动作<br>\n举例：Look! The children <b>are playing</b> football.（看！孩子们正在踢足球）</p>\n<p><b>③ 一般过去时</b>：did<br>\n用法：过去某个时间发生的动作<br>\n举例：I <b>visited</b> the museum last Sunday.（我上周日参观了博物馆）</p>\n<p><b>④ 一般将来时</b>：will do / be going to do<br>\n用法：将来要发生的动作。will侧重临时决定，be going to侧重计划和迹象<br>\n举例：It <b>will rain</b> tomorrow.（明天会下雨）/ I <b>am going to</b> study harder.（我打算更努力学习）</p>\n<p><b>⑤ 现在完成时</b>：have/has + done<br>\n用法：过去发生的动作对现在有影响，或从过去持续到现在<br>\n举例：I <b>have finished</b> my homework.（我做完作业了→现在可以玩了）</p>\n\n<h4>⚠ 最易混对比：一般过去时 vs 现在完成时</h4>\n<p>一般过去时：只强调过去发生，不强调对现在的影响。<br>\n例：I lost my key yesterday.（昨天丢了钥匙——不涉及现在有没有找到）</p>\n<p>现在完成时：强调对现在有影响。<br>\n例：I have lost my key.（我把钥匙丢了→所以现在进不了门）</p>\n\n<h4>📋 小结</h4>\n<p>时态核心：看时间词(yesterday/every day)→判断动作何时发生→选择对应结构。8种时态要重点掌握最常考的5种(一般现在/过去/将来 + 现在进行/完成)。</p>\n</div>",
           "practice": [
-            "用所给动词的适当时态填空",
-            "选择正确的时态"
+            {
+              "q": "用适当形式填空：He often ________ (go) to school by bike.",
+              "a": "goes（一般现在时三单）"
+            },
+            {
+              "q": "用适当形式填空：They ________ (play) football now.",
+              "a": "are playing（现在进行时）"
+            },
+            {
+              "q": "用适当形式填空：She ________ (visit) the museum last Sunday.",
+              "a": "visited（一般过去时）"
+            },
+            {
+              "q": "用适当形式填空：I ________ (finish) my homework already.",
+              "a": "have finished（现在完成时）"
+            },
+            {
+              "q": "用适当形式填空：We ________ (go) to Beijing next week.",
+              "a": "will go（一般将来时）"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】单项选择中时态辨析"
+            {
+              "q": "【2024·北京中考】My sister ________ (read) a book when I came into her room.",
+              "a": "【答案】was reading\n【解析】when引导的时间状语从句用一般过去时(came)，主句表示\"正在做某事时另一件事发生\"，用过去进行时was/were+doing。主语My sister是第三人称单数，故填was reading。"
+            },
+            {
+              "q": "【2024·上海中考】They ________ (visit) the Great Wall twice since they came to China.",
+              "a": "【答案】have visited\n【解析】since引导的时间状语从句用一般过去时(came)，主句表示\"自从...以来已经做了多少次\"，用现在完成时have/has+done。主语They是复数，故填have visited。"
+            }
           ],
           "method": "时态口诀：一般现在表习惯，现在进行正发生，现在完成有影响，一般过去已完成，一般将来将发生。"
         },
@@ -71,13 +172,38 @@
           "name": "被动语态",
           "key": "be+done(过去分词)",
           "level": "★★",
-          "lecture": "被动语态结构=be+过去分词，be随着时态变化。被动语态的五种常用时态：一般现在am/is/are done、一般过去was/were done、一般将来will be done、现在完成have been done、情态动词can be done。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：主动与被动</h4>\n<p>对比两个句子：<br>\n① Students clean the room.（学生们打扫房间/主动语态——强调\"谁\"打扫）<br>\n② The room is cleaned (by students).（房间被打扫/被动语态——强调\"房间\"怎么样）<br>\n什么时候用被动？当我们<b>更关心动作的承受者</b>（即\"谁被怎么着了\"），而不是动作的执行者时。</p>\n\n<h4>第一步：被动语态的核心结构</h4>\n<p><b>be + 过去分词（done）</b></p>\n<p>be动词随着<b>时态、人称、数</b>的变化而变化。即：</p>\n<p>一般现在被动：am/is/are + done<br>\n一般过去被动：was/were + done<br>\n一般将来被动：will be + done<br>\n现在完成被动：have/has been + done<br>\n情态动词被动：can/must/should + be + done</p>\n\n<h4>第二步：主动变被动三步法</h4>\n<p><b>第1步</b>：把<b>宾语（动作承受者）</b>变成主语（注意主格宾格变化）<br>\n<b>第2步</b>：谓语动词变为\"be + 过去分词\"形式，be动词的时态要和原句保持一致<br>\n<b>第3步</b>：原主语变成\"by + 宾语\"，可以省略（如果不知道或不需要提执行者）</p>\n<p>例：<b>Students</b> clean <b>the room</b>.<br>\n第1步：The room（宾语变主语）<br>\n第2步：is cleaned（一般现在时be=is，clean的过去分词=cleaned）<br>\n第3步：by students（原主语变by+宾语）<br>\n<span style=\"color:var(--green)\">结果：The room is cleaned by students. ✓</span></p>\n\n<h4>第三步：什么时候不用被动</h4>\n<p>① 不及物动词(happen/appear/lie等)没有被动：The accident happened.（不能说was happened）<br>\n② 表示\"拥有\"的动词(have/own/belong to)：I have a book.（不能说A book is had）</p>\n\n<h4>⚠ 常见错误</h4>\n<p>忘记加be：The book published last year.(✗) → The book <b>was</b> published last year.(✓)</p>\n\n<h4>📋 小结</h4>\n<p>被动=be+done。be随主语时态变化。主动变被动三步：宾语变主语→be done→by+主语(可省略)。不及物动词无被动。</p>\n</div>",
           "practice": [
-            "将主动语态改为被动语态",
-            "选择正确的被动语态形式"
+            {
+              "q": "主动变被动：Students clean the classroom every day.",
+              "a": "The classroom is cleaned by students every day."
+            },
+            {
+              "q": "选择：The book ________ (wrote / was written) by Lu Xun.",
+              "a": "was written（被动语态）"
+            },
+            {
+              "q": "主动变被动：My mother will cook dinner.",
+              "a": "Dinner will be cooked by my mother."
+            },
+            {
+              "q": "选择：Tea ________ (grows / is grown) in Fujian.",
+              "a": "is grown"
+            },
+            {
+              "q": "翻译：这座桥建于2020年。",
+              "a": "The bridge was built in 2020."
+            }
           ],
           "exam_practice": [
-            "【2023泰州】单项选择/完形填空中被动语态"
+            {
+              "q": "【2024·天津中考】The sports meeting ________ (hold) every year in our school.",
+              "a": "【答案】is held\n【解析】every year表示一般现在时，主语The sports meeting与hold之间是被动关系（运动会\"被举办\"），所以用一般现在时的被动语态：is/are+done。主语是单数，故填is held。"
+            },
+            {
+              "q": "【2024·武汉中考】This kind of machine ________ (make) in China last year.",
+              "a": "【答案】was made\n【解析】last year表示一般过去时，主语This kind of machine与make之间是被动关系（机器\"被制造\"），所以用一般过去时的被动语态：was/were+done。主语是单数，故填was made。"
+            }
           ],
           "method": "主动变被动三步：宾语变主语→谓语变be done→主语变by+宾语(可省略)"
         },
@@ -85,13 +211,34 @@
           "name": "宾语从句",
           "key": "引导词+陈述语序+时态呼应",
           "level": "★★★",
-          "lecture": "宾语从句三大考点：①引导词(that表陈述/if/whether表疑问/wh-表特殊问)②语序必须用陈述语序(主谓不倒装)③时态呼应(主句过去→从句过去)。易错点：Could you tell me where is the station?(错！应该是where the station is)。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：什么是宾语从句？</h4>\n<p>一个句子做另一个句子的<b>宾语</b>，这个句子就叫宾语从句。</p>\n<p>简单句：I know <b>him</b>.（我知道他/代词做宾语）<br>\n宾语从句：I know <b>that he is a teacher</b>.（我知道他是一名老师/一个句子做宾语）</p>\n\n<h4>第一步：三大考点之一——引导词</h4>\n<p>原句类型不同，引导词不同：</p>\n<p><b>陈述句→用that</b>（口语中可省略that）<br>\n例：I think <b>that</b> he is right. / She said <b>that</b> she was tired.</p>\n<p><b>一般疑问句→用if/whether</b>（\"是否\"的意思）<br>\n例：I don't know <b>whether</b> he will come.（我不知道他是否会来）</p>\n<p><b>特殊疑问句→用原来的疑问词</b>（what/when/where/who/how等）<br>\n例：Can you tell me <b>where</b> the station is?（你能告诉我车站在哪吗？）</p>\n\n<h4>第二步：三大考点之二——语序（中考必考陷阱！）</h4>\n<p><b>宾语从句永远用陈述语序</b>（主+谓+宾），即使是疑问句变成宾语从句时也不能保留疑问句的倒装语序。</p>\n<p>✗ 错误：Could you tell me <span style=\"color:var(--red)\">where is the station?</span><br>\n✓ 正确：Could you tell me <span style=\"color:var(--green)\">where the station is.</span></p>\n<p>记忆口诀：疑问词 + 主语 + 谓语，疑问句作宾从时<b>主谓不倒装</b>。</p>\n\n<h4>第三步：三大考点之三——时态呼应</h4>\n<p>当主句是<b>现在时</b>：从句可以根据实际需要选用任何时态。<br>\n例：I know (that) he <b>is</b> a student.（他现在是）/ I know (that) he <b>was</b> a student.（他过去是）</p>\n<p>当主句是<b>过去时</b>：从句必须用相应的过去时态（客观真理/谚语除外）。<br>\n例：She said (that) she <b>would</b> come.（主句said过去→从句will变would）<br>\n例：The teacher told us (that) the earth <b>goes</b> around the sun.（客观真理，时态不变）</p>\n\n<h4>⚠ 常见错误</h4>\n<p>① 语序错误（最常见！）：把疑问句语序用到宾语从句中<br>\n② 漏掉引导词：I know he is right.(✓ 口语可省略that) / I don't know he will come.(✗ 不能省whether)</p>\n\n<h4>📋 小结</h4>\n<p>宾语从句三大考点：引导词(that/if or whether/wh-) + 陈述语序(不倒装) + 时态呼应(主过从过)。</p>\n</div>",
           "practice": [
-            "选择正确的引导词",
-            "将句子改为宾语从句"
+            {
+              "q": "选择引导词：I think ________ he is right. (that / if)",
+              "a": "that（陈述句用that引导）"
+            },
+            {
+              "q": "选择：He asked me ________ I liked music. (that / whether)",
+              "a": "whether（一般疑问句用if/whether）"
+            },
+            {
+              "q": "改为宾语从句：Where is the station? → Could you tell me ________",
+              "a": "where the station is（陈述语序！）"
+            },
+            {
+              "q": "选择：I don't know ________ he came. (how / what)",
+              "a": "how"
+            },
+            {
+              "q": "改错：She said that she will come tomorrow.",
+              "a": "will改为would（时态呼应）"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】单项选择中宾语从句语序和时态"
+            {
+              "q": "【2024·广州中考】Could you tell me ________?\nA. where is the station  B. where the station is  C. the station is where  D. where was the station",
+              "a": "【答案】B\n【解析】宾语从句必须用陈述语序（连接词+主语+谓语）。A和D是疑问语序，C语序混乱。B是陈述语序：where + the station + is。句意：你能告诉我车站在哪里吗？故选B。\n【易错】Could you tell me...是委婉请求，不是过去时，从句时态不受影响。"
+            }
           ],
           "method": "宾语从句口诀：引导词别选错，语序一定要陈述，时态得呼应。"
         },
@@ -99,13 +246,34 @@
           "name": "状语从句",
           "key": "主将从现！",
           "level": "★★",
-          "lecture": "状语从句最常考的是时间状语(when/while/as soon as/until)和条件状语(if/unless/as long as)。核心规则：主将从现——主句用将来时，从句用一般现在时表将来。If it rains tomorrow, we will stay at home.",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：如果一个句子做了\"状语\"</h4>\n<p>英语中，当一个句子不是独立存在，而是作为另一个句子的\"状语\"（说明时间、条件、原因等），这个句子就叫状语从句。</p>\n<p>主句：I will go to the park.（我会去公园）<br>\n从句：If it doesn't rain.（如果不下雨）<br>\n合在一起：<b>If it doesn't rain, I will go to the park.</b>（如果不下雨，我就去公园）</p>\n\n<h4>核心考点：主将从现</h4>\n<p>这是中考判断题中最常考的一个规则！<b>当主句是一般将来时，时间/条件状语从句必须用一般现在时来表示将来。</b></p>\n<p>举例：<br>\n<span style=\"color:var(--green)\">If it <b>rains</b> tomorrow, I <b>will stay</b> at home. ✓</span>（条件句→主将从现）<br>\n<span style=\"color:var(--red)\">If it <b>will rain</b> tomorrow, I will stay at home. ✗</span>（条件句不能用将来时）</p>\n<p>不能因为中文说\"如果明天下雨\"中有\"明天\"就认为英文也要用will。英文的习惯与中文不同！</p>\n\n<h4>三大类状语从句及连词</h4>\n<p><b>① 时间状语从句</b>（连词：when/while/as soon as/until/after/before）<br>\nWhen I arrived, they were having dinner.（当我到时，他们在吃晚饭）<br>\nI will call you <b>as soon as</b> I get home.（我一到家就给你打电话/主将从现！）<br>\nHe didn't go to bed <b>until</b> he finished his homework.（直到完成作业才睡觉/not...until）</p>\n<p><b>② 条件状语从句</b>（连词：if/unless）<br>\n<b>If</b> you study hard, you will pass.（如果你努力学习就会通过）<br>\nYou will fail <b>unless</b> you study hard.（除非你努力学习，否则会失败/unless=if not）</p>\n<p><b>③ 原因状语从句</b>（连词：because/since/as）<br>\nI stayed at home <b>because</b> it was raining.（因为下雨我呆在家里）</p>\n\n<h4>⚠ 常见错误</h4>\n<p>because和so不能连用：Because it rained, I stayed home. ✓ / It rained, so I stayed home. ✓<br>\n<span style=\"color:var(--red)\">Because it rained, so I stayed home. ✗</span></p>\n\n<h4>📋 小结</h4>\n<p>状语从句核心：主将从现（if/when/as soon as引导的从句用现在时表将来）+ 三大类连词（时间/条件/原因）。</p>\n</div>",
           "practice": [
-            "用所给连词连接句子",
-            "选择正确的连词"
+            {
+              "q": "连接句子：I will call you. I get home. (as soon as)",
+              "a": "I will call you as soon as I get home.（主将从现）"
+            },
+            {
+              "q": "选择连词：He didn't go to bed ________ he finished. (until / because)",
+              "a": "until"
+            },
+            {
+              "q": "填空：If it ________ (rain) tomorrow, we will stay at home.",
+              "a": "rains（主将从现）"
+            },
+            {
+              "q": "选择：She was cooking ________ the phone rang. (when / while)",
+              "a": "when"
+            },
+            {
+              "q": "改错：If it will rain, we will stay at home.",
+              "a": "去掉will"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】完形/单项选择中状语从句"
+            {
+              "q": "【2024·重庆中考】You will succeed ________ you work hard enough.\nA. if  B. unless  C. although  D. because",
+              "a": "【答案】A\n【解析】前后句关系：条件\"努力\"→结果\"成功\"，是条件关系。A.if如果（条件）；B.unless除非（否定条件）；C.although虽然（让步）；D.because因为（原因）。句意：如果你足够努力，你就会成功。故选A。"
+            }
           ],
           "method": "看到if/when/as soon as/unless引导从句时，从句用现在时表将来(主将从现)。"
         },
@@ -113,15 +281,332 @@
           "name": "定语从句",
           "key": "关系代词who/which/that/whose",
           "level": "★",
-          "lecture": "定语从句=先行词+关系代词+从句。who指人，which指物，that指人/物均可(只能用that的5种情况要记)，whose表所属(谁的)。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：什么是定语从句？</h4>\n<p>一个句子做定语修饰一个名词，这样的句子叫定语从句。被修饰的名词叫<b>先行词</b>。</p>\n<p>两个简单句：<br>\nI have <b>a friend</b>. / <b>He</b> likes music.<br>\n合并成定语从句：I have a friend <b>who likes music</b>.（我有一个喜欢音乐的朋友）<br>\n这里who连接了两个句子，同时代替了he。</p>\n\n<h4>第一步：关系代词的选择</h4>\n<p>选择关系代词取决于<b>先行词</b>（被修饰的名词）是指人还是指物：</p>\n<p><b>先行词指人</b>：用who（作主语/宾语）/ whom（作宾语，正式）/ that（作主语/宾语）<br>\nThe man <b>who</b> is standing there is my uncle.（站在那里的男人是我叔叔/作主语）</p>\n<p><b>先行词指物</b>：用which/that<br>\nThe book <b>that</b> I bought yesterday is interesting.（我昨天买的那本书很有趣/作宾语可省略）</p>\n<p><b>表所属关系</b>：用whose（=...的）<br>\nI like the house <b>whose</b> windows face south.（我喜欢窗户朝南的那栋房子）</p>\n\n<h4>第二步：只能用that的5种情况（中考高频）</h4>\n<p>① 先行词被<b>最高级</b>修饰：This is the <b>most</b> interesting book <b>that</b> I've ever read.<br>\n② 先行词被<b>序数词</b>修饰：He is the <b>first</b> person <b>that</b> came.<br>\n③ 先行词是<b>不定代词</b>(something/anything/all/few)：Is there <b>anything</b> <b>that</b> I can do?<br>\n④ 先行词<b>既有人也有物</b>：I remember the people and places <b>that</b> I visited.<br>\n⑤ 先行词被<b>the only/the very</b>修饰：This is <b>the very</b> book <b>that</b> I want.</p>\n\n<h4>⚠ 误区警示</h4>\n<p>定语从句中的动词用单数还是复数？与先行词保持一致！<br>\n例：I like students who <b>work</b> hard.（students复数→动词work不加s）<br>\n例：I like a student who <b>works</b> hard.（student单数→works加s）</p>\n\n<h4>📋 小结</h4>\n<p>定语从句=先行词+关系代词+从句。指人用who/that，指物用which/that。限定词(最高级/序数词/不定代词等)→只能用that。</p>\n</div>",
           "practice": [
-            "选择正确的关系代词",
-            "将两个句子合并为含有定语从句的复合句"
+            {
+              "q": "选择：The man ________ is there is my uncle. (who / which)",
+              "a": "who"
+            },
+            {
+              "q": "选择：The book ________ I bought is interesting. (which / who)",
+              "a": "which/that"
+            },
+            {
+              "q": "合并句子：I have a friend. He likes music.",
+              "a": "I have a friend who likes music."
+            },
+            {
+              "q": "选择：The most interesting book ________ I've read.",
+              "a": "that（最高级用that）"
+            },
+            {
+              "q": "选择：The house ________ windows face south.",
+              "a": "whose"
+            }
           ],
           "exam_practice": [
-            "【2023泰州】单选/完形中定语从句关系代词"
+            {
+              "q": "【2024·南京中考】The woman ________ is standing over there is my English teacher.\nA. which  B. whom  C. who  D. what",
+              "a": "【答案】C\n【解析】先行词The woman指人，关系词在从句中作主语（is standing的主语），所以用关系代词who。A.which指物；B.whom指人但作宾语；C.who指人作主语。故选C。"
+            }
           ],
           "method": "看先行词：人用who/that，物用which/that。唯一选that的5种情况：最高级/序数词/不定代词/人和物/only修饰。"
+        },
+        {
+          "name": "形容词副词比较等级",
+          "key": "比较级+than / 最高级+of/in / 原级as...as",
+          "level": "★★★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：比较无处不在</h4>\n<p>日常生活里我们经常比较：我比你高/这支笔和那支一样好/她是全班最努力的。英语中<b>形容词/副词</b>有三种<b>等级</b>来表达这些比较关系。</p>\n\n<h4>第一步：三级体系</h4>\n<p><b>原级（as+原级+as）</b>——两者一样<br>\nTom is <b>as tall as</b> Jerry. ✓（Tom和Jerry一样高）<br>\n否定用not as/so...as：Tom is <b>not as tall as</b> Jerry.（Tom不如Jerry高）</p>\n<p><b>比较级（-er than / more...than）</b>——两者中更...<br>\nTom is <b>taller than</b> Jerry.（Tom比Jerry高）</p>\n<p><b>最高级（-est / the most...）</b>——三者及以上最...<br>\nTom is <b>the tallest</b> in his class.（Tom是班上最高的）</p>\n\n<h4>第二步：变化规则</h4>\n<p>① 单音节/部分双音节词：加-er/-est<br>\ntall→taller→tallest | fast→faster→fastest | large→larger→largest</p>\n<p>② 以重读闭音节结尾且末尾只有一个辅音：双写末尾辅音+er/est<br>\nbig→bigger→biggest | hot→hotter→hottest | thin→thinner→thinnest</p>\n<p>③ 以辅音+y结尾：y变i+er/est<br>\neasy→easier→easiest | happy→happier→happiest</p>\n<p>④ 多音节（2个音节以上的词）：加more/most<br>\nbeautiful→more beautiful→most beautiful</p>\n<p>⑤ <b>不规则变化（必须背！）</b><br>\ngood/well→better→best<br>\nbad/badly→worse→worst<br>\nmany/much→more→most<br>\nlittle→less→least<br>\nfar→farther/further→farthest/furthest</p>\n\n<h4>第三步：核心句型</h4>\n<p><b>越来越...</b>：比较级+and+比较级<br>\nThe weather is getting <b>warmer and warmer</b>.（天气越来越暖和）</p>\n<p><b>越...越...</b>：the+比较级, the+比较级<br>\n<b>The more</b> you read, <b>the more</b> you learn.（你读得越多，学得越多）</p>\n\n<h4>⚠ 常错点</h4>\n<p>① more large → larger（单音节不用more）<br>\n② more bigger → bigger（比较级不能同时加more和er）<br>\n③ the most highest → the highest（最错误的双重最高级）<br>\n④ as...as中间用原级：as better as ✗ → as good as ✓</p>\n\n<h4>📋 小结</h4>\n<p>原级(as...as一样)→比较级(er than更)→最高级(est最)。不规则变化必背(good→better→best)。</p>\n</div>",
+          "practice": [
+            {
+              "q": "用所给词适当形式填空：Mike is ________ (tall) than Tom.",
+              "a": "taller（Mike和Tom两人比较用比较级taller than）"
+            },
+            {
+              "q": "用所给词适当形式填空：This is the ________ (good) book I have ever read.",
+              "a": "best（ever表示最高级范围，good→better→best）"
+            },
+            {
+              "q": "用所给词适当形式填空：The weather is getting ________ and ________ (warm).",
+              "a": "warmer and warmer（比较级+and+比较级 = 越来越...）"
+            },
+            {
+              "q": "改错：Shanghai is more large than Nanjing.",
+              "a": "more large → larger（large是单音节词，直接加r变larger，不用more）"
+            },
+            {
+              "q": "用所给词适当形式填空：He runs ________ (fast) of the three boys.",
+              "a": "fastest（of the three表示三者以上范围，用最高级the fastest）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·武汉中考】Li Ming studies ________ (hard) than any other student in his class.",
+              "a": "【答案】harder\n【解析】than是比较级的标志词。hard是单音节词，比较级直接加-er为harder。句意：李明比班上其他任何学生学习都更努力。故填harder。"
+            },
+            {
+              "q": "【2024·长沙中考】Who is ________ (tall), Lucy or Lily?",
+              "a": "【答案】taller\n【解析】两者之间（Lucy和Lily）比较，用比较级。tall的比较级为taller。句意：谁更高，露西还是莉莉？故填taller。"
+            }
+          ],
+          "method": "比较级口诀：两者比较用-er，三者以上最高级。不规则变化必背：good→better→best, bad→worse→worst, many→more→most, little→less→least。"
+        },
+        {
+          "name": "情态动词",
+          "key": "can/may/must/should/will/need 用法辨析",
+          "level": "★★★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：什么是情态动词？</h4>\n<p>情态动词是英语中表达\"能力/许可/必须/建议/可能\"等语气的词。它们最大的特点是<b>后面永远+动词原形</b>。</p>\n<p>I <b>can</b> swim.（能力/我会游泳）<br>\nYou <b>must</b> go.（必须/你必须去）<br>\nShe <b>should</b> study more.（应该/她应该多学习）</p>\n\n<h4>中考6个核心情态动词</h4>\n<p><b>① can/could</b>——能力、许可、可能<br>\nI <b>can</b> speak English.（能力/我会说英语）<br>\n<b>Can</b> I use your pen?（许可/我能用你的笔吗？）<br>\n<b>Could</b> you help me?（更有礼貌的请求/你能帮我吗？）</p>\n<p><b>② may</b>——许可、可能<br>\n<b>May</b> I come in?（许可/我能进来吗？比Can更正式）<br>\nIt <b>may</b> rain tomorrow.（可能/明天可能会下雨）</p>\n<p><b>③ must</b>——必须、必定（肯定推测）<br>\nYou <b>must</b> finish your homework first.（必须）<br>\nShe <b>must</b> be at home because the light is on.（推测/有灯她一定在家）<br>\n<b>mustn't</b> = 禁止（<b>≠不必！</b>）有must问句否定回答用needn't</p>\n<p><b>④ should</b>——应该<br>\nYou <b>should</b> see a doctor.（建议/你应该去看医生）<br>\nWe <b>should</b> respect our parents.（道义/我们应该尊敬父母）</p>\n<p><b>⑤ need</b>——需要<br>\nYou <b>need</b> to study harder.（需要/你需要更努力学习）<br>\nYou <b>needn't</b> come.（没必要/你不需要来）</p>\n\n<h4>⚠ 易混辨析</h4>\n<p>mustn't vs needn't：<br>\nmustn't = 禁止（不允许）——You <b>mustn't</b> smoke here.（这里禁止吸烟）<br>\nneedn't = 不必（可以不做）——You <b>needn't</b> come if you're busy.（如果忙就不用来）<br>\nmust提问的回答：Must I go? → Yes, you must. / <b>No, you needn't.</b>（不用mustn't）</p>\n\n<h4>📋 小结</h4>\n<p>情态动词后永远+动词原形！can(能力) / may(许可) / must(必须/should(应该)/ need(需要)。mustn't=禁止，needn't=不必。</p>\n</div>",
+          "practice": [
+            {
+              "q": "用适当情态动词填空：You ________ (must / can) finish your homework before playing.",
+              "a": "must（必须完成作业，表示义务和必要性）"
+            },
+            {
+              "q": "用适当情态动词填空：—Must I finish the work today? —No, you ________.",
+              "a": "needn't / don't have to（must提问肯定回答Yes, you must；否定回答No, you needn't）"
+            },
+            {
+              "q": "选择：—________ I use your pen? —Of course. Here you are. (May / Should)",
+              "a": "May（请求允许用May I...? 比Can I...?更正式）"
+            },
+            {
+              "q": "用适当情态动词填空：You ________ (should / can) not smoke here. It says No Smoking.",
+              "a": "mustn't（No Smoking=禁止吸烟，用mustn't表示禁止=不许）"
+            },
+            {
+              "q": "选择：She ________ be at home because the light is on. (must / can't)",
+              "a": "must（灯亮着表示肯定在家，must表示肯定推测）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·北京中考】You ________ cross the road when the traffic light is red. It is dangerous.\nA. mustn't  B. needn't  C. don't have to  D. won't",
+              "a": "【答案】A\n【解析】红灯时\"禁止\"过马路。A.mustn't禁止（强烈）；B.needn't不必；C.don't have to不必；D.won't不会。根据题意选A。"
+            },
+            {
+              "q": "【2024·成都中考】—Must I hand in my homework today?\n—No, you ________. You can hand it in tomorrow.\nA. can't  B. mustn't  C. needn't  D. shouldn't",
+              "a": "【答案】C\n【解析】Must开头的一般疑问句，否定回答用needn't或don't have to（不必），不能用mustn't（禁止）。句意：—我必须今天交作业吗？—不，你不必。你可以明天交。故选C。"
+            }
+          ],
+          "method": "情态动词记忆：can能力may许可，must必须should应该，need需要。情态动词后永远+动词原形！mustn't=禁止≠不必(needn't)。"
+        },
+        {
+          "name": "非谓语动词",
+          "key": "不定式to do / 动名词V-ing / 分词",
+          "level": "★★★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：一个句子里的动词\"分身\"</h4>\n<p>一个句子只能有一个<b>谓语动词</b>，但如果我想表达两个动作呢？比如\"I like <b>swimming</b>\"（我喜欢游泳）——like是谓语，那swimming是什么？它不能是谓语（因为已经有like了），所以叫<b>非谓语动词</b>。</p>\n\n<h4>三大非谓语形式</h4>\n<p><b>① 不定式 to do</b>——表目的/将来/某次具体动作<br>\nI want <b>to go</b> home.（我想回家/want固定搭配to do）<br>\nHe came <b>to see</b> me.（他来看我/表目的）</p>\n<p><b>② 动名词 V-ing</b>——作主语/宾语/介词后，表示一般性/习惯性动作<br>\n<b>Swimming</b> is fun.（游泳很有趣/作主语）<br>\nI enjoy <b>reading</b> books.（我喜欢读书/enjoy+doing）<br>\nThank you for <b>helping</b> me.（介词for后+doing）</p>\n<p><b>③ 分词 V-ing / done</b>——现在分词(主动/进行),过去分词(被动/完成)<br>\na <b>running</b> boy（一个跑步的男孩/主动）<br>\na <b>broken</b> window（一扇破碎的窗户/被动）</p>\n\n<h4>必背的固定搭配</h4>\n<p>只+to do：want/hope/wish/decide/plan/refuse to do<br>\n只+doing：enjoy/finish/practice/mind/avoid/keep/can't help doing<br>\n两个都可以，意思不同：<br>\nstop <b>to do</b>（停下来去做另一件事）vs stop <b>doing</b>（停止正在做的事）<br>\nremember <b>to do</b>（记得要做）vs remember <b>doing</b>（记得做过）<br>\nforget <b>to do</b>（忘记要做）vs forget <b>doing</b>（忘记做过）</p>\n\n<h4>📋 小结</h4>\n<p>非谓语三种形式：to do(目的/将来) / V-ing(习惯/介词后) / done(被动)。记固定搭配区分to do和doing，尤其是stop/remember/forget这三组的区别。</p>\n</div>",
+          "practice": [
+            {
+              "q": "用所给词适当形式填空：I enjoy ________ (read) books in my free time.",
+              "a": "reading（enjoy后接动名词doing，enjoy doing = 喜欢做某事）"
+            },
+            {
+              "q": "用所给词适当形式填空：He came here ________ (see) his old friend.",
+              "a": "to see（不定式表示目的=为了看望，came here to see）"
+            },
+            {
+              "q": "选择：Don't forget ________ (close / to close) the door when you leave.",
+              "a": "to close（forget to do = 忘记要做某事；forget doing = 忘记做过某事）"
+            },
+            {
+              "q": "用所给词适当形式填空：The boy was seen ________ (play) in the park.",
+              "a": "to play / playing（感官动词被动语态see sb do变为be seen to do，也可用playing表示正在）"
+            },
+            {
+              "q": "选择：She is interested in ________ (learn / to learn) Chinese history.",
+              "a": "learning（介词in后面接动名词，be interested in doing）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·广州中考】My mother asked me ________ (not play) computer games before finishing my homework.",
+              "a": "【答案】not to play\n【解析】ask sb. (not) to do sth.要求某人（不要）做某事。动词不定式的否定形式为not to do。句意：妈妈要求我在完成作业前不要玩电脑游戏。故填not to play。"
+            }
+          ],
+          "method": "非谓语选择四步：①看固定搭配(enjoy+doing/want+to do)②看逻辑(目的→to do, 同时→doing)③看介词后(+doing)④看是记得要做还是记得做过。"
+        },
+        {
+          "name": "主谓一致",
+          "key": "语法一致/意义一致/就近一致",
+          "level": "★★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：主语和谓语要\"配对\"</h4>\n<p>在英语中，主语和谓语动词必须要\"步调一致\"——主语是单数，谓语用单数；主语是复数，谓语用复数。听起来简单，但有很多特殊情况。</p>\n<p>中文不区分：\"他们吃饭\"和\"他吃饭\"动词一样。<br>\n但英文必须区分：<b>He eats</b>.（他吃/三单加s）vs <b>They eat</b>.（他们吃/不用加s）</p>\n\n<h4>第一步：语法一致原则（最基础）</h4>\n<p><b>主语单数→谓语用单数形式（do→does/be→is/was/has）</b></p>\n<p>举例：<br>\n<span style=\"color:var(--green)\">He <b>plays</b> football every day.</span> ✓（主语he三单）<br>\n<span style=\"color:var(--green)\">The cat <b>is</b> sleeping.</span> ✓（主语cat单数）<br>\n<span style=\"color:var(--green)\">They <b>play</b> football every day.</span> ✓（主语they复数）</p>\n\n<h4>第二步：就近原则——看最近的主语</h4>\n<p>以下四种结构中，谓语动词的人称和数由<b>最靠近动词的主语</b>决定：</p>\n<p>① <b>There be</b>句型：<br>\nThere <b>is</b> a book and two pens on the desk.（离be最近的是book→单数is）<br>\nThere <b>are</b> two pens and a book.（离be最近的是two pens→复数are）</p>\n<p>② <b>either...or...</b>：Either he or I <b>am</b> wrong.（离or最近的是I→am）</p>\n<p>③ <b>neither...nor...</b>：Neither the students nor the teacher <b>knows</b> the answer.（最近的是teacher→三单）</p>\n<p>④ <b>not only...but also...</b>：Not only he but also his parents <b>are</b> coming.（最近的是parents→复数）</p>\n\n<h4>第三步：意义一致原则——看整体意义</h4>\n<p>有些主语形式上是单数，但意义上是复数——或者反过来。</p>\n<p><b>集合名词</b>（family/team/class）：<br>\n整体→单数：My family <b>is</b> a happy one.（我家是一个整体）<br>\n个体→复数：My family <b>are</b> watching TV.（家人在各自做/强调每个成员）</p>\n<p><b>以s结尾的单数名词</b>：<br>\nnews/maths/physics/politics → 虽然是s结尾但<b>作单数</b><br>\nThe news <b>is</b> exciting.（这消息令人兴奋）</p>\n<p><b>the number of vs a number of</b>（高频考点）：<br>\nThe number of students <b>is</b> 50.（...的数量→单数）<br>\nA number of students <b>are</b> playing.（许多学生→复数）</p>\n\n<h4>⚠ 易错点汇总</h4>\n<p>① each/every/any + 单数名词 → 谓语用<b>单数</b>：<span style=\"color:var(--green)\">Every student <b>has</b> a book.</span><br>\n② 动名词/不定式/从句作主语 → 谓语用<b>单数</b>：<span style=\"color:var(--green)\">Reading <b>is</b> fun.</span><br>\n③ and连接两个主语指同一个人/事物 → 谓语用<b>单数</b>：<span style=\"color:var(--green)\">The singer and dancer <b>is</b> coming.</span></p>\n\n<h4>📋 小结</h4>\n<p>主谓一致三原则：语法一致(主单谓单主复谓复) + 就近原则(There be/either or看最近的主语) + 意义一致(整体or个体)。重点记住the number of→单数，a number of→复数。</p>\n</div>",
+          "practice": [
+            {
+              "q": "选择正确形式：The news ________ (is / are) very exciting.",
+              "a": "is（news是不可数名词，看似复数形式但作单数用）"
+            },
+            {
+              "q": "选择正确形式：Neither he nor I ________ (am / is / are) a teacher.",
+              "a": "am（neither...nor...就近原则，离谓语最近的主语是I，所以用am）"
+            },
+            {
+              "q": "选择正确形式：There ________ (is / are) a book and two pens on the desk.",
+              "a": "is（There be就近原则，离be最近的主语a book是单数）"
+            },
+            {
+              "q": "选择正确形式：The number of students ________ (has / have) increased.",
+              "a": "has（the number of+复数名词→作单数，指...的数量）"
+            },
+            {
+              "q": "选择正确形式：Each of the boys ________ (has / have) a new bike.",
+              "a": "has（each/every作主语或修饰主语时→单数谓语）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·武汉中考】Not only the students but also the teacher ________ (like) playing basketball very much.",
+              "a": "【答案】likes\n【解析】not only...but also...连接两个主语时，谓语动词遵循\"就近原则\"，即与最近的主语保持一致。最近的主语是the teacher（单数），所以用likes。句意：不仅学生们而且老师也非常喜欢打篮球。"
+            }
+          ],
+          "method": "主谓一致速记：不定式/动名词/从句作主→单数。each/every→单数。就近原则看最近主语。the number of...→单数，a number of...→复数。"
+        },
+        {
+          "name": "冠词与介词",
+          "key": "a/an/the/零冠词 + 常见介词辨析",
+          "level": "★★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：中文没有冠词</h4>\n<p>中文说\"这是一本书\"——不需要加任何词。但英文必须说\"This is <b>a</b> book.\"——冠词a不能少。冠词虽然只有a/an/the三个，却是中考单选和完形填空的常考点。</p>\n\n<h4>第一步：冠词三兄弟</h4>\n<p><b>不定冠词 a/an</b>：第一次提到、泛指\"某一个\"<br>\na + <b>辅音音素</b>开头（不是辅音字母！）<br>\nan + <b>元音音素</b>开头（看发音，不看字母）</p>\n<p>举例：<br>\n<span style=\"color:var(--green)\"><b>a</b> university</span>（/juː/以辅音开头→用a）<br>\n<span style=\"color:var(--green)\"><b>an</b> hour</span>（/aʊər/以元音开头，h不发音→用an）<br>\n<span style=\"color:var(--green)\"><b>a</b> useful book</span>（/juː/ 不是u的字母）<br>\n<span style=\"color:var(--green)\"><b>an</b> honest boy</span>（/ɒnɪst/ h不发音）</p>\n<p><b>定冠词 the</b>：再次提到、双方都知道、独一无二的事物<br>\nthe sun / the moon / the Great Wall / play <b>the</b> piano</p>\n<p><b>零冠词</b>（不用冠词）：<br>\n三餐前：have breakfast/lunch/supper<br>\n球类前：play football/basketball<br>\n学科前：study math/English<br>\n专有名词前：China/Beijing/Tom</p>\n\n<h4>第二步：介词——时间/地点/方式</h4>\n<p><b>时间介词</b>：<br>\nat + 时间点（at 8:00 / at noon）<br>\non + 具体一天（on Monday / on June 1st）<br>\nin + 较长时段（in July / in 2025 / in the morning）</p>\n<p><b>地点介词</b>：<br>\nat + 小地点（at the bus stop / at school）<br>\non + 表面（on the desk / on the wall）<br>\nin + 大范围/内部（in Beijing / in the room）</p>\n<p><b>方式介词</b>：<br>\nby + 交通工具（by bus / by bike → 中间不加冠词！）<br>\nwith + 工具（with a knife / with my hands）<br>\nin + 语言（in English / in Chinese）</p>\n\n<h4>⚠ 常错点</h4>\n<p>① 乐器前加the(play the piano)，球类不加(play basketball) — 区分！<br>\n② by bus不能说by a bus（零冠词）<br>\n③ 冠词a vs an看发音不是字母：an hour ✓ / a hour ✗</p>\n\n<h4>📋 小结</h4>\n<p>冠词：a/an(第一次/泛指) vs the(特指/已知) vs 零冠词(三餐球类学科)。介词：at小on表in大范围。</p>\n</div>",
+          "practice": [
+            {
+              "q": "用a/an填空：There is ________ useful book on the desk.",
+              "a": "a（useful/ˈjuːsfl/以辅音/j/开头，用a不是an）"
+            },
+            {
+              "q": "用a/an填空：He is ________ honest boy and we all like him.",
+              "a": "an（honest/ˈɑːnɪst/以元音开头，h不发音，用an）"
+            },
+            {
+              "q": "选择：I go to school ________ bus every day. (by / in / on)",
+              "a": "by（by+交通工具=乘/坐/骑，不加冠词by bus/by bike）"
+            },
+            {
+              "q": "选择：We arrived ________ the airport at 6 pm. (at / in / to)",
+              "a": "at（arrive at+小地点如airport/station；arrive in+大地点如city/country）"
+            },
+            {
+              "q": "选择：He likes playing ________ piano. (the / a / 不填)",
+              "a": "the（乐器前加the，play the piano/guitar；球类前不加，play basketball）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·南京中考】There is ________ one-hour documentary on TV tonight. ________ documentary is about wildlife.\nA. a; A  B. an; The  C. a; The  D. the; A",
+              "a": "【答案】C\n【解析】第一空\"一个...的纪录片\"，表示泛指，且one-hour以辅音音素/w/开头，用a。第二空再次提到该纪录片，表示特指，用the。句意：今晚电视上有一个一小时的纪录片，这个纪录片是关于野生动物的。故选C。"
+            },
+            {
+              "q": "【2024·重庆中考】We usually have breakfast ________ 7:30 ________ the morning.\nA. at; in  B. in; at  C. at; on  D. on; in",
+              "a": "【答案】A\n【解析】时间介词：具体时刻前用at（at 7:30）；泛指上午/下午/晚上用in（in the morning）。故选A。"
+            }
+          ],
+          "method": "冠词口诀：第一次提到a/an，再次提到用the。元音开头用an(注意看发音不是字母)。三餐球类棋类学科≈零冠词。介词at小on表in大范围。"
+        },
+        {
+          "name": "过去完成时",
+          "key": "had done 过去的过去",
+          "level": "★★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：过去的过去</h4>\n<p>当我们谈论<b>两个过去的动作</b>时，需要区分它们发生的先后顺序。先发生的用<b>过去完成时(had done)</b>，后发生的用<b>一般过去时(did)</b>。</p>\n<p>例：<br><b>When I arrived</b>（我到达时/一般过去时/后发生）<br><b>the train had already left</b>（火车已经开走了/过去完成时/先发生）</p>\n\n<h4>结构：had + 过去分词</h4>\n<p>过去完成时的结构在所有主语后都一样（没有人称和数的变化）：</p>\n<p>I / You / He / She / It / We / They <b>had</b> + done</p>\n\n<h4>三种典型用法</h4>\n<p>① <b>by + 过去时间</b><br>\nBy the time I got to the station, the train <b>had left</b>.（我到站时火车已经开走了）<br>\nBy last year, I <b>had learned</b> 2000 words.（到去年为止我已经学了2000个单词）</p>\n<p>② <b>before/after/when + 从句</b><br>\nShe <b>had finished</b> her homework <b>before</b> her mother came back.（妈妈回来前她已经完成了作业）</p>\n<p>③ <b>宾语从句中的\"过去的过去\"</b><br>\nShe said she <b>had seen</b> the movie before.（她说她之前看过这部电影/说的动作是said/看是看的之前）</p>\n\n<h4>📋 小结</h4>\n<p>过去完成时=had+done，表示\"过去的过去\"。标志词：by+过去时间 / before+过去时间 / when从句(一般过去时)主句(had done)。</p>\n</div>",
+          "practice": [
+            {
+              "q": "用适当时态：By the time I got to the station, the train ________ (leave).",
+              "a": "had left（by the time+过去时间→主句用过去完成时，火车在到达前已离开）"
+            },
+            {
+              "q": "用适当时态：She said she ________ (see) the movie before.",
+              "a": "had seen（主句said过去时，从句说之前看过→过去的过去→had seen）"
+            },
+            {
+              "q": "用适当时态：When I arrived, the meeting ________ (begin).",
+              "a": "had begun（到达时会议已经开始→过去的过去→had begun）"
+            },
+            {
+              "q": "用适当时态：Tom ________ (finish) his homework before his mother came back.",
+              "a": "had finished（妈妈回来前已完成→过去的过去）"
+            },
+            {
+              "q": "选择适当时态：He ________ (has left / had left) when I called him.",
+              "a": "had left（我打电话时他已经离开→我call是过去→他离开是过去的过去）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·上海中考】The film ________ (be) on for ten minutes when I got to the cinema.",
+              "a": "【答案】had been\n【解析】when引导的从句用一般过去时(got)，主句动作\"电影开始\"发生在从句之前（过去的过去），用过去完成时had+done。句意：当我到达电影院时，电影已经开始了十分钟。故填had been。"
+            }
+          ],
+          "method": "判断过去完成时三看：①看有没有过去时间点(by+过去/when+过去)②动作发生在这个过去时间之前③常用had+done。口诀：过去的过去用had done。"
+        },
+        {
+          "name": "构词法",
+          "key": "前缀/后缀/合成词/派生",
+          "level": "★★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：英语单词不是乱造的</h4>\n<p>英语单词的构成有规律可循，掌握<b>构词法</b>可以帮助你举一反三——学一个词就等于学了一串词。</p>\n\n<h4>三大构词法</h4>\n<p><b>① 派生法（前缀+后缀）</b>：在词根上加前缀或后缀变成新词<br>\n前缀改变词义但不改变词性：un-(不)/dis-(不)/re-(重新)/pre-(预)<br>\n例：<b>un</b>happy(不开心)/ <b>dis</b>agree(不同意)/ <b>re</b>write(重写)<br>\n后缀改变词性但不改变核心意思：<br>\n名词后缀：-tion/-ment/-ness<br>\n形容词后缀：-ful/-less/-y/-able<br>\n副词后缀：-ly<br>\n例：care→care<b>ful</b>(形)→care<b>fully</b>(副)→care<b>less</b>(反义词形容词)</p>\n<p><b>② 合成法</b>：两个独立的词合在一起形成新词<br>\nclass+room=classroom(教室) / black+board=blackboard(黑板)<br>\nfoot+ball=football(足球) / sun+flower=sunflower(向日葵)<br>\nnote+book=notebook(笔记本) / every+one=everyone(每个人)</p>\n<p><b>③ 转化法</b>：一个词从一种词性转换成另一种<br>\n名词→动词：water(水→浇水) / hand(手→递) / email(电子邮件→发邮件)<br>\n形容词→动词：clean(干净的→打扫) / slow(慢的→减速)</p>\n\n<h4>📋 小结</h4>\n<p>派生(前缀改意思/后缀改词性) + 合成(两个词合一个) + 转化(不改变词形)。记住常见的前缀(un/dis/re)和后缀(-tion/-ful/-ly)。</p>\n</div>",
+          "practice": [
+            {
+              "q": "词性转换：care → ________ (adj.仔细的) → ________ (adv.仔细地) → ________ (adj.粗心的)",
+              "a": "careful → carefully → careless（-ful形容词后缀，-ly副词后缀，-less否定形容词后缀）"
+            },
+            {
+              "q": "词性转换：possible → ________ (adj.不可能的)",
+              "a": "impossible（前缀im-加在p开头的词前表否定=不可能）"
+            },
+            {
+              "q": "词性转换：nation → ________ (adj.国家的) → ________ (adj.国际的)",
+              "a": "national → international（-al形容词后缀，inter-前缀=在...之间）"
+            },
+            {
+              "q": "词性转换：friend → ________ (adj.友好的) → ________ (n.友谊)",
+              "a": "friendly → friendship（-ly变形容词，-ship名词后缀表关系/状态）"
+            },
+            {
+              "q": "词性转换：agree → ________ (v.不同意) → ________ (n.协议)",
+              "a": "disagree → agreement（dis-否定前缀，-ment名词后缀）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·长沙中考】He is a famous ________ (science). He won the Nobel Prize last year.",
+              "a": "【答案】scientist\n【解析】冠词a后面需要可数名词单数。science是名词\"科学\"，其指人的名词为scientist\"科学家\"。句意：他是一位著名的科学家。故填scientist。"
+            },
+            {
+              "q": "【2024·苏州中考】The weather is ________ (please) today. Let's go for a picnic.",
+              "a": "【答案】pleasant\n【解析】系动词is后面接形容词作表语。please是动词/感叹词，其形容词pleasant意为\"令人愉快的\"。句意：今天天气宜人。故填pleasant。"
+            }
+          ],
+          "method": "词性转换口诀：前缀改意思不改词性(un/dis/re)，后缀改词性不改变核心意思(-tion名词/-ful形/-ly副/-er人)。"
+        },
+        {
+          "name": "听力口语与文化意识",
+          "key": "听力策略+人机对话+中外文化",
+          "level": "★",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：听口在中考中的占比</h4>\n<p>泰州中考英语满分150分，其中<b>听力口语约占30分</b>（含听力和人机对话）。这部分是不能靠\"突击\"提分的，需要日常积累。</p>\n\n<h4>第一步：听力技巧三步法</h4>\n<p><b>听前</b>（最重要！）：快速浏览题目和选项，圈出关键词（时间/数字/地点/人物关系）。<br>\n例如，看到选项：A. At 8:00 B. At 8:30 C. At 9:00 → 提前锁定数字8点，重点听时间。</p>\n<p><b>听中</b>：抓住关键词，特别注意<b>转折词(but/however)</b>后面的内容，往往就是答案。</p>\n<p><b>听后</b>：不要纠结于没听懂的，赶紧看下一题的选项。</p>\n\n<h4>第二步：口语人机对话</h4>\n<p>中考口语分为三部分：<br>\n① <b>朗读短文</b>：注意发音标准+语调自然+语速平稳（不要过快）<br>\n② <b>回答问题</b>：用完整的句子回答（不要只回答单词）<br>\n③ <b>话题简述</b>：按照要点顺序，时态一致，逻辑连贯</p>\n\n<h4>第三步：文化意识——中西对比</h4>\n<p>节日对比：Spring Festival(春节) vs Christmas(圣诞节)<br>\n饮食对比：筷子(chopsticks) vs 刀叉(knife and fork)<br>\n谚语对比：When in Rome, do as the Romans do.(入乡随俗)</p>\n\n<h4>📋 小结</h4>\n<p>听力：预读选项→抓关键词(时间/数字/转折词)→答题。口语：完整句+正确时态。文化对比：节日/饮食/礼仪。</p>\n</div>",
+          "practice": [
+            {
+              "q": "听力技巧：听前应该做什么？（至少说出两点）",
+              "a": "①快速浏览题目和选项②划出关键词(时间/地点/人物/数字)③根据选项预测对话内容和问题"
+            },
+            {
+              "q": "口语表达中，回答问题应该用什么形式？",
+              "a": "用完整的句子回答（不是单词或短语），注意时态正确和发音清楚"
+            },
+            {
+              "q": "中西文化差异：中国春节和西方圣诞节有什么相似之处？",
+              "a": "都是家人团聚的重要节日，都有交换礼物和吃大餐的习俗"
+            },
+            {
+              "q": "听力中听到but/however应该注意什么？",
+              "a": "转折词后的内容往往是正确答案所在（but/however后面通常是真正要表达的意思）"
+            },
+            {
+              "q": "将下列中文谚语翻译成英语：入乡随俗",
+              "a": "When in Rome, do as the Romans do.（在罗马就要像罗马人一样做=入乡随俗）"
+            }
+          ],
+          "exam_practice": [
+            {
+              "q": "【2024·北京中考】Tom: Excuse me, could you tell me the way to the nearest hospital?\nPasserby: Sure. Go straight along this road, then turn right at the second crossing. You will see it on your left.\nQ: Where does Tom want to go?\nA. A school.  B. A hospital.  C. A restaurant.  D. A park.",
+              "a": "【答案】B\n【解析】问路场景的关键信息是\"the way to the nearest hospital\"，Tom问的是去最近医院的路。故选B。\n【听力技巧】关注疑问词(who/what/where/when/why/how)和关键词。"
+            }
+          ],
+          "method": "听力三步：预读选项→抓关键词→特别注意转折词(but)后面。口语：完整句+正确时态+清晰发音。文化对比：节日/饮食/礼仪三大类。"
         }
       ]
     },
@@ -132,12 +617,18 @@
           "name": "完形填空",
           "key": "三步法：通读→选择→检查",
           "level": "★★★",
-          "lecture": "完形填空是综合能力题。三步法：①通读全文(不填空)把握大意和情感②逐空选择，优先看空格前后2句的线索③把选的词代入通读验证。上下文线索>固定搭配>词义辨析。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：完形填空考什么？</h4>\n<p>完形填空不是单纯的\"语法题\"或\"词汇题\"，它是<b>综合能力题</b>——考查在理解文章大意的基础上，结合上下文、固定搭配、语法规则、词义辨析等因素选择最佳选项。一篇完形通常有10-15个空，每空1-1.5分。</p>\n\n<h4>三步法解题</h4>\n<p><b>第一步：通读全文（不填空！）</b><br>\n目标是把握文章的大意、情感和逻辑。跳过空格快速通读一遍，了解故事在讲什么/作者的立场是什么/文章是说明文还是记叙文。千万不能边读边选——没有整体理解就选，很容易被局部迷惑。</p>\n<p><b>第二步：逐空选择——优先级</b><br>\n从左到右逐空选择，依次考虑以下线索：<br>\n① <b>上下文线索（最重要！）</b>——看空格前后2句<br>\n② <b>固定搭配</b>——look forward to, be interested in等<br>\n③ <b>词义辨析</b>——四个选项的意思区别<br>\n④ <b>语法规则</b>——时态/语态/主谓一致</p>\n<p><b>第三步：代入验证</b><br>\n把所有选的答案填进原文读一遍，检查：是否逻辑通顺？是否有语法错误？</p>\n\n<h4>📋 小结</h4>\n<p>完形：先通读不填空→逐空选(上下文>搭配>词义>语法)→代入通读验证。不要先看选项！</p>\n</div>",
           "practice": [
-            "标准完形填空训练(10-15空)"
+            {
+              "q": "I ____1____ a friend. She is ____2____ than me. We play ____3____ weekends.\n1. A.have B.has C.had  2. A.tall B.taller C.tallest  3. A.in B.on C.at",
+              "a": "1.A 2.B 3.C"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】完形填空(15小题)"
+            {
+              "q": "【2024·南京中考】完形填空（共10小题，每小题1分）\nI still remember that day. It was raining hard outside. I was waiting for the bus when an old man came over. He looked tired and wet. I \\_\\_1\\_\\_ my umbrella to him.\n1. A. lent  B. borrowed  C. kept  D. bought\n（续）The old man smiled at me and said \\_\\_2\\_\\_. That simple word made me feel warm inside.\n2. A. goodbye  B. sorry  C. thanks  D. hello",
+              "a": "【答案】1.A 2.C\n【解析】1.我把伞\"借给\"老人：lend sb. sth.借给某人某物。borrow是借入。选A。\n2.老人微笑着说\"谢谢\"：收到帮助后说thanks。选C。\n【完形技巧】先通读全文把握大意，再逐空选择，注意上下文逻辑和固定搭配。"
+            }
           ],
           "method": "不先读选项！先通读全文知道故事大意。做完后通读检查逻辑是否通顺。"
         },
@@ -145,13 +636,18 @@
           "name": "阅读理解",
           "key": "细节/推断/主旨/词义猜测 四大题型",
           "level": "★★★",
-          "lecture": "阅读理解四题型：①细节题(最多！)→定位原文找关键词②推断题→不选直接出现的句子③主旨题→看首尾段首尾句④词义猜测→看上下文逻辑(并列/转折/解释)。",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：阅读理解四大题型</h4>\n<p>中考阅读理解通常有4-5篇短文，每篇配3-5道题。虽然文章很长，但<b>题目有规律可循</b>。中考阅读的考题可以归纳为<b>四大题型</b>，每种题型有对应的解题方法。</p>\n\n<h4>四大题型解法</h4>\n<p><b>① 细节题（最多！约占60%）</b><br>\n题干特点：What/When/Where/Who/Why + 具体内容<br>\n解法：<b>关键词定位法</b>——用题干中的关键词(人名/地名/数字/大写字母)回原文定位，答案就在定位处附近。<br>\n例：题干问\"When did the accident happen?\" → 回原文找time/accident → 找到对应时间和句子。</p>\n<p><b>② 推断题（约20%）</b><br>\n题干特点：What can we infer from...? / The writer probably... / We can know that...<br>\n解法：<b>不选原文直接出现的句子</b>。推断题需要你在读懂原文的基础上做合理的推理。<br>\n注意：如果某个选项是原文中直接出现的原句，那它八成是干扰项！</p>\n<p><b>③ 主旨题（约10%）</b><br>\n题干特点：What's the main idea? / What's the best title? / The passage is mainly about...<br>\n解法：<b>看首尾段的首尾句</b>——文章大意通常出现在开头和结尾。<br>\n标题题注意：标题要覆盖全文内容、不能太宽泛也不能太窄。</p>\n<p><b>④ 词义猜测题（约10%）</b><br>\n题干特点：The word \"...\" in paragraph 2 probably means...<br>\n解法：<b>看上下文逻辑关系</b>——并列(and, also) / 转折(but, however) / 解释(which means, that is) 等。</p>\n\n<h4>阅读顺序建议</h4>\n<p>推荐：<b>先看题目再读文章</b>。带着问题读文章效率最高。每做一道题就在原文中定位并标记。</p>\n\n<h4>📋 小结</h4>\n<p>四题型：细节题(定位原文关键词)/推断题(不选原文直接说的)/主旨题(看首尾句)/猜测题(看上下文逻辑)。推荐先读题再读文章。</p>\n</div>",
           "practice": [
-            "阅读短文，选择最佳答案",
-            "阅读短文，回答问题"
+            {
+              "q": "Tom gets up at 6:30. He goes to school by bus.\n1. What time does Tom get up? A.6:00 B.6:30 C.7:00\n2. How does Tom go? A.Bike B.Bus C.Walk",
+              "a": "1.B 2.B"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】阅读理解(15-20小题)"
+            {
+              "q": "【2024·广州中考】阅读理解：\nScientists have found that spending time in nature can improve our mental health. A study showed that people who walked for 30 minutes in a park had lower stress levels than those who walked on city streets.\nQ: What did the study find?\nA. Walking in a park reduces stress more than walking on city streets.\nB. Walking is bad for mental health.\nC. City streets are dangerous.\nD. Scientists don't like walking.",
+              "a": "【答案】A\n【解析】原文明确说\"在公园散步的人比在城市街道散步的人压力水平更低\"，因此A正确。B与原文相反，C和D原文没有提及。\n【阅读技巧】细节题找到原文对应的句子，注意比较级的表述。"
+            }
           ],
           "method": "先看题目再读文章(带着问题读)。细节题用关键词定位法。"
         },
@@ -159,12 +655,18 @@
           "name": "书面表达",
           "key": "三段式结构+连接词+模板句型",
           "level": "★★★",
-          "lecture": "中考作文三段式：开头(2句引出话题)→主体(4-5句要点齐全,用First/Second/Finally连接)→结尾(2句总结+期望)。字数80-120词。模板句型要背！",
+          "lecture": "<div class=\"lecture-expanded\">\n<h4>📖 导入：中考作文评分标准</h4>\n<p>中考书面表达满分15分，评分从以下四个维度：<b>内容要点（6分）+语言准确（5分）+结构逻辑（2分）+卷面书写（2分）</b>。很多学生作文写不好不是因为不会单词，而是因为没有掌握<b>三段式结构</b>和<b>常用句型</b>。</p>\n\n<h4>第一步：三段式结构</h4>\n<p><b>第一段：开头（2句）</b><br>\n引出话题，表明态度。用1-2个句子快速切入主题。<br>\n常用句型：<br>\n① I'm glad to hear that...（很高兴听说...）<br>\n② My favorite subject is... because...（我最喜欢的科目是...因为...）<br>\n③ Last Sunday, I had a wonderful experience.（上周日我有一次很棒的经历）</p>\n<p><b>第二段：主体（4-5句）</b><br>\n展开要点，用First/Second/Finally/Moreover等连接词使逻辑连贯。<br>\n常用句型：<br>\nFirst of all, ... / Secondly, ... / In addition, ... / Finally, ...<br>\nI think / In my opinion（我认为）<br>\nFor example / such as（例如）</p>\n<p><b>第三段：结尾（2句）</b><br>\n总结观点 + 表达期待或祝愿。<br>\n常用句型：<br>\n① In a word, ...（总之）<br>\n② I hope that...（我希望...）<br>\n③ I'm looking forward to your reply.（期待你的回复/用于书信）</p>\n\n<h4>第二步：万能模板句型（背诵）</h4>\n<p>① There is no doubt that...（毫无疑问.../论证句）<br>\n② It is necessary/important for us to...（我们有必要/重要做.../建议句）<br>\n③ The reason why... is that...（...的原因是.../因果句）<br>\n④ Only in this way can we...（只有这样我们才能.../倒装句/高级句式）</p>\n\n<h4>第三步：写后检查清单</h4>\n<p>写完一定要检查！四步检查法：<br>\n① <b>要点齐全</b>：题目要求的所有要点是否都覆盖了？<br>\n② <b>时态正确</b>：全篇时态是否一致？(写过去的事用过去时/写现在的观点用一般现在)<br>\n③ <b>主谓一致</b>：he要用does/doesn't，不是do/don't<br>\n④ <b>拼写/标点</b>：首字母大写、句号结尾（不是中文句号。）</p>\n\n<h4>📋 小结</h4>\n<p>三段式：开头(2句引出)+主体(4-5句用First/Second连接)+结尾(2句总结)。背20个万能句型。写后四检查：要点/时态/主谓一致/拼写。</p>\n</div>",
           "practice": [
-            "根据提示写一篇80词左右的短文"
+            {
+              "q": "以My Favorite Subject为题写80词短文",
+              "a": "参考范文略（需要时在每日学习中提供）"
+            }
           ],
           "exam_practice": [
-            "【2024泰州】书面表达(15分)"
+            {
+              "q": "【2024·重庆中考】书面表达（15分）\n假设你是李明，你的英国笔友Chris对中国传统文化很感兴趣。请你写一封e-mail，向他介绍一个你最喜欢的中国传统节日（如春节、中秋节等）。\n内容包括：\n1. 节日名称和时间；\n2. 人们通常做什么（至少两点活动）；\n3. 你的感受。\n要求：80词左右，开头已给出，不计入总词数。",
+              "a": "【参考范文】\nDear Chris,\nI'm glad you're interested in Chinese culture. Let me tell you about the Spring Festival.\nIt usually comes in January or February. Before the festival, we clean our houses and put up couplets. On New Year's Eve, families get together and have a big dinner. Children can get red packets from elders.\nI love Spring Festival because it's a time for family reunion and happiness. I hope you can experience it someday!\nYours,\nLi Ming\n【评分标准】内容完整7分+语言准确6分+卷面整洁2分=15分"
+            }
           ],
           "method": "考前背20个万能句型。写完后检查：①要点齐全②时态正确③主谓一致④拼写正确⑤卷面整洁+"
         }
