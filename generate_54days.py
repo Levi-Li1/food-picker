@@ -2,7 +2,7 @@
 """Generate 54 daily pages from study_library databases.
 Each day: Math + English + rotating subject.
 All content from enriched knowledge databases with questions+answers."""
-import json, os, random
+import json, os, random, html
 from datetime import date, timedelta
 
 LIB = 'C:/Users/Tebon/BangMaker/Claw/study_library'
@@ -105,6 +105,8 @@ def sts(*a): return f'<div class="steps">{"".join(a)}</div>'
 
 def qb(n, q, a):
     """Question block: number + question + button + hidden answer."""
+    q = html.escape(str(q))
+    a = html.escape(str(a))
     return f'<div class="q-block"><span class="q-num">{n}.</span><span class="question">{q}</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">{a}</div></div>'
 
 def qbs(items):
