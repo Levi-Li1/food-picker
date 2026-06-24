@@ -1,276 +1,54 @@
-<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>暑假逆袭 · Day 46</title><style>/* plan.css - 暑假逆袭计划共享样式 */
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>暑假逆袭 · Day 46</title><style>
 :root{--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--purple:#af52de;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:14px}
 .container{max-width:800px;margin:0 auto;padding:0 12px}
-
-/* TOP NAV */
 .topbar{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.topbar .title{font-size:20px;font-weight:800}
-.topbar a{color:#fff;text-decoration:none;font-size:13px;opacity:.9}
-.topbar a:hover{opacity:1}
-
-/* 天卡片 */
 .day-card{border:2px solid #e5e5ea;background:var(--card);border-radius:14px;margin-bottom:16px;overflow:hidden}
-.day-card .dhead{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.day-card .dhead .dnum{font-size:24px;font-weight:800}
-.day-card .dhead .dinfo{text-align:right;font-size:12px;opacity:.9}
-.day-card .dbody{padding:14px}
-.day-card .goal{background:#fffbf0;border:1px solid #ffd54f;border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:13px}
+.dhead{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.dnum{font-size:24px;font-weight:800}.dinfo{text-align:right;font-size:12px;opacity:.9}
+.dbody{padding:14px}.goal{background:#fffbf0;border:1px solid #ffd54f;border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:13px}
 .steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .step{background:#f8f8fa;border-radius:10px;padding:10px 12px}
-.step.full{grid-column:1/-1}
-.step h4{font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
-.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.step.full{grid-column:1/-1}.step h4{font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
 p,li{font-size:13px;color:#444;margin:3px 0;line-height:1.7}
 .q-block{background:#fff;border:1px solid #e5e5ea;border-radius:8px;padding:8px 10px;margin:5px 0}
-.q-num{font-weight:700;color:var(--blue);margin-right:4px}
-.question{font-size:12px}
+.q-num{font-weight:700;color:var(--blue);margin-right:4px}.question{font-size:12px}
 .ans-btn{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:10px;border:1px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;cursor:pointer}
-.ans-btn:hover{background:var(--blue);color:#fff}
 .answer{display:none;background:#f0f7ff;padding:6px 10px;border-radius:6px;margin-top:4px;font-size:12px;border-left:3px solid var(--blue)}
 .answer.show{display:block}
 .tip{background:#f0f7ff;border-left:3px solid var(--blue);padding:6px 10px;margin:5px 0;font-size:12px;border-radius:0 6px 6px 0}
 .tip b{color:var(--blue)}
 .err-box{background:#fff5f5;border-left:3px solid var(--red);padding:6px 10px;margin:5px 0;font-size:12px;border-radius:0 6px 6px 0}
-.err-box b{color:var(--red)}
 .check{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:12px}
-.check b{color:#2e7d32}
 .summ-table{width:100%;border-collapse:collapse;font-size:12px;margin:5px 0}
 .summ-table th,.summ-table td{padding:3px 6px;border:1px solid #e5e5ea}
-.summ-table th{background:#f0e6f6;color:var(--purple);font-weight:600}
+.summ-table th{background:#f0e6f6;color:var(--purple)}
 h3{font-size:15px;display:flex;align-items:center;gap:6px;margin-top:12px}
-.formula{background:#fffbf0;border:1px solid #ffcc80;border-radius:8px;padding:8px 12px;margin:5px 0;font-size:13px;text-align:center}
-.formula .eq{font-size:16px;font-weight:700;color:#e65100}
-.formula .meaning{font-size:11px;color:#888}
-.vocab-box{background:#f0f0f5;border-radius:8px;padding:10px 14px;margin:8px 0;border:1px solid #e5e5ea}
+.vocab-box{background:#f0f0f5;border-radius:8px;padding:10px 12px;margin:8px 0;border:1px solid #e5e5ea}
 .vocab-box p{margin:0 0 6px 0;font-size:12px;font-weight:600}
-.week-marker{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;text-align:center;padding:12px;border-radius:12px;font-size:18px;font-weight:700;margin:24px 0 16px}
-.week-marker .wnote{font-size:12px;opacity:.85;margin-top:4px}
-.footer{text-align:center;color:var(--sub);font-size:11px;padding:20px}
-
-/* 完成按钮 */
 .complete-bar{padding:12px 16px;background:var(--bg);border-top:1px solid #e5e5ea;text-align:center}
-.complete-btn{padding:10px 32px;border-radius:24px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:.3s}
+.complete-btn{padding:10px 32px;border-radius:24px;border:none;font-size:15px;font-weight:600;cursor:pointer}
 .complete-btn.todo{background:var(--blue);color:#fff}
-.complete-btn.todo:hover{background:#0056b3}
 .complete-btn.done{background:#e8f5e9;color:#2e7d32;border:2px solid #a5d6a7}
 .nav-links{display:flex;justify-content:space-between;padding:12px 16px;gap:12px}
 .nav-links a{padding:8px 16px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:600;flex:1;text-align:center}
 .nav-links .prev{background:#e5e5ea;color:#666}
 .nav-links .home{background:var(--blue);color:#fff}
 .nav-links .next{background:var(--blue);color:#fff}
+.svg-wrap{text-align:center;margin:8px 0;background:#fafafa;border-radius:8px;padding:6px}
+.svg-wrap svg{max-width:100%;height:auto}
 </style></head><body>
-<div class="topbar"><span class="title">📚 Day 46 · 8月20日 周四</span><a href="../index.html">📋 目录</a></div>
+<div class="topbar"><span class="title">Day 46 · 8月20日 周四</span><a href="../index.html">📋 目录</a></div>
 <div class="container">
-<div class="day-card">
-<div class="dhead"><div class="dnum">Day 46</div><div class="dinfo"><div>8月20日 周四</div><div>数学+英语+语文+物理+化学</div></div></div>
-<div class="dbody">
-<div class="goal"><b>今日目标</b>：第46天学习目标</div>
-<h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 数学</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲</h4><p><b>本周数学内容</b>：方程进阶·方程组·不等式·函数入门。</p><p>从最简单的方程开始，每一步都讲清楚为什么。不明白往前翻！</p></div><div class="step full"><h4><span class="dot" style="background:var(--orange)"></span>练</h4><div class="q-block"><span class="q-num">1.</span><span class="question">本周的3道计算题</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">答案：略</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法</h4><div class="tip"><b>方法</b>：数学是累积的学科，前期不会很正常，每天复习前面学过的内容。</div></div></div><div class="vocab-box"><p style="font-weight:700;margin-bottom:6px">📖 今日词汇（完整词典格式）</p><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">1.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">raw</b>
-<button onclick="speak('raw')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">2.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">leaf</b>
-<button onclick="speak('leaf')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">3.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">valuable</b>
-<button onclick="speak('valuable')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">4.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">current</b>
-<button onclick="speak('current')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">5.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">progress</b>
-<button onclick="speak('progress')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">ˈprɑːɡres</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
-<span style="color:var(--text);min-width:40px">进步</span>
-<span style="font-size:11px;color:#666">You have made great progress.</span>
-<span style="font-size:10px;color:#999">“你取得了很大进步。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">6.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">radio</b>
-<button onclick="speak('radio')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">ˈreɪdioʊ</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
-<span style="color:var(--text);min-width:40px">收音机</span>
-<span style="font-size:11px;color:#666">I listen to the radio every morning.</span>
-<span style="font-size:10px;color:#999">“我每天早上听收音机。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">7.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">pole</b>
-<button onclick="speak('pole')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">8.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">tail</b>
-<button onclick="speak('tail')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">9.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">various</b>
-<button onclick="speak('various')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">10.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">pain</b>
-<button onclick="speak('pain')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">peɪn</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
-<span style="color:var(--text);min-width:40px">疼痛</span>
-<span style="font-size:11px;color:#666">I have a pain in my back.</span>
-<span style="font-size:10px;color:#999">“我背疼。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">11.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">simple</b>
-<button onclick="speak('simple')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">12.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">meet</b>
-<button onclick="speak('meet')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">miːt</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
-<span style="color:var(--text);min-width:40px">遇见;见面</span>
-<span style="font-size:11px;color:#666">Nice to meet you.</span>
-<span style="font-size:10px;color:#999">“很高兴见到你。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">13.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">mean</b>
-<button onclick="speak('mean')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">miːn</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
-<span style="color:var(--text);min-width:40px">意思是</span>
-<span style="font-size:11px;color:#666">What do you mean?</span>
-<span style="font-size:10px;color:#999">“你是什么意思？”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">14.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">term</b>
-<button onclick="speak('term')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">15.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">hit</b>
-<button onclick="speak('hit')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">hɪt</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
-<span style="color:var(--text);min-width:40px">撞击;打</span>
-<span style="font-size:11px;color:#666">He hit the ball very hard.</span>
-<span style="font-size:10px;color:#999">“他用力打球。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">16.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">source</b>
-<button onclick="speak('source')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">17.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">international</b>
-<button onclick="speak('international')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">ˌɪntərˈnæʃnəl</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">adj.</span>
-<span style="color:var(--text);min-width:40px">国际的</span>
-<span style="font-size:11px;color:#666">English is an international language.</span>
-<span style="font-size:10px;color:#999">“英语是国际语言。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">18.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">apple</b>
-<button onclick="speak('apple')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">ˈæp.l</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
-<span style="color:var(--text);min-width:40px">苹果</span>
-<span style="font-size:11px;color:#666">I eat an apple.</span>
-<span style="font-size:10px;color:#999">“我吃一个苹果。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">19.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">safety</b>
-<button onclick="speak('safety')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">ˈseɪfti</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
-<span style="color:var(--text);min-width:40px">安全</span>
-<span style="font-size:11px;color:#666">Safety comes first.</span>
-<span style="font-size:10px;color:#999">“安全第一。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">20.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">habit</b>
-<button onclick="speak('habit')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">ˈhæbɪt</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
-<span style="color:var(--text);min-width:40px">习惯</span>
-<span style="font-size:11px;color:#666">Reading is a good habit.</span>
-<span style="font-size:10px;color:#999">“阅读是个好习惯。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">21.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">rush</b>
-<button onclick="speak('rush')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">rʌʃ</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">v.</span>
-<span style="color:var(--text);min-width:40px">冲;匆忙</span>
-<span style="font-size:11px;color:#666">Do not rush, take your time.</span>
-<span style="font-size:10px;color:#999">“不要着急，慢慢来。”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">22.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">cover</b>
-<button onclick="speak('cover')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">23.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">income</b>
-<button onclick="speak('income')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px"></span>
-<span style="color:var(--purple);font-size:11px;min-width:25px"></span>
-<span style="color:var(--text);min-width:40px"></span>
-<span style="font-size:11px;color:#666"></span>
-<span style="font-size:10px;color:#999">“”</span></div><div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">
-<span style="color:#999;min-width:18px;font-size:10px">24.</span>
-<b style="color:#1d1d1f;min-width:65px;font-size:13px">list</b>
-<button onclick="speak('list')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px;flex-shrink:0;margin-right:2px">▶</button>
-<span style="color:var(--sub);font-size:11px;min-width:55px">lɪst</span>
-<span style="color:var(--purple);font-size:11px;min-width:25px">n.</span>
-<span style="color:var(--text);min-width:40px">清单</span>
-<span style="font-size:11px;color:#666">Make a shopping list.</span>
-<span style="font-size:10px;color:#999">“写一个购物清单。”</span></div></div><h3 style="color:var(--red);border-bottom:2px solid var(--red);padding-bottom:6px;margin:16px 0 12px">📖 语文</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>讲</h4><p><b>古诗文背诵进度</b>：61篇按顺序每天背1篇。</p><p>第46天：背第46首。</p></div><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>背诵</h4><table class="summ-table"><tr><th>背诵内容</th><th>已背/已默</th></tr><tr><td style="font-size:12px">第46首古诗背诵 □</td><td>□ □</td></tr><tr><td style="font-size:12px">本周全部生词复习 □</td><td>□ □</td></tr></table></div></div><p style="color:#999;font-size:11px;text-align:center;margin:16px 0 4px">本日词汇量：24词 | 累计词汇：1104词</p>
-<function check_html at 0x000002244335A7A0>
-</div>
-<div class="complete-bar"><button id="cbtn" class="complete-btn todo" onclick="toggleComplete(46)">标记完成</button></div>
-</div>
-<div class="nav-links"><a href="day045.html" class="prev">← Day 45</a><a href="../index.html" class="home">📋 目录</a><a href="day047.html" class="next">Day 47 →</a></div>
-</div>
-<script>
+<div class="day-card"><div class="dhead"><div class="dnum">Day 46</div><div class="dinfo"><div>8月20日 周四</div><div>📖+📖+📖</div></div></div>
+<div class="dbody"><div class="goal"><b>今日目标</b>：第46天学习</div><h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 一元一次方程与方程组</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（20min）</h4><p>解一元一次方程五步：去分母(各项都乘)→去括号→移项(变号！)→合并同类项→系数化1。一元二次方程三种解法：①直接开方法(x²=p)②配方法③公式法x=[-b±√(b²-4ac)]/2a。判别式Δ=b²-4ac：Δ>0两个不等实根，Δ=0两个相等实根，Δ<0无实数根。韦达定理：x₁+x₂=-b/a，x₁x₂=c/a。</p></div><div class="step full"><h4><span class="dot" style="background:var(--green)"></span>A组·基础练</h4><div class="q-block"><span class="q-num">1.</span><span class="question">解方程(2x-1)/3-(3x-4)/4=1</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">解方程x²-5x+6=0</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">3.</span><span class="question">已知x²+kx-6=0的一根是2，求k和另一根</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">4.</span><span class="question">不解方程判断x²-2x+3=0的根的情况</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>C组·中考真题</h4><div class="q-block"><span class="q-num">1.</span><span class="question">【2024泰州】一元二次方程根的判别式</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考历年真题解析)</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">【2023泰州】解方程x²-4x+3=0</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考历年真题解析)</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法总结</h4><div class="tip"><b>方法</b>：解方程顺序：去分母→去括号→移项→合并→系数化1。韦达定理应用前提：Δ≥0。</div></div></div><h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 不等式（组）</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（20min）</h4><p>不等式性质：加减同数不等号不变；乘除正数不变；乘除负数必须变号(最易错！)。解不等式组：分别求解→在数轴上找公共部分(交集)。注意端点：有等号画实心圆，无等号画空心圆。</p></div><div class="step full"><h4><span class="dot" style="background:var(--green)"></span>A组·基础练</h4><div class="q-block"><span class="q-num">1.</span><span class="question">解不等式2x-1>5</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">解不等式组{2x-1>5, 3x+2≤x+10}</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">3.</span><span class="question">若a>b，则-2a___-2b</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">4.</span><span class="question">不等式2x-4≤0的非负整数解</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>C组·中考真题</h4><div class="q-block"><span class="q-num">1.</span><span class="question">【2023泰州】解不等式组</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考历年真题解析)</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">【2024泰州】不等式性质选择题</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考历年真题解析)</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法总结</h4><div class="tip"><b>方法</b>：乘除负数必变号！解集在数轴上表示：实心=包含，空心=不包含。</div></div></div><h3 style="color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:16px 0 12px">📖 一次函数</h3><div class="steps"><div class="step full"><h4><span class="dot" style="background:var(--blue)"></span>讲（20min）</h4><p>一次函数y=kx+b(k≠0)。k的几何意义：决定直线的倾斜方向和程度(k>0上升，k<0下降，|k|越大越陡)。b的几何意义：直线与y轴的交点纵坐标(截距)。待定系数法求解析式：设y=kx+b→代入两个已知点→解方程组→得解析式。一次函数与一元一次方程的关系：ax+b=0的解就是y=ax+b与x轴交点的横坐标。</p></div><div class="step full"><h4><span class="dot" style="background:var(--green)"></span>A组·基础练</h4><div class="q-block"><span class="q-num">1.</span><span class="question">一次函数过点(0,-3)和(2,1)，求解析式</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">2.</span><span class="question">画出y=2x+1的图像，标出与坐标轴的交点</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div><div class="q-block"><span class="q-num">3.</span><span class="question">已知一次函数y=kx+b的图像经过第一、二、三象限，求k和b的取值范围</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考答案见讲解内容)</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--red)"></span>C组·中考真题</h4><div class="q-block"><span class="q-num">1.</span><span class="question">【2024泰州】一次函数图像过点A(1,2)和B(-2,-4)，求k和b</span><button class="ans-btn" onclick="showAns(this)">展开答案</button><div class="answer">(参考历年真题解析)</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法总结</h4><div class="tip"><b>方法</b>：b是y轴截距(看x=0时y的值)。k是斜率(看x增加1时y增加多少)。两个点确定一条直线。</div></div></div><div class="check"><b>今日达标检查</b>：<br>完成今日学习目标</div></div>
+<div class="complete-bar"><button id="cbtn" class="complete-btn todo" onclick="toggleComplete(46)">标记完成</button></div></div>
+<div class="nav-links"><a href="day045.html" class="prev">← Day 45</a><a href="../index.html" class="home">📋 目录</a><a href="day047.html" class="next">Day 47 →</a></div></div><script>
 function speak(t){if(window.speechSynthesis){window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.7;window.speechSynthesis.speak(u);}}
 function showAns(b){var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}
 function toggleComplete(dn){var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){localStorage.setItem("day_"+dn+"_done","true");btn.className="complete-btn done";btn.textContent="已完成";}else{localStorage.setItem("day_"+dn+"_done","false");btn.className="complete-btn todo";btn.textContent="标记完成";}}
-window.onload=function(){if(localStorage.getItem("day_'+str(num)+'_done")==="true"){var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成";}}
+window.onload=function(){if(localStorage.getItem("day_46_done")==="true"){var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成";}}
 </script></body></html>
