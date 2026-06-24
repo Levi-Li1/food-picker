@@ -193,8 +193,10 @@ def vocab_block(words):
     h = '<div class="vocab-box"><p style="font-weight:700">📖 今日词汇（词典格式）</p>'
     for i, w in enumerate(words):
         wi, ipa, pos, meaning, ex, trans = w if len(w) >= 6 else (w[0],'','','','','')
-        # SVG play button (triangle icon, consistent rendering)
-        btn = f'<button onclick="speak(\'{wi}\')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0;font-size:12px;line-height:1" title="点击播放发音">{chr(9654)}</button>'
+        # Play button with inline SVG (guaranteed cross-platform rendering)
+        safe_wi = wi.replace("'", "\\'")
+        svg_play = '<svg viewBox="0 0 24 24" width="12" height="12" fill="white"><polygon points="6,4 20,12 6,20"/></svg>'
+        btn = f'<button onclick="speak(\'{safe_wi}\')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0" title="点击播放发音">{svg_play}</button>'
         h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">'
         h += f'<span style="color:#999;min-width:18px;font-size:10px;line-height:22px">{i+1}.</span>'
         h += f'<b style="color:#1d1d1f;min-width:65px;line-height:22px">{wi}</b>'
