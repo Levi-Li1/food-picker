@@ -1,0 +1,168 @@
+"""Build Math knowledge database with 3-layer structure + additional SVG diagrams"""
+import json
+
+LIB = 'C:/Users/Tebon/BangMaker/Claw/study_library'
+
+# ═══ MATH Knowledge Database ═══
+math_knowledge = {
+    "subject":"数学",
+    "exam_score":150,
+    "exam_time":"120分钟",
+    "exam_form":"闭卷笔试",
+    "sections":[
+        {"name":"一、数与式（~30分）","topics":[
+            {"name":"有理数与实数","key":"正负数/数轴/相反数/绝对值/平方根/立方根","level":"★★",
+             "lecture":"有理数是能写成分数形式的数(整数和分数)。实数=有理数+无理数(π/√2等无限不循环小数)。数轴三要素:原点+正方向+单位长度。数轴上右边的数>左边的数。相反数:符号不同的两个数(和为0)。绝对值:一个数到原点的距离(永远≥0)。平方根:如果一个数的平方等于a,这个数叫a的平方根(正数有两个平方根±√a)。算术平方根√a≥0。立方根:正数的立方根为+，负数的立方根为-。",
+             "practice":["|-8|的值是？","9的平方根是？","下列各数中无理数的是","比较-2/3和-3/4的大小","用科学记数法表示56000000"],
+             "exam_practice":["【2024泰州】下列计算正确的是","【2023泰州】-2的绝对值是"],
+             "method":"数轴记忆法：把数画在数轴上，右边>左边。绝对值=到原点的距离。注意0的相反数和绝对值都是0。"},
+            {"name":"整式与因式分解","key":"整式运算/乘法公式/因式分解","level":"★★★",
+             "lecture":"整式加减：去括号(负号变号)+合并同类项(系数相加字母不变)。乘法公式(必背！)：平方差(a+b)(a-b)=a²-b²，完全平方(a±b)²=a²±2ab+b²。因式分解三步：一提(公因式)→二套(公式)→三十字相乘。必须分到不能再分为止！",
+             "practice":["计算(x+2)(x-2)","因式分解x²-9","因式分解x²+6x+9","因式分解x²-5x+6","计算(a+1)²-(a-1)²"],
+             "exam_practice":["【2024泰州】因式分解x²-4y²的结果是","【2023泰州】计算(2a)³的结果是"],
+             "method":"乘法公式口诀：平方差公式a²-b²=(a+b)(a-b)；完全平方(a±b)²=a²±2ab+b²。因式分解步骤：一提二套三十字四检查。"},
+            {"name":"分式与二次根式","key":"分式运算/分式方程/二次根式化简","level":"★★",
+             "lecture":"分式：分母中含字母(分母≠0)。分式有意义=分母≠0。分式值为0=分子=0且分母≠0。分式方程必须验根(使分母=0的解是增根要舍去)。二次根式：√a(a≥0)。性质√a²=|a|。运算法则√a×√b=√ab。化简到最简二次根式：根号内不含开得尽的因数/因子+分母不含根号。",
+             "practice":["当x取何值时分式(x-1)/(x+2)有意义？","解分式方程1/(x-1)+1=3/(x-1)","化简√12","分母有理化1/√2","计算√8+√18"],
+             "exam_practice":["【2023泰州】分式方程验根题","【2024泰州】二次根式计算"],
+             "method":"分母有理化口诀：上下同乘根号，分母不含根号。分式方程必验根！"}
+        ]},
+        {"name":"二、方程与不等式（~25分）","topics":[
+            {"name":"一元一次方程与方程组","key":"五步法解方程/代入消元/加减消元","level":"★★",
+             "lecture":"解一元一次方程五步：去分母(各项都乘)→去括号→移项(变号！)→合并同类项→系数化1。一元二次方程三种解法：①直接开方法(x²=p)②配方法③公式法x=[-b±√(b²-4ac)]/2a。判别式Δ=b²-4ac：Δ>0两个不等实根，Δ=0两个相等实根，Δ<0无实数根。韦达定理：x₁+x₂=-b/a，x₁x₂=c/a。",
+             "practice":["解方程(2x-1)/3-(3x-4)/4=1","解方程x²-5x+6=0","已知x²+kx-6=0的一根是2，求k和另一根","不解方程判断x²-2x+3=0的根的情况"],
+             "exam_practice":["【2024泰州】一元二次方程根的判别式","【2023泰州】解方程x²-4x+3=0"],
+             "method":"解方程顺序：去分母→去括号→移项→合并→系数化1。韦达定理应用前提：Δ≥0。"},
+            {"name":"不等式（组）","key":"乘除负数要变号","level":"★★",
+             "lecture":"不等式性质：加减同数不等号不变；乘除正数不变；乘除负数必须变号(最易错！)。解不等式组：分别求解→在数轴上找公共部分(交集)。注意端点：有等号画实心圆，无等号画空心圆。",
+             "practice":["解不等式2x-1>5","解不等式组{2x-1>5, 3x+2≤x+10}","若a>b，则-2a___-2b","不等式2x-4≤0的非负整数解"],
+             "exam_practice":["【2023泰州】解不等式组","【2024泰州】不等式性质选择题"],
+             "method":"乘除负数必变号！解集在数轴上表示：实心=包含，空心=不包含。"}
+        ]},
+        {"name":"三、函数（~30分）","topics":[
+            {"name":"一次函数","key":"y=kx+b/k决定倾斜/b决定截距","level":"★★★",
+             "lecture":"一次函数y=kx+b(k≠0)。k的几何意义：决定直线的倾斜方向和程度(k>0上升，k<0下降，|k|越大越陡)。b的几何意义：直线与y轴的交点纵坐标(截距)。待定系数法求解析式：设y=kx+b→代入两个已知点→解方程组→得解析式。一次函数与一元一次方程的关系：ax+b=0的解就是y=ax+b与x轴交点的横坐标。",
+             "practice":["一次函数过点(0,-3)和(2,1)，求解析式","画出y=2x+1的图像，标出与坐标轴的交点","已知一次函数y=kx+b的图像经过第一、二、三象限，求k和b的取值范围"],
+             "exam_practice":["【2024泰州】一次函数图像过点A(1,2)和B(-2,-4)，求k和b"],
+             "method":"b是y轴截距(看x=0时y的值)。k是斜率(看x增加1时y增加多少)。两个点确定一条直线。"},
+            {"name":"二次函数","key":"开口方向/对称轴/顶点/最值","level":"★★★",
+             "lecture":"二次函数y=ax²+bx+c(a≠0)。a>0开口向上(有最小值)，a<0开口向下(有最大值)。对称轴x=-b/(2a)。顶点坐标(-b/(2a)，(4ac-b²)/(4a))。三种形式：一般式、顶点式y=a(x-h)²+k(直接看出顶点(h,k))、交点式y=a(x-x₁)(x-x₂)。配方法：y=ax²+bx+c→y=a(x+b/(2a))²+(4ac-b²)/(4a)。",
+             "practice":["求y=x²-4x+3的顶点坐标和对称轴","将y=2x²-8x+5配方为顶点式","已知抛物线过(0,3)、(1,0)、(3,0)，求解析式","当x取何值时y=-(x-2)²+4有最大值？"],
+             "exam_practice":["【2024泰州】二次函数顶点坐标","【2023泰州】二次函数图像平移"],
+             "method":"配方法口诀：一提(提a)二配(加一次项系数一半的平方)三整理。a决定开口，-b/2a决定对称轴。"},
+            {"name":"反比例函数","key":"y=k/x(k≠0)","level":"★★",
+             "lecture":"反比例函数y=k/x(k≠0)。k>0图像在一三象限，k<0在二四象限。k的几何意义：|k|=图像上任意一点向两坐标轴作垂线所得矩形的面积。反比例函数与一次函数的交点：联立方程求解。反比例函数应用：反比例关系(如速度×时间=路程固定时，速度与时间成反比)。",
+             "practice":["已知反比例函数y=k/x过点(2,3)，求k并判断图像所在象限","已知一次函数y=x+1与反比例函数y=2/x相交，求交点坐标"],
+             "exam_practice":["【2024泰州】反比例函数k的几何意义"],
+             "method":"k的几何意义=|xy|。两条渐近线是坐标轴(永远不相交)。"}
+        ]},
+        {"name":"四、图形与几何（~45分）","topics":[
+            {"name":"三角形（全等+相似+勾股）","key":"判定法+性质+勾股定理","level":"★★★",
+             "lecture":"全等三角形判定：SSS(三边相等)、SAS(两边夹角)、ASA(两角夹边)、AAS(两角对边)、HL(直角边斜边)。注意SSA不能判定全等！相似三角形判定：AA(两角相等)、SAS(两边成比例夹角相等)、SSS(三边成比例)。相似比k，面积比=k²。勾股定理a²+b²=c²(直角三角形的两直角边平方和=斜边平方)。常用勾股数：3-4-5/5-12-13/6-8-10/7-24-25/8-15-17。",
+             "practice":["判断3个条件能否判定全等","已知△ABC中∠C=90°，a=6，c=10，求b","两个相似三角形的面积比是4:9，求它们的相似比","直角三角形斜边上的中线等于什么？"],
+             "exam_practice":["【2024泰州】全等三角形证明题","【2023泰州】勾股定理与实际应用"],
+             "method":"全等找三组相等条件，相似找两组比例。见到直角三角形想勾股定理和特殊角(30°/45°)。"},
+            {"name":"四边形","key":"平行四边形→矩形/菱形/正方形","level":"★★",
+             "lecture":"平行四边形判定：①两组对边平行②两组对边相等③一组对边平行且相等④对角线互相平分。矩形=平行四边形+一个直角(或对角线相等)。菱形=平行四边形+邻边相等(或对角线垂直)。正方形=矩形+菱形(所有性质)。梯形中位线=(上底+下底)/2。三角形中位线平行于第三边且等于第三边的一半。",
+             "practice":["平行四边形ABCD中，添加什么条件变成矩形？","菱形的对角线有什么性质？","梯形上底4下底10，求中位线长"],
+             "exam_practice":["【2024泰州】平行四边形性质与判定"],
+             "method":"四边形的分层关系图：四边形→平行四边形→(矩形/菱形)→正方形。每个特殊四边形记住判定条件+性质。"},
+            {"name":"圆","key":"垂径定理/圆周角/切线","level":"★★★",
+             "lecture":"垂径定理：垂直于弦的直径平分这条弦，且平分弦所对的弧(常与勾股联用)。圆周角定理：一条弧所对的圆周角=圆心角的一半。推论：直径所对的圆周角=90°(见到直径想直角)。切线判定：过半径外端且垂直于半径的直线是圆的切线。切线性质：圆的切线垂直于过切点的半径。弧长L=nπr/180。扇形面积S=nπr²/360=½Lr。圆锥侧面积=πrl(r底面半径，l母线长)。",
+             "practice":["半径5的圆中弦长8，求弦心距","直径10的圆中弦CD=6，求弦到圆心距离","PA切圆O于A，PO=10，OA=6，求PA","圆心角60°半径6的弧长"],
+             "exam_practice":["【2024泰州】圆中垂径定理应用","【2023泰州】切线的判定和性质"],
+             "method":"圆的核心辅助线：连半径得等腰，作弦的垂线用垂径，遇直径想直角，遇切线连半径得垂直。"}
+        ]},
+        {"name":"五、统计与概率（~10分）","topics":[
+            {"name":"统计量与概率","key":"平均数/中位数/众数/方差/概率计算","level":"★",
+             "lecture":"三种统计量：平均数(所有和÷个数)、中位数(排序后中间的数，偶数个取两个中间数的平均)、众数(出现次数最多的数)。方差S²=[(x₁-x̄)²+...+(xₙ-x̄)²]/n(越大越不稳定)。概率P(A)=m/n(m为A事件发生次数，n为所有可能结果总数)。列举法：树状图(不重不漏列出所有可能)。用频率估计概率(实验次数越多越准确)。",
+             "practice":["数据3,5,5,7,9的中位数和众数","两组数据的方差比较稳定性","掷两个骰子求点数和为7的概率"],
+             "exam_practice":["【2024泰州】统计量和概率计算"],
+             "method":"中位数要先排序！方差越大数据越分散。概率计算用列举法+树状图保证不重不漏。"}
+        ]}
+    ]
+}
+
+with open(f'{LIB}/math/knowledge.json','w',encoding='utf-8') as f:
+    json.dump(math_knowledge, f, ensure_ascii=False, indent=2)
+print(f'Math knowledge saved: {len(math_knowledge["sections"])} sections, {sum(len(s["topics"]) for s in math_knowledge["sections"])} topics')
+
+# ═══ ADD Math SVG diagrams ═══
+svg_dir = f'{LIB}/svg/diagrams.json'
+with open(svg_dir,'r',encoding='utf-8') as f:
+    svgs = json.load(f)
+
+# Add more math diagrams
+svgs['math_quadratic_formula'] = {
+    'subject':'math','name':'一元二次方程求根公式','desc':'x=[-b±√(b²-4ac)]/2a',
+    'svg':'''
+<svg viewBox="0 0 400 120">
+<rect x="1" y="1" width="398" height="118" rx="8" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<text x="50" y="40" fill="#333" font-size="18" font-weight="bold">求根公式</text>
+<text x="80" y="70" fill="#007aff" font-size="20" font-weight="bold">x = [-b ± √(b² - 4ac)] / 2a</text>
+<text x="50" y="95" fill="#e65100" font-size="11">Δ = b² - 4ac</text>
+<text x="170" y="95" fill="#e65100" font-size="11">Δ&gt;0→两个不等实根</text>
+<text x="300" y="95" fill="#e65100" font-size="11">Δ=0→两个相等实根</text>
+</svg>'''
+}
+
+svgs['math_parabola'] = {
+    'subject':'math','name':'抛物线(y=x²)','desc':'二次函数对称性',
+    'svg':'''
+<svg viewBox="0 0 300 180">
+<rect x="1" y="1" width="298" height="178" rx="6" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<line x1="20" y1="150" x2="280" y2="150" stroke="#999" stroke-width="1"/><text x="275" y="165" fill="#999" font-size="10">x</text>
+<line x1="150" y1="170" x2="150" y2="20" stroke="#999" stroke-width="1"/><text x="152" y="18" fill="#999" font-size="10">y</text>
+<!-- y=x² parabola -->
+<path d="M150,140 Q90,50 60,5" stroke="#007aff" stroke-width="2.5" fill="none"/>
+<path d="M150,140 Q210,50 240,5" stroke="#007aff" stroke-width="2.5" fill="none"/>
+<!-- y=(x-2)² shifted -->
+<path d="M190,140 Q230,50 260,5" stroke="#ff3b30" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
+<text x="70" y="90" fill="#007aff" font-size="10">y=x²</text>
+<text x="230" y="90" fill="#ff3b30" font-size="10">y=(x-2)²</text>
+<circle cx="150" cy="150" r="3" fill="#999"/><text x="152" y="148" fill="#999" font-size="10">O</text>
+</svg>'''
+}
+
+svgs['math_geometry_circle'] = {
+    'subject':'math','name':'圆的基本性质','desc':'垂径定理+圆周角定理',
+    'svg':'''
+<svg viewBox="0 0 400 200">
+<rect x="1" y="1" width="398" height="198" rx="8" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+<!-- Circle -->
+<circle cx="120" cy="100" r="70" fill="none" stroke="#007aff" stroke-width="2"/>
+<circle cx="120" cy="100" r="3" fill="#e65100"/><text x="105" y="95" fill="#e65100" font-size="11" font-weight="bold">O</text>
+<!-- Diameter CD perpendicular to chord AB -->
+<line x1="60" y1="60" x2="180" y2="60" stroke="#ff3b30" stroke-width="2"/>
+<text x="180" y="55" fill="#ff3b30" font-size="10">直径CD</text>
+<line x1="80" y1="130" x2="160" y2="130" stroke="#34c759" stroke-width="2.5"/>
+<text x="162" y="135" fill="#34c759" font-size="10">弦AB</text>
+<line x1="120" y1="60" x2="120" y2="130" stroke="#e65100" stroke-width="1.5" stroke-dasharray="4,2"/>
+<!-- Right angle marker -->
+<line x1="120" y1="130" x2="120" y2="125" stroke="#999" stroke-width="1"/>
+<line x1="125" y1="130" x2="120" y2="130" stroke="#999" stroke-width="1"/>
+<text x="25" y="170" fill="#333" font-size="11">垂径定理：CD⊥AB⇒CD平分AB且平分AB所对的两条弧</text>
+<!-- Second circle for inscribed angle -->
+<circle cx="300" cy="100" r="65" fill="none" stroke="#999" stroke-width="1.5"/>
+<text x="285" y="95" fill="#999" font-size="10">O</text>
+<line x1="250" y1="80" x2="340" y2="80" stroke="#999" stroke-width="1"/>
+<polygon points="250,80 350,120 300,50" fill="none" stroke="#ff3b30" stroke-width="2"/>
+<text x="345" y="125" fill="#ff3b30" font-size="10">圆周角</text>
+</svg>'''
+}
+
+with open(svg_dir,'w',encoding='utf-8') as f:
+    json.dump(svgs, f, ensure_ascii=False, indent=2)
+print(f'SVG diagrams updated: {len(svgs)} total')
+
+# Verify
+print(f'\nMath knowledge sections: {len(math_knowledge["sections"])}')
+for s in math_knowledge["sections"]:
+    print(f'  {s["name"]}: {len(s["topics"])} topics')
+    for t in s["topics"]:
+        has_lecture = bool(t.get('lecture'))
+        has_practice = bool(t.get('practice'))
+        has_exam = bool(t.get('exam_practice'))
+        has_method = bool(t.get('method'))
+        badges = '✅' if all([has_lecture, has_practice, has_exam, has_method]) else '⚠️'
+        print(f'    {badges} {t["name"]} (讲{has_lecture} 练{has_practice} 真题{has_exam} 方法{has_method})')
