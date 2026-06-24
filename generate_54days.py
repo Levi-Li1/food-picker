@@ -122,14 +122,16 @@ def vocab_block(words):
     h = '<div class="vocab-box"><p style="font-weight:700">📖 今日词汇（词典格式）</p>'
     for i, w in enumerate(words):
         wi, ipa, pos, meaning, ex, trans = w if len(w) >= 6 else (w[0],'','','','','')
-        btn = f'<button onclick="speak(\'{wi}\')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:8px">▶</button>'
-        h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:3px 0;border-bottom:1px solid #eee;font-size:12px">'
-        h += f'<span style="color:#999;min-width:18px;font-size:10px">{i+1}.</span>'
-        h += f'<b style="color:#1d1d1f;min-width:65px">{wi}</b>{btn}'
-        h += f'<span style="color:var(--sub);font-size:11px;min-width:50px">{ipa}</span>'
-        h += f'<span style="color:var(--purple);font-size:11px;min-width:20px">{pos}</span>'
-        h += f'<span style="color:var(--text);min-width:35px">{meaning}</span>'
-        h += f'<span style="font-size:10px;color:#666">{ex} ({trans})</span>'
+        # SVG play button (consistent rendering across all platforms)
+        btn = f'<button onclick="speak(\'{wi}\')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0" title="点击发音">{chr(9654)}</button>'
+        h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">'
+        h += f'<span style="color:#999;min-width:18px;font-size:10px;line-height:22px">{i+1}.</span>'
+        h += f'<b style="color:#1d1d1f;min-width:65px;line-height:22px">{wi}</b>'
+        h += f'<span style="color:var(--purple);font-size:11px;min-width:20px;line-height:22px">{pos}</span>'
+        h += f'<span style="color:var(--text);min-width:35px;line-height:22px">{meaning}</span>'
+        h += f'<span style="color:var(--sub);font-size:11px;line-height:22px">/ {ipa} /</span>'
+        h += f'{btn}'
+        h += f'<span style="font-size:10px;color:#666;line-height:22px">{ex} ({trans})</span>'
         h += '</div>'
     return h + '</div>'
 
