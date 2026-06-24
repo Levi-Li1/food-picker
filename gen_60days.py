@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate 60 day HTML files + index with:
+"""Generate 54 day HTML files + index with:
 - Rich lecture content (detailed step-by-step)
 - Dictionary-format vocab (27+/day, audio button, examples)
 - Complete memorization tracking
@@ -114,21 +114,21 @@ for w in EXTRA_WORDS:
 
 print(f'Total unique words: {len(ALL_WORDS)}')
 
-# Distribute across 60 days (~27 words/day)
+# Distribute across 54 days (~27 words/day)
 random.seed(42)  # deterministic
 random.shuffle(ALL_WORDS)
 
 DAILY_VOCAB = {}
-words_per_day = len(ALL_WORDS) // 60 + 1
-for day_num in range(1, 61):
+words_per_day = len(ALL_WORDS) // 54 + 1
+for day_num in range(1, 55):
     start = (day_num-1) * words_per_day
     end = min(start + words_per_day, len(ALL_WORDS))
     DAILY_VOCAB[day_num] = ALL_WORDS[start:end] if start < len(ALL_WORDS) else ALL_WORDS[-words_per_day:]
 
 # Verify distribution
 total_distributed = sum(len(v) for v in DAILY_VOCAB.values())
-print(f'Distributed {total_distributed} words across 60 days')
-for d in [1,2,3,10,30,60]:
+print(f'Distributed {total_distributed} words across 54 days')
+for d in [1,2,3,10,30,54]:
     print(f'  Day {d}: {len(DAILY_VOCAB[d])} words')
 
 # ── HTML Generation ──
@@ -218,16 +218,16 @@ def eng_lecture(topic, hook, rule, details, examples=None, notes=''):
 
 # ── CONTENT GENERATION ──
 WD_CN = ['周一','周二','周三','周四','周五','周六']
-start_date = date(2026, 7, 6)
+start_date = date(2026, 6, 29)
 
 # Build all days
-for day_num in range(1, 61):
+for day_num in range(1, 55):
     w = (day_num-1)//6
     d = (day_num-1)%6
     dt = start_date + timedelta(weeks=w, days=d)
     month, day, wd = dt.month, dt.day, WD_CN[d]
     prev_d = day_num-1 if day_num>1 else None
-    next_d = day_num+1 if day_num<60 else None
+    next_d = day_num+1 if day_num<54 else None
     
     # Rich body with all subjects
     body = ''
@@ -380,9 +380,9 @@ for day_num in range(1, 61):
 
 # ── Generate Index ──
 def gen_index():
-    total_days = 60
+    total_days = 54
     idx = '''<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>初二升初三 · 暑假60天逆袭计划</title>
+<title>初二升初三 · 暑假54天逆袭计划</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f7;color:#1d1d1f;font-size:14px;line-height:1.8}
@@ -405,7 +405,7 @@ body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;backgr
 .day-item .status{position:absolute;top:3px;right:4px;font-size:13px}
 .day-item .done{color:#34c759}
 .day-item .todo{color:#ddd}
-.container{max-width:600px;margin:0 auto}
+.container{max-width:550px;margin:0 auto}
 .footer{text-align:center;color:#86868b;font-size:11px;padding:20px}
 @media(max-width:500px){.day-grid{grid-template-columns:repeat(3,1fr)}.day-item:nth-child(6n){border-right:1px solid #eee}.day-item:nth-child(3n){border-right:none}}
 </style></head><body>
@@ -422,11 +422,11 @@ body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;backgr
     
     sun_dates = []
     base = date(2026, 7, 6)
-    for w in range(10):
+    for w in range(9):
         sun = base + timedelta(weeks=w, days=6)
         sun_dates.append(sun)
     
-    for w in range(10):
+    for w in range(9):
         idx += f'<div class="week-card"><div class="week-header"><span>第{"一二三四五六七八九十"[w]}周 (<span id="wdates{w}"></span>)</span><span class="sun">☀️ {sun_dates[w].month}/{sun_dates[w].day}休息</span></div><div class="day-grid">'
         for d in range(6):
             dn = w*6 + d + 1
@@ -438,14 +438,14 @@ body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;backgr
 <div class="footer">暑假逆袭计划 · 每日完成自动保存</div>
 <script>
 function update(){
-  var total=60,done=0;
+  var total=54,done=0;
   for(var i=1;i<=total;i++){
     var el=document.getElementById("s"+i);
     if(localStorage.getItem("day_"+i+"_done")==="true"){
       el.className="status done";el.textContent="✓";done++;
     }else{el.className="status todo";el.textContent="○";}
   }
-  document.getElementById("completed-count").textContent="已完成 "+done+"/"+total;
+  document.getElementById("completed-count").textContent="已完成 "+done+"/54";
   document.getElementById("progress-fill").style.width=Math.round(done/total*100)+"%";
 }
 window.onload=update;
