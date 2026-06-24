@@ -96,6 +96,14 @@ C  = {'math':'b','english':'g','chinese':'r','physics':'o','chemistry':'p','poli
 EMOJI = {'math':'📖','english':'🔤','chinese':'📖','physics':'⚡','chemistry':'🧪','politics':'🏛️','history':'📜'}
 SUBJ_CN = {'math':'数学','english':'英语','chinese':'语文','physics':'物理','chemistry':'化学','politics':'政治','history':'历史'}
 
+# ── 9th grade topics for (初三预习) tag ──
+GRADE9_TOPICS = {
+    'chemistry': {'物理变化与化学变化', '元素与原子', '化合价与化学式', '质量守恒定律', '化学方程式', '化学反应类型', '根据方程式计算', '空气与氧气', '水', '碳与碳的氧化物', '金属与溶液', '酸碱盐', '科学探究与实验', '化学与生活综合'},
+    'physics': {'电学', '磁现象与电磁', '热学', '电磁波与通信'},
+    'politics': {'改革开放与法治', '创新驱动与文明建设', '中国担当与梦想'},
+    'history': {'古代与中世纪文明', '近代欧洲与世界格局'},
+}
+
 # ── Daily encouraging quotes ──
 QUOTES = [
     "所有的逆袭，都是有备而来。",
@@ -659,7 +667,8 @@ def generate_all():
         
         # 5. Rotating subject section
         svg_list_rot = SVG_MAP.get(rot_subj, {}).get(rot_topic, [])
-        body_parts.append(h3(rot_subj, f'{SUBJ_CN.get(rot_subj, rot_subj)} · {rot_topic}'))
+        g9_tag = '<span style="color:#ff6b6b;font-size:11px;font-weight:600">（初三预习）</span>' if rot_subj=='chemistry' or (rot_subj in GRADE9_TOPICS and rot_topic in GRADE9_TOPICS.get(rot_subj, set())) else ''
+        body_parts.append(h3(rot_subj, f'{SUBJ_CN.get(rot_subj, rot_subj)} · {rot_topic} {g9_tag}'))
         body_parts.append(build_subject_section(rot_subj, rot_topic, svg_names=svg_list_rot))
         check_items.append(f'{rot_topic}理解 □')
         
@@ -851,7 +860,9 @@ def gen_syllabus():
             else:
                 day_links = '<span style="color:#ccc">—</span>'
             
-            body_rows += f'<tr><td style="padding:6px 14px;font-size:13px">{topic_name}</td>'
+            # Mark 9th grade topics
+            tag = '<span style="color:#e91e63;font-size:10px;font-weight:600">（初三预习）</span>' if subj in GRADE9_TOPICS and topic_name in GRADE9_TOPICS[subj] else ''
+            body_rows += f'<tr><td style="padding:6px 14px;font-size:13px">{topic_name} {tag}</td>'
             body_rows += f'<td style="padding:6px;font-size:12px;color:#888">{len(days)}天</td>'
             body_rows += f'<td style="padding:6px;font-size:11px">{day_links}</td>'
             go_link = f'<a href="days/day{days[0]:03d}.html" class="go-btn">▶</a>' if days else '<span style="color:#ccc">—</span>'
