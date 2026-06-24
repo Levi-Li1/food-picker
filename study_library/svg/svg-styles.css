@@ -1,0 +1,11 @@
+/* SVG图解库 - 各科核心概念可视化 */
+/* 每个SVG可直接嵌入HTML, viewBox="0 0 400 200" 统一尺寸 */
+
+.svg-number-line{text-align:center;margin:8px 0;background:#fafafa;border-radius:10px;padding:10px}
+.svg-number-line svg{max-width:100%;height:auto}
+
+/* 通用样式 */
+svg text{font-family:-apple-system,'PingFang SC',sans-serif}
+svg .axis{stroke:#999;stroke-width:1.5}
+svg .arrow{fill:none;stroke:#666;stroke-width:1.5;marker-end:url(#arrow)}
+svg .grid{stroke:#e5e5ea;stroke-width:0.5}
