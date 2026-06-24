@@ -229,16 +229,16 @@ def chinese_base_block(chars_list, idioms_list, xingsheng_item, yicuoxie_item, s
     shici_entries = shici_item['entries']  # list of entries
     
     h = '<div class="vocab-box" style="background:#fff8f0;border-color:#e8d5b7">'
-    h += '<p style="font-weight:700;color:#b45309;font-size:14px">📝 今日语文基础积累（5词语 + 5成语）</p>'
+    h += '<p style="font-weight:700;color:#b45309;font-size:14px">📝 今日语文基础积累（7词语 + 5成语）</p>'
     
     # ── 5 词语 ──
     h += '<table class="summ-table" style="margin-top:6px"><tr><th style="width:12%">类型</th><th style="width:18%">内容</th><th style="width:70%">详解</th></tr>'
     
-    # 1. 多音字 (1个)
-    if chars_list and len(chars_list) > 0:
-        ch = chars_list[0]
-        h += f'<tr><td style="font-size:11px;color:#b45309">多音字</td><td style="font-weight:700;font-size:13px">{ch[0]}</td>'
-        h += f'<td style="font-size:11px">音: <span style="color:var(--red)">{ch[1]}</span> · 义: {ch[3]} · 例: {ch[4]}</td></tr>'
+    # 1. 多音字 (3个，全量覆盖)
+    if chars_list:
+        for ch in chars_list[:3]:
+            h += f'<tr><td style="font-size:11px;color:#b45309">多音字</td><td style="font-weight:700;font-size:13px">{ch[0]}</td>'
+            h += f'<td style="font-size:11px">音: <span style="color:var(--red)">{ch[1]}</span> · 义: {ch[3]} · 例: {ch[4]}</td></tr>'
     
     # 2. 形声字 (1个)
     if xingsheng_item:
@@ -643,16 +643,16 @@ def generate_all():
             check_items.append(f'《{ww_title}》文言背诵 □')
         
         # Chinese words accumulation (EVERY day: 5 词语 + 5 成语)
-        ci = (day_num - 1) % len(CHARS)
+        ci = (day_num - 1) * 3 % len(CHARS)  # 3 chars per day to cover all 136
         ii = (day_num - 1) * 5 % len(IDIOMS)
         xi = (day_num - 1) % len(XINGSHENG)
-        yi = (day_num - 1) % len(YICUOXIE)
+        yi = (day_num - 1) * 2 % len(YICUOXIE)  # step 2 for better coverage
         
         # SHICI: rotate through 通假字/古今异义/一词多义/词类活用
         shici_types = list(SHICI.keys())
         si_type = shici_types[(day_num - 1) % len(shici_types)]
         si_list = SHICI[si_type]
-        si_idx = (day_num - 1) % len(si_list)
+        si_idx = (day_num - 1) * 2 % len(si_list)  # step 2 to cover more entries
         
         # XUCI: rotate through 虚词 keys (之/而/以/于/其/为/乃/则/焉/乎)
         xuci_keys = list(XUCI.keys())
@@ -661,10 +661,10 @@ def generate_all():
         xu_idx = (day_num - 1) % len(xu_list)
         
         # Build items for today
-        todays_chars = [CHARS[ci]] if CHARS else []
+        todays_chars = [CHARS[(ci + j) % len(CHARS)] for j in range(3)] if CHARS else []  # 3 chars/day for full coverage
         todays_xingsheng = XINGSHENG[xi] if XINGSHENG else None
         todays_yicuoxie = YICUOXIE[yi] if YICUOXIE else None
-        todays_shici = {'type': si_type, 'entries': [si_list[si_idx]]}
+        todays_shici = {'type': si_type, 'entries': [si_list[(si_idx + j) % len(si_list)] for j in range(2)]}  # 2 entries per day
         todays_xuci = xu_list[xu_idx] if xu_list else None
         
         # 5 idioms
