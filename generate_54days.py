@@ -196,7 +196,7 @@ def vocab_block(words):
         # Play button with inline SVG (guaranteed cross-platform rendering)
         safe_wi = wi.replace("'", "\\'")
         svg_play = '<svg viewBox="0 0 24 24" width="12" height="12" fill="white"><polygon points="6,4 20,12 6,20"/></svg>'
-        btn = f'<button onclick="speak(\'{safe_wi}\')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0" title="点击播放发音">{svg_play}</button>'
+        btn = f'<button onclick="speak(\'{safe_wi}\',this)" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0;transition:all 0.2s" title="点击播放发音">{svg_play}</button>'
         h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">'
         h += f'<span style="color:#999;min-width:18px;font-size:10px;line-height:22px">{i+1}.</span>'
         h += f'<b style="color:#1d1d1f;min-width:65px;line-height:22px">{wi}</b>'
@@ -508,7 +508,7 @@ def day_template(num, month, day, wd, subjects, goal, body, check, prev, next_):
     prev_h = f'<a href="day{prev:03d}.html" class="prev">← Day {prev}</a>' if prev else '<span></span>'
     next_h = f'<a href="day{next_:03d}.html" class="next">Day {next_} →</a>' if next_ else '<span></span>'
     js = f'''<script>
-function speak(t){{try{{if(!window.speechSynthesis){{alert("当前浏览器不支持语音播放，请使用Chrome/Edge浏览器。");return;}}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;window.speechSynthesis.speak(u);}}catch(e){{alert("播放失败:"+e.message);}}}}
+function speak(t,btn){{try{{if(!window.speechSynthesis){{alert("当前浏览器不支持语音播放，请使用Chrome/Edge浏览器。");return;}}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;u.onstart=function(){{if(btn){{btn.style.background="#34c759";btn.style.transform="scale(1.2)";btn.style.boxShadow="0 0 12px rgba(52,199,89,0.7)";}}}};u.onend=function(){{if(btn){{btn.style.background="var(--blue)";btn.style.transform="scale(1)";btn.style.boxShadow="none";}}}};window.speechSynthesis.speak(u);}}catch(e){{alert("播放失败:"+e.message);}}}}
 function showAns(b){{var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}}
 function toggleComplete(dn){{var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){{localStorage.setItem("day_"+dn+"_done","true");btn.className="complete-btn done";btn.textContent="已完成✓";}}else{{localStorage.setItem("day_"+dn+"_done","false");btn.className="complete-btn todo";btn.textContent="标记完成";}}}}
 window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成✓";}}}}
