@@ -49,7 +49,8 @@ CSS = '''
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:14px}
 .container{max-width:800px;margin:0 auto;padding:0 12px}
-.topbar{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.topbar{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;gap:8px}
+.topbar .quote{font-size:12px;opacity:.85;font-style:italic;flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .day-card{border:2px solid #e5e5ea;background:var(--card);border-radius:14px;margin-bottom:16px;overflow:hidden}
 .dhead{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
 .dnum{font-size:24px;font-weight:800}.dinfo{text-align:right;font-size:12px;opacity:.9}
@@ -85,6 +86,8 @@ h3{font-size:15px;display:flex;align-items:center;gap:6px;margin-top:12px}
 .nav-links .next{background:var(--blue);color:#fff}
 .svg-wrap{text-align:center;margin:8px 0;background:#fafafa;border-radius:8px;padding:6px}
 .svg-wrap svg{max-width:100%;height:auto}
+.quote{text-align:center;font-size:13px;color:#fff;background:rgba(255,255,255,0.15);padding:6px 12px;border-radius:8px;margin-top:6px;font-style:italic}
+.watermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);font-size:60px;font-weight:900;color:rgba(0,0,0,0.03);pointer-events:none;z-index:9999;white-space:nowrap;user-select:none;letter-spacing:8px}
 '''
 
 # ── Color / Emoji maps ──
@@ -92,6 +95,64 @@ CM = {'b':'var(--blue)','o':'var(--orange)','g':'var(--green)','p':'var(--purple
 C  = {'math':'b','english':'g','chinese':'r','physics':'o','chemistry':'p','politics':'e','history':'k'}
 EMOJI = {'math':'📖','english':'🔤','chinese':'📖','physics':'⚡','chemistry':'🧪','politics':'🏛️','history':'📜'}
 SUBJ_CN = {'math':'数学','english':'英语','chinese':'语文','physics':'物理','chemistry':'化学','politics':'政治','history':'历史'}
+
+# ── Daily encouraging quotes ──
+QUOTES = [
+    "所有的逆袭，都是有备而来。",
+    "今天不走，明天要跑。",
+    "乾坤未定，你我皆是黑马。",
+    "自律是最高级的自由。",
+    "熬过无人问津的日子，才能拥抱诗和远方。",
+    "努力是会上瘾的，尤其是在尝到甜头之后。",
+    "你有多努力，就有多特殊。",
+    "不拼一把，怎么知道自己是人是神？",
+    "将来的你，会感谢现在拼命的自己。",
+    "每天进步一点点，坚持带来大改变。",
+    "世界上最大的谎言就是你不行。",
+    "半山腰太挤了，我想去山顶看看。",
+    "星光不问赶路人，时光不负有心人。",
+    "你的潜力远比你想象的大。",
+    "不要假装很努力，因为结果不会陪你演戏。",
+    "既然选择了远方，便只顾风雨兼程。",
+    "你必须要非常努力，才能看起来毫不费力。",
+    "读书是为了遇见更好的自己。",
+    "每一个优秀的人，都有一段沉默的时光。",
+    "没有什么天生如此，只是我们天天坚持。",
+    "奇迹是努力的另一个名字。",
+    "今天不吃学习的苦，明天就吃生活的苦。",
+    "所有的不甘，都是因为还在心怀梦想。",
+    "努力到无能为力，拼搏到感动自己。",
+    "你背单词时，阿拉斯加的鳕鱼正跃出水面。",
+    "别让未来的你，讨厌现在的自己。",
+    "怕什么真理无穷，进一寸有进一寸的欢喜。",
+    "想要人前显贵，必先人后受罪。",
+    "你只管努力，剩下的交给时间。",
+    "最怕你一生碌碌无为，还安慰自己平凡可贵。",
+    "只要路是对的，就不怕路远。",
+    "坚持是世界上最简单也最困难的事。",
+    "不要让你的梦想，只是想想而已。",
+    "哪有什么一夜成名，其实都是百炼成钢。",
+    "天赋决定起点，努力决定终点。",
+    "你流过的每一滴汗，都在浇灌未来的花。",
+    "今天少刷一题，明天多流一滴泪。",
+    "优秀是一种习惯，放弃是一种习惯。",
+    "乾坤未定，你我皆是黑马；乾坤已定，那就扭转乾坤。",
+    "没有什么能够阻挡，你对自由的向往。",
+    "成功的路上并不拥挤，因为坚持的人不多。",
+    "你现在的努力，是为了以后有更多选择的权利。",
+    "梦想还是要有的，万一实现了呢？",
+    "每一个不曾起舞的日子，都是对生命的辜负。",
+    "既然选择了远方，便只顾风雨兼程。",
+    "你生而有翼，为何愿一生匍匐前行？",
+    "种一棵树最好的时间是十年前，其次是现在。",
+    "不要在最该奋斗的年纪选择安逸。",
+    "你必须去努力，因为身后空无一人。",
+    "努力的意义就是：当好运降临在自己身上时，你会觉得'我配'。",
+    "你所浪费的今天，是昨天死去的人奢望的明天。",
+    "没有伞的孩子，必须努力奔跑。",
+    "所有的光芒，都需要时间才能被看到。",
+    "最后一公里最难走，但也是最接近成功的地方。",
+]
 
 # ── Helper functions ──
 def h3(subj, text):
@@ -124,8 +185,8 @@ def vocab_block(words):
     h = '<div class="vocab-box"><p style="font-weight:700">📖 今日词汇（词典格式）</p>'
     for i, w in enumerate(words):
         wi, ipa, pos, meaning, ex, trans = w if len(w) >= 6 else (w[0],'','','','','')
-        # SVG play button (consistent rendering across all platforms)
-        btn = f'<button onclick="speak(\'{wi}\')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0" title="点击发音">{chr(9654)}</button>'
+        # SVG play button (triangle icon, consistent rendering)
+        btn = f'<button onclick="speak(\'{wi}\')" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0;font-size:12px;line-height:1" title="点击播放发音">{chr(9654)}</button>'
         h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">'
         h += f'<span style="color:#999;min-width:18px;font-size:10px;line-height:22px">{i+1}.</span>'
         h += f'<b style="color:#1d1d1f;min-width:65px;line-height:22px">{wi}</b>'
@@ -437,14 +498,15 @@ def day_template(num, month, day, wd, subjects, goal, body, check, prev, next_):
     prev_h = f'<a href="day{prev:03d}.html" class="prev">← Day {prev}</a>' if prev else '<span></span>'
     next_h = f'<a href="day{next_:03d}.html" class="next">Day {next_} →</a>' if next_ else '<span></span>'
     js = f'''<script>
-function speak(t){{if(window.speechSynthesis){{window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.7;window.speechSynthesis.speak(u);}}}}
+function speak(t){{try{{if(!window.speechSynthesis){{alert("当前浏览器不支持语音播放，请使用Chrome/Edge浏览器。");return;}}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;window.speechSynthesis.speak(u);}}catch(e){{alert("播放失败:"+e.message);}}}}
 function showAns(b){{var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}}
-function toggleComplete(dn){{var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){{localStorage.setItem("day_"+dn+"_done","true");btn.className="complete-btn done";btn.textContent="已完成";}}else{{localStorage.setItem("day_"+dn+"_done","false");btn.className="complete-btn todo";btn.textContent="标记完成";}}}}
-window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成";}}}}
+function toggleComplete(dn){{var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){{localStorage.setItem("day_"+dn+"_done","true");btn.className="complete-btn done";btn.textContent="已完成✓";}}else{{localStorage.setItem("day_"+dn+"_done","false");btn.className="complete-btn todo";btn.textContent="标记完成";}}}}
+window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成✓";}}}}
 </script>'''
     return f'''<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>暑假逆袭 · Day {num}</title><style>{CSS}</style></head><body>
-<div class="topbar"><span class="title">Day {num} · {month}月{day}日 {wd}</span><a href="../index.html">📋 目录</a></div>
+<div class="watermark">顾辰泰 加油</div>
+<div class="topbar"><span class="title">Day {num} · {month}月{day}日 {wd}</span><span class="quote">💪{QUOTES[(num-1) % len(QUOTES)]}</span><a href="../index.html">📋 目录</a></div>
 <div class="container">
 <div class="day-card"><div class="dhead"><div class="dnum">Day {num}</div><div class="dinfo"><div>{month}月{day}日 {wd}</div><div>{subjects}</div></div></div>
 <div class="dbody"><div class="goal"><b>今日目标</b>：{goal}</div>{body}<div class="check"><b>今日达标检查</b>：<br>{check}</div></div>
