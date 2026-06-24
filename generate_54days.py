@@ -217,9 +217,9 @@ def vocab_block(words):
 def phrases_block(phrases):
     if not phrases:
         return ''
-    h = '<div class="phrases-box"><p style="font-weight:700">🔗 今日短语搭配</p>'
+    h = '<div class="phrases-box"><p style="font-weight:700">🔗 今日短语搭配（' + str(len(phrases)) + '条）</p>'
     for i, p in enumerate(phrases):
-        h += f'<div style="padding:2px 0;font-size:12px"><b>{p[0]}</b> /{p[1]}/ {p[2]} {p[3]} — {p[4]}</div>'
+        h += f'<div style="padding:4px 0;font-size:12px;border-bottom:1px dotted #e0d0f0"><b>{p[0]}</b> <span style="color:var(--sub);font-size:11px">/ {p[1]} /</span> <span style="color:var(--purple)">{p[3]}</span><br><span style="color:#666;font-size:11px">{p[4]} ({p[5]})</span></div>'
     return h + '</div>'
 
 def chinese_base_block(chars_list, idioms_list, xingsheng_item, yicuoxie_item, shici_item, xuci_item):
@@ -554,9 +554,10 @@ def generate_all():
         vi = (day_num - 1) * WORDS_PER_DAY
         todays_vocab = VOCAB[vi : vi + WORDS_PER_DAY]
         
-        # Get phrases (spread ~1 per day, 47 phrases / 54 days)
-        pi = (day_num - 1) % len(PHRASES)
-        todays_phrase = [PHRASES[pi]] if PHRASES else []
+        # Get phrases: 4 per day for full coverage (213/54 ≈ 4)
+        phrases_per_day = 4
+        pi_start = (day_num - 1) * phrases_per_day % len(PHRASES)
+        todays_phrase = [PHRASES[(pi_start + i) % len(PHRASES)] for i in range(phrases_per_day)] if PHRASES else []
         
         # Build subject sections
         body_parts = []

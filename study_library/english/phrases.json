@@ -27,7 +27,7 @@
     "look up",
     "lʊk ʌp",
     "phr.v.",
-    "查字典",
+    "查阅；向上看",
     "Look up this word in the dictionary.",
     "在字典里查这个词。"
   ],
@@ -40,116 +40,84 @@
     "我期待见到你。"
   ],
   [
-    "look into",
-    "lʊk ˈɪn.tuː",
+    "look like",
+    "lʊk laɪk",
     "phr.v.",
-    "调查",
-    "The police are looking into the case.",
-    "警方正在调查此案。"
+    "看起来像",
+    "You look like your mother.",
+    "你看起来像你妈妈。"
   ],
   [
     "look out",
     "lʊk aʊt",
     "phr.v.",
-    "小心",
-    "Look out! There is a car coming.",
+    "小心；向外看",
+    "Look out! There's a car coming.",
     "小心！有车来了。"
   ],
   [
-    "look down on",
-    "lʊk daʊn ɒn",
+    "look through",
+    "lʊk θruː",
     "phr.v.",
-    "看不起",
-    "Don't look down on others.",
-    "不要看不起别人。"
-  ],
-  [
-    "take care of",
-    "teɪk keər ɒv",
-    "phr.v.",
-    "照顾",
-    "Take care of yourself.",
-    "照顾好自己。"
-  ],
-  [
-    "take part in",
-    "teɪk pɑːrt ɪn",
-    "phr.v.",
-    "参加",
-    "Let's take part in the game.",
-    "我们参加游戏吧。"
-  ],
-  [
-    "take place",
-    "teɪk pleɪs",
-    "phr.v.",
-    "发生",
-    "The meeting will take place tomorrow.",
-    "会议明天举行。"
-  ],
-  [
-    "take pride in",
-    "teɪk praɪd ɪn",
-    "phr.v.",
-    "以…为傲",
-    "She takes pride in her work.",
-    "她为自己的工作感到骄傲。"
-  ],
-  [
-    "take off",
-    "teɪk ɒf",
-    "phr.v.",
-    "起飞/脱下",
-    "The plane takes off at 8am.",
-    "飞机早上8点起飞。"
-  ],
-  [
-    "take up",
-    "teɪk ʌp",
-    "phr.v.",
-    "开始从事",
-    "He took up painting last year.",
-    "他去年开始画画。"
-  ],
-  [
-    "take after",
-    "teɪk ˈæf.tər",
-    "phr.v.",
-    "像",
-    "She takes after her mother.",
-    "她像她妈妈。"
+    "浏览；翻阅",
+    "Look through the article quickly.",
+    "快速浏览这篇文章。"
   ],
   [
     "get up",
     "ɡet ʌp",
     "phr.v.",
     "起床",
-    "I get up at 6am every day.",
-    "我每天6点起床。"
+    "I get up at 6 o'clock every day.",
+    "我每天早上六点起床。"
   ],
   [
     "get along with",
     "ɡet əˈlɒŋ wɪð",
     "phr.v.",
-    "与…相处",
-    "Do you get along with your classmates?",
-    "你和同学相处得好吗？"
+    "与……相处",
+    "She gets along with everyone.",
+    "她和每个人都相处得很好。"
+  ],
+  [
+    "get together",
+    "ɡet təˈɡeðər",
+    "phr.v.",
+    "聚会",
+    "We get together on weekends.",
+    "我们周末聚会。"
   ],
   [
     "get ready for",
-    "ɡet ˈred.i fɔːr",
+    "ɡet ˈredi fɔːr",
     "phr.v.",
-    "为…做准备",
+    "为……做准备",
     "Get ready for the exam.",
     "为考试做准备。"
+  ],
+  [
+    "get to",
+    "ɡet tuː",
+    "phr.v.",
+    "到达",
+    "What time do you get to school?",
+    "你什么时候到学校？"
+  ],
+  [
+    "get on/off",
+    "ɡet ɒn/ɒf",
+    "phr.v.",
+    "上/下车",
+    "Get off the bus at the next stop.",
+    "在下一站下车。"
   ],
   [
     "get rid of",
     "ɡet rɪd ɒv",
     "phr.v.",
-    "摆脱",
-    "You should get rid of bad habits.",
-    "你应该改掉坏习惯。"
+    "摆脱；去除",
+    "Get rid of bad habits.",
+    "改掉坏习惯。"
   ],
   [
     "get lost",
@@ -157,37 +125,109 @@
     "phr.v.",
     "迷路",
     "Don't get lost in the forest.",
-    "别在森林里迷路。"
+    "不要在森林里迷路。"
   ],
   [
-    "get together",
-    "ɡet təˈɡeð.ər",
+    "get married",
+    "ɡet ˈmæriːd",
     "phr.v.",
-    "聚会",
-    "Let's get together this weekend.",
-    "我们这个周末聚一聚。"
+    "结婚",
+    "They got married last year.",
+    "他们去年结婚了。"
+  ],
+  [
+    "take part in",
+    "teɪk pɑːrt ɪn",
+    "phr.v.",
+    "参加",
+    "Take part in the sports meeting.",
+    "参加运动会。"
+  ],
+  [
+    "take care of",
+    "teɪk keər ɒv",
+    "phr.v.",
+    "照顾；处理",
+    "Take care of yourself.",
+    "照顾好自己。"
+  ],
+  [
+    "take place",
+    "teɪk pleɪs",
+    "phr.v.",
+    "发生；举行",
+    "The concert will take place tomorrow.",
+    "音乐会明天举行。"
+  ],
+  [
+    "take off",
+    "teɪk ɒf",
+    "phr.v.",
+    "起飞；脱下",
+    "The plane took off at 8 a.m.",
+    "飞机在早上八点起飞。"
+  ],
+  [
+    "take away",
+    "teɪk əˈweɪ",
+    "phr.v.",
+    "拿走；带走",
+    "Take away the empty plates.",
+    "把空盘子收走。"
+  ],
+  [
+    "take down",
+    "teɪk daʊn",
+    "phr.v.",
+    "记下；拆除",
+    "Take down the important points.",
+    "记下重要内容。"
+  ],
+  [
+    "take turns",
+    "teɪk tɜːrnz",
+    "phr.v.",
+    "轮流",
+    "Take turns reading the text.",
+    "轮流朗读课文。"
+  ],
+  [
+    "take it easy",
+    "teɪk ɪt ˈiːzi",
+    "phr.v.",
+    "别紧张；放轻松",
+    "Take it easy before the exam.",
+    "考试前放轻松。"
+  ],
+  [
+    "take photos",
+    "teɪk ˈfoʊtoʊz",
+    "phr.v.",
+    "拍照",
+    "We took photos in the park.",
+    "我们在公园拍了照片。"
   ],
   [
     "put on",
     "pʊt ɒn",
     "phr.v.",
-    "穿上/上演",
-    "Put on your coat. It is cold.",
-    "穿上外套，天冷。"
+    "穿上；上演",
+    "Put on your coat, it's cold.",
+    "穿上外套，天冷了。"
   ],
   [
     "put off",
     "pʊt ɒf",
     "phr.v.",
-    "推迟",
-    "Don't put off your homework.",
-    "别推迟做作业。"
+    "推迟；拖延",
+    "Don't put off today's work.",
+    "不要把今天的工作推迟。"
   ],
   [
     "put away",
     "pʊt əˈweɪ",
     "phr.v.",
-    "收好",
+    "收拾；放好",
     "Put away your toys.",
     "把你的玩具收好。"
   ],
@@ -195,184 +235,1472 @@
     "put up",
     "pʊt ʌp",
     "phr.v.",
-    "张贴/搭建",
-    "Put up the picture on the wall.",
-    "把画挂在墙上。"
+    "张贴；搭建",
+    "Put up the tent in the yard.",
+    "在院子里搭帐篷。"
   ],
   [
     "put out",
     "pʊt aʊt",
     "phr.v.",
-    "扑灭",
-    "The firefighters put out the fire.",
-    "消防员扑灭了大火。"
+    "熄灭；扑灭",
+    "Put out the fire before leaving.",
+    "离开前把火熄灭。"
+  ],
+  [
+    "put down",
+    "pʊt daʊn",
+    "phr.v.",
+    "放下；写下",
+    "Put down your name here.",
+    "在这里写下你的名字。"
+  ],
+  [
+    "put into",
+    "pʊt ˈɪntuː",
+    "phr.v.",
+    "把……放进；投入",
+    "Put your heart into your study.",
+    "把心思投入到学习中去。"
   ],
   [
     "turn on",
     "tɜːrn ɒn",
     "phr.v.",
-    "打开",
-    "Turn on the light, please.",
-    "请开灯。"
+    "打开（开关）",
+    "Turn on the lights, please.",
+    "请打开灯。"
   ],
   [
     "turn off",
     "tɜːrn ɒf",
     "phr.v.",
-    "关闭",
+    "关闭（开关）",
     "Turn off the TV before sleeping.",
-    "睡前关电视。"
+    "睡觉前关掉电视。"
   ],
   [
     "turn up",
     "tɜːrn ʌp",
     "phr.v.",
-    "调大/出现",
+    "调大音量；出现",
     "Turn up the radio, please.",
-    "请把收音机调大。"
+    "请把收音机音量调大。"
   ],
   [
     "turn down",
     "tɜːrn daʊn",
     "phr.v.",
-    "调小/拒绝",
-    "He turned down my offer.",
-    "他拒绝了我的提议。"
+    "调低；拒绝",
+    "He turned down the invitation.",
+    "他拒绝了邀请。"
   ],
   [
     "turn into",
-    "tɜːrn ˈɪn.tuː",
+    "tɜːrn ˈɪntuː",
     "phr.v.",
     "变成",
-    "Water turns into ice.",
-    "水变成冰。"
+    "Water turns into ice at 0°C.",
+    "水在零度变成冰。"
   ],
   [
-    "do one's best",
-    "duː wʌnz best",
-    "phr.",
-    "尽力而为",
-    "Do your best in the exam.",
-    "考试尽力而为。"
+    "turn around",
+    "tɜːrn əˈraʊnd",
+    "phr.v.",
+    "转身；转身",
+    "Turn around and look at me.",
+    "转过身看着我。"
+  ],
+  [
+    "come from",
+    "kʌm frɒm",
+    "phr.v.",
+    "来自",
+    "She comes from China.",
+    "她来自中国。"
+  ],
+  [
+    "come back",
+    "kʌm bæk",
+    "phr.v.",
+    "回来",
+    "Come back before 9 p.m.",
+    "晚上九点前回来。"
+  ],
+  [
+    "come true",
+    "kʌm truː",
+    "phr.v.",
+    "实现",
+    "Your dream will come true.",
+    "你的梦想会实现的。"
+  ],
+  [
+    "come up with",
+    "kʌm ʌp wɪð",
+    "phr.v.",
+    "想出；提出",
+    "Come up with a good idea.",
+    "想出一个好主意。"
+  ],
+  [
+    "come on",
+    "kʌm ɒn",
+    "phr.v.",
+    "加油；快点",
+    "Come on! You can do it!",
+    "加油！你能做到的！"
+  ],
+  [
+    "come out",
+    "kʌm aʊt",
+    "phr.v.",
+    "出来；出版",
+    "The book came out last month.",
+    "这本书上个月出版了。"
+  ],
+  [
+    "come over",
+    "kʌm ˈoʊvər",
+    "phr.v.",
+    "拜访；过来",
+    "Come over to my house.",
+    "来我家玩吧。"
+  ],
+  [
+    "go on",
+    "ɡoʊ ɒn",
+    "phr.v.",
+    "继续",
+    "Go on with your story.",
+    "继续讲你的故事。"
+  ],
+  [
+    "go out",
+    "ɡoʊ aʊt",
+    "phr.v.",
+    "出去；熄灭",
+    "Let's go out for a walk.",
+    "我们出去散散步吧。"
+  ],
+  [
+    "go back",
+    "ɡoʊ bæk",
+    "phr.v.",
+    "回去",
+    "Go back to your seat.",
+    "回到你的座位上去。"
+  ],
+  [
+    "go over",
+    "ɡoʊ ˈoʊvər",
+    "phr.v.",
+    "复习；检查",
+    "Go over your notes after class.",
+    "课后复习你的笔记。"
+  ],
+  [
+    "go through",
+    "ɡoʊ θruː",
+    "phr.v.",
+    "经历；仔细检查",
+    "Go through the list carefully.",
+    "仔细检查清单。"
+  ],
+  [
+    "go shopping",
+    "ɡoʊ ˈʃɒpɪŋ",
+    "phr.v.",
+    "购物",
+    "We went shopping yesterday.",
+    "我们昨天去购物了。"
+  ],
+  [
+    "go swimming",
+    "ɡoʊ ˈswɪmɪŋ",
+    "phr.v.",
+    "去游泳",
+    "I go swimming every summer.",
+    "我每年夏天去游泳。"
+  ],
+  [
+    "go to bed",
+    "ɡoʊ tuː bed",
+    "phr.v.",
+    "上床睡觉",
+    "Go to bed before 10 p.m.",
+    "晚上十点前上床睡觉。"
+  ],
+  [
+    "go to school",
+    "ɡoʊ tuː skuːl",
+    "phr.v.",
+    "上学",
+    "I go to school by bus.",
+    "我坐公车去上学。"
+  ],
+  [
+    "go wrong",
+    "ɡoʊ rɒŋ",
+    "phr.v.",
+    "出问题；出错",
+    "Something went wrong with my phone.",
+    "我的手机出问题了。"
+  ],
+  [
+    "make sure",
+    "meɪk ʃʊr",
+    "phr.v.",
+    "确保",
+    "Make sure the door is locked.",
+    "确保门锁好了。"
+  ],
+  [
+    "make up",
+    "meɪk ʌp",
+    "phr.v.",
+    "编造；组成",
+    "Don't make up stories.",
+    "不要编故事。"
+  ],
+  [
+    "make friends with",
+    "meɪk frendz wɪð",
+    "phr.v.",
+    "和……交朋友",
+    "Make friends with your classmates.",
+    "和你的同学交朋友。"
+  ],
+  [
+    "make a decision",
+    "meɪk ə dɪˈsɪʒən",
+    "phr.v.",
+    "做决定",
+    "Make a wise decision.",
+    "做一个明智的决定。"
+  ],
+  [
+    "make a mistake",
+    "meɪk ə mɪˈsteɪk",
+    "phr.v.",
+    "犯错误",
+    "Don't be afraid to make mistakes.",
+    "不要害怕犯错误。"
+  ],
+  [
+    "make progress",
+    "meɪk ˈprɒɡres",
+    "phr.v.",
+    "取得进步",
+    "You have made great progress.",
+    "你取得了很大的进步。"
   ],
   [
     "make a difference",
-    "meɪk ə ˈdɪf.ər.əns",
-    "phr.",
-    "有影响",
-    "Every little thing makes a difference.",
-    "每件小事都有影响。"
+    "meɪk ə ˈdɪfərəns",
+    "phr.v.",
+    "有影响；起作用",
+    "Every little effort makes a difference.",
+    "每一点努力都会有作用。"
   ],
   [
-    "make up one's mind",
-    "meɪk ʌp wʌnz maɪnd",
-    "phr.",
-    "下定决心",
-    "Make up your mind quickly.",
-    "快点下决心。"
+    "make sense",
+    "meɪk sens",
+    "phr.v.",
+    "有意义；讲得通",
+    "This sentence doesn't make sense.",
+    "这个句子讲不通。"
   ],
   [
-    "by the way",
-    "baɪ ðə weɪ",
-    "phr.",
-    "顺便说一下",
-    "By the way, what is your name?",
-    "顺便问一下，你叫什么？"
+    "give up",
+    "ɡɪv ʌp",
+    "phr.v.",
+    "放弃",
+    "Never give up your dream.",
+    "永远不要放弃你的梦想。"
+  ],
+  [
+    "give out",
+    "ɡɪv aʊt",
+    "phr.v.",
+    "分发；耗尽",
+    "Give out the exam papers.",
+    "分发试卷。"
+  ],
+  [
+    "give away",
+    "ɡɪv əˈweɪ",
+    "phr.v.",
+    "赠送；泄露",
+    "Give away old clothes to charity.",
+    "把旧衣服捐给慈善机构。"
+  ],
+  [
+    "give back",
+    "ɡɪv bæk",
+    "phr.v.",
+    "归还",
+    "Give back the book to the library.",
+    "把书还给图书馆。"
+  ],
+  [
+    "give a speech",
+    "ɡɪv ə spiːtʃ",
+    "phr.v.",
+    "做演讲",
+    "He gave a speech at the meeting.",
+    "他在会议上做了演讲。"
+  ],
+  [
+    "keep on",
+    "kiːp ɒn",
+    "phr.v.",
+    "继续",
+    "Keep on trying, you'll succeed.",
+    "继续努力，你会成功的。"
+  ],
+  [
+    "keep away from",
+    "kiːp əˈweɪ frɒm",
+    "phr.v.",
+    "远离",
+    "Keep away from the fire.",
+    "远离火源。"
+  ],
+  [
+    "keep in touch with",
+    "kiːp ɪn tʌtʃ wɪð",
+    "phr.v.",
+    "保持联系",
+    "Keep in touch with me.",
+    "和我保持联系。"
+  ],
+  [
+    "keep quiet",
+    "kiːp ˈkwaɪət",
+    "phr.v.",
+    "保持安静",
+    "Keep quiet in the library.",
+    "在图书馆保持安静。"
+  ],
+  [
+    "keep doing",
+    "kiːp ˈduːɪŋ",
+    "phr.v.",
+    "持续做某事",
+    "Keep learning English every day.",
+    "每天坚持学英语。"
+  ],
+  [
+    "set up",
+    "set ʌp",
+    "phr.v.",
+    "建立；设立",
+    "Set up a new club at school.",
+    "在学校建立一个新的俱乐部。"
+  ],
+  [
+    "set off",
+    "set ɒf",
+    "phr.v.",
+    "出发；动身",
+    "We set off early in the morning.",
+    "我们一大早就出发了。"
+  ],
+  [
+    "set out",
+    "set aʊt",
+    "phr.v.",
+    "出发；着手",
+    "Set out to solve the problem.",
+    "着手解决这个问题。"
+  ],
+  [
+    "find out",
+    "faɪnd aʊt",
+    "phr.v.",
+    "查明；发现",
+    "Find out the truth.",
+    "查明真相。"
+  ],
+  [
+    "work out",
+    "wɜːrk aʊt",
+    "phr.v.",
+    "解决；锻炼",
+    "Work out a plan together.",
+    "一起制定一个计划。"
+  ],
+  [
+    "try on",
+    "traɪ ɒn",
+    "phr.v.",
+    "试穿",
+    "Try on this dress.",
+    "试穿这条裙子。"
+  ],
+  [
+    "try out",
+    "traɪ aʊt",
+    "phr.v.",
+    "试用；选拔",
+    "Try out for the school team.",
+    "参加校队选拔。"
+  ],
+  [
+    "try one's best",
+    "traɪ wʌnz best",
+    "phr.v.",
+    "尽某人最大努力",
+    "Try your best to do it well.",
+    "尽力把它做好。"
+  ],
+  [
+    "be late for",
+    "biː leɪt fɔːr",
+    "phr.v.",
+    "迟到",
+    "Don't be late for class.",
+    "上课不要迟到。"
+  ],
+  [
+    "be good at",
+    "biː ɡʊd æt",
+    "phr.v.",
+    "擅长",
+    "She is good at playing the piano.",
+    "她擅长弹钢琴。"
+  ],
+  [
+    "be interested in",
+    "biː ˈɪntrəstɪd ɪn",
+    "phr.v.",
+    "对……感兴趣",
+    "I am interested in science.",
+    "我对科学感兴趣。"
+  ],
+  [
+    "be afraid of",
+    "biː əˈfreɪd ɒv",
+    "phr.v.",
+    "害怕",
+    "Don't be afraid of making mistakes.",
+    "不要害怕犯错。"
+  ],
+  [
+    "be proud of",
+    "biː praʊd ɒv",
+    "phr.v.",
+    "以……为自豪",
+    "I am proud of my country.",
+    "我为我的国家感到自豪。"
+  ],
+  [
+    "be famous for",
+    "biː ˈfeɪməs fɔːr",
+    "phr.v.",
+    "以……闻名",
+    "China is famous for the Great Wall.",
+    "中国因长城而闻名。"
+  ],
+  [
+    "be covered with",
+    "biː ˈkʌvərd wɪð",
+    "phr.v.",
+    "被……覆盖",
+    "The mountain is covered with snow.",
+    "山被雪覆盖着。"
+  ],
+  [
+    "be used to",
+    "biː juːzd tuː",
+    "phr.v.",
+    "习惯于",
+    "I am used to getting up early.",
+    "我习惯了早起。"
+  ],
+  [
+    "be known as",
+    "biː noʊn æz",
+    "phr.v.",
+    "作为……知名",
+    "He is known as a great scientist.",
+    "他以伟大的科学家而闻名。"
+  ],
+  [
+    "be made of",
+    "biː meɪd ɒv",
+    "phr.v.",
+    "由……制成（可见原材料）",
+    "The bag is made of leather.",
+    "这个包是皮革做的。"
+  ],
+  [
+    "be made from",
+    "biː meɪd frɒm",
+    "phr.v.",
+    "由……制成（不可见原材料）",
+    "Paper is made from wood.",
+    "纸是用木头制成的。"
+  ],
+  [
+    "pick up",
+    "pɪk ʌp",
+    "phr.v.",
+    "捡起；接人",
+    "Pick up the trash on the floor.",
+    "捡起地上的垃圾。"
+  ],
+  [
+    "show up",
+    "ʃoʊ ʌp",
+    "phr.v.",
+    "出现；露面",
+    "He didn't show up at the party.",
+    "他没有在聚会上出现。"
+  ],
+  [
+    "grow up",
+    "ɡroʊ ʌp",
+    "phr.v.",
+    "成长；长大",
+    "What do you want to be when you grow up?",
+    "你长大后想做什么？"
+  ],
+  [
+    "depend on",
+    "dɪˈpend ɒn",
+    "phr.v.",
+    "取决于；依靠",
+    "It depends on the weather.",
+    "这取决于天气。"
+  ],
+  [
+    "think of",
+    "θɪŋk ɒv",
+    "phr.v.",
+    "想起；认为",
+    "What do you think of the movie?",
+    "你觉得这部电影怎么样？"
+  ],
+  [
+    "think about",
+    "θɪŋk əˈbaʊt",
+    "phr.v.",
+    "考虑",
+    "Think about your future.",
+    "考虑一下你的未来。"
+  ],
+  [
+    "think over",
+    "θɪŋk ˈoʊvər",
+    "phr.v.",
+    "仔细思考",
+    "Think over my suggestion.",
+    "仔细考虑我的建议。"
+  ],
+  [
+    "hear from",
+    "hɪr frɒm",
+    "phr.v.",
+    "收到……的来信",
+    "I heard from my pen pal.",
+    "我收到了笔友的来信。"
+  ],
+  [
+    "hear of",
+    "hɪr ɒv",
+    "phr.v.",
+    "听说",
+    "I have heard of that story.",
+    "我听说过那个故事。"
+  ],
+  [
+    "hear about",
+    "hɪr əˈbaʊt",
+    "phr.v.",
+    "听说关于",
+    "Have you heard about the accident?",
+    "你听说过那个事故吗？"
+  ],
+  [
+    "talk about",
+    "tɔːk əˈbaʊt",
+    "phr.v.",
+    "谈论",
+    "Talk about your hobbies.",
+    "谈谈你的爱好。"
+  ],
+  [
+    "talk to",
+    "tɔːk tuː",
+    "phr.v.",
+    "和……谈话",
+    "Talk to your teacher about it.",
+    "和你的老师谈谈这件事。"
+  ],
+  [
+    "talk with",
+    "tɔːk wɪð",
+    "phr.v.",
+    "与……交谈",
+    "I talked with my friend on the phone.",
+    "我和朋友在电话上交谈了。"
+  ],
+  [
+    "wait for",
+    "weɪt fɔːr",
+    "phr.v.",
+    "等待",
+    "Wait for me at the gate.",
+    "在大门口等我。"
+  ],
+  [
+    "call up",
+    "kɔːl ʌp",
+    "phr.v.",
+    "打电话给",
+    "Call up your mother.",
+    "给你妈妈打电话。"
+  ],
+  [
+    "call on",
+    "kɔːl ɒn",
+    "phr.v.",
+    "拜访；号召",
+    "Call on your neighbor this weekend.",
+    "这个周末拜访你的邻居。"
+  ],
+  [
+    "laugh at",
+    "læf æt",
+    "phr.v.",
+    "嘲笑",
+    "Don't laugh at others.",
+    "不要嘲笑别人。"
+  ],
+  [
+    "shout at",
+    "ʃaʊt æt",
+    "phr.v.",
+    "对……大喊",
+    "Don't shout at your parents.",
+    "不要对父母大喊。"
+  ],
+  [
+    "point at",
+    "pɔɪnt æt",
+    "phr.v.",
+    "指着",
+    "Point at the picture and say it.",
+    "指着图片说出来。"
+  ],
+  [
+    "point out",
+    "pɔɪnt aʊt",
+    "phr.v.",
+    "指出",
+    "Point out the mistakes in your writing.",
+    "指出你写作中的错误。"
+  ],
+  [
+    "agree with",
+    "əˈɡriː wɪð",
+    "phr.v.",
+    "同意（某人）",
+    "I agree with your opinion.",
+    "我同意你的观点。"
+  ],
+  [
+    "agree to",
+    "əˈɡriː tuː",
+    "phr.v.",
+    "同意（计划/建议）",
+    "She agreed to the plan.",
+    "她同意了那个计划。"
+  ],
+  [
+    "belong to",
+    "bɪˈlɒŋ tuː",
+    "phr.v.",
+    "属于",
+    "This book belongs to me.",
+    "这本书属于我。"
+  ],
+  [
+    "happen to",
+    "ˈhæpən tuː",
+    "phr.v.",
+    "碰巧；发生在",
+    "What happened to you?",
+    "你发生什么事了？"
+  ],
+  [
+    "lead to",
+    "liːd tuː",
+    "phr.v.",
+    "导致",
+    "Hard work leads to success.",
+    "努力会带来成功。"
+  ],
+  [
+    "add to",
+    "æd tuː",
+    "phr.v.",
+    "增加；增添",
+    "Add some salt to the soup.",
+    "在汤里加一些盐。"
+  ],
+  [
+    "pay for",
+    "peɪ fɔːr",
+    "phr.v.",
+    "为……付款",
+    "I paid for the meal.",
+    "我付了餐费。"
+  ],
+  [
+    "pay attention to",
+    "peɪ əˈtenʃn tuː",
+    "phr.v.",
+    "注意",
+    "Pay attention to your spelling.",
+    "注意你的拼写。"
+  ],
+  [
+    "care about",
+    "keər əˈbaʊt",
+    "phr.v.",
+    "关心；在意",
+    "She cares about the environment.",
+    "她关心环境。"
+  ],
+  [
+    "worry about",
+    "ˈwʌri əˈbaʊt",
+    "phr.v.",
+    "担心",
+    "Don't worry about the exam.",
+    "不要担心考试。"
+  ],
+  [
+    "dream of",
+    "driːm ɒv",
+    "phr.v.",
+    "梦想",
+    "I dream of becoming a doctor.",
+    "我梦想成为一名医生。"
+  ],
+  [
+    "regard as",
+    "rɪˈɡɑːrd æz",
+    "phr.v.",
+    "把……视为",
+    "We regard him as a hero.",
+    "我们把他看作英雄。"
+  ],
+  [
+    "prevent from",
+    "prɪˈvent frɒm",
+    "phr.v.",
+    "阻止；防止",
+    "Prevent the disease from spreading.",
+    "防止疾病传播。"
+  ],
+  [
+    "separate from",
+    "ˈsepəreɪt frɒm",
+    "phr.v.",
+    "与……分离",
+    "Separate the waste into different groups.",
+    "把垃圾分类。"
+  ],
+  [
+    "compare with",
+    "kəmˈpeər wɪð",
+    "phr.v.",
+    "与……比较",
+    "Compare your answer with mine.",
+    "把你的答案和我的对比一下。"
+  ],
+  [
+    "provide with",
+    "prəˈvaɪd wɪð",
+    "phr.v.",
+    "提供",
+    "The school provides us with books.",
+    "学校给我们提供书籍。"
+  ],
+  [
+    "deal with",
+    "diːl wɪð",
+    "phr.v.",
+    "处理；应对",
+    "Learn how to deal with stress.",
+    "学习如何应对压力。"
+  ],
+  [
+    "connect with",
+    "kəˈnekt wɪð",
+    "phr.v.",
+    "与……连接",
+    "Connect the computer with the printer.",
+    "把电脑和打印机连接起来。"
+  ],
+  [
+    "communicate with",
+    "kəˈmjuːnɪkeɪt wɪð",
+    "phr.v.",
+    "与……交流",
+    "Communicate with your parents often.",
+    "经常和父母交流。"
+  ],
+  [
+    "at home",
+    "æt hoʊm",
+    "prep.phr.",
+    "在家",
+    "Stay at home this weekend.",
+    "这个周末待在家里。"
+  ],
+  [
+    "at school",
+    "æt skuːl",
+    "prep.phr.",
+    "在学校",
+    "We learn many subjects at school.",
+    "我们在学校学很多科目。"
+  ],
+  [
+    "at work",
+    "æt wɜːrk",
+    "prep.phr.",
+    "在工作",
+    "My father is at work now.",
+    "我爸爸现在在工作。"
+  ],
+  [
+    "at first",
+    "æt fɜːrst",
+    "prep.phr.",
+    "起初",
+    "At first, I didn't like the city.",
+    "起初，我不喜欢这个城市。"
+  ],
+  [
+    "at last",
+    "æt læst",
+    "prep.phr.",
+    "最后；终于",
+    "At last, we arrived at the station.",
+    "最后，我们到达了车站。"
+  ],
+  [
+    "at once",
+    "æt wʌns",
+    "prep.phr.",
+    "立刻；马上",
+    "Come here at once!",
+    "立刻过来！"
+  ],
+  [
+    "at least",
+    "æt liːst",
+    "prep.phr.",
+    "至少",
+    "You should sleep at least 8 hours.",
+    "你至少应该睡8个小时。"
+  ],
+  [
+    "at the same time",
+    "æt ðə seɪm taɪm",
+    "prep.phr.",
+    "同时",
+    "Don't talk at the same time.",
+    "不要同时说话。"
+  ],
+  [
+    "at the age of",
+    "æt ðə eɪdʒ ɒv",
+    "prep.phr.",
+    "在……岁时",
+    "He left school at the age of 16.",
+    "他16岁时离开了学校。"
+  ],
+  [
+    "in time",
+    "ɪn taɪm",
+    "prep.phr.",
+    "及时",
+    "We got there in time.",
+    "我们及时到达了那里。"
+  ],
+  [
+    "in front of",
+    "ɪn frʌnt ɒv",
+    "prep.phr.",
+    "在……前面（外部）",
+    "There is a tree in front of the house.",
+    "房子前面有一棵树。"
+  ],
+  [
+    "in the front of",
+    "ɪn ðə frʌnt ɒv",
+    "prep.phr.",
+    "在……前部（内部）",
+    "The teacher stands in the front of the classroom.",
+    "老师站在教室的前面。"
+  ],
+  [
+    "in the middle of",
+    "ɪn ðə ˈmɪdl ɒv",
+    "prep.phr.",
+    "在……中间",
+    "There is a table in the middle of the room.",
+    "房间中间有一张桌子。"
+  ],
+  [
+    "in the end",
+    "ɪn ðə end",
+    "prep.phr.",
+    "最后；最终",
+    "In the end, they became friends.",
+    "最后，他们成了朋友。"
   ],
   [
     "in a hurry",
-    "ɪn ə ˈhʌr.i",
-    "phr.",
+    "ɪn ə ˈhʌri",
+    "prep.phr.",
     "匆忙地",
     "He left in a hurry.",
     "他匆忙离开了。"
   ],
   [
-    "on time",
-    "ɒn taɪm",
-    "phr.",
-    "准时",
-    "Please come to class on time.",
-    "请准时来上课。"
-  ],
-  [
-    "at first",
-    "æt fɜːrst",
-    "phr.",
-    "起初",
-    "At first, I didn't like it.",
-    "起初我不喜欢它。"
-  ],
-  [
     "in fact",
     "ɪn fækt",
-    "phr.",
+    "prep.phr.",
     "事实上",
-    "In fact, he is right.",
-    "事实上他是对的。"
+    "In fact, I don't know him well.",
+    "事实上，我不太了解他。"
+  ],
+  [
+    "in common",
+    "ɪn ˈkɒmən",
+    "prep.phr.",
+    "共同的",
+    "They have a lot in common.",
+    "他们有很多共同点。"
+  ],
+  [
+    "in danger",
+    "ɪn ˈdeɪndʒər",
+    "prep.phr.",
+    "处于危险中",
+    "Many animals are in danger.",
+    "很多动物处于危险中。"
+  ],
+  [
+    "in public",
+    "ɪn ˈpʌblɪk",
+    "prep.phr.",
+    "公开地；在公共场合",
+    "Don't shout in public.",
+    "不要在公共场合大喊。"
+  ],
+  [
+    "in surprise",
+    "ɪn sərˈpraɪz",
+    "prep.phr.",
+    "惊讶地",
+    "She looked at me in surprise.",
+    "她惊讶地看着我。"
+  ],
+  [
+    "in a word",
+    "ɪn ə wɜːrd",
+    "prep.phr.",
+    "总之",
+    "In a word, we need to work harder.",
+    "总之，我们需要更努力。"
+  ],
+  [
+    "on time",
+    "ɒn taɪm",
+    "prep.phr.",
+    "准时",
+    "Please come on time.",
+    "请准时来。"
+  ],
+  [
+    "on foot",
+    "ɒn fʊt",
+    "prep.phr.",
+    "步行",
+    "I go to school on foot.",
+    "我步行去上学。"
+  ],
+  [
+    "on the way to",
+    "ɒn ðə weɪ tuː",
+    "prep.phr.",
+    "在去……的路上",
+    "I met a friend on the way to school.",
+    "在去学校的路上我遇到了一个朋友。"
+  ],
+  [
+    "on the one hand…on the other hand…",
+    "ɒn ðə wʌn hænd ɒn ði ˈʌðər hænd",
+    "prep.phr.",
+    "一方面……另一方面……",
+    "On one hand, I like the job; on the other hand, it's tiring.",
+    "一方面我喜欢这份工作，另一方面它很累。"
+  ],
+  [
+    "on display",
+    "ɒn dɪˈspleɪ",
+    "prep.phr.",
+    "展览；展示",
+    "Many paintings are on display.",
+    "很多画作在展览。"
+  ],
+  [
+    "on business",
+    "ɒn ˈbɪznəs",
+    "prep.phr.",
+    "出差",
+    "He went to Shanghai on business.",
+    "他去上海出差了。"
+  ],
+  [
+    "by the way",
+    "baɪ ðə weɪ",
+    "prep.phr.",
+    "顺便说一下",
+    "By the way, what's your name?",
+    "顺便问一下，你叫什么名字？"
+  ],
+  [
+    "by accident",
+    "baɪ ˈæksɪdənt",
+    "prep.phr.",
+    "偶然地；意外地",
+    "I found the key by accident.",
+    "我意外地找到了钥匙。"
+  ],
+  [
+    "by mistake",
+    "baɪ mɪˈsteɪk",
+    "prep.phr.",
+    "错误地",
+    "I took your book by mistake.",
+    "我错拿了你的书。"
+  ],
+  [
+    "to one's surprise",
+    "tuː wʌnz sərˈpraɪz",
+    "prep.phr.",
+    "令某人惊讶的是",
+    "To my surprise, he passed the exam.",
+    "令我惊讶的是，他通过了考试。"
+  ],
+  [
+    "to be honest",
+    "tuː biː ˈɒnɪst",
+    "prep.phr.",
+    "说实话",
+    "To be honest, I don't like this game.",
+    "说实话，我不喜欢这个游戏。"
   ],
   [
     "as well",
     "æz wel",
-    "phr.",
-    "也",
-    "I like math as well.",
-    "我也喜欢数学。"
+    "prep.phr.",
+    "也；还",
+    "He likes music. I like music as well.",
+    "他喜欢音乐，我也喜欢音乐。"
   ],
   [
-    "so far",
-    "soʊ fɑːr",
-    "phr.",
-    "到目前为止",
-    "So far, we have learned 500 words.",
-    "到目前为止我们学了500个词。"
+    "as well as",
+    "æz wel æz",
+    "prep.phr.",
+    "和……一样；也",
+    "She plays the piano as well as her sister.",
+    "她钢琴弹得和她姐姐一样好。"
   ],
   [
-    "at least",
-    "æt liːst",
-    "phr.",
-    "至少",
-    "At least try your best.",
-    "至少尽力而为。"
+    "as soon as",
+    "æz suːn æz",
+    "prep.phr.",
+    "一……就……",
+    "Call me as soon as you arrive.",
+    "你一到就给我打电话。"
   ],
   [
-    "in the end",
-    "ɪn ðə end",
-    "phr.",
-    "最终",
-    "In the end, we won the game.",
-    "最终我们赢了比赛。"
+    "as long as",
+    "æz lɒŋ æz",
+    "prep.phr.",
+    "只要",
+    "As long as you try, you can succeed.",
+    "只要你尝试，你就能成功。"
   ],
   [
-    "all of a sudden",
-    "ɔːl ɒv ə ˈsʌd.ən",
-    "phr.",
-    "突然",
-    "All of a sudden, it started to rain.",
-    "突然下起雨来。"
+    "out of",
+    "aʊt ɒv",
+    "prep.phr.",
+    "从……出来；缺乏",
+    "He ran out of the room.",
+    "他从房间里跑了出来。"
   ],
   [
-    "once upon a time",
-    "wʌns əˈpɒn ə taɪm",
-    "phr.",
-    "从前",
-    "Once upon a time, there was a king.",
-    "从前有一个国王。"
+    "a lot of",
+    "ə lɒt ɒv",
+    "det.",
+    "许多",
+    "There are a lot of books.",
+    "有很多书。"
   ],
   [
-    "no matter what",
-    "noʊ ˈmæt.ər wɒt",
-    "phr.",
-    "无论什么",
-    "No matter what happens, stay calm.",
-    "无论发生什么，保持冷静。"
+    "lots of",
+    "lɒts ɒv",
+    "det.",
+    "大量；许多",
+    "Lots of people came to the party.",
+    "很多人来参加了聚会。"
+  ],
+  [
+    "a number of",
+    "ə ˈnʌmbər ɒv",
+    "det.",
+    "许多（谓语用复数）",
+    "A number of students are playing football.",
+    "许多学生在踢足球。"
+  ],
+  [
+    "the number of",
+    "ðə ˈnʌmbər ɒv",
+    "det.",
+    "……的数量（谓语用单数）",
+    "The number of students is 50.",
+    "学生的人数是50人。"
+  ],
+  [
+    "plenty of",
+    "ˈplenti ɒv",
+    "det.",
+    "充足的；大量的",
+    "We have plenty of time.",
+    "我们有充足的时间。"
+  ],
+  [
+    "a little",
+    "ə ˈlɪtl",
+    "det.",
+    "一点点（后接不可数名词）",
+    "There is a little milk left.",
+    "还剩一点点牛奶。"
+  ],
+  [
+    "a few",
+    "ə fjuː",
+    "det.",
+    "几个（后接可数名词复数）",
+    "I have a few good friends.",
+    "我有几个好朋友。"
+  ],
+  [
+    "each other",
+    "iːtʃ ˈʌðər",
+    "pron.",
+    "互相",
+    "We should help each other.",
+    "我们应该互相帮助。"
+  ],
+  [
+    "one another",
+    "wʌn əˈnʌðər",
+    "pron.",
+    "彼此；互相",
+    "The students helped one another.",
+    "学生们互相帮助。"
   ],
   [
     "more or less",
     "mɔːr ɔːr les",
-    "phr.",
-    "或多或少",
-    "The work is more or less finished.",
-    "工作差不多完成了。"
+    "adv.",
+    "或多或少；大约",
+    "It's more or less 10 km from here.",
+    "离这里大约十公里。"
+  ],
+  [
+    "all over",
+    "ɔːl ˈoʊvər",
+    "adv.",
+    "到处；遍及",
+    "People all over the world love peace.",
+    "全世界人民都热爱和平。"
+  ],
+  [
+    "all year round",
+    "ɔːl jɪər raʊnd",
+    "adv.",
+    "全年",
+    "The weather is warm all year round.",
+    "这里全年温暖。"
+  ],
+  [
+    "day by day",
+    "deɪ baɪ deɪ",
+    "adv.",
+    "一天天地",
+    "The city is changing day by day.",
+    "这个城市一天天地在变化。"
+  ],
+  [
+    "little by little",
+    "ˈlɪtl baɪ ˈlɪtl",
+    "adv.",
+    "逐渐地",
+    "Little by little, the snow melted.",
+    "雪渐渐地融化了。"
+  ],
+  [
+    "step by step",
+    "step baɪ step",
+    "adv.",
+    "一步一步地",
+    "Learn English step by step.",
+    "一步一步地学英语。"
+  ],
+  [
+    "once upon a time",
+    "wʌns əˈpɒn ə taɪm",
+    "adv.",
+    "从前",
+    "Once upon a time, there was a princess.",
+    "从前，有一位公主。"
+  ],
+  [
+    "so far",
+    "soʊ fɑːr",
+    "adv.",
+    "到目前为止",
+    "So far, everything is fine.",
+    "到目前为止，一切都好。"
+  ],
+  [
+    "so that",
+    "soʊ ðæt",
+    "conj.",
+    "以便；为了",
+    "Speak clearly so that everyone can hear.",
+    "说清楚点以便每个人都能听到。"
+  ],
+  [
+    "in order to",
+    "ɪn ˈɔːrdər tuː",
+    "conj.",
+    "为了",
+    "In order to pass the exam, study hard.",
+    "为了通过考试，好好学习。"
+  ],
+  [
+    "not only…but also…",
+    "nɒt ˈoʊnli bʌt ˈɔːlsoʊ",
+    "conj.",
+    "不仅……而且……",
+    "Not only he but also his sister likes music.",
+    "不仅他而且他妹妹也喜欢音乐。"
+  ],
+  [
+    "both…and…",
+    "boʊθ ænd",
+    "conj.",
+    "两者都",
+    "Both Tom and Jerry are cartoon characters.",
+    "汤姆和杰瑞都是卡通角色。"
+  ],
+  [
+    "either…or…",
+    "ˈaɪðər ɔːr",
+    "conj.",
+    "要么……要么",
+    "Either come in or go out.",
+    "要么进来要么出去。"
+  ],
+  [
+    "neither…nor…",
+    "ˈnaɪðər nɔːr",
+    "conj.",
+    "既不……也不……",
+    "Neither Jack nor John is right.",
+    "杰克和约翰都不对。"
+  ],
+  [
+    "How are you?",
+    "haʊ ɑːr juː",
+    "expr.",
+    "你好吗？",
+    "How are you? I'm fine, thank you.",
+    "你好吗？我很好，谢谢。"
+  ],
+  [
+    "Nice to meet you!",
+    "naɪs tuː miːt juː",
+    "expr.",
+    "很高兴见到你！",
+    "Nice to meet you, too.",
+    "我也很高兴见到你。"
+  ],
+  [
+    "Thank you very much.",
+    "θæŋk juː ˈveri mʌtʃ",
+    "expr.",
+    "非常感谢。",
+    "Thank you very much for your help.",
+    "非常感谢你的帮助。"
+  ],
+  [
+    "You're welcome.",
+    "jʊər ˈwelkəm",
+    "expr.",
+    "不客气。",
+    "You're welcome anytime.",
+    "随时欢迎。"
+  ],
+  [
+    "Excuse me.",
+    "ɪkˈskjuːz miː",
+    "expr.",
+    "打扰一下；对不起。",
+    "Excuse me, where is the station?",
+    "打扰一下，车站在哪里？"
+  ],
+  [
+    "I'm sorry.",
+    "aɪm ˈsɒri",
+    "expr.",
+    "对不起。",
+    "I'm sorry for being late.",
+    "对不起我迟到了。"
+  ],
+  [
+    "Never mind.",
+    "ˈnevər maɪnd",
+    "expr.",
+    "没关系；不要紧。",
+    "Never mind, it's not important.",
+    "没关系，这不重要。"
+  ],
+  [
+    "Have a good time!",
+    "hæv ə ɡʊd taɪm",
+    "expr.",
+    "玩得开心！",
+    "Have a good time at the party.",
+    "在聚会上玩得开心。"
+  ],
+  [
+    "Take it easy.",
+    "teɪk ɪt ˈiːzi",
+    "expr.",
+    "别着急；放松。",
+    "Take it easy before the exam.",
+    "考试前放松一下。"
+  ],
+  [
+    "Good luck!",
+    "ɡʊd lʌk",
+    "expr.",
+    "祝你好运！",
+    "Good luck with your exam!",
+    "祝你考试好运！"
+  ],
+  [
+    "I don't think so.",
+    "aɪ doʊnt θɪŋk soʊ",
+    "expr.",
+    "我不这么认为。",
+    "I don't think so, it might be wrong.",
+    "我不这么认为，可能是错的。"
+  ],
+  [
+    "That's a good idea!",
+    "ðæts ə ɡʊd aɪˈdiːə",
+    "expr.",
+    "好主意！",
+    "That's a good idea! Let's go swimming.",
+    "好主意！我们去游泳吧。"
+  ],
+  [
+    "How much is it?",
+    "haʊ mʌtʃ ɪz ɪt",
+    "expr.",
+    "多少钱？",
+    "How much is this book?",
+    "这本书多少钱？"
+  ],
+  [
+    "What's the matter?",
+    "wɒts ðə ˈmætər",
+    "expr.",
+    "怎么了？",
+    "What's the matter with you?",
+    "你怎么了？"
+  ],
+  [
+    "Can I help you?",
+    "kæn aɪ help juː",
+    "expr.",
+    "需要帮忙吗？",
+    "Can I help you find something?",
+    "需要我帮你找什么吗？"
+  ],
+  [
+    "I'd like to…",
+    "aɪd laɪk tuː",
+    "expr.",
+    "我想……",
+    "I'd like to order a pizza.",
+    "我想点一份披萨。"
+  ],
+  [
+    "What about…?",
+    "wɒt əˈbaʊt",
+    "expr.",
+    "……怎么样？",
+    "What about going for a walk?",
+    "去散散步怎么样？"
+  ],
+  [
+    "Why not…?",
+    "waɪ nɒt",
+    "expr.",
+    "为什么不……？",
+    "Why not try again?",
+    "为什么不再试一次？"
+  ],
+  [
+    "Would you like…?",
+    "wʊd juː laɪk",
+    "expr.",
+    "你想要……？",
+    "Would you like some tea?",
+    "你想来点茶吗？"
+  ],
+  [
+    "Let's…",
+    "lets",
+    "expr.",
+    "让我们……吧",
+    "Let's go to the park.",
+    "我们去公园吧。"
+  ],
+  [
+    "I'm afraid…",
+    "aɪm əˈfreɪd",
+    "expr.",
+    "恐怕……",
+    "I'm afraid I can't go with you.",
+    "恐怕我不能和你一起去。"
   ]
 ]
