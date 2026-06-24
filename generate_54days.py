@@ -102,7 +102,13 @@ GRADE9_TOPICS = {
     'physics': {'电学', '磁现象与电磁', '热学', '电磁波与通信'},
     'politics': {'改革开放与法治', '创新驱动与文明建设', '中国担当与梦想'},
     'history': {'古代与中世纪文明', '近代欧洲与世界格局'},
+    'math': {'二次函数', '圆', '反比例函数', '统计量与概率'},
+    'chinese': {'议论文阅读', '应用文写作'},
 }
+# 九年级古诗标题（部编版九上/九下）
+G9_POEMS = {'行路难（其一）', '酬乐天扬州初逢席上见赠', '水调歌头（明月几时有）', '月夜忆舍弟', '左迁至蓝关示侄孙湘', '咸阳城东楼', '无题', '白雪歌送武判官归京', '过零丁洋', '山坡羊·潼关怀古', '南乡子·登京口北固亭有怀'}
+# 九年级文言文标题（部编版九上/九下）
+G9_WENYAN = {'岳阳楼记', '醉翁亭记', '出师表', '鱼我所欲也', '送东阳马生序', '曹刿论战', '湖心亭看雪', '邹忌讽齐王纳谏', '唐雎不辱使命'}
 
 # ── Daily encouraging quotes ──
 QUOTES = [
@@ -558,7 +564,8 @@ def generate_all():
         
         # 1. Math section
         svg_list = SVG_MAP.get('math', {}).get(math_topic, [])
-        body_parts.append(h3('math', f'数学 · {math_topic}'))
+        g9_mtag = '<span style="color:#e91e63;font-size:11px;font-weight:600">（初三预习）</span>' if math_topic in GRADE9_TOPICS.get('math', set()) else ''
+        body_parts.append(h3('math', f'数学 · {math_topic} {g9_mtag}'))
         body_parts.append(build_subject_section('math', math_topic, svg_names=svg_list))
         check_items.append(f'{math_topic}理解 □')
         check_items.append(f'数学练习完成 □')
@@ -591,8 +598,9 @@ def generate_all():
             keywords = poem['keywords']
             author_bg = poem['author_bg']
             famous_lines = poem['famous_lines']
+            g9_tag_p = '<span style="color:#e91e63;font-size:10px;font-weight:600">（初三预习）</span>' if title in G9_POEMS else ''
             h = f'<div class="vocab-box" style="background:#fef9f0;border-color:#e8d5b7">'
-            h += f'<p style="font-weight:700;color:#b45309;font-size:14px">📜 古诗{pi+1}：{title} — {author}</p>'
+            h += f'<p style="font-weight:700;color:#b45309;font-size:14px">📜 古诗{pi+1}：{title} — {author} {g9_tag_p}</p>'
             if full_text:
                 h += f'<button onclick="var t=document.getElementById(\'pt{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开全文 ▶\':\'收起全文 ▲\';" style="background:var(--blue);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开全文 ▶</button>'
                 h += f'<div id="pt{pid_suffix}" style="display:none;background:#fffbf0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;white-space:pre-line;font-size:14px;line-height:2;color:#4a3728">{full_text}</div>'
@@ -618,8 +626,9 @@ def generate_all():
             ww_text = ww[3] if len(ww)>3 else ''
             ww_words = ww[4] if len(ww)>4 else ''
             ww_bg = ww[5] if len(ww)>5 else ''
+            g9_tag_w = '<span style="color:#e91e63;font-size:10px;font-weight:600">（初三预习）</span>' if ww_title in G9_WENYAN else ''
             body_parts.append(f'<div class="vocab-box" style="background:#f0f4ff;border-color:#b8c8e0">'
-                f'<p style="font-weight:700;color:#3b5998;font-size:14px">📜 今日文言文背诵：{ww_title} — {ww_author}</p>'
+                f'<p style="font-weight:700;color:#3b5998;font-size:14px">📜 今日文言文背诵：{ww_title} — {ww_author} {g9_tag_w}</p>'
                 f'<button onclick="var t=document.getElementById(\'ww_text_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开原文全文 ▼\':\'收起原文 ▲\';" style="background:#3b5998;color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;margin:4px">展开原文全文 ▼</button>'
                 f'<div id="ww_text_{day_num}" style="display:none;white-space:pre-line;font-size:13px;line-height:2;color:#2a3a5c;padding:8px;background:#fff;border-radius:6px">{ww_text}</div>'
                 f'<button onclick="var t=document.getElementById(\'ww_words_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" style="background:var(--orange);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;margin:4px">展开字词释义 📖</button>'
