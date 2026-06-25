@@ -90,6 +90,13 @@ h3{font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;margin
 .vocab-box{background:var(--bg);border:1px solid var(--sep);border-radius:var(--radius-sm);padding:14px 16px;margin:10px 0;transition:all var(--r);}
 .vocab-box:hover{border-color:var(--text3)}.vocab-box p{margin:0 0 8px 0;font-size:13px;font-weight:600}
 .phrases-box{background:var(--purple-light);border:1px solid rgba(175,82,222,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin:10px 0}
+.ph-item{padding:5px 0;border-bottom:1px solid rgba(175,82,222,0.15);font-size:12px;line-height:1.6}
+.ph-item:last-child{border-bottom:none}
+.ph-play{border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;vertical-align:middle;margin:0 4px}
+.ph-play:hover{background:#005bbf;transform:scale(1.1)}
+.ph-ipa{color:var(--text3);font-size:11px;margin-right:4px}
+.ph-mean{color:var(--purple);font-size:11px}
+.ph-ex{color:var(--text2);font-size:11px}
 .complete-bar,.cbar{display:flex;justify-content:center;padding:16px;border-top:1px solid var(--sep);gap:10px}
 .complete-btn,.cbtn{padding:12px 36px;border-radius:22px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all var(--r);letter-spacing:0.3px;}
 .complete-btn.todo,.cbtn.todo{background:var(--blue);color:#fff;box-shadow:0 2px 10px rgba(0,122,255,0.2);}
@@ -110,11 +117,45 @@ h3{font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;margin
 [data-theme="dark"] .watermark{color:rgba(255,255,255,0.03)}
 .sdots{display:flex;gap:3px;justify-content:flex-end;margin-top:2px}
 .sdots .sd{width:6px;height:6px;border-radius:50%;display:inline-block}
-/* Collapsible buttons for poems */
-.coll-btn{display:inline-flex;align-items:center;gap:4px;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;font-weight:500;margin:3px;transition:all var(--r)}
-.coll-btn:hover{transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,0.1)}
-.coll-cont{display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:13px;line-height:1.8;color:var(--text2);background:var(--card);white-space:pre-line}
-.coll-cont.show{display:block;animation:sd 0.2s ease}
+/* 词汇卡片 — 玻璃质感 + 已记住 */
+.vocab-section{margin:14px 0;padding:16px;border-radius:14px;background:linear-gradient(135deg,#e8f0fe 0%,#f3e8ff 50%,#fce8f0 100%);position:relative}
+[data-theme="dark"] .vocab-section{background:linear-gradient(135deg,rgba(0,122,255,0.15),rgba(175,82,222,0.1),rgba(255,59,48,0.05))}
+.vocab-title{font-size:15px;font-weight:600;margin-bottom:10px;color:var(--text)}
+.v-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.v-card{background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.7);border-radius:12px;padding:10px 12px 26px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.03),inset 0 1px 0 rgba(255,255,255,0.8)}
+.v-card::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.15) 35%,rgba(255,255,255,0) 60%);pointer-events:none;border-radius:12px}
+.v-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.8);border-color:rgba(0,122,255,0.25);transform:translateY(-1px)}
+[data-theme="dark"] .v-card{background:rgba(44,44,46,0.2);border-color:rgba(255,255,255,0.1);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
+[data-theme="dark"] .v-card::before{background:linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02) 40%,transparent)}
+[data-theme="dark"] .v-card:hover{border-color:rgba(0,122,255,0.3)}
+.v-card.done{background:rgba(52,199,89,0.12);border-color:var(--green)}
+[data-theme="dark"] .v-card.done{background:rgba(52,199,89,0.2);border-color:var(--green)}
+.v-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.v-word{font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.2px}
+.v-ipa{font-size:10px;color:var(--text3);font-family:'SF Mono',monospace}
+.v-play{border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;margin-left:auto}
+.v-play:hover{background:#005bbf;transform:scale(1.1)}
+.v-pos{font-size:10px;font-weight:600}
+.v-mean{font-size:12px;color:var(--text);font-weight:500}
+.v-ex{display:block;font-size:10px;color:var(--text2);margin-top:3px;line-height:1.5}
+.v-trans{color:var(--text3);font-size:10px}
+.v-tag{position:absolute;bottom:4px;right:8px;font-size:10px;color:var(--text3);font-weight:500;transition:all 0.3s}
+.v-card.done .v-tag{color:var(--green);font-weight:700}
+@media(max-width:500px){.v-grid{grid-template-columns:1fr}}
+/* 艾宾浩斯复习 — 两列 */
+.review-section{background:var(--purple-light);border:1px solid rgba(175,82,222,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin:14px 0}
+.review-title{font-size:14px;font-weight:600;color:var(--purple);margin-bottom:2px}
+.review-sub{font-size:11px;color:var(--text3);margin-bottom:8px}
+.review-day-label{font-size:11px;font-weight:600;color:var(--text2);margin:8px 0 4px;padding:2px 0 2px 6px;border-left:3px solid var(--purple)}
+.rv-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.rv-card{display:flex;align-items:center;gap:4px;padding:4px 8px;background:var(--card);border-radius:6px;border:1px solid var(--sep);font-size:11px;flex-wrap:wrap;min-height:28px}
+.rv-word{font-weight:700;color:var(--text)}
+.rv-ipa{font-size:9px;color:var(--text3);font-family:'SF Mono',monospace}
+.rv-pos{font-size:9px}
+.rv-mean{color:var(--text2);font-size:10px}
+.rv-play{border:none;background:var(--blue);color:#fff;border-radius:50%;width:18px;height:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;margin-left:auto}
+.rv-play:hover{background:#005bbf;transform:scale(1.1)}
+@media(max-width:500px){.rv-grid{grid-template-columns:1fr}}
 /* Chinese base block */
 .vb-chinese{background:var(--orange-light);border:1px solid rgba(255,149,0,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin:10px 0}
 .vb-chinese-title{font-weight:700;font-size:14px;color:var(--orange);margin-bottom:6px}
@@ -250,30 +291,124 @@ def svg_block(name):
         return f'<div class="svg-wrap">{SVGS[name]["svg"]}</div>'
     return ''
 
-def vocab_block(words):
-    h = '<div class="vocab-box"><p style="font-weight:700">📖 今日词汇（词典格式）</p>'
+# ── Word-to-emoji visual mnemonic ──
+WORD_EMOJI_CACHE = {}
+def word_emoji(word, meaning):
+    """Return a visual emoji for a word based on its meaning for memory association."""
+    if word in WORD_EMOJI_CACHE:
+        return WORD_EMOJI_CACHE[word]
+    m = meaning.lower()
+    # Category-based emoji mapping
+    if any(k in m for k in ['吃','喝','食物','水果','蔬菜','餐','饭','菜','食','饮','酒','茶','面包','牛奶','鸡蛋','肉','鱼','米','汤']):
+        e = '🍽️'
+    elif any(k in m for k in ['动物','狗','猫','鸟','鱼','马','牛','羊','猪','鸡','鸭','熊','虎','狮','象','猴','兔','龙','蛇','鼠']):
+        e = '🐾'
+    elif any(k in m for k in ['学习','书','读','写','课','学','教','师','生','考','试','文','字','词','句','篇','章']):
+        e = '📖'
+    elif any(k in m for k in ['爱','喜','欢','乐','快','幸','福','感','情','心','想','念','思']):
+        e = '❤️'
+    elif any(k in m for k in ['大','小','高','低','长','短','远','近','快','慢','好','坏','美','丑','新','旧']):
+        e = '📏'
+    elif any(k in m for k in ['工','作','业','职','位','公','司','办','商','务','经济','钱','买','卖','价','值']):
+        e = '💼'
+    elif any(k in m for k in ['运动','跑','跳','走','游','泳','球','赛','体','健身','锻炼']):
+        e = '⚽'
+    elif any(k in m for k in ['音','乐','歌','唱','舞','琴','声']):
+        e = '🎵'
+    elif any(k in m for k in ['颜','色','光','彩','画','图','美','艺']):
+        e = '🎨'
+    elif any(k in m for k in ['旅行','旅','游','行','走','去','来','到','达','离','开']):
+        e = '✈️'
+    elif any(k in m for k in ['医','药','病','痛','健','康','身','体']):
+        e = '🏥'
+    elif any(k in m for k in ['科','学','技','术','数','理','化','实','验','发','现']):
+        e = '🔬'
+    elif any(k in m for k in ['时','间','日','月','年','星','期','钟','点','分','秒']):
+        e = '⏰'
+    elif any(k in m for k in ['天','气','风','云','雨','雪','雷','电','晴','阴','温']):
+        e = '🌤️'
+    elif any(k in m for k in ['家','庭','父','母','子','女','兄','弟','姐','妹','亲']):
+        e = '👨‍👩‍👧‍👦'
+    elif any(k in m for k in ['国','家','城','市','地','方','区','域','世','界']):
+        e = '🌍'
+    elif any(k in m for k in ['电','脑','网','信','机','器','智','能','数字']):
+        e = '💻'
+    else:
+        # Fallback: pick a random emoji based on word hash (consistent per word)
+        h = sum(ord(c) for c in word) % 20
+        fallbacks = ['📚','🎯','💡','⭐','🔥','💪','🏆','🚀','💎','🌈','🍀','🎪','🌺','🎭','🎨','🎵','⚡','🌟','💫','🎈']
+        e = fallbacks[h]
+    WORD_EMOJI_CACHE[word] = e
+    return e
+
+# ── Ebbinghaus review system ──
+EBBINGHAUS_INTERVALS = [1]  # 间隔1天复习
+def get_review_words(day_num):
+    """Return words from previous days that need review today per Ebbinghaus curve."""
+    review_items = []  # list of (source_day, word_tuple)
+    for interval in EBBINGHAUS_INTERVALS:
+        src_day = day_num - interval
+        if 1 <= src_day <= 54:
+            vi = (src_day - 1) * WORDS_PER_DAY
+            words = VOCAB[vi : vi + WORDS_PER_DAY]
+            for w in words:
+                review_items.append((src_day, w))
+    return review_items
+
+def review_block(day_num):
+    """Generate Ebbinghaus review section HTML."""
+    items = get_review_words(day_num)
+    if not items:
+        return ''
+    from collections import OrderedDict
+    by_day = OrderedDict()
+    for src_day, w in items:
+        if src_day not in by_day:
+            by_day[src_day] = []
+        by_day[src_day].append(w)
+    
+    h = '<div class="review-section"><p class="review-title">🧠 艾宾浩斯复习 · 今日需复习</p>'
+    h += '<p class="review-sub">根据遗忘曲线，以下单词需要今日复习巩固</p>'
+    
+    for src_day, words in by_day.items():
+        h += f'<div class="review-day-label">📅 Day {src_day}</div><div class="rv-grid">'
+        for w in words:
+            wi, ipa, pos, meaning, ex, trans = w if len(w) >= 6 else (w[0],'','','','','')
+            safe_wi = wi.replace("'", "\\'")
+            svg_play = '<svg width="9" height="9"><use href="#i-play"/></svg>'
+            btn = f'<button onclick="speak(\'{safe_wi}\',this)" class="rv-play" title="点击发音">{svg_play}</button>'
+            h += f'<div class="rv-card"><b class="rv-word">{wi}</b><span class="rv-ipa">/ {ipa} /</span><span class="rv-pos" style="color:var(--purple)">{pos}</span><span class="rv-mean">{meaning}</span>{btn}</div>'
+        h += '</div>'
+    h += '</div>'
+    return h
+
+def vocab_block(words, day_num=1):
+    """词汇卡片：单词+音标+发音+释义 + 标记已记住"""
+    h = '<div class="vocab-section"><p class="vocab-title">📖 今日新词</p><div class="v-grid">'
     for i, w in enumerate(words):
         wi, ipa, pos, meaning, ex, trans = w if len(w) >= 6 else (w[0],'','','','','')
         safe_wi = wi.replace("'", "\\'")
+        wk = f'wd_{day_num}_{i}'
         svg_play = '<svg width="10" height="10"><use href="#i-play"/></svg>'
-        btn = f'<button onclick="speak(\'{safe_wi}\',this)" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s" title="点击播放发音">{svg_play}</button>'
-        h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid var(--sep);font-size:12px">'
-        h += f'<span style="color:var(--text3);min-width:18px;font-size:10px">{i+1}.</span>'
-        h += f'<b style="color:var(--text);min-width:65px">{wi}</b>'
-        h += f'<span style="color:var(--purple);font-size:11px;min-width:20px">{pos}</span>'
-        h += f'<span style="color:var(--text2);min-width:35px">{meaning}</span>'
-        h += f'<span style="color:var(--text3);font-size:11px">/ {ipa} /</span>'
-        h += f'{btn}'
-        h += f'<span style="font-size:11px;color:var(--text3)">{ex} ({trans})</span>'
-        h += '</div>'
-    return h + '</div>'
+        btn = f'<button onclick="speak(\'{safe_wi}\',this)" class="v-play" title="点击发音">{svg_play}</button>'
+        pos_color = {'n.':'var(--blue)','v.':'var(--green)','adj.':'var(--orange)','adv.':'var(--purple)','prep.':'var(--red)','conj.':'#e91e63','pron.':'#795548'}
+        pc = pos_color.get(pos, 'var(--purple)')
+        h += f'''<div class="v-card" id="{wk}" onclick="tR(\'{wk}\')">
+  <span class="v-row"><span class="v-word">{wi}</span><span class="v-ipa">/ {ipa} /</span><span class="v-pos" style="color:{pc}">{pos}</span><span class="v-mean">{meaning}</span>{btn}</span>
+  <span class="v-ex">{ex}<br><span class="v-trans">({trans})</span></span>
+  <span class="v-tag" id="{wk}_tag">○ 记住</span>
+</div>'''
+    return h + '</div></div>'
 
 def phrases_block(phrases):
     if not phrases:
         return ''
-    h = '<div class="phrases-box"><p style="font-weight:700">🔗 今日短语搭配（' + str(len(phrases)) + '条）</p>'
+    h = '<div class="phrases-box"><p style="font-weight:600;margin-bottom:6px">🔗 今日短语搭配（' + str(len(phrases)) + '条）</p>'
     for i, p in enumerate(phrases):
-        h += f'<div style="padding:4px 0;font-size:12px;border-bottom:1px dotted #e0d0f0"><b>{p[0]}</b> <span style="color:var(--sub);font-size:11px">/ {p[1]} /</span> <span style="color:var(--purple)">{p[3]}</span><br><span style="color:#666;font-size:11px">{p[4]} ({p[5]})</span></div>'
+        safe_p = p[0].replace("'", "\\'")
+        svg_play = '<svg width="9" height="9"><use href="#i-play"/></svg>'
+        btn = f'<button onclick="speak(\'{safe_p}\',this)" class="ph-play" title="点击发音">{svg_play}</button>'
+        h += f'<div class="ph-item"><b>{p[0]}</b>{btn}<span class="ph-ipa">/ {p[1]} /</span><span class="ph-mean">{p[3]}</span><br><span class="ph-ex">{p[4]}（{p[5]}）</span></div>'
     return h + '</div>'
 
 def chinese_base_block(chars_list, idioms_list, xingsheng_item, yicuoxie_item, shici_item, xuci_item):
@@ -574,8 +709,9 @@ document.body.insertAdjacentHTML("afterbegin",sp);
 function speak(t,btn){{try{{if(!window.speechSynthesis){{alert("当前浏览器不支持语音播放");return;}}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;u.onstart=function(){{if(btn){{btn.style.background="#34c759";btn.style.transform="scale(1.15)";}}}};u.onend=function(){{if(btn){{btn.style.background="var(--blue)";btn.style.transform="scale(1)";}}}};window.speechSynthesis.speak(u);}}catch(e){{alert("播放失败:"+e.message);}}}}
 function showAns(b){{var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}}
 function toggleComplete(dn){{var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){{localStorage.setItem("day_"+dn+"_done","true");btn.className="cbtn done";btn.textContent="已完成 ✓";}}else{{localStorage.setItem("day_"+dn+"_done","false");btn.className="cbtn todo";btn.textContent="标记完成";}}}}
+function tR(k){{var c=document.getElementById(k);var t=document.getElementById(k+"_tag");if(c.classList.contains("done")){{c.classList.remove("done");t.textContent="○ 记住";localStorage.setItem(k,"0");}}else{{c.classList.add("done");t.textContent="● 已记 ✓";localStorage.setItem(k,"1");}}}}
 function tTheme(){{var h=document.documentElement;var b=document.querySelector(".tbtn");if(h.getAttribute("data-theme")=="dark"){{h.setAttribute("data-theme","light");b.innerHTML='<svg width="14" height="14"><use href="#i-moon"/></svg><span>深色</span>';localStorage.setItem("theme","light");}}else{{h.setAttribute("data-theme","dark");b.innerHTML='<svg width="14" height="14"><use href="#i-sun"/></svg><span>亮色</span>';localStorage.setItem("theme","dark");}}}}
-window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="cbtn done";btn.textContent="已完成 ✓";}}if(localStorage.getItem("theme")==="dark") tTheme();}};
+window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="cbtn done";btn.textContent="已完成 ✓";}}if(localStorage.getItem("theme")==="dark") tTheme();for(var i=0;i<60;i++){{var k="wd_{num}_"+i;if(localStorage.getItem(k)==="1"){{var c=document.getElementById(k);if(c){{c.classList.add("done");var t=document.getElementById(k+"_tag");if(t)t.textContent="● 已记 ✓";}}}}}}}};
 </script>'''
     return f'''<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>暑假逆袭 · Day {num}</title><style>{CSS}</style></head><body>
@@ -635,8 +771,14 @@ def generate_all():
         check_items.append(f'{eng_topic}练习 □')
         
         # Vocabulary block (EVERY day)
-        body_parts.append(vocab_block(todays_vocab))
+        body_parts.append(vocab_block(todays_vocab, day_num))
         check_items.append(f'今日词汇({len(todays_vocab)}词)背完 □')
+        
+        # Ebbinghaus review section (words from previous days due for review)
+        review_html = review_block(day_num)
+        if review_html:
+            body_parts.append(review_html)
+            check_items.append(f'艾宾浩斯复习完成 □')
         
         # Phrases block (spread across days)
         body_parts.append(phrases_block(todays_phrase))
@@ -646,37 +788,30 @@ def generate_all():
         body_parts.append(build_subject_section('chinese', chi_topic))
         check_items.append(f'{chi_topic}理解 □')
         
-        # 4. Poem + Wenyanwen recitation (EVERY day, both covered)
-        # Poems: 2 per day × 54 = 108 slots → 67 poems covered 100% + repeats
+        # 4. Poem + Wenyanwen recitation
         poems_today = get_poems(day_num, 2)
         for pi, poem in enumerate(poems_today):
-            pid_suffix = f'_{day_num}_{pi}'
-            title = poem['title']
-            author = poem['author']
-            full_text = poem['full_text']
-            keywords = poem['keywords']
-            author_bg = poem['author_bg']
-            famous_lines = poem['famous_lines']
-            g9_tag_p = '<span style="color:#e91e63;font-size:10px;font-weight:600">（初三预习）</span>' if title in G9_POEMS else ''
-            h = f'<div class="vocab-box" style="background:#fef9f0;border-color:#e8d5b7">'
-            h += f'<p style="font-weight:700;color:#b45309;font-size:14px">📜 古诗{pi+1}：{title} — {author} {g9_tag_p}</p>'
+            title = poem['title']; author = poem['author']
+            full_text = poem['full_text']; keywords = poem['keywords']
+            author_bg = poem['author_bg']; famous_lines = poem['famous_lines']
+            pid = f'poem_text_{day_num}_{pi}'
+            g9_tag_p = '<span style="color:var(--red);font-size:10px;font-weight:600">（初三预习）</span>' if title in G9_POEMS else ''
+            h = f'<div class="vocab-box" style="background:var(--orange-light);border-color:rgba(255,149,0,0.2)">'
+            h += f'<p style="font-weight:700;color:var(--orange);font-size:14px;margin-bottom:6px">📜 古诗{pi+1}：{title} — {author} {g9_tag_p}</p>'
             if full_text:
-                h += f'<button onclick="var t=document.getElementById(\'pt{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开全文 ▶\':\'收起全文 ▲\';" class="coll-btn" style="background:var(--blue)">展开全文 ▶</button>'
-                h += f'<div id="pt{pid_suffix}" style="display:none;background:#fffbf0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;white-space:pre-line;font-size:14px;line-height:2;color:#4a3728">{full_text}</div>'
+                h += f'<button onclick="var t=document.getElementById(\'{pid}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'▶ 展开原文\':\'▼ 收起原文\';" style="background:var(--blue);color:#fff;border:none;padding:2px 10px;border-radius:10px;cursor:pointer;font-size:11px;margin:4px 0">▶ 展开原文</button>'
+                h += f'<div id="{pid}" style="display:none;padding:6px 0;font-size:14px;line-height:2;color:var(--text2);white-space:pre-line">{full_text}</div>'
             if keywords:
-                h += f'<button onclick="var t=document.getElementById(\'pw{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" class="coll-btn" style="background:var(--orange)">展开字词释义 📖</button>'
-                h += f'<div id="pw{pid_suffix}" style="display:none;background:#fff8f0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;font-size:12px;line-height:1.8;color:#795548">{keywords}</div>'
+                h += f'<div style="padding:2px 0;font-size:12px;color:var(--text3);line-height:1.8"><b>📖 字词</b>：{keywords}</div>'
             if author_bg:
-                h += f'<button onclick="var t=document.getElementById(\'pa{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开作者背景 📝\':\'收起作者背景 ▲\';" class="coll-btn" style="background:var(--purple)">展开作者背景 📝</button>'
-                h += f'<div id="pa{pid_suffix}" style="display:none;background:#faf0ff;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #d0c0e8;font-size:12px;line-height:1.8;color:#6b4c8a">{author_bg}</div>'
+                h += f'<div style="padding:2px 0;font-size:12px;color:var(--text3);line-height:1.8"><b>📝 作者</b>：{author_bg}</div>'
             if famous_lines:
-                h += f'<button onclick="var t=document.getElementById(\'pf{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开千古名句 🌟\':\'收起名句 ▲\';" style="background:#e91e63;color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开千古名句 🌟</button>'
-                h += f'<div id="pf{pid_suffix}" style="display:none;background:#fef0f7;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8b7c8;font-size:12px;line-height:1.8;color:#6b1e3a">{famous_lines}</div>'
+                h += f'<div style="padding:2px 0;font-size:12px;color:var(--red);line-height:1.8"><b>🌟 名句</b>：{famous_lines}</div>'
             h += '</div>'
             body_parts.append(h)
             check_items.append(f'《{title}》背诵 □')
         
-        # Wenyanwen: 54 days / 23 texts = each ~2.3 times for reinforcement
+        # Wenyanwen (full text hidden, words+author shown)
         if WENYANWEN:
             ww_idx = (day_num - 1) % len(WENYANWEN)
             ww = WENYANWEN[ww_idx]
@@ -685,19 +820,14 @@ def generate_all():
             ww_text = ww[3] if len(ww)>3 else ''
             ww_words = ww[4] if len(ww)>4 else ''
             ww_bg = ww[5] if len(ww)>5 else ''
-            g9_tag_w = '<span style="color:#e91e63;font-size:10px;font-weight:600">（初三预习）</span>' if ww_title in G9_WENYAN else ''
-            body_parts.append(f'<div class="vocab-box" style="background:#f0f4ff;border-color:#b8c8e0">'
-                f'<p style="font-weight:700;color:#3b5998;font-size:14px">📜 今日文言文背诵：{ww_title} — {ww_author} {g9_tag_w}</p>'
-                f'<button onclick="var t=document.getElementById(\'ww_text_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开原文全文 ▼\':\'收起原文 ▲\';" class="coll-btn" style="background:var(--blue)">展开原文全文 ▼</button>'
-                f'<div id="ww_text_{day_num}" style="display:none;white-space:pre-line;font-size:13px;line-height:2;color:#2a3a5c;padding:8px;background:#fff;border-radius:6px">{ww_text}</div>'
-                f'<button onclick="var t=document.getElementById(\'ww_words_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" style="background:var(--orange);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;margin:4px">展开字词释义 📖</button>'
-                f'<div id="ww_words_{day_num}" style="display:none;padding:6px 10px;font-size:12px;line-height:1.8;color:#795548">{ww_words}</div>'
-                f'<button onclick="var t=document.getElementById(\'ww_bg_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开作者背景 📝\':\'收起作者背景 ▲\';" style="background:var(--purple);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;margin:4px">展开作者背景 📝</button>'
-                f'<div id="ww_bg_{day_num}" style="display:none;padding:6px 10px;font-size:12px;line-height:1.8;color:#6b4c8a">{ww_bg}</div>'
-                f'<table class="summ-table" style="margin-top:8px"><tr><th>背诵内容</th><th>已背/已默</th></tr>'
-                f'<tr><td style="font-size:12px">{ww_title}全文背诵</td><td>□ □</td></tr>'
-                f'<tr><td style="font-size:12px">重点字词释义掌握</td><td>□ □</td></tr>'
-                f'<tr><td style="font-size:12px">作者背景+主旨了解</td><td>□ □</td></tr></table></div>')
+            wid = f'ww_text_{day_num}'
+            g9_tag_w = '<span style="color:var(--red);font-size:10px;font-weight:600">（初三预习）</span>' if ww_title in G9_WENYAN else ''
+            body_parts.append(f'<div class="vocab-box" style="background:var(--blue-light);border-color:rgba(0,122,255,0.2)">'
+                f'<p style="font-weight:700;color:var(--blue);font-size:14px;margin-bottom:6px">📜 今日文言文背诵：{ww_title} — {ww_author} {g9_tag_w}</p>'
+                f'<button onclick="var t=document.getElementById(\'{wid}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'▶ 展开原文\':\'▼ 收起原文\';" style="background:var(--blue);color:#fff;border:none;padding:2px 10px;border-radius:10px;cursor:pointer;font-size:11px;margin:4px 0">▶ 展开原文</button>'
+                f'<div id="{wid}" style="display:none;padding:6px 0;font-size:14px;line-height:2;color:var(--text2);white-space:pre-line">{ww_text}</div>'
+                f'<div style="padding:2px 0;font-size:12px;color:var(--text3);line-height:1.8"><b>📖 字词</b>：{ww_words}</div>'
+                f'<div style="padding:2px 0;font-size:12px;color:var(--text3);line-height:1.8"><b>📝 作者</b>：{ww_bg}</div></div>')
             check_items.append(f'《{ww_title}》文言背诵 □')
         
         # Chinese words accumulation (EVERY day: 5 词语 + 5 成语)
