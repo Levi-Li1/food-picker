@@ -29,9 +29,9 @@ p,li{font-size:13px;color:var(--text2);margin:4px 0;line-height:1.7}
 .q-block{background:var(--card);border:1px solid var(--sep);border-radius:8px;padding:12px 16px;margin:8px 0;transition:all var(--r);}
 .q-block:hover{border-color:var(--blue)}.q-num{font-weight:700;color:var(--blue);margin-right:4px;font-size:13px}
 .question{font-size:13px;margin:4px 0;line-height:1.6}
-.ans-btn{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:14px;border:1.5px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--r);}
+.ans-btn{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:14px;border:1.5px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--r);float:right}
 .ans-btn:hover{background:var(--blue);color:#fff;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,122,255,0.25)}
-.answer{display:none;background:var(--blue-light);padding:10px 14px;border-radius:8px;margin-top:8px;font-size:12px;border-left:3px solid var(--blue);line-height:1.7;animation:sd 0.2s ease;}
+.answer{display:none;background:var(--blue-light);padding:10px 14px;border-radius:8px;margin-top:8px;font-size:12px;border-left:3px solid var(--blue);line-height:1.7;animation:sd 0.2s ease;clear:both}
 .answer.show{display:block}
 @keyframes sd{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 .tip{background:var(--blue-light);border-left:3px solid var(--blue);padding:10px 14px;margin:8px 0;font-size:12px;border-radius:0 8px 8px 0;line-height:1.7;}
@@ -72,30 +72,33 @@ h3{font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;margin
 [data-theme="dark"] .watermark{color:rgba(255,255,255,0.03)}
 .sdots{display:flex;gap:3px;justify-content:flex-end;margin-top:2px}
 .sdots .sd{width:6px;height:6px;border-radius:50%;display:inline-block}
-/* 词汇卡片 — 玻璃质感 + 已记住 */
-.vocab-section{margin:14px 0;padding:16px;border-radius:14px;background:linear-gradient(135deg,#e8f0fe 0%,#f3e8ff 50%,#fce8f0 100%);position:relative}
-[data-theme="dark"] .vocab-section{background:linear-gradient(135deg,rgba(0,122,255,0.15),rgba(175,82,222,0.1),rgba(255,59,48,0.05))}
-.vocab-title{font-size:15px;font-weight:600;margin-bottom:10px;color:var(--text)}
+/* 词汇卡片 — 突出单词 + 轻量玻璃 */
+.vocab-section{margin:12px 0;padding:12px;border-radius:12px;background:linear-gradient(135deg,#f0f5ff 0%,#f5f0ff 100%);position:relative}
+[data-theme="dark"] .vocab-section{background:linear-gradient(135deg,rgba(0,122,255,0.08),rgba(175,82,222,0.06))}
+.vocab-title{font-size:14px;font-weight:600;margin-bottom:8px;color:var(--text)}
 .v-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.v-card{background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.7);border-radius:12px;padding:10px 12px 26px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.03),inset 0 1px 0 rgba(255,255,255,0.8)}
-.v-card::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.15) 35%,rgba(255,255,255,0) 60%);pointer-events:none;border-radius:12px}
-.v-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.8);border-color:rgba(0,122,255,0.25);transform:translateY(-1px)}
-[data-theme="dark"] .v-card{background:rgba(44,44,46,0.2);border-color:rgba(255,255,255,0.1);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
-[data-theme="dark"] .v-card::before{background:linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02) 40%,transparent)}
-[data-theme="dark"] .v-card:hover{border-color:rgba(0,122,255,0.3)}
+.v-card{background:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.6);border-radius:10px;padding:8px 10px;transition:all 0.25s;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.03),inset 0 1px 0 rgba(255,255,255,0.9)}
+.v-card::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.08) 40%,transparent 65%);pointer-events:none;border-radius:10px}
+.v-card:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05);border-color:rgba(0,122,255,0.2)}
+[data-theme="dark"] .v-card{background:rgba(44,44,46,0.55);border-color:rgba(255,255,255,0.08)}
+[data-theme="dark"] .v-card::before{background:linear-gradient(145deg,rgba(255,255,255,0.06),transparent)}
+[data-theme="dark"] .v-card:hover{border-color:rgba(0,122,255,0.25)}
 .v-card.done{background:rgba(52,199,89,0.12);border-color:var(--green)}
-[data-theme="dark"] .v-card.done{background:rgba(52,199,89,0.2);border-color:var(--green)}
-.v-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.v-word{font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.2px}
-.v-ipa{font-size:10px;color:var(--text3);font-family:'SF Mono',monospace}
+[data-theme="dark"] .v-card.done{background:rgba(52,199,89,0.18);border-color:var(--green)}
+/* 单词突出 */
+.v-top{display:flex;align-items:center;gap:4px;margin-bottom:1px}
+.v-word{font-size:17px;font-weight:700;color:var(--text);letter-spacing:-0.2px;line-height:1.3}
 .v-play{border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;margin-left:auto}
 .v-play:hover{background:#005bbf;transform:scale(1.1)}
+.v-mid{display:flex;align-items:center;gap:4px;margin-bottom:3px;flex-wrap:wrap}
+.v-ipa{font-size:10px;color:var(--text3);font-family:'SF Mono',monospace}
 .v-pos{font-size:10px;font-weight:600}
 .v-mean{font-size:12px;color:var(--text);font-weight:500}
-.v-ex{display:block;font-size:10px;color:var(--text2);margin-top:3px;line-height:1.5}
-.v-trans{color:var(--text3);font-size:10px}
-.v-tag{position:absolute;bottom:4px;right:8px;font-size:10px;color:var(--text3);font-weight:500;transition:all 0.3s}
-.v-card.done .v-tag{color:var(--green);font-weight:700}
+.v-ex{font-size:10px;color:var(--text2);line-height:1.4}
+.v-trans{color:var(--text3);font-size:9px;display:flex;align-items:center;justify-content:space-between;width:100%}
+.v-tag{display:inline-block;width:13px;height:13px;border-radius:50%;border:2px solid var(--text3);text-align:center;line-height:13px;font-size:7px;color:transparent;vertical-align:middle;margin-left:2px;transition:all 0.3s;flex-shrink:0}
+.v-tag:hover{border-color:var(--blue);transform:scale(1.15)}
+.v-card.done .v-tag{border-color:var(--green);background:var(--green);box-shadow:0 0 4px rgba(52,199,89,0.35)}
 @media(max-width:500px){.v-grid{grid-template-columns:1fr}}
 /* 艾宾浩斯复习 — 两列 */
 .review-section{background:var(--purple-light);border:1px solid rgba(175,82,222,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin:14px 0}
@@ -223,129 +226,129 @@ Yours,
 Li Ming
 【评分标准】内容完整7分+语言准确6分+卷面整洁2分=15分</div></div></div><div class="step full"><h4><span class="dot" style="background:var(--purple)"></span>方法总结</h4><div class="tip"><b>方法</b>：考前背20个万能句型。写完后检查：①要点齐全②时态正确③主谓一致④拼写正确⑤卷面整洁+</div></div></div>
 <div class="vocab-section"><p class="vocab-title">📖 今日新词</p><div class="v-grid"><div class="v-card" id="wd_38_0" onclick="tR('wd_38_0')">
-  <span class="v-row"><span class="v-word">hold</span><span class="v-ipa">/ hoʊld /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">握住;举办</span><button onclick="speak('hold',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Hold my hand.<br><span class="v-trans">(握住我的手。)</span></span>
-  <span class="v-tag" id="wd_38_0_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">hold</span><button onclick="speak('hold',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ hoʊld /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">握住;举办</span></div>
+  <div class="v-ex">Hold my hand.<br><span class="v-trans">(握住我的手。) <span class="v-tag" id="wd_38_0_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_1" onclick="tR('wd_38_1')">
-  <span class="v-row"><span class="v-word">property</span><span class="v-ipa">/ ˈprɑːpərti /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">财产；性质</span><button onclick="speak('property',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">This house is my property.<br><span class="v-trans">(这房子是我的财产。)</span></span>
-  <span class="v-tag" id="wd_38_1_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">property</span><button onclick="speak('property',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈprɑːpərti /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">财产；性质</span></div>
+  <div class="v-ex">This house is my property.<br><span class="v-trans">(这房子是我的财产。) <span class="v-tag" id="wd_38_1_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_2" onclick="tR('wd_38_2')">
-  <span class="v-row"><span class="v-word">ink</span><span class="v-ipa">/ ɪŋk /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">墨水</span><button onclick="speak('ink',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The pen ran out of ink.<br><span class="v-trans">(钢笔没墨水了。)</span></span>
-  <span class="v-tag" id="wd_38_2_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">ink</span><button onclick="speak('ink',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ɪŋk /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">墨水</span></div>
+  <div class="v-ex">The pen ran out of ink.<br><span class="v-trans">(钢笔没墨水了。) <span class="v-tag" id="wd_38_2_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_3" onclick="tR('wd_38_3')">
-  <span class="v-row"><span class="v-word">print</span><span class="v-ipa">/ prɪnt /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">打印;印刷</span><button onclick="speak('print',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Please print this document.<br><span class="v-trans">(请打印这份文件。)</span></span>
-  <span class="v-tag" id="wd_38_3_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">print</span><button onclick="speak('print',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ prɪnt /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">打印;印刷</span></div>
+  <div class="v-ex">Please print this document.<br><span class="v-trans">(请打印这份文件。) <span class="v-tag" id="wd_38_3_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_4" onclick="tR('wd_38_4')">
-  <span class="v-row"><span class="v-word">tight</span><span class="v-ipa">/ taɪt /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">紧的</span><button onclick="speak('tight',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The shoes are too tight.<br><span class="v-trans">(鞋太紧了。)</span></span>
-  <span class="v-tag" id="wd_38_4_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">tight</span><button onclick="speak('tight',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ taɪt /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">紧的</span></div>
+  <div class="v-ex">The shoes are too tight.<br><span class="v-trans">(鞋太紧了。) <span class="v-tag" id="wd_38_4_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_5" onclick="tR('wd_38_5')">
-  <span class="v-row"><span class="v-word">surprise</span><span class="v-ipa">/ sərˈpraɪz /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">使惊讶；惊喜</span><button onclick="speak('surprise',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">What a surprise!<br><span class="v-trans">(真是个惊喜！)</span></span>
-  <span class="v-tag" id="wd_38_5_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">surprise</span><button onclick="speak('surprise',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ sərˈpraɪz /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">使惊讶；惊喜</span></div>
+  <div class="v-ex">What a surprise!<br><span class="v-trans">(真是个惊喜！) <span class="v-tag" id="wd_38_5_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_6" onclick="tR('wd_38_6')">
-  <span class="v-row"><span class="v-word">either</span><span class="v-ipa">/ ˈiːðər /</span><span class="v-pos" style="color:var(--purple)">adv./conj.</span><span class="v-mean">也;或者</span><button onclick="speak('either',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">You can take either one.<br><span class="v-trans">(你可以拿任何一个。)</span></span>
-  <span class="v-tag" id="wd_38_6_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">either</span><button onclick="speak('either',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈiːðər /</span><span class="v-pos" style="color:var(--purple)">adv./conj.</span><span class="v-mean">也;或者</span></div>
+  <div class="v-ex">You can take either one.<br><span class="v-trans">(你可以拿任何一个。) <span class="v-tag" id="wd_38_6_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_7" onclick="tR('wd_38_7')">
-  <span class="v-row"><span class="v-word">compatible</span><span class="v-ipa">/ kəmˈpætəbl /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">兼容的</span><button onclick="speak('compatible',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">This software is compatible.<br><span class="v-trans">(这个软件兼容。)</span></span>
-  <span class="v-tag" id="wd_38_7_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">compatible</span><button onclick="speak('compatible',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ kəmˈpætəbl /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">兼容的</span></div>
+  <div class="v-ex">This software is compatible.<br><span class="v-trans">(这个软件兼容。) <span class="v-tag" id="wd_38_7_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_8" onclick="tR('wd_38_8')">
-  <span class="v-row"><span class="v-word">confident</span><span class="v-ipa">/ ˈkɑːnfɪdənt /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">自信的</span><button onclick="speak('confident',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">I am confident that I can pass.<br><span class="v-trans">(我自信能通过。)</span></span>
-  <span class="v-tag" id="wd_38_8_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">confident</span><button onclick="speak('confident',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈkɑːnfɪdənt /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">自信的</span></div>
+  <div class="v-ex">I am confident that I can pass.<br><span class="v-trans">(我自信能通过。) <span class="v-tag" id="wd_38_8_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_9" onclick="tR('wd_38_9')">
-  <span class="v-row"><span class="v-word">sense</span><span class="v-ipa">/ sens /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">感觉;意义</span><button onclick="speak('sense',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Common sense is important.<br><span class="v-trans">(常识很重要。)</span></span>
-  <span class="v-tag" id="wd_38_9_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">sense</span><button onclick="speak('sense',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ sens /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">感觉;意义</span></div>
+  <div class="v-ex">Common sense is important.<br><span class="v-trans">(常识很重要。) <span class="v-tag" id="wd_38_9_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_10" onclick="tR('wd_38_10')">
-  <span class="v-row"><span class="v-word">available</span><span class="v-ipa">/ əˈveɪləbl /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">可用的；有空的</span><button onclick="speak('available',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Is this seat available?<br><span class="v-trans">(这个座位有人吗？)</span></span>
-  <span class="v-tag" id="wd_38_10_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">available</span><button onclick="speak('available',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ əˈveɪləbl /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">可用的；有空的</span></div>
+  <div class="v-ex">Is this seat available?<br><span class="v-trans">(这个座位有人吗？) <span class="v-tag" id="wd_38_10_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_11" onclick="tR('wd_38_11')">
-  <span class="v-row"><span class="v-word">consultation</span><span class="v-ipa">/ ˌkɑːnslˈteɪʃn /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">咨询</span><button onclick="speak('consultation',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The doctor gave a consultation.<br><span class="v-trans">(医生做了咨询。)</span></span>
-  <span class="v-tag" id="wd_38_11_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">consultation</span><button onclick="speak('consultation',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˌkɑːnslˈteɪʃn /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">咨询</span></div>
+  <div class="v-ex">The doctor gave a consultation.<br><span class="v-trans">(医生做了咨询。) <span class="v-tag" id="wd_38_11_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_12" onclick="tR('wd_38_12')">
-  <span class="v-row"><span class="v-word">vote</span><span class="v-ipa">/ voʊt /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">投票</span><button onclick="speak('vote',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Citizens vote in elections.<br><span class="v-trans">(公民在选举中投票。)</span></span>
-  <span class="v-tag" id="wd_38_12_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">vote</span><button onclick="speak('vote',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ voʊt /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">投票</span></div>
+  <div class="v-ex">Citizens vote in elections.<br><span class="v-trans">(公民在选举中投票。) <span class="v-tag" id="wd_38_12_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_13" onclick="tR('wd_38_13')">
-  <span class="v-row"><span class="v-word">stroke</span><span class="v-ipa">/ stroʊk /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">中风；抚摸</span><button onclick="speak('stroke',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">He had a stroke.<br><span class="v-trans">(他中风了。)</span></span>
-  <span class="v-tag" id="wd_38_13_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">stroke</span><button onclick="speak('stroke',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ stroʊk /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">中风；抚摸</span></div>
+  <div class="v-ex">He had a stroke.<br><span class="v-trans">(他中风了。) <span class="v-tag" id="wd_38_13_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_14" onclick="tR('wd_38_14')">
-  <span class="v-row"><span class="v-word">rail</span><span class="v-ipa">/ reɪl /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">铁路；栏杆</span><button onclick="speak('rail',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The train runs on rails.<br><span class="v-trans">(火车在铁轨上行驶。)</span></span>
-  <span class="v-tag" id="wd_38_14_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">rail</span><button onclick="speak('rail',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ reɪl /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">铁路；栏杆</span></div>
+  <div class="v-ex">The train runs on rails.<br><span class="v-trans">(火车在铁轨上行驶。) <span class="v-tag" id="wd_38_14_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_15" onclick="tR('wd_38_15')">
-  <span class="v-row"><span class="v-word">restore</span><span class="v-ipa">/ rɪˈstɔːr /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">恢复；修复</span><button onclick="speak('restore',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The old building was restored.<br><span class="v-trans">(老建筑被修复了。)</span></span>
-  <span class="v-tag" id="wd_38_15_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">restore</span><button onclick="speak('restore',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ rɪˈstɔːr /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">恢复；修复</span></div>
+  <div class="v-ex">The old building was restored.<br><span class="v-trans">(老建筑被修复了。) <span class="v-tag" id="wd_38_15_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_16" onclick="tR('wd_38_16')">
-  <span class="v-row"><span class="v-word">glad</span><span class="v-ipa">/ ɡlæd /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">高兴的</span><button onclick="speak('glad',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">I am glad to see you.<br><span class="v-trans">(很高兴见到你。)</span></span>
-  <span class="v-tag" id="wd_38_16_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">glad</span><button onclick="speak('glad',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ɡlæd /</span><span class="v-pos" style="color:var(--orange)">adj.</span><span class="v-mean">高兴的</span></div>
+  <div class="v-ex">I am glad to see you.<br><span class="v-trans">(很高兴见到你。) <span class="v-tag" id="wd_38_16_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_17" onclick="tR('wd_38_17')">
-  <span class="v-row"><span class="v-word">purse</span><span class="v-ipa">/ pɜːrs /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">钱包</span><button onclick="speak('purse',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">I lost my purse.<br><span class="v-trans">(我丢了钱包。)</span></span>
-  <span class="v-tag" id="wd_38_17_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">purse</span><button onclick="speak('purse',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ pɜːrs /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">钱包</span></div>
+  <div class="v-ex">I lost my purse.<br><span class="v-trans">(我丢了钱包。) <span class="v-tag" id="wd_38_17_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_18" onclick="tR('wd_38_18')">
-  <span class="v-row"><span class="v-word">library</span><span class="v-ipa">/ ˈlaɪbreri /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">图书馆</span><button onclick="speak('library',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">We study in the library.<br><span class="v-trans">(我们在图书馆学习。)</span></span>
-  <span class="v-tag" id="wd_38_18_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">library</span><button onclick="speak('library',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈlaɪbreri /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">图书馆</span></div>
+  <div class="v-ex">We study in the library.<br><span class="v-trans">(我们在图书馆学习。) <span class="v-tag" id="wd_38_18_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_19" onclick="tR('wd_38_19')">
-  <span class="v-row"><span class="v-word">force</span><span class="v-ipa">/ fɔːrs /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">力量;强迫</span><button onclick="speak('force',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Do not force me to do it.<br><span class="v-trans">(别强迫我做。)</span></span>
-  <span class="v-tag" id="wd_38_19_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">force</span><button onclick="speak('force',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ fɔːrs /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">力量;强迫</span></div>
+  <div class="v-ex">Do not force me to do it.<br><span class="v-trans">(别强迫我做。) <span class="v-tag" id="wd_38_19_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_20" onclick="tR('wd_38_20')">
-  <span class="v-row"><span class="v-word">guarantee</span><span class="v-ipa">/ ˌɡærənˈtiː /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">保证</span><button onclick="speak('guarantee',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">I guarantee it works.<br><span class="v-trans">(我保证它能用。)</span></span>
-  <span class="v-tag" id="wd_38_20_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">guarantee</span><button onclick="speak('guarantee',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˌɡærənˈtiː /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">保证</span></div>
+  <div class="v-ex">I guarantee it works.<br><span class="v-trans">(我保证它能用。) <span class="v-tag" id="wd_38_20_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_21" onclick="tR('wd_38_21')">
-  <span class="v-row"><span class="v-word">conference</span><span class="v-ipa">/ ˈkɑːnfərəns /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">会议</span><button onclick="speak('conference',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The conference will start at 9 am.<br><span class="v-trans">(会议上午9点开始。)</span></span>
-  <span class="v-tag" id="wd_38_21_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">conference</span><button onclick="speak('conference',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈkɑːnfərəns /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">会议</span></div>
+  <div class="v-ex">The conference will start at 9 am.<br><span class="v-trans">(会议上午9点开始。) <span class="v-tag" id="wd_38_21_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_22" onclick="tR('wd_38_22')">
-  <span class="v-row"><span class="v-word">lecture</span><span class="v-ipa">/ ˈlektʃər /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">讲座；讲课</span><button onclick="speak('lecture',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The lecture was very interesting.<br><span class="v-trans">(讲座很有趣。)</span></span>
-  <span class="v-tag" id="wd_38_22_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">lecture</span><button onclick="speak('lecture',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈlektʃər /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">讲座；讲课</span></div>
+  <div class="v-ex">The lecture was very interesting.<br><span class="v-trans">(讲座很有趣。) <span class="v-tag" id="wd_38_22_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_23" onclick="tR('wd_38_23')">
-  <span class="v-row"><span class="v-word">educate</span><span class="v-ipa">/ ˈedʒukeɪt /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">教育</span><button onclick="speak('educate',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Schools educate children.<br><span class="v-trans">(学校教育孩子。)</span></span>
-  <span class="v-tag" id="wd_38_23_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">educate</span><button onclick="speak('educate',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈedʒukeɪt /</span><span class="v-pos" style="color:var(--green)">v.</span><span class="v-mean">教育</span></div>
+  <div class="v-ex">Schools educate children.<br><span class="v-trans">(学校教育孩子。) <span class="v-tag" id="wd_38_23_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_24" onclick="tR('wd_38_24')">
-  <span class="v-row"><span class="v-word">fight</span><span class="v-ipa">/ faɪt /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">打架;争斗</span><button onclick="speak('fight',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Do not fight with your brother.<br><span class="v-trans">(别和你弟弟打架。)</span></span>
-  <span class="v-tag" id="wd_38_24_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">fight</span><button onclick="speak('fight',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ faɪt /</span><span class="v-pos" style="color:var(--purple)">v./n.</span><span class="v-mean">打架;争斗</span></div>
+  <div class="v-ex">Do not fight with your brother.<br><span class="v-trans">(别和你弟弟打架。) <span class="v-tag" id="wd_38_24_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_25" onclick="tR('wd_38_25')">
-  <span class="v-row"><span class="v-word">edge</span><span class="v-ipa">/ edʒ /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">边缘</span><button onclick="speak('edge',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Don't stand at the edge.<br><span class="v-trans">(别站在边缘。)</span></span>
-  <span class="v-tag" id="wd_38_25_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">edge</span><button onclick="speak('edge',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ edʒ /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">边缘</span></div>
+  <div class="v-ex">Don't stand at the edge.<br><span class="v-trans">(别站在边缘。) <span class="v-tag" id="wd_38_25_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_26" onclick="tR('wd_38_26')">
-  <span class="v-row"><span class="v-word">anxiety</span><span class="v-ipa">/ æŋˈzaɪəti /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">焦虑</span><button onclick="speak('anxiety',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">He felt a lot of anxiety.<br><span class="v-trans">(他感到非常焦虑。)</span></span>
-  <span class="v-tag" id="wd_38_26_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">anxiety</span><button onclick="speak('anxiety',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ æŋˈzaɪəti /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">焦虑</span></div>
+  <div class="v-ex">He felt a lot of anxiety.<br><span class="v-trans">(他感到非常焦虑。) <span class="v-tag" id="wd_38_26_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_27" onclick="tR('wd_38_27')">
-  <span class="v-row"><span class="v-word">nerve</span><span class="v-ipa">/ nɜːrv /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">神经；勇气</span><button onclick="speak('nerve',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">He has a lot of nerve.<br><span class="v-trans">(他很有勇气。)</span></span>
-  <span class="v-tag" id="wd_38_27_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">nerve</span><button onclick="speak('nerve',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ nɜːrv /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">神经；勇气</span></div>
+  <div class="v-ex">He has a lot of nerve.<br><span class="v-trans">(他很有勇气。) <span class="v-tag" id="wd_38_27_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_28" onclick="tR('wd_38_28')">
-  <span class="v-row"><span class="v-word">controversy</span><span class="v-ipa">/ ˈkɑːntrəvɜːrsi /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">争议</span><button onclick="speak('controversy',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">The decision caused controversy.<br><span class="v-trans">(决定引起了争议。)</span></span>
-  <span class="v-tag" id="wd_38_28_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">controversy</span><button onclick="speak('controversy',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈkɑːntrəvɜːrsi /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">争议</span></div>
+  <div class="v-ex">The decision caused controversy.<br><span class="v-trans">(决定引起了争议。) <span class="v-tag" id="wd_38_28_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_29" onclick="tR('wd_38_29')">
-  <span class="v-row"><span class="v-word">guidance</span><span class="v-ipa">/ ˈɡaɪdns /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">指导</span><button onclick="speak('guidance',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Thank you for your guidance.<br><span class="v-trans">(谢谢指导。)</span></span>
-  <span class="v-tag" id="wd_38_29_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">guidance</span><button onclick="speak('guidance',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ ˈɡaɪdns /</span><span class="v-pos" style="color:var(--blue)">n.</span><span class="v-mean">指导</span></div>
+  <div class="v-ex">Thank you for your guidance.<br><span class="v-trans">(谢谢指导。) <span class="v-tag" id="wd_38_29_tag">○</span></span></div>
 </div><div class="v-card" id="wd_38_30" onclick="tR('wd_38_30')">
-  <span class="v-row"><span class="v-word">brush</span><span class="v-ipa">/ brʌʃ /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">刷子；刷</span><button onclick="speak('brush',this)" class="v-play" title="点击发音"><svg width="10" height="10"><use href="#i-play"/></svg></button></span>
-  <span class="v-ex">Brush your teeth twice a day.<br><span class="v-trans">(每天刷两次牙。)</span></span>
-  <span class="v-tag" id="wd_38_30_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">brush</span><button onclick="speak('brush',this)" class="v-play" title="点击发音"><svg width="11" height="11"><use href="#i-play"/></svg></button></div>
+  <div class="v-mid"><span class="v-ipa">/ brʌʃ /</span><span class="v-pos" style="color:var(--purple)">n./v.</span><span class="v-mean">刷子；刷</span></div>
+  <div class="v-ex">Brush your teeth twice a day.<br><span class="v-trans">(每天刷两次牙。) <span class="v-tag" id="wd_38_30_tag">○</span></span></div>
 </div></div></div>
 <div class="review-section"><p class="review-title">🧠 艾宾浩斯复习 · 今日需复习</p><p class="review-sub">根据遗忘曲线，以下单词需要今日复习巩固</p><div class="review-day-label">📅 Day 37</div><div class="rv-grid"><div class="rv-card"><b class="rv-word">silence</b><span class="rv-ipa">/ ˈsaɪləns /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">沉默</span><button onclick="speak('silence',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">strip</b><span class="rv-ipa">/ strɪp /</span><span class="rv-pos" style="color:var(--purple)">n./v.</span><span class="rv-mean">条；剥去</span><button onclick="speak('strip',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">abstract</b><span class="rv-ipa">/ ˈæbstrækt /</span><span class="rv-pos" style="color:var(--purple)">adj./n.</span><span class="rv-mean">抽象的；摘要</span><button onclick="speak('abstract',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">rent</b><span class="rv-ipa">/ rent /</span><span class="rv-pos" style="color:var(--purple)">n./v.</span><span class="rv-mean">租金；租用</span><button onclick="speak('rent',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">cancel</b><span class="rv-ipa">/ ˈkænsl /</span><span class="rv-pos" style="color:var(--purple)">v.</span><span class="rv-mean">取消</span><button onclick="speak('cancel',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">share</b><span class="rv-ipa">/ ʃer /</span><span class="rv-pos" style="color:var(--purple)">v./n.</span><span class="rv-mean">分享；股份</span><button onclick="speak('share',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">development</b><span class="rv-ipa">/ dɪˈveləpmənt /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">发展；开发</span><button onclick="speak('development',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">afford</b><span class="rv-ipa">/ əˈfɔːrd /</span><span class="rv-pos" style="color:var(--purple)">v.</span><span class="rv-mean">负担得起</span><button onclick="speak('afford',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">address</b><span class="rv-ipa">/ əˈdres /</span><span class="rv-pos" style="color:var(--purple)">n./v.</span><span class="rv-mean">地址；演讲</span><button onclick="speak('address',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">change</b><span class="rv-ipa">/ tʃeɪndʒ /</span><span class="rv-pos" style="color:var(--purple)">v./n.</span><span class="rv-mean">改变；零钱</span><button onclick="speak('change',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">cotton</b><span class="rv-ipa">/ ˈkɑːtn /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">棉花</span><button onclick="speak('cotton',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">effort</b><span class="rv-ipa">/ ˈefərt /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">努力</span><button onclick="speak('effort',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">translate</b><span class="rv-ipa">/ trænzˈleɪt /</span><span class="rv-pos" style="color:var(--purple)">v.</span><span class="rv-mean">翻译</span><button onclick="speak('translate',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">organization</b><span class="rv-ipa">/ ˌɔːrɡənɪˈzeɪʃn /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">组织</span><button onclick="speak('organization',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">control</b><span class="rv-ipa">/ kənˈtroʊl /</span><span class="rv-pos" style="color:var(--purple)">v./n.</span><span class="rv-mean">控制</span><button onclick="speak('control',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">perhaps</b><span class="rv-ipa">/ pərˈhæps /</span><span class="rv-pos" style="color:var(--purple)">adv.</span><span class="rv-mean">也许</span><button onclick="speak('perhaps',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">withdraw</b><span class="rv-ipa">/ wɪðˈdrɔː /</span><span class="rv-pos" style="color:var(--purple)">v.</span><span class="rv-mean">撤回；取款</span><button onclick="speak('withdraw',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">playground</b><span class="rv-ipa">/ ˈpleɪɡraʊnd /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">操场</span><button onclick="speak('playground',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">appeal</b><span class="rv-ipa">/ əˈpiːl /</span><span class="rv-pos" style="color:var(--purple)">v./n.</span><span class="rv-mean">呼吁；吸引力</span><button onclick="speak('appeal',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">meat</b><span class="rv-ipa">/ miːt /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">肉</span><button onclick="speak('meat',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">enormous</b><span class="rv-ipa">/ ɪˈnɔːrməs /</span><span class="rv-pos" style="color:var(--purple)">adj.</span><span class="rv-mean">巨大的</span><button onclick="speak('enormous',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">coast</b><span class="rv-ipa">/ koʊst /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">海岸</span><button onclick="speak('coast',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">classic</b><span class="rv-ipa">/ ˈklæsɪk /</span><span class="rv-pos" style="color:var(--purple)">adj./n.</span><span class="rv-mean">经典的；名著</span><button onclick="speak('classic',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">drama</b><span class="rv-ipa">/ ˈdrɑːmə /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">戏剧</span><button onclick="speak('drama',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">oxygen</b><span class="rv-ipa">/ ˈɑːksɪdʒən /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">氧气</span><button onclick="speak('oxygen',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">cross</b><span class="rv-ipa">/ krɔːs /</span><span class="rv-pos" style="color:var(--purple)">v./n.</span><span class="rv-mean">穿过；十字架</span><button onclick="speak('cross',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">stream</b><span class="rv-ipa">/ striːm /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">溪流</span><button onclick="speak('stream',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">complete</b><span class="rv-ipa">/ kəmˈpliːt /</span><span class="rv-pos" style="color:var(--purple)">adj./v.</span><span class="rv-mean">完整的；完成</span><button onclick="speak('complete',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">dictate</b><span class="rv-ipa">/ ˈdɪkteɪt /</span><span class="rv-pos" style="color:var(--purple)">v.</span><span class="rv-mean">口述；命令</span><button onclick="speak('dictate',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">view</b><span class="rv-ipa">/ vjuː /</span><span class="rv-pos" style="color:var(--purple)">n.</span><span class="rv-mean">景色；观点</span><button onclick="speak('view',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div><div class="rv-card"><b class="rv-word">besides</b><span class="rv-ipa">/ bɪˈsaɪdz /</span><span class="rv-pos" style="color:var(--purple)">adv./prep.</span><span class="rv-mean">此外；除了</span><button onclick="speak('besides',this)" class="rv-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button></div></div></div>
 <div class="phrases-box"><p style="font-weight:600;margin-bottom:6px">🔗 今日短语搭配（4条）</p><div class="ph-item"><b>Excuse me.</b><button onclick="speak('Excuse me.',this)" class="ph-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button><span class="ph-ipa">/ ɪkˈskjuːz miː /</span><span class="ph-mean">打扰一下；对不起。</span><br><span class="ph-ex">Excuse me, where is the station?（打扰一下，车站在哪里？）</span></div><div class="ph-item"><b>give up</b><button onclick="speak('give up',this)" class="ph-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button><span class="ph-ipa">/ ɡɪv ʌp /</span><span class="ph-mean">放弃</span><br><span class="ph-ex">Never give up your dream.（永远不要放弃你的梦想。）</span></div><div class="ph-item"><b>lead to</b><button onclick="speak('lead to',this)" class="ph-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button><span class="ph-ipa">/ liːd tuː /</span><span class="ph-mean">导致</span><br><span class="ph-ex">Hard work leads to success.（努力会带来成功。）</span></div><div class="ph-item"><b>look forward to</b><button onclick="speak('look forward to',this)" class="ph-play" title="点击发音"><svg width="9" height="9"><use href="#i-play"/></svg></button><span class="ph-ipa">/ lʊk ˈfɔːr.wərd tuː /</span><span class="ph-mean">期待</span><br><span class="ph-ex">I look forward to meeting you.（我期待见到你。）</span></div></div>
@@ -430,7 +433,7 @@ document.body.insertAdjacentHTML("afterbegin",sp);
 function speak(t,btn){try{if(!window.speechSynthesis){alert("当前浏览器不支持语音播放");return;}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;u.onstart=function(){if(btn){btn.style.background="#34c759";btn.style.transform="scale(1.15)";}};u.onend=function(){if(btn){btn.style.background="var(--blue)";btn.style.transform="scale(1)";}};window.speechSynthesis.speak(u);}catch(e){alert("播放失败:"+e.message);}}
 function showAns(b){var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}
 function toggleComplete(dn){var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){localStorage.setItem("day_"+dn+"_done","true");btn.className="cbtn done";btn.textContent="已完成 ✓";}else{localStorage.setItem("day_"+dn+"_done","false");btn.className="cbtn todo";btn.textContent="标记完成";}}
-function tR(k){var c=document.getElementById(k);var t=document.getElementById(k+"_tag");if(c.classList.contains("done")){c.classList.remove("done");t.textContent="○ 记住";localStorage.setItem(k,"0");}else{c.classList.add("done");t.textContent="● 已记 ✓";localStorage.setItem(k,"1");}}
+function tR(k){var c=document.getElementById(k);var t=document.getElementById(k+"_tag");if(c.classList.contains("done")){c.classList.remove("done");t.textContent="○";localStorage.setItem(k,"0");}else{c.classList.add("done");t.textContent="●";localStorage.setItem(k,"1");}}
 function tTheme(){var h=document.documentElement;var b=document.querySelector(".tbtn");if(h.getAttribute("data-theme")=="dark"){h.setAttribute("data-theme","light");b.innerHTML='<svg width="14" height="14"><use href="#i-moon"/></svg><span>深色</span>';localStorage.setItem("theme","light");}else{h.setAttribute("data-theme","dark");b.innerHTML='<svg width="14" height="14"><use href="#i-sun"/></svg><span>亮色</span>';localStorage.setItem("theme","dark");}}
-window.onload=function(){if(localStorage.getItem("day_38_done")==="true"){var btn=document.getElementById("cbtn");btn.className="cbtn done";btn.textContent="已完成 ✓";}if(localStorage.getItem("theme")==="dark") tTheme();for(var i=0;i<60;i++){var k="wd_38_"+i;if(localStorage.getItem(k)==="1"){var c=document.getElementById(k);if(c){c.classList.add("done");var t=document.getElementById(k+"_tag");if(t)t.textContent="● 已记 ✓";}}}};
+window.onload=function(){if(localStorage.getItem("day_38_done")==="true"){var btn=document.getElementById("cbtn");btn.className="cbtn done";btn.textContent="已完成 ✓";}if(localStorage.getItem("theme")==="dark") tTheme();for(var i=0;i<60;i++){var k="wd_38_"+i;if(localStorage.getItem(k)==="1"){var c=document.getElementById(k);if(c){c.classList.add("done");var t=document.getElementById(k+"_tag");if(t)t.textContent="●";}}}};
 </script></body></html>

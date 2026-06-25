@@ -74,9 +74,9 @@ p,li{font-size:13px;color:var(--text2);margin:4px 0;line-height:1.7}
 .q-block{background:var(--card);border:1px solid var(--sep);border-radius:8px;padding:12px 16px;margin:8px 0;transition:all var(--r);}
 .q-block:hover{border-color:var(--blue)}.q-num{font-weight:700;color:var(--blue);margin-right:4px;font-size:13px}
 .question{font-size:13px;margin:4px 0;line-height:1.6}
-.ans-btn{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:14px;border:1.5px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--r);}
+.ans-btn{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:14px;border:1.5px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--r);float:right}
 .ans-btn:hover{background:var(--blue);color:#fff;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,122,255,0.25)}
-.answer{display:none;background:var(--blue-light);padding:10px 14px;border-radius:8px;margin-top:8px;font-size:12px;border-left:3px solid var(--blue);line-height:1.7;animation:sd 0.2s ease;}
+.answer{display:none;background:var(--blue-light);padding:10px 14px;border-radius:8px;margin-top:8px;font-size:12px;border-left:3px solid var(--blue);line-height:1.7;animation:sd 0.2s ease;clear:both}
 .answer.show{display:block}
 @keyframes sd{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 .tip{background:var(--blue-light);border-left:3px solid var(--blue);padding:10px 14px;margin:8px 0;font-size:12px;border-radius:0 8px 8px 0;line-height:1.7;}
@@ -117,30 +117,33 @@ h3{font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;margin
 [data-theme="dark"] .watermark{color:rgba(255,255,255,0.03)}
 .sdots{display:flex;gap:3px;justify-content:flex-end;margin-top:2px}
 .sdots .sd{width:6px;height:6px;border-radius:50%;display:inline-block}
-/* 词汇卡片 — 玻璃质感 + 已记住 */
-.vocab-section{margin:14px 0;padding:16px;border-radius:14px;background:linear-gradient(135deg,#e8f0fe 0%,#f3e8ff 50%,#fce8f0 100%);position:relative}
-[data-theme="dark"] .vocab-section{background:linear-gradient(135deg,rgba(0,122,255,0.15),rgba(175,82,222,0.1),rgba(255,59,48,0.05))}
-.vocab-title{font-size:15px;font-weight:600;margin-bottom:10px;color:var(--text)}
+/* 词汇卡片 — 突出单词 + 轻量玻璃 */
+.vocab-section{margin:12px 0;padding:12px;border-radius:12px;background:linear-gradient(135deg,#f0f5ff 0%,#f5f0ff 100%);position:relative}
+[data-theme="dark"] .vocab-section{background:linear-gradient(135deg,rgba(0,122,255,0.08),rgba(175,82,222,0.06))}
+.vocab-title{font-size:14px;font-weight:600;margin-bottom:8px;color:var(--text)}
 .v-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.v-card{background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.7);border-radius:12px;padding:10px 12px 26px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.03),inset 0 1px 0 rgba(255,255,255,0.8)}
-.v-card::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.15) 35%,rgba(255,255,255,0) 60%);pointer-events:none;border-radius:12px}
-.v-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.8);border-color:rgba(0,122,255,0.25);transform:translateY(-1px)}
-[data-theme="dark"] .v-card{background:rgba(44,44,46,0.2);border-color:rgba(255,255,255,0.1);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
-[data-theme="dark"] .v-card::before{background:linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02) 40%,transparent)}
-[data-theme="dark"] .v-card:hover{border-color:rgba(0,122,255,0.3)}
+.v-card{background:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.6);border-radius:10px;padding:8px 10px;transition:all 0.25s;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.03),inset 0 1px 0 rgba(255,255,255,0.9)}
+.v-card::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.5) 0%,rgba(255,255,255,0.08) 40%,transparent 65%);pointer-events:none;border-radius:10px}
+.v-card:hover{box-shadow:0 3px 12px rgba(0,0,0,0.05);border-color:rgba(0,122,255,0.2)}
+[data-theme="dark"] .v-card{background:rgba(44,44,46,0.55);border-color:rgba(255,255,255,0.08)}
+[data-theme="dark"] .v-card::before{background:linear-gradient(145deg,rgba(255,255,255,0.06),transparent)}
+[data-theme="dark"] .v-card:hover{border-color:rgba(0,122,255,0.25)}
 .v-card.done{background:rgba(52,199,89,0.12);border-color:var(--green)}
-[data-theme="dark"] .v-card.done{background:rgba(52,199,89,0.2);border-color:var(--green)}
-.v-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-.v-word{font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.2px}
-.v-ipa{font-size:10px;color:var(--text3);font-family:'SF Mono',monospace}
+[data-theme="dark"] .v-card.done{background:rgba(52,199,89,0.18);border-color:var(--green)}
+/* 单词突出 */
+.v-top{display:flex;align-items:center;gap:4px;margin-bottom:1px}
+.v-word{font-size:17px;font-weight:700;color:var(--text);letter-spacing:-0.2px;line-height:1.3}
 .v-play{border:none;background:var(--blue);color:#fff;border-radius:50%;width:20px;height:20px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;margin-left:auto}
 .v-play:hover{background:#005bbf;transform:scale(1.1)}
+.v-mid{display:flex;align-items:center;gap:4px;margin-bottom:3px;flex-wrap:wrap}
+.v-ipa{font-size:10px;color:var(--text3);font-family:'SF Mono',monospace}
 .v-pos{font-size:10px;font-weight:600}
 .v-mean{font-size:12px;color:var(--text);font-weight:500}
-.v-ex{display:block;font-size:10px;color:var(--text2);margin-top:3px;line-height:1.5}
-.v-trans{color:var(--text3);font-size:10px}
-.v-tag{position:absolute;bottom:4px;right:8px;font-size:10px;color:var(--text3);font-weight:500;transition:all 0.3s}
-.v-card.done .v-tag{color:var(--green);font-weight:700}
+.v-ex{font-size:10px;color:var(--text2);line-height:1.4}
+.v-trans{color:var(--text3);font-size:9px;display:flex;align-items:center;justify-content:space-between;width:100%}
+.v-tag{display:inline-block;width:13px;height:13px;border-radius:50%;border:2px solid var(--text3);text-align:center;line-height:13px;font-size:7px;color:transparent;vertical-align:middle;margin-left:2px;transition:all 0.3s;flex-shrink:0}
+.v-tag:hover{border-color:var(--blue);transform:scale(1.15)}
+.v-card.done .v-tag{border-color:var(--green);background:var(--green);box-shadow:0 0 4px rgba(52,199,89,0.35)}
 @media(max-width:500px){.v-grid{grid-template-columns:1fr}}
 /* 艾宾浩斯复习 — 两列 */
 .review-section{background:var(--purple-light);border:1px solid rgba(175,82,222,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin:14px 0}
@@ -383,20 +386,20 @@ def review_block(day_num):
     return h
 
 def vocab_block(words, day_num=1):
-    """词汇卡片：单词+音标+发音+释义 + 标记已记住"""
+    """词汇卡片：单词突出 + 音标+释义 + 标记已记住"""
     h = '<div class="vocab-section"><p class="vocab-title">📖 今日新词</p><div class="v-grid">'
     for i, w in enumerate(words):
         wi, ipa, pos, meaning, ex, trans = w if len(w) >= 6 else (w[0],'','','','','')
         safe_wi = wi.replace("'", "\\'")
         wk = f'wd_{day_num}_{i}'
-        svg_play = '<svg width="10" height="10"><use href="#i-play"/></svg>'
+        svg_play = '<svg width="11" height="11"><use href="#i-play"/></svg>'
         btn = f'<button onclick="speak(\'{safe_wi}\',this)" class="v-play" title="点击发音">{svg_play}</button>'
         pos_color = {'n.':'var(--blue)','v.':'var(--green)','adj.':'var(--orange)','adv.':'var(--purple)','prep.':'var(--red)','conj.':'#e91e63','pron.':'#795548'}
         pc = pos_color.get(pos, 'var(--purple)')
         h += f'''<div class="v-card" id="{wk}" onclick="tR(\'{wk}\')">
-  <span class="v-row"><span class="v-word">{wi}</span><span class="v-ipa">/ {ipa} /</span><span class="v-pos" style="color:{pc}">{pos}</span><span class="v-mean">{meaning}</span>{btn}</span>
-  <span class="v-ex">{ex}<br><span class="v-trans">({trans})</span></span>
-  <span class="v-tag" id="{wk}_tag">○ 记住</span>
+  <div class="v-top"><span class="v-word">{wi}</span>{btn}</div>
+  <div class="v-mid"><span class="v-ipa">/ {ipa} /</span><span class="v-pos" style="color:{pc}">{pos}</span><span class="v-mean">{meaning}</span></div>
+  <div class="v-ex">{ex}<br><span class="v-trans">({trans}) <span class="v-tag" id="{wk}_tag">○</span></span></div>
 </div>'''
     return h + '</div></div>'
 
@@ -709,9 +712,9 @@ document.body.insertAdjacentHTML("afterbegin",sp);
 function speak(t,btn){{try{{if(!window.speechSynthesis){{alert("当前浏览器不支持语音播放");return;}}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;u.onstart=function(){{if(btn){{btn.style.background="#34c759";btn.style.transform="scale(1.15)";}}}};u.onend=function(){{if(btn){{btn.style.background="var(--blue)";btn.style.transform="scale(1)";}}}};window.speechSynthesis.speak(u);}}catch(e){{alert("播放失败:"+e.message);}}}}
 function showAns(b){{var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}}
 function toggleComplete(dn){{var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){{localStorage.setItem("day_"+dn+"_done","true");btn.className="cbtn done";btn.textContent="已完成 ✓";}}else{{localStorage.setItem("day_"+dn+"_done","false");btn.className="cbtn todo";btn.textContent="标记完成";}}}}
-function tR(k){{var c=document.getElementById(k);var t=document.getElementById(k+"_tag");if(c.classList.contains("done")){{c.classList.remove("done");t.textContent="○ 记住";localStorage.setItem(k,"0");}}else{{c.classList.add("done");t.textContent="● 已记 ✓";localStorage.setItem(k,"1");}}}}
+function tR(k){{var c=document.getElementById(k);var t=document.getElementById(k+"_tag");if(c.classList.contains("done")){{c.classList.remove("done");t.textContent="○";localStorage.setItem(k,"0");}}else{{c.classList.add("done");t.textContent="●";localStorage.setItem(k,"1");}}}}
 function tTheme(){{var h=document.documentElement;var b=document.querySelector(".tbtn");if(h.getAttribute("data-theme")=="dark"){{h.setAttribute("data-theme","light");b.innerHTML='<svg width="14" height="14"><use href="#i-moon"/></svg><span>深色</span>';localStorage.setItem("theme","light");}}else{{h.setAttribute("data-theme","dark");b.innerHTML='<svg width="14" height="14"><use href="#i-sun"/></svg><span>亮色</span>';localStorage.setItem("theme","dark");}}}}
-window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="cbtn done";btn.textContent="已完成 ✓";}}if(localStorage.getItem("theme")==="dark") tTheme();for(var i=0;i<60;i++){{var k="wd_{num}_"+i;if(localStorage.getItem(k)==="1"){{var c=document.getElementById(k);if(c){{c.classList.add("done");var t=document.getElementById(k+"_tag");if(t)t.textContent="● 已记 ✓";}}}}}}}};
+window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="cbtn done";btn.textContent="已完成 ✓";}}if(localStorage.getItem("theme")==="dark") tTheme();for(var i=0;i<60;i++){{var k="wd_{num}_"+i;if(localStorage.getItem(k)==="1"){{var c=document.getElementById(k);if(c){{c.classList.add("done");var t=document.getElementById(k+"_tag");if(t)t.textContent="●";}}}}}}}};
 </script>'''
     return f'''<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>暑假逆袭 · Day {num}</title><style>{CSS}</style></head><body>
