@@ -45,49 +45,104 @@ random.shuffle(PHRASES)
 
 # ── CSS ──
 CSS = '''
-:root{--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--purple:#af52de;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--sub:#86868b}
+:root{--blue:#007aff;--blue-light:#e8f2ff;--blue-015:rgba(0,122,255,0.15);--blue-012:rgba(0,122,255,0.12);--blue-010:rgba(0,122,255,0.10);--blue-008:rgba(0,122,255,0.08);--blue-004:rgba(0,122,255,0.04);--blue-020:rgba(0,122,255,0.20);--green:#34c759;--green-light:#e8f8ed;--green-008:rgba(52,199,89,0.08);--green-004:rgba(52,199,89,0.04);--green-012:rgba(52,199,89,0.12);--orange:#ff9500;--orange-light:#fff3e0;--orange-015:rgba(255,149,0,0.15);--orange-012:rgba(255,149,0,0.12);--red:#ff3b30;--red-light:#ffe8e6;--red-015:rgba(255,59,48,0.15);--red-030:rgba(255,59,48,0.30);--red-020:rgba(255,59,48,0.20);--red-010:rgba(255,59,48,0.10);--red-008:rgba(255,59,48,0.08);--purple:#af52de;--purple-light:#f3e8ff;--purple-012:rgba(175,82,222,0.12);--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--text2:#636366;--text3:#8e8e93;--sep:#e5e5ea;--shadow:0 1px 3px rgba(0,0,0,0.06);--radius:14px;--radius-sm:10px;--r:0.3s ease;}
+[data-theme="dark"]{--bg:#1c1c1e;--card:#2c2c2e;--text:#f5f5f7;--text2:#98989d;--text3:#636366;--sep:#38383a;--blue-light:#1a2744;--green-light:#1a2e20;--orange-light:#2a2410;--red-light:#2e1a18;--purple-light:#221a30;--shadow:0 1px 3px rgba(0,0,0,0.3);}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:14px}
-.container{max-width:1000px;margin:0 auto;padding:0 12px}
-.topbar{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;gap:8px}
-.topbar .quote{font-size:12px;opacity:.85;font-style:italic;flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.day-card{border:2px solid #e5e5ea;background:var(--card);border-radius:14px;margin-bottom:16px;overflow:hidden}
-.dhead{background:linear-gradient(135deg,var(--blue),#5856d6);color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.dnum{font-size:24px;font-weight:800}.dinfo{text-align:right;font-size:12px;opacity:.9}
-.dbody{padding:14px}.goal{background:#fffbf0;border:1px solid #ffd54f;border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:13px}
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-.step{background:#f8f8fa;border-radius:10px;padding:10px 12px}
-.step.full{grid-column:1/-1}.step h4{font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
-.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
-p,li{font-size:13px;color:#444;margin:3px 0;line-height:1.7}
-.q-block{background:#fff;border:1px solid #e5e5ea;border-radius:8px;padding:8px 10px;margin:5px 0}
-.q-num{font-weight:700;color:var(--blue);margin-right:4px}.question{font-size:12px}
-.ans-btn{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:10px;border:1px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;cursor:pointer}
-.answer{display:none;background:#f0f7ff;padding:6px 10px;border-radius:6px;margin-top:4px;font-size:12px;border-left:3px solid var(--blue)}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background var(--r),color var(--r);}
+.c,.container{max-width:720px;margin:0 auto;padding:0 12px}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--sep);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:8px;}
+[data-theme="dark"] .topbar{background:rgba(28,28,30,0.88);}
+.topbar .title{font-size:15px;font-weight:600;white-space:nowrap}
+.topbar .quote{font-size:12px;color:var(--text3);flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px}
+.topbar a{font-size:12px;color:var(--blue);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:4px}
+.topbar .right{display:flex;align-items:center;gap:4px}
+.topbar .tbtn{display:flex;align-items:center;gap:5px;border:1px solid var(--sep);background:var(--bg);color:var(--text2);cursor:pointer;padding:5px 12px;border-radius:14px;font-size:12px;font-weight:500;transition:all var(--r);white-space:nowrap;}
+.topbar .tbtn:hover{background:var(--card);border-color:var(--blue);color:var(--blue);box-shadow:0 1px 4px rgba(0,122,255,0.15)}
+.day-card,.dcard{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--sep);margin-bottom:20px;transition:all var(--r);}
+.dhead{background:var(--card);border-bottom:1px solid var(--sep);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
+.dhead .dnum{font-size:24px;font-weight:700;color:var(--text);letter-spacing:-0.5px}
+.dhead .dinfo{text-align:right;font-size:12px;color:var(--text3);line-height:1.5}
+.dbody{padding:20px}
+.goal{background:var(--orange-light);border:1px solid rgba(255,149,0,0.25);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:18px;font-size:14px;line-height:1.6;}
+.goal b{color:var(--orange)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.step{background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;transition:all var(--r);border:1px solid transparent;}
+.step:hover{border-color:var(--sep)}.step.full{grid-column:1/-1}
+.step h4{font-size:13px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block}
+p,li{font-size:13px;color:var(--text2);margin:4px 0;line-height:1.7}
+.q-block{background:var(--card);border:1px solid var(--sep);border-radius:8px;padding:12px 16px;margin:8px 0;transition:all var(--r);}
+.q-block:hover{border-color:var(--blue)}.q-num{font-weight:700;color:var(--blue);margin-right:4px;font-size:13px}
+.question{font-size:13px;margin:4px 0;line-height:1.6}
+.ans-btn{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:14px;border:1.5px solid var(--blue);color:var(--blue);background:transparent;font-size:11px;font-weight:600;cursor:pointer;transition:all var(--r);}
+.ans-btn:hover{background:var(--blue);color:#fff;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,122,255,0.25)}
+.answer{display:none;background:var(--blue-light);padding:10px 14px;border-radius:8px;margin-top:8px;font-size:12px;border-left:3px solid var(--blue);line-height:1.7;animation:sd 0.2s ease;}
 .answer.show{display:block}
-.tip{background:#f0f7ff;border-left:3px solid var(--blue);padding:6px 10px;margin:5px 0;font-size:12px;border-radius:0 6px 6px 0}
+@keyframes sd{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.tip{background:var(--blue-light);border-left:3px solid var(--blue);padding:10px 14px;margin:8px 0;font-size:12px;border-radius:0 8px 8px 0;line-height:1.7;}
 .tip b{color:var(--blue)}
-.check{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:12px}
-.summ-table{width:100%;border-collapse:collapse;font-size:12px;margin:5px 0}
-.summ-table th,.summ-table td{padding:3px 6px;border:1px solid #e5e5ea}
-.summ-table th{background:#f0e6f6;color:var(--purple)}
-h3{font-size:15px;display:flex;align-items:center;gap:6px;margin-top:12px}
-.vocab-box{background:#f0f0f5;border-radius:8px;padding:10px 12px;margin:8px 0;border:1px solid #e5e5ea}
-.vocab-box p{margin:0 0 6px 0;font-size:12px;font-weight:600}
-.phrases-box{background:#f5f0ff;border-radius:8px;padding:10px 12px;margin:8px 0;border:1px solid #d0c0e8}
-.complete-bar{padding:12px 16px;background:var(--bg);border-top:1px solid #e5e5ea;text-align:center}
-.complete-btn{padding:10px 32px;border-radius:24px;border:none;font-size:15px;font-weight:600;cursor:pointer}
-.complete-btn.todo{background:var(--blue);color:#fff}
-.complete-btn.done{background:#e8f5e9;color:#2e7d32;border:2px solid #a5d6a7}
-.nav-links{display:flex;justify-content:space-between;padding:12px 16px;gap:12px}
-.nav-links a{padding:8px 16px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:600;flex:1;text-align:center}
-.nav-links .prev{background:#e5e5ea;color:#666}
-.nav-links .home{background:var(--blue);color:#fff}
-.nav-links .next{background:var(--blue);color:#fff}
-.svg-wrap{text-align:center;margin:8px 0;background:#fafafa;border-radius:8px;padding:6px}
+.check{background:var(--green-light);border:1px solid rgba(52,199,89,0.25);border-radius:var(--radius-sm);padding:14px 18px;margin:12px 0;font-size:13px;line-height:2.2;}
+.check b{color:var(--green)}
+.summ-table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0;}
+.summ-table th,.summ-table td{padding:5px 10px;border:1px solid var(--sep);text-align:left}
+.summ-table th{background:var(--bg);font-weight:600;color:var(--text2)}
+h3{font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;margin:20px 0 14px;color:var(--text);}
+.vocab-box{background:var(--bg);border:1px solid var(--sep);border-radius:var(--radius-sm);padding:14px 16px;margin:10px 0;transition:all var(--r);}
+.vocab-box:hover{border-color:var(--text3)}.vocab-box p{margin:0 0 8px 0;font-size:13px;font-weight:600}
+.phrases-box{background:var(--purple-light);border:1px solid rgba(175,82,222,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin:10px 0}
+.complete-bar,.cbar{display:flex;justify-content:center;padding:16px;border-top:1px solid var(--sep);gap:10px}
+.complete-btn,.cbtn{padding:12px 36px;border-radius:22px;border:none;font-size:15px;font-weight:600;cursor:pointer;transition:all var(--r);letter-spacing:0.3px;}
+.complete-btn.todo,.cbtn.todo{background:var(--blue);color:#fff;box-shadow:0 2px 10px rgba(0,122,255,0.2);}
+.complete-btn.todo:hover,.cbtn.todo:hover{background:#005bbf;transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,122,255,0.3);}
+.complete-btn.done,.cbtn.done{background:var(--green-light);color:var(--green);border:2px solid var(--green)}
+/* Nav — iOS 设置风格 */
+.nav-links,.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--sep)}
+.nav-links a,.nav a{text-decoration:none;font-size:13px;font-weight:500;transition:all var(--r);display:flex;align-items:center;gap:4px}
+.nav-links .prev,.nav .prv{padding:6px 16px;border-radius:18px;background:var(--blue);color:#fff}
+.nav-links .prev:hover,.nav .prv:hover{background:#005bbf}
+.nav-links .home,.nav .hm{color:var(--blue);font-weight:500;justify-content:center}
+.nav-links .home:hover,.nav .hm:hover{opacity:.7}
+.nav-links .next,.nav .nxt{padding:6px 16px;border-radius:18px;background:var(--bg);color:var(--text2);border:1px solid var(--sep)}
+.nav-links .next:hover,.nav .nxt:hover{border-color:var(--blue);color:var(--blue)}
+.svg-wrap{text-align:center;margin:10px 0;background:var(--bg);border-radius:8px;padding:8px}
 .svg-wrap svg{max-width:100%;height:auto}
-.quote{text-align:center;font-size:13px;color:#fff;background:rgba(255,255,255,0.15);padding:6px 12px;border-radius:8px;margin-top:6px;font-style:italic}
-.watermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);font-size:60px;font-weight:900;color:rgba(0,0,0,0.03);pointer-events:none;z-index:9999;white-space:nowrap;user-select:none;letter-spacing:8px}
+.watermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);font-size:60px;font-weight:800;color:rgba(0,0,0,0.03);pointer-events:none;z-index:9999;white-space:nowrap;user-select:none;letter-spacing:8px;}
+[data-theme="dark"] .watermark{color:rgba(255,255,255,0.03)}
+.sdots{display:flex;gap:3px;justify-content:flex-end;margin-top:2px}
+.sdots .sd{width:6px;height:6px;border-radius:50%;display:inline-block}
+/* Collapsible buttons for poems */
+.coll-btn{display:inline-flex;align-items:center;gap:4px;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;font-weight:500;margin:3px;transition:all var(--r)}
+.coll-btn:hover{transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.coll-cont{display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:13px;line-height:1.8;color:var(--text2);background:var(--card);white-space:pre-line}
+.coll-cont.show{display:block;animation:sd 0.2s ease}
+/* Chinese base block */
+.vb-chinese{background:var(--orange-light);border:1px solid rgba(255,149,0,0.2);border-radius:var(--radius-sm);padding:14px 16px;margin:10px 0}
+.vb-chinese-title{font-weight:700;font-size:14px;color:var(--orange);margin-bottom:6px}
+.vb-idioms-title{font-weight:600;font-size:12px;color:var(--orange);margin-top:10px;margin-bottom:4px}
+.vb-idiom-item{padding:3px 0;font-size:11px;border-bottom:1px dotted var(--sep)}
+/* Dark mode override for inline-hardcoded colors */
+[data-theme="dark"] .vocab-box[style*="background:#fef9f0"],
+[data-theme="dark"] .vocab-box[style*="background:#f0f4ff"],
+[data-theme="dark"] [style*="background:#fffbf0"],
+[data-theme="dark"] [style*="background:#fff8f0"],
+[data-theme="dark"] [style*="background:#faf0ff"],
+[data-theme="dark"] [style*="background:#fef0f7"] {
+  background: var(--card) !important;
+  border-color: var(--sep) !important;
+}
+[data-theme="dark"] [style*="color:#4a3728"],
+[data-theme="dark"] [style*="color:#795548"],
+[data-theme="dark"] [style*="color:#6b4c8a"],
+[data-theme="dark"] [style*="color:#6b1e3a"] {
+  color: var(--text2) !important;
+}
+[data-theme="dark"] .summ-table td{color:var(--text2)}
+[data-theme="dark"] [style*="color:#b45309"]{color:var(--orange)!important}
+[data-theme="dark"] [style*="color:#3b5998"]{color:var(--blue)!important}
+@media(max-width:500px){.dbody{padding:14px}.dhead{padding:12px 14px}.steps{grid-template-columns:1fr}.topbar .quote{display:none}.goal{padding:10px 14px}}
+/* iPad optimization */
+@media(min-width:768px){.c,.container{max-width:800px}.dbody{padding:24px}.dhead{padding:18px 24px}.dhead .dnum{font-size:28px}.step{padding:16px 18px}.q-block{padding:14px 18px}}
+@media print{body{font-size:11px;background:#fff}.topbar{position:static;background:#fff}.answer{display:block!important}.ans-btn{display:none}}
 '''
 
 # ── Color / Emoji maps ──
@@ -199,18 +254,17 @@ def vocab_block(words):
     h = '<div class="vocab-box"><p style="font-weight:700">📖 今日词汇（词典格式）</p>'
     for i, w in enumerate(words):
         wi, ipa, pos, meaning, ex, trans = w if len(w) >= 6 else (w[0],'','','','','')
-        # Play button with inline SVG (guaranteed cross-platform rendering)
         safe_wi = wi.replace("'", "\\'")
-        svg_play = '<svg viewBox="0 0 24 24" width="12" height="12" fill="white"><polygon points="6,4 20,12 6,20"/></svg>'
-        btn = f'<button onclick="speak(\'{safe_wi}\',this)" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;flex-shrink:0;transition:all 0.2s" title="点击播放发音">{svg_play}</button>'
-        h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid #eee;font-size:12px">'
-        h += f'<span style="color:#999;min-width:18px;font-size:10px;line-height:22px">{i+1}.</span>'
-        h += f'<b style="color:#1d1d1f;min-width:65px;line-height:22px">{wi}</b>'
-        h += f'<span style="color:var(--purple);font-size:11px;min-width:20px;line-height:22px">{pos}</span>'
-        h += f'<span style="color:var(--text);min-width:35px;line-height:22px">{meaning}</span>'
-        h += f'<span style="color:var(--sub);font-size:11px;line-height:22px">/ {ipa} /</span>'
+        svg_play = '<svg width="10" height="10"><use href="#i-play"/></svg>'
+        btn = f'<button onclick="speak(\'{safe_wi}\',this)" style="border:none;background:var(--blue);color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s" title="点击播放发音">{svg_play}</button>'
+        h += f'<div style="display:flex;align-items:flex-start;gap:4px;padding:4px 0;border-bottom:1px solid var(--sep);font-size:12px">'
+        h += f'<span style="color:var(--text3);min-width:18px;font-size:10px">{i+1}.</span>'
+        h += f'<b style="color:var(--text);min-width:65px">{wi}</b>'
+        h += f'<span style="color:var(--purple);font-size:11px;min-width:20px">{pos}</span>'
+        h += f'<span style="color:var(--text2);min-width:35px">{meaning}</span>'
+        h += f'<span style="color:var(--text3);font-size:11px">/ {ipa} /</span>'
         h += f'{btn}'
-        h += f'<span style="font-size:10px;color:#666;line-height:22px">{ex} ({trans})</span>'
+        h += f'<span style="font-size:11px;color:var(--text3)">{ex} ({trans})</span>'
         h += '</div>'
     return h + '</div>'
 
@@ -228,8 +282,8 @@ def chinese_base_block(chars_list, idioms_list, xingsheng_item, yicuoxie_item, s
     shici_type = shici_item['type']  # 通假字/古今异义/一词多义/词类活用
     shici_entries = shici_item['entries']  # list of entries
     
-    h = '<div class="vocab-box" style="background:#fff8f0;border-color:#e8d5b7">'
-    h += '<p style="font-weight:700;color:#b45309;font-size:14px">📝 今日语文基础积累（7词语 + 5成语）</p>'
+    h = '<div class="vb-chinese">'
+    h += '<p class="vb-chinese-title">📝 今日语文基础积累（7词语 + 5成语）</p>'
     
     # ── 5 词语 ──
     h += '<table class="summ-table" style="margin-top:6px"><tr><th style="width:12%">类型</th><th style="width:18%">内容</th><th style="width:70%">详解</th></tr>'
@@ -237,41 +291,41 @@ def chinese_base_block(chars_list, idioms_list, xingsheng_item, yicuoxie_item, s
     # 1. 多音字 (3个，全量覆盖)
     if chars_list:
         for ch in chars_list[:3]:
-            h += f'<tr><td style="font-size:11px;color:#b45309">多音字</td><td style="font-weight:700;font-size:13px">{ch[0]}</td>'
-            h += f'<td style="font-size:11px">音: <span style="color:var(--red)">{ch[1]}</span> · 义: {ch[3]} · 例: {ch[4]}</td></tr>'
+            h += f'<tr><td style="font-size:11px;color:var(--orange)">多音字</td><td style="font-weight:700;font-size:13px;color:var(--text)">{ch[0]}</td>'
+            h += f'<td style="font-size:11px;color:var(--text2)">音: <span style="color:var(--red)">{ch[1]}</span> · 义: {ch[3]} · 例: {ch[4]}</td></tr>'
     
     # 2. 形声字 (1个)
     if xingsheng_item:
         xs = xingsheng_item
-        h += f'<tr><td style="font-size:11px;color:#b45309">形声字</td><td style="font-weight:700;font-size:13px">{xs[0]}</td>'
-        h += f'<td style="font-size:11px">音: {xs[1]} · 形旁(义): {xs[2]} · 声旁(音): {xs[3]} · {xs[4]}</td></tr>'
+        h += f'<tr><td style="font-size:11px;color:var(--orange)">形声字</td><td style="font-weight:700;font-size:13px;color:var(--text)">{xs[0]}</td>'
+        h += f'<td style="font-size:11px;color:var(--text2)">音: {xs[1]} · 形旁(义): {xs[2]} · 声旁(音): {xs[3]} · {xs[4]}</td></tr>'
     
     # 3. 易错字 (1个)
     if yicuoxie_item:
         yc = yicuoxie_item
-        h += f'<tr><td style="font-size:11px;color:#b45309">易错字</td><td style="font-weight:700;font-size:13px">{yc[0]}</td>'
-        h += f'<td style="font-size:11px">音: {yc[1]} · 义: {yc[2]} · <span style="color:var(--red)">区别: {yc[3]}</span></td></tr>'
+        h += f'<tr><td style="font-size:11px;color:var(--orange)">易错字</td><td style="font-weight:700;font-size:13px;color:var(--text)">{yc[0]}</td>'
+        h += f'<td style="font-size:11px;color:var(--text2)">音: {yc[1]} · 义: {yc[2]} · <span style="color:var(--red)">区别: {yc[3]}</span></td></tr>'
     
     # 4. 实词 (1个, 轮转类型)
     for se in shici_entries:
-        h += f'<tr><td style="font-size:11px;color:#b45309">{shici_type}</td><td style="font-weight:700;font-size:13px">{se[0]}</td>'
-        h += f'<td style="font-size:11px">{"音: "+se[1]+" · " if len(se)>1 and se[1] else ""}{se[2]} · 例: {se[3] if len(se)>3 else ""}</td></tr>'
+        h += f'<tr><td style="font-size:11px;color:var(--orange)">{shici_type}</td><td style="font-weight:700;font-size:13px;color:var(--text)">{se[0]}</td>'
+        h += f'<td style="font-size:11px;color:var(--text2)">{"音: "+se[1]+" · " if len(se)>1 and se[1] else ""}{se[2]} · 例: {se[3] if len(se)>3 else ""}</td></tr>'
     
     # 5. 虚词 (1个)
     if xuci_item:
         xu = xuci_item
-        h += f'<tr><td style="font-size:11px;color:#b45309">虚词</td><td style="font-weight:700;font-size:13px">{xu[0]}</td>'
-        h += f'<td style="font-size:11px">{xu[1]} — {xu[2]} · 例: {xu[3]} · <span style="color:var(--blue)">{xu[4]}</span></td></tr>'
+        h += f'<tr><td style="font-size:11px;color:var(--orange)">虚词</td><td style="font-weight:700;font-size:13px;color:var(--text)">{xu[0]}</td>'
+        h += f'<td style="font-size:11px;color:var(--text2)">{xu[1]} — {xu[2]} · 例: {xu[3]} · <span style="color:var(--blue)">{xu[4]}</span></td></tr>'
     
     h += '</table>'
     
     # ── 5 成语 ──
-    h += '<div style="font-weight:600;color:#b45309;font-size:12px;margin-top:10px;margin-bottom:4px">📖 成语（5个）</div>'
+    h += '<div class="vb-idioms-title">📖 成语（5个）</div>'
     for i, idm in enumerate(idioms_list):
         if len(idm) >= 5:
-            h += f'<div style="padding:3px 0;font-size:11px;border-bottom:1px dotted #e8d5b7">'
-            h += f'<b style="color:#1d1d1f;font-size:12px">{i+1}.{idm[0]}</b> '
-            h += f'<span style="color:var(--sub)">{idm[1]}</span> — {idm[2]}'
+            h += f'<div class="vb-idiom-item">'
+            h += f'<b style="color:var(--text);font-size:12px">{i+1}.{idm[0]}</b> '
+            h += f'<span style="color:var(--text3)">{idm[1]}</span> — {idm[2]}'
             if idm[4]:
                 h += f' · <span style="color:var(--red);font-size:10px">⚠{idm[4]}</span>'
             h += '</div>'
@@ -290,20 +344,20 @@ def recitation_block(title, author, full_text='', keywords='', author_bg='', fam
     # Full poem text (collapsible)
     if full_text:
         safe_text = full_text.replace("'", "\\'").replace('"', '&quot;')
-        h += f'<button onclick="var t=document.getElementById(\'poem_text\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开全文 ▶\':\'收起全文 ▲\';" style="background:var(--blue);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开全文 ▶</button>'
-        h += f'<div id="poem_text" style="display:none;background:#fffbf0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;white-space:pre-line;font-size:14px;line-height:2;color:#4a3728">{full_text}</div>'
+        h += f'<button onclick="var t=document.getElementById(\'poem_text\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开全文 ▶\':\'收起全文 ▲\';" class="coll-btn" style="background:var(--blue)">展开全文 ▶</button>'
+        h += f'<div id="poem_text" style="display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:14px;line-height:2;color:var(--text2);background:var(--card);white-space:pre-line">>{full_text}</div>'
     
     # Key word explanations (collapsible)
     if keywords:
         safe_kw = keywords.replace("'", "\\'").replace('"', '&quot;')
-        h += f'<button onclick="var t=document.getElementById(\'poem_words\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" style="background:var(--orange);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开字词释义 📖</button>'
-        h += f'<div id="poem_words" style="display:none;background:#fff8f0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;font-size:12px;line-height:1.8;color:#795548">{keywords}</div>'
+        h += f'<button onclick="var t=document.getElementById(\'poem_words\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" class="coll-btn" style="background:var(--orange)">展开字词释义 📖</button>'
+        h += f'<div id="poem_words" style="display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:12px;line-height:1.8;color:var(--text2);background:var(--card)">{keywords}</div>'
     
     # Author background (collapsible)
     if author_bg:
         safe_bg = author_bg.replace("'", "\\'").replace('"', '&quot;')
-        h += f'<button onclick="var t=document.getElementById(\'poem_author\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开作者背景 📝\':\'收起作者背景 ▲\';" style="background:var(--purple);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开作者背景 📝</button>'
-        h += f'<div id="poem_author" style="display:none;background:#faf0ff;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #d0c0e8;font-size:12px;line-height:1.8;color:#6b4c8a">{author_bg}</div>'
+        h += f'<button onclick="var t=document.getElementById(\'poem_author\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开作者背景 📝\':\'收起作者背景 ▲\';" class="coll-btn" style="background:var(--purple)">展开作者背景 📝</button>'
+        h += f'<div id="poem_author" style="display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:12px;line-height:1.8;color:var(--text2);background:var(--card)">{author_bg}</div>'
     
     # Famous lines (collapsible)
     if famous_lines:
@@ -325,19 +379,19 @@ def recitation_block(title, author, full_text='', keywords='', author_bg='', fam
     if full_text:
         safe_text = full_text.replace("'", "\\'").replace('"', '&quot;')
         h += f'<button onclick="var t=document.getElementById(\'poem_text\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开全文 ▶\':\'收起全文 ▲\';" style="background:var(--blue);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px 0">展开全文 ▶</button>'
-        h += f'<div id="poem_text" style="display:none;background:#fffbf0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;white-space:pre-line;font-size:14px;line-height:2;color:#4a3728">{full_text}</div>'
+        h += f'<div id="poem_text" style="display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:14px;line-height:2;color:var(--text2);background:var(--card);white-space:pre-line">>{full_text}</div>'
     
     # Key word explanations (collapsible)
     if keywords:
         safe_kw = keywords.replace("'", "\\'").replace('"', '&quot;')
         h += f'<button onclick="var t=document.getElementById(\'poem_words\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" style="background:var(--orange);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px 4px">展开字词释义 📖</button>'
-        h += f'<div id="poem_words" style="display:none;background:#fff8f0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;font-size:12px;line-height:1.8;color:#795548">{keywords}</div>'
+        h += f'<div id="poem_words" style="display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:12px;line-height:1.8;color:var(--text2);background:var(--card)">{keywords}</div>'
     
     # Author background (collapsible)
     if author_bg:
         safe_bg = author_bg.replace("'", "\\'").replace('"', '&quot;')
         h += f'<button onclick="var t=document.getElementById(\'poem_author\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开作者背景 📝\':\'收起作者背景 ▲\';" style="background:var(--purple);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px 4px">展开作者背景 📝</button>'
-        h += f'<div id="poem_author" style="display:none;background:#faf0ff;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #d0c0e8;font-size:12px;line-height:1.8;color:#6b4c8a">{author_bg}</div>'
+        h += f'<div id="poem_author" style="display:none;padding:10px 14px;border-radius:8px;margin:8px 0;border:1px dashed var(--sep);font-size:12px;line-height:1.8;color:var(--text2);background:var(--card)">{author_bg}</div>'
     
     # Checkbox table
     items = [f'{author}: 《{title}》全诗背诵','重点字词释义掌握','作者背景常识了解']
@@ -511,23 +565,27 @@ def get_poems(day_num, count=2):
 
 # ── Day template ──
 def day_template(num, month, day, wd, subjects, goal, body, check, prev, next_):
-    prev_h = f'<a href="day{prev:03d}.html" class="prev">← Day {prev}</a>' if prev else '<span></span>'
-    next_h = f'<a href="day{next_:03d}.html" class="next">Day {next_} →</a>' if next_ else '<span></span>'
+    prev_h = f'<a href="day{prev:03d}.html" class="prv">← Day {prev}</a>' if prev else '<span></span>'
+    next_h = f'<a href="day{next_:03d}.html" class="nxt">Day {next_} →</a>' if next_ else '<span></span>'
+    qi = QUOTES[(num-1) % len(QUOTES)]
     js = f'''<script>
-function speak(t,btn){{try{{if(!window.speechSynthesis){{alert("当前浏览器不支持语音播放，请使用Chrome/Edge浏览器。");return;}}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;u.onstart=function(){{if(btn){{btn.style.background="#34c759";btn.style.transform="scale(1.2)";btn.style.boxShadow="0 0 12px rgba(52,199,89,0.7)";}}}};u.onend=function(){{if(btn){{btn.style.background="var(--blue)";btn.style.transform="scale(1)";btn.style.boxShadow="none";}}}};window.speechSynthesis.speak(u);}}catch(e){{alert("播放失败:"+e.message);}}}}
+var sp='<svg style="display:none"><defs><svg id="i-play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg><svg id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></defs></svg>';
+document.body.insertAdjacentHTML("afterbegin",sp);
+function speak(t,btn){{try{{if(!window.speechSynthesis){{alert("当前浏览器不支持语音播放");return;}}window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=0.8;u.onstart=function(){{if(btn){{btn.style.background="#34c759";btn.style.transform="scale(1.15)";}}}};u.onend=function(){{if(btn){{btn.style.background="var(--blue)";btn.style.transform="scale(1)";}}}};window.speechSynthesis.speak(u);}}catch(e){{alert("播放失败:"+e.message);}}}}
 function showAns(b){{var a=b.nextElementSibling;a.classList.toggle("show");b.textContent=a.classList.contains("show")?"隐藏答案":"展开答案";}}
-function toggleComplete(dn){{var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){{localStorage.setItem("day_"+dn+"_done","true");btn.className="complete-btn done";btn.textContent="已完成✓";}}else{{localStorage.setItem("day_"+dn+"_done","false");btn.className="complete-btn todo";btn.textContent="标记完成";}}}}
-window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="complete-btn done";btn.textContent="已完成✓";}}}}
+function toggleComplete(dn){{var btn=document.getElementById("cbtn");if(btn.classList.contains("todo")){{localStorage.setItem("day_"+dn+"_done","true");btn.className="cbtn done";btn.textContent="已完成 ✓";}}else{{localStorage.setItem("day_"+dn+"_done","false");btn.className="cbtn todo";btn.textContent="标记完成";}}}}
+function tTheme(){{var h=document.documentElement;var b=document.querySelector(".tbtn");if(h.getAttribute("data-theme")=="dark"){{h.setAttribute("data-theme","light");b.innerHTML='<svg width="14" height="14"><use href="#i-moon"/></svg><span>深色</span>';localStorage.setItem("theme","light");}}else{{h.setAttribute("data-theme","dark");b.innerHTML='<svg width="14" height="14"><use href="#i-sun"/></svg><span>亮色</span>';localStorage.setItem("theme","dark");}}}}
+window.onload=function(){{if(localStorage.getItem("day_{num}_done")==="true"){{var btn=document.getElementById("cbtn");btn.className="cbtn done";btn.textContent="已完成 ✓";}}if(localStorage.getItem("theme")==="dark") tTheme();}};
 </script>'''
     return f'''<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>暑假逆袭 · Day {num}</title><style>{CSS}</style></head><body>
 <div class="watermark">顾辰泰 加油</div>
-<div class="topbar"><span class="title">Day {num} · {month}月{day}日 {wd}</span><span class="quote">💪{QUOTES[(num-1) % len(QUOTES)]}</span><a href="../index.html">📋 目录</a></div>
-<div class="container">
-<div class="day-card"><div class="dhead"><div class="dnum">Day {num}</div><div class="dinfo"><div>{month}月{day}日 {wd}</div><div>{subjects}</div></div></div>
+<div class="topbar"><span class="title">Day {num} · {month}/{day}</span><span class="quote">{qi}</span><div class="right"><button class="tbtn" onclick="tTheme()"><svg width="14" height="14"><use href="#i-moon"/></svg><span>深色</span></button><a href="../index.html">📋 目录</a></div></div>
+<div class="c">
+<div class="dcard"><div class="dhead"><div class="dnum">Day {num}</div><div class="dinfo"><div>{month}月{day}日 {wd}</div><div>{subjects}</div></div></div>
 <div class="dbody"><div class="goal"><b>今日目标</b>：{goal}</div>{body}<div class="check"><b>今日达标检查</b>：<br>{check}</div></div>
-<div class="complete-bar"><button id="cbtn" class="complete-btn todo" onclick="toggleComplete({num})">标记完成</button></div></div>
-<div class="nav-links">{prev_h}<a href="../index.html" class="home">📋 目录</a>{next_h}</div></div>{js}</body></html>'''
+<div class="cbar"><button id="cbtn" class="cbtn todo" onclick="toggleComplete({num})">标记完成</button></div>
+<div class="nav">{prev_h}<a href="../index.html" class="hm">📋 目录</a>{next_h}</div></div></div>{js}</body></html>'''
 
 # ── Generate all 54 days ──
 def generate_all():
@@ -603,13 +661,13 @@ def generate_all():
             h = f'<div class="vocab-box" style="background:#fef9f0;border-color:#e8d5b7">'
             h += f'<p style="font-weight:700;color:#b45309;font-size:14px">📜 古诗{pi+1}：{title} — {author} {g9_tag_p}</p>'
             if full_text:
-                h += f'<button onclick="var t=document.getElementById(\'pt{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开全文 ▶\':\'收起全文 ▲\';" style="background:var(--blue);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开全文 ▶</button>'
+                h += f'<button onclick="var t=document.getElementById(\'pt{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开全文 ▶\':\'收起全文 ▲\';" class="coll-btn" style="background:var(--blue)">展开全文 ▶</button>'
                 h += f'<div id="pt{pid_suffix}" style="display:none;background:#fffbf0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;white-space:pre-line;font-size:14px;line-height:2;color:#4a3728">{full_text}</div>'
             if keywords:
-                h += f'<button onclick="var t=document.getElementById(\'pw{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" style="background:var(--orange);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开字词释义 📖</button>'
+                h += f'<button onclick="var t=document.getElementById(\'pw{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" class="coll-btn" style="background:var(--orange)">展开字词释义 📖</button>'
                 h += f'<div id="pw{pid_suffix}" style="display:none;background:#fff8f0;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #e8d5b7;font-size:12px;line-height:1.8;color:#795548">{keywords}</div>'
             if author_bg:
-                h += f'<button onclick="var t=document.getElementById(\'pa{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开作者背景 📝\':\'收起作者背景 ▲\';" style="background:var(--purple);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开作者背景 📝</button>'
+                h += f'<button onclick="var t=document.getElementById(\'pa{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开作者背景 📝\':\'收起作者背景 ▲\';" class="coll-btn" style="background:var(--purple)">展开作者背景 📝</button>'
                 h += f'<div id="pa{pid_suffix}" style="display:none;background:#faf0ff;padding:8px 12px;border-radius:8px;margin:6px 0;border:1px dashed #d0c0e8;font-size:12px;line-height:1.8;color:#6b4c8a">{author_bg}</div>'
             if famous_lines:
                 h += f'<button onclick="var t=document.getElementById(\'pf{pid_suffix}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开千古名句 🌟\':\'收起名句 ▲\';" style="background:#e91e63;color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:12px;margin:4px">展开千古名句 🌟</button>'
@@ -630,7 +688,7 @@ def generate_all():
             g9_tag_w = '<span style="color:#e91e63;font-size:10px;font-weight:600">（初三预习）</span>' if ww_title in G9_WENYAN else ''
             body_parts.append(f'<div class="vocab-box" style="background:#f0f4ff;border-color:#b8c8e0">'
                 f'<p style="font-weight:700;color:#3b5998;font-size:14px">📜 今日文言文背诵：{ww_title} — {ww_author} {g9_tag_w}</p>'
-                f'<button onclick="var t=document.getElementById(\'ww_text_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开原文全文 ▼\':\'收起原文 ▲\';" style="background:#3b5998;color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;margin:4px">展开原文全文 ▼</button>'
+                f'<button onclick="var t=document.getElementById(\'ww_text_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开原文全文 ▼\':\'收起原文 ▲\';" class="coll-btn" style="background:var(--blue)">展开原文全文 ▼</button>'
                 f'<div id="ww_text_{day_num}" style="display:none;white-space:pre-line;font-size:13px;line-height:2;color:#2a3a5c;padding:8px;background:#fff;border-radius:6px">{ww_text}</div>'
                 f'<button onclick="var t=document.getElementById(\'ww_words_{day_num}\');t.style.display=t.style.display==\'none\'?\'block\':\'none\';this.textContent=t.style.display==\'none\'?\'展开字词释义 📖\':\'收起字词释义 ▲\';" style="background:var(--orange);color:#fff;border:none;padding:4px 12px;border-radius:12px;cursor:pointer;font-size:11px;margin:4px">展开字词释义 📖</button>'
                 f'<div id="ww_words_{day_num}" style="display:none;padding:6px 10px;font-size:12px;line-height:1.8;color:#795548">{ww_words}</div>'
@@ -679,7 +737,7 @@ def generate_all():
         
         # 5. Rotating subject section
         svg_list_rot = SVG_MAP.get(rot_subj, {}).get(rot_topic, [])
-        g9_tag = '<span style="color:#ff6b6b;font-size:11px;font-weight:600">（初三预习）</span>' if rot_subj=='chemistry' or (rot_subj in GRADE9_TOPICS and rot_topic in GRADE9_TOPICS.get(rot_subj, set())) else ''
+        g9_tag = '<span style="color:var(--red);font-size:11px;font-weight:600">（初三预习）</span>' if rot_subj=='chemistry' or (rot_subj in GRADE9_TOPICS and rot_topic in GRADE9_TOPICS.get(rot_subj, set())) else ''
         body_parts.append(h3(rot_subj, f'{SUBJ_CN.get(rot_subj, rot_subj)} · {rot_topic} {g9_tag}'))
         body_parts.append(build_subject_section(rot_subj, rot_topic, svg_names=svg_list_rot))
         check_items.append(f'{rot_topic}理解 □')
@@ -692,8 +750,11 @@ def generate_all():
         # Check
         check = '\n'.join(c for c in check_items)
         
-        # Subjects header
-        subjects_str = f'📖+🔤+📖+{EMOJI.get(rot_subj, "")}'
+        # Subjects header — colored dots matching index style
+        cdots = {'math':'var(--blue)','english':'var(--green)','chinese':'var(--red)','physics':'var(--orange)','chemistry':'var(--purple)','politics':'#e91e63','history':'#795548'}
+        c_chinese = cdots.get('chinese','var(--red)')
+        c_rot = cdots.get(rot_subj, 'var(--purple)')
+        subjects_str = f'<span class="sdots"><span class="sd" style="background:var(--blue)"></span><span class="sd" style="background:var(--green)"></span><span class="sd" style="background:{c_chinese}"></span><span class="sd" style="background:{c_rot}"></span></span>'
         
         # Generate HTML
         html = day_template(day_num, month_num, day_num_dt, wd,
@@ -922,7 +983,8 @@ a:hover{{text-decoration:underline}}
 # ── Main ──
 if __name__ == '__main__':
     generate_all()
-    gen_index()
+    # gen_index() disabled — index.html maintained separately with Apple style
+    # gen_index()
     errors = check_links()
     gen_syllabus()
     print(f'\n{"="*60}')
