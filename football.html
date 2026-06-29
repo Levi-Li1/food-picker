@@ -538,7 +538,7 @@
 
         // === 江苏省城市足球联赛（苏超）===
         // 每队队徽：SVG圆形徽章 + 城市特色元素
-                                                const SPFL = [
+                                                        const SPFL = [
             { pos:1, name:'盐城队', p:6, w:5, d:0, l:1, gf:8, ga:3, gd:5, pts:15,
               crest:'crests/1773731690066016533.png' },
             { pos:2, name:'无锡队', p:6, w:4, d:2, l:0, gf:10, ga:3, gd:7, pts:14,
@@ -622,10 +622,14 @@
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${venue}</div>
                 </div>`;
 
-                                    const fixturesHTML = `
-        <div style="margin-top:8px;">
-            <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">7月4日</div>
-                <div class="match-card">
+                                                const fixturesHTML = `
+        <div class="date-group">
+            <div class="date-header" onclick="toggleDate(this)">
+                <span>7月4日 · 4 场比赛</span>
+                <svg class="arrow open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="date-body open">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月4日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["盐城队"])}</span><span class="match-name">盐城队</span></div>
@@ -634,7 +638,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>盐城奥体中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月4日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["无锡队"])}</span><span class="match-name">无锡队</span></div>
@@ -643,7 +647,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>江阴市体育中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月4日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["泰州队"])}</span><span class="match-name">泰州队</span></div>
@@ -652,7 +656,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>泰州体育公园体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月4日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["徐州队"])}</span><span class="match-name">徐州队</span></div>
@@ -661,10 +665,15 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>徐州奥体中心体育场</div>
                 </div>
+            </div>
         </div>
-        <div style="margin-top:8px;">
-            <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">7月11日</div>
-                <div class="match-card">
+        <div class="date-group">
+            <div class="date-header" onclick="toggleDate(this)">
+                <span>7月11日 · 3 场比赛</span>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="date-body">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月11日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["宿迁队"])}</span><span class="match-name">宿迁队</span></div>
@@ -673,7 +682,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>宿迁奥体中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月11日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["南京队"])}</span><span class="match-name">南京队</span></div>
@@ -682,7 +691,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>南京奥体中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月11日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["南通队"])}</span><span class="match-name">南通队</span></div>
@@ -691,10 +700,15 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>南通体育会展中心体育场</div>
                 </div>
+            </div>
         </div>
-        <div style="margin-top:8px;">
-            <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">7月25日</div>
-                <div class="match-card">
+        <div class="date-group">
+            <div class="date-header" onclick="toggleDate(this)">
+                <span>7月25日 · 4 场比赛</span>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="date-body">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月25日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["镇江队"])}</span><span class="match-name">镇江队</span></div>
@@ -703,7 +717,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>镇江市体育会展中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月25日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["苏州队"])}</span><span class="match-name">苏州队</span></div>
@@ -712,7 +726,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>苏州市体育中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月25日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["常州队"])}</span><span class="match-name">常州队</span></div>
@@ -721,7 +735,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>常州奥体中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>7月25日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["扬州队"])}</span><span class="match-name">扬州队</span></div>
@@ -730,10 +744,15 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>扬州体育公园体育场</div>
                 </div>
+            </div>
         </div>
-        <div style="margin-top:8px;">
-            <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">8月1日</div>
-                <div class="match-card">
+        <div class="date-group">
+            <div class="date-header" onclick="toggleDate(this)">
+                <span>8月1日 · 3 场比赛</span>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="date-body">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>8月1日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["盐城队"])}</span><span class="match-name">盐城队</span></div>
@@ -742,7 +761,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>盐城奥体中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>8月1日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["淮安队"])}</span><span class="match-name">淮安队</span></div>
@@ -751,7 +770,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>淮安市体育中心体育场</div>
                 </div>
-                <div class="match-card">
+                <div class="match-card" style="margin-bottom:0;">
                     <div class="match-header"><span>8月1日 · 19:40</span><span class="match-status upcoming">即将开始</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap["连云港队"])}</span><span class="match-name">连云港队</span></div>
@@ -760,6 +779,7 @@
                     </div>
                     <div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>连云港市体育中心体育场</div>
                 </div>
+            </div>
         </div>
         `;
             document.getElementById('spflFixtures').innerHTML = fixturesHTML;

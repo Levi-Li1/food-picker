@@ -264,7 +264,7 @@ def main():
             fh_end = html.find('`;', fh_start) + 2
 
             new_fixtures_lines = ['            const fixturesHTML = `']
-            for dt in sorted_dates:
+            for idx, dt in enumerate(sorted_dates):
                 ms = by_date[dt]
                 try:
                     d = datetime.datetime.strptime(dt, '%Y-%m-%d')
@@ -272,8 +272,15 @@ def main():
                 except:
                     label = dt
 
-                new_fixtures_lines.append('        <div style="margin-top:8px;">')
-                new_fixtures_lines.append(f'            <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">{label}</div>')
+                is_first = (idx == 0)
+                open_cls = ' open' if is_first else ''
+
+                new_fixtures_lines.append('        <div class="date-group">')
+                new_fixtures_lines.append(f'            <div class="date-header" onclick="toggleDate(this)">')
+                new_fixtures_lines.append(f'                <span>{label} · {len(ms)} 场比赛</span>')
+                new_fixtures_lines.append(f'                <svg class="arrow{open_cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>')
+                new_fixtures_lines.append('            </div>')
+                new_fixtures_lines.append(f'            <div class="date-body{open_cls}">')
                 for m in ms:
                     home = m.get('homeTeam', '?') + '队'
                     away = m.get('awayTeam', '?') + '队'
@@ -282,7 +289,7 @@ def main():
                     venue_inline = ''
                     if venue:
                         venue_inline = f'<div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>{venue}</div>'
-                    new_fixtures_lines.append('                <div class="match-card">')
+                    new_fixtures_lines.append('                <div class="match-card" style="margin-bottom:0;">')
                     new_fixtures_lines.append(f'                    <div class="match-header"><span>{label} · {t}</span><span class="match-status upcoming">即将开始</span></div>')
                     new_fixtures_lines.append('                    <div class="match-teams">')
                     new_fixtures_lines.append(f'                        <div class="match-team home"><span class="crest-inline">${{crestImg(crestMap["{home}"])}}</span><span class="match-name">{home}</span></div>')
@@ -292,6 +299,7 @@ def main():
                     if venue_inline:
                         new_fixtures_lines.append(f'                    {venue_inline}')
                     new_fixtures_lines.append('                </div>')
+                new_fixtures_lines.append('            </div>')
                 new_fixtures_lines.append('        </div>')
 
             new_fixtures_lines.append('        `;')
