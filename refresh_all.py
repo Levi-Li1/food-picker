@@ -279,9 +279,9 @@ def main():
                     away = m.get('awayTeam', '?') + '队'
                     venue = m.get('venue', '')
                     t = m.get('time', '19:40')
-                    venue_html = ''
+                    venue_inline = ''
                     if venue:
-                        venue_html = f'<div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>{venue}</div>'
+                        venue_inline = f'<div style="font-size:11px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>{venue}</div>'
                     new_fixtures_lines.append('                <div class="match-card">')
                     new_fixtures_lines.append(f'                    <div class="match-header"><span>{label} · {t}</span><span class="match-status upcoming">即将开始</span></div>')
                     new_fixtures_lines.append('                    <div class="match-teams">')
@@ -289,8 +289,8 @@ def main():
                     new_fixtures_lines.append(f'                        <div class="match-score vs">VS</div>')
                     new_fixtures_lines.append(f'                        <div class="match-team away"><span class="crest-inline">${{crestImg(crestMap["{away}"])}}</span><span class="match-name">{away}</span></div>')
                     new_fixtures_lines.append('                    </div>')
-                    if venue_html:
-                        new_fixtures_lines.append(f'                    {{{{venue_html}}}}')
+                    if venue_inline:
+                        new_fixtures_lines.append(f'                    {venue_inline}')
                     new_fixtures_lines.append('                </div>')
                 new_fixtures_lines.append('        </div>')
 
