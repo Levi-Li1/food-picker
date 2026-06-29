@@ -187,16 +187,19 @@ def fetch_fixtures():
 # ═════════════════════════════════════════╗
 #  PART 4: Generate HTML fragments        ║
 # ═════════════════════════════════════════╝
-def gen_standings_js(teams):
-    """Generate SPFL array JS code."""
+def gen_standings_js(teams, existing_crests=None):
+    """Generate SPFL array JS code, preserving existing crest URLs."""
+    if existing_crests is None:
+        existing_crests = {}
     lines = ['        const SPFL = [']
     for i, t in enumerate(teams):
         comma = ',' if i < len(teams) - 1 else ''
+        crest = existing_crests.get(t['name'], 'crests/default.png')
         lines.append(
             f'            {{ pos:{t["pos"]}, name:\'{t["name"]}\', p:{t["p"]}, '
             f'w:{t["w"]}, d:{t["d"]}, l:{t["l"]}, gf:{t["gf"]}, ga:{t["ga"]}, '
             f'gd:{t["gd"]}, pts:{t["pts"]},\n'
-            f'              crest:\'crests/default.png\' }}{comma}'
+            f'              crest:\'{crest}\' }}{comma}'
         )
     lines.append('        ];')
     return '\n'.join(lines)
@@ -370,8 +373,14 @@ def main():
 
     old_size = len(html)
 
-    # Generate standings JS
-    new_standings_js = gen_standings_js(teams)
+    # Extract existing crest URLs from current HTML
+    existing_crests = {}
+    crest_pat = re.compile(r"name:'([^']+?)',[\s\S]*?crest:'([^']+)'")
+    for m in crest_pat.finditer(html):
+        existing_crests[m.group(1)] = m.group(2)
+
+    # Generate standings JS, preserving crests
+    new_standings_js = gen_standings_js(teams, existing_crests)
 
     # Replace SPFL array
     spfl_start = html.find('const SPFL = [')
