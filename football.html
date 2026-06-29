@@ -578,9 +578,9 @@
             // 最新赛果（第5轮）
             const crestMap = {};
             SPFL.forEach(t => { crestMap[t.name] = t.crest; });
-            const rRow = (home, away, score, venue) => `
+            const rRow = (home, away, score, venue, dateTime) => `
                 <div class="match-card">
-                    <div class="match-header"><span>6月13日 19:40</span><span class="match-status final">已结束</span></div>
+                    <div class="match-header"><span>${dateTime}</span><span class="match-status final">已结束</span></div>
                     <div class="match-teams">
                         <div class="match-team home"><span class="crest-inline">${crestImg(crestMap[home])}</span><span class="match-name">${home}</span></div>
                         <div class="match-score">${score}</div>
@@ -592,9 +592,9 @@
             const resultsHTML = `
             <div style="margin-top:8px;">
                 <div style="font-size:12px;color:var(--text3);margin-bottom:8px;padding-left:2px;">第6轮 · 6月27日</div>
-                ${rRow('淮安队','无锡队','1 – 3','淮安市体育中心体育场')}
-                ${rRow('镇江队','苏州队','0 – 2','镇江市体育会展中心体育场')}
-                ${rRow('连云港队','常州队','0 – 1','连云港市体育中心体育场')}
+                ${rRow('淮安队','无锡队','1 – 3','淮安市体育中心体育场','6月27日 19:40')}
+                ${rRow('镇江队','苏州队','0 – 2','镇江市体育会展中心体育场','6月27日 19:40')}
+                ${rRow('连云港队','常州队','0 – 1','连云港市体育中心体育场','6月27日 19:40')}
             </div>`;
             document.getElementById('spflResults').innerHTML = resultsHTML;
 
